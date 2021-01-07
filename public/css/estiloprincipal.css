@@ -1,0 +1,115 @@
+/* Tamaño de letra de las tablas */
+.datospaciente {
+    
+    background-color:#bfb2b2;
+    border: white 7px double;
+    margin:2px;
+    padding: 5px;
+    /* height: 345px; */
+    overflow-y: auto;
+    /* overflow-x: auto; */
+}
+.contenedorhc {
+    padding-right: 0px; 
+    padding-left: 0px;
+}
+table.espirometria {
+    display: block;
+    overflow-x: auto;
+}
+.datospaciente p{
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+.datospaciente h3{
+    margin-top:3px;
+}
+.izquierda{
+    float: left;
+    padding: 0;
+}
+.derecha{
+    float: right;
+    padding: 0;
+}
+.titulo {
+    font-weight: 100;
+}
+.nombre {
+    font-weight: bold;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #655a5a;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: rgb(95, 86, 86) 7px double;
+  outline: none;
+  transition: 0.4s;
+  
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 5px 18px;
+  background-color: white;
+  display: none;
+  border: rgb(196, 196, 196) 7px solid;
+  /* overflow: hidden; */
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+@media only screen and (max-device-width: 480px) {
+    .table   {
+        font-size: 43px;
+    }
+
+    .btn   {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }   
+
+    .glyphicon,.lead  {
+        font-size: 50px;
+    }   
+
+    h2  {
+        font-size: 48px;
+    }   
+
+    label  {
+        font-size: 42px;
+    }   
+
+    .form-control   {
+        font-size: 40px;
+        height: 54px;
+    }
+    .datospaciente {
+    font-size: 27px;
+    }
+    .datospaciente h3,label{
+    font-size: 30px;
+    }
+    table.menutable {
+    overflow-x: scroll;
+    }
+}       
