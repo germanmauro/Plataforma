@@ -1,1 +1,1 @@
-require('./bootstrap.min');
+require('../../public/js/bootstrap.min');

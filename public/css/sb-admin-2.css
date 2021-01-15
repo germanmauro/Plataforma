@@ -4,22 +4,74 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  background-color: #f8f8f8;
+  background-color: #d1b7b7;
 }
 #wrapper {
   width: 100%;
-  background-color: #37373a;
+  background-color: #6673ff;
 }
+p.titulo {
+  font-size: 25px;
+  color: #e2e2e2
+}
+
+.tablagrande {
+  display: -webkit-box;
+}
+
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background: url('../images/fondo.jpg');
-  background-position: top;
-  background-repeat: no-repeat ;
-  background-color: black;
-  background-size: 90% 100%;
+  /* background: url('../images/fondo2.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+/*Formulario registro*/
+a.formregistro {
+  color: #11119b;
+}
+.formregistro {
+  margin-top: 10px;
+}
+.formregistro input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+  top:0px;
+	left:0px;
+	font-size:16px;
+	color:rgb(128, 125, 125);	
+  pointer-events:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label,
+.input-container input:invalid ~ label {
+	top:-14px;
+	font-size:13px;
+}
 
 /* Imagenes menú */
 .menu-images {
@@ -32,10 +84,18 @@ body {
   /* height: 30vh; */
 }
 .menu-text {
-  padding-left:15px;
+  padding-top: 50%;
   /* height: 30vh; */
 }
+.error {
+  color:red;
+  font-style:oblique;
+  font-size:small;
+}
 
+.accionmenu {
+  color:#292525;
+}
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
@@ -107,7 +167,7 @@ body {
   border-top: 1px solid #e7e7e7;
 }
 .sidebar ul li a.active {
-  background-color: #eeeeee;
+  background-color: #292525;
 }
 .sidebar .arrow {
   float: right;
@@ -464,10 +524,10 @@ body {
 .hs {
   display: grid;
   grid-gap: calc(var(--gutter) / 2);
-  grid-template-columns: repeat(15, 120px);
+  grid-template-columns: repeat(15, 100px);
   grid-template-rows: minmax(120px, 1fr);
   
-  overflow-x: auto;
+  overflow-x: scroll;
   scroll-snap-type: x proximity;
   padding-bottom: 15px;
   /* margin-bottom: calc(-.25 * var(--gutter)); */
@@ -499,7 +559,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #303330;
+  background: #4CAF50;
   color:white;
   border-radius: 8px;
   margin-top: 12px;
@@ -507,7 +567,7 @@ ul {
 }
 .item:hover {
 
-  background: rgb(89, 90, 89);
+  background: rgb(7, 99, 22);
   cursor: pointer;
 }
 .item:active {
@@ -517,11 +577,8 @@ ul {
 }
 
 h1.menutext {
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 5px;
   text-align: center;
-  color:#2e312e;;
+  color:#337335;;
 }
 
 .nombre
@@ -532,15 +589,15 @@ h1.menutext {
 }
 
 .btnmenu{
-  font-size: 16px;
+  font-size: 25px;
 }
 
 .btnmenu:active {
-  background-color:#4f534d;
+  background-color:#46aa22;
 }
 
 .btnmenu:hover {
-  background-color:#4f534d;
+  background-color:#237406;
 }
 
 table.menutable th, table.menutable td {
@@ -548,7 +605,7 @@ table.menutable th, table.menutable td {
 }
 
 a.pedido, a:hover.pedido{
-  background-color: #4b4c49;;
+  background-color: #6d9c36;;
   margin-bottom: 10px;
   margin-top:10px;
   font-size: 18px;
@@ -570,31 +627,6 @@ a.pedido, a:hover.pedido{
     vertical-align: middle;
     color: white;
 }
-
-a.btnprint{
-   -webkit-appearance: button;
-    text-decoration: none;
-    background-color: #675d5d;
-    padding: 15px;
-    width: 100%;
-    margin-top: 10px;
-    color:white;
-    font-size:16px;
-    border: 6px double #070707;
-    text-align: center;
-}
-a.btnprint:hover{
-
-    background-color: #272729;
-}
-.estudios{
-  font-size: 18px;
-}
-
-input.estudios{
-  width: 18px;
-  height: 18px;
-}
 @media only screen and (max-device-width: 480px) {
     h1.menutext   {
         font-size: 25px;
@@ -608,19 +640,4 @@ input.estudios{
     button{
       margin-top: 5px;
     }
-    #page-wrapper {
-    padding: 0 0px;
-    }
-    table.menutable{
-      white-space: nowrap;
-      overflow-x: scroll;
-    }
-    .estudios{
-    font-size: 21px;
-  }
-
-  input.estudios{
-    width: 20px;
-    height: 20px;
-  }
-}      
+}       

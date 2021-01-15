@@ -1,0 +1,22 @@
+Fijarse la parte de especialidades para pasarle la categoría.
+Cómo se pasa? OK
+
+
+REGISTRO
+Alumno:
+Aceptar condiciones, preguntar como van a poner eso
+Poner condiciones genéricas y después las cambio
+
+profesor
+ademas de los datos de alumno tambien deben subir título (opción) y agregar datos de cuenta de banco
+TABLAS
+********************
+CLASS
+id
+fecha
+
+REQUEST //Solicitud de clase
+
+profesorespecialidad
+id_user
+id_specialties

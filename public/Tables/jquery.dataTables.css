@@ -4,6 +4,7 @@
 table.dataTable {
   width: 100%;
   margin: 0 auto;
+  overflow: auto;
   clear: both;
   border-collapse: separate;
   border-spacing: 0;
@@ -303,7 +304,7 @@ table.dataTable td {
   text-decoration: none !important;
   cursor: pointer;
   *cursor: hand;
-  color: #333 !important;
+  color: #f7f3f3 !important;
   border: 1px solid transparent;
   border-radius: 2px;
 }
@@ -392,7 +393,7 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_processing,
 .dataTables_wrapper .dataTables_paginate {
-  color: #333;
+  color: #fcfcfc;
 }
 .dataTables_wrapper .dataTables_scroll {
   clear: both;
