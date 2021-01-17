@@ -23,7 +23,7 @@ class CategoryController extends Controller
         $categoria->nombre = $request->nombre;
         $categoria->save();
 
-        return redirect("/Categoria");
+        return redirect("/Categoria")->with("success", "Registro generado correctamente");
     }
 
     public function edit(Category $categoria)
@@ -55,7 +55,7 @@ class CategoryController extends Controller
         $categoria->baja = "true";
         $categoria->save();
 
-        return redirect("/Categoria");
+        return redirect("/Categoria")->with("success", "Registro eliminado correctamente");
     }
     
 }

@@ -14,8 +14,8 @@ class Category extends Model
 
     protected $primaryKey = 'id';
 
-    public function specialities() {
-        return $this->hasMany('App\Models\Speciality',"categoria","id");
+    public function specialties() {
+        return $this->hasMany('App\Models\Specialty',"categoria","id")->where("baja","false")->orderBy("nombre");
     }
 
 }

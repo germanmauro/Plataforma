@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpecialtyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,20 @@ Route::get('/Especialidad/{especialidad}/Delete', [SpecialtyController::class, '
 
 // Administración de Profesores
 Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar']);
+// Route::get('/AdministrarProfesores/{archivo}', function ($archivo) {
+//     $public_path = public_path();
+//     $url = $public_path . '/titulo/' . $archivo;
+//     //verificamos si el archivo existe y lo retornamos
+//     if (Storage::exists($archivo)) {
+//         return response()->download($url);
+//     }
+//     //si no se encuentra lanzamos un error 404.
+//     abort(404);
+// });
 
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
+
+//Cambio de datos de usuario
+Route::put('/EditarPerfil/{user}', [UserController::class, 'update'])->name("user.update");
+Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");

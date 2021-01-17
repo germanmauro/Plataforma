@@ -10,7 +10,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [1]
+                   targets: [9]
                }]}
             );
         });
@@ -32,6 +32,7 @@
                 <th>DNI</th>
                 <th>Teléfono</th>
                 <th>E-mail</th>
+                <th>Fecha de nacimiento</th>
                 <th>Contrato</th>
                 <th>Estado</th>
                 <th>Acciones</th>
@@ -46,6 +47,7 @@
                         <td>{{$item->dni}} </td>
                         <td>{{$item->telefono}} </td>
                         <td>{{$item->email}} </td>
+                        <td>{{$item->fechanacimiento->format('d/m/Y')}} </td>
                         <td>
                           @if ($item->contrato==null)
                            Sin enviar

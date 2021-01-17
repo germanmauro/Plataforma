@@ -10,8 +10,13 @@ body {
   width: 100%;
   background-color: #6673ff;
 }
-p.titulo {
+h1.titulo {
   font-size: 25px;
+  color: #e2e2e2
+}
+
+p.titulo {
+  font-size: 18px;
   color: #e2e2e2
 }
 
@@ -67,12 +72,28 @@ a.formregistro {
 }
 
 .input-container input:focus ~ label,
-.input-container input:valid ~ label,
-.input-container input:invalid ~ label {
+.input-container input:valid ~ label, 
+.input-container input:read-only ~ label,
+.input-container input[type=date] ~ label {
 	top:-14px;
 	font-size:13px;
 }
 
+/* Titulo de categorias y especialidades menú registro profesor*/
+p.category {
+  color:white;
+  border: rgb(49, 49, 49) 2px solid;
+  padding: 3px;
+  margin:0;
+  font-size: 16px;
+  background-color: #391fce;
+}
+.specialty {
+  background-color: #8777e2;
+  border:rgb(128, 125, 125) 2px solid;
+  padding: 3px;
+  margin-bottom: 6px;
+}
 /* Imagenes menú */
 .menu-images {
   width: 15vw;
@@ -158,6 +179,7 @@ a.formregistro {
   padding-left: 0;
   padding-right: 0;
   margin-top: 9px;
+  background-color:#0d0e52;
 }
 .sidebar .sidebar-search {
   padding: 15px;

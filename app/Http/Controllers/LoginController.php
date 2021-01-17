@@ -22,6 +22,7 @@ class LoginController extends Controller
         $hash = $user->password;
         if (password_verify($pass, $hash)) {
             session([
+                'Id'=> $user->id,
                 'Usuario'=> $user->usuario,
                 'Perfil'=> $user->perfil,
                 'Nombre'=> $user->nombre,

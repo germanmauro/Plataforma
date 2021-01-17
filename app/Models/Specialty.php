@@ -12,7 +12,14 @@ class Specialty extends Model
 
     protected $primaryKey = 'id';
     
+    //Tiene una categoria
     public function category() {
         return $this->belongsTo("App\Models\Category","categoria","id");
     }
+    
+    //Pertenece a muchos usuarios
+    public function usuarios() {
+        return $this->belongsToMany("App\Models\User");
+    }
+
 }

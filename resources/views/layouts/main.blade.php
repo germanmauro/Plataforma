@@ -17,8 +17,8 @@
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
     <link rel="stylesheet" href="{{ asset('Tables/jquery.dataTables.css') }}">
-    <!-- alertas 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+    <!-- alertas --> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -55,7 +55,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         @if (session()->has('Usuario'))
                             <li>
-                                <a onclick=paginaPrincipal('cambioNombre.php')><i class='fas fa-exchange-alt'></i> Modificar Datos</a>
+                                <a href='{{route("user.edit")}}'><i class='fas fa-exchange-alt'></i> Modificar Datos</a>
                             </li> 
                             <li>
                                 <a href='/Logout'><i class='fa fa-sign-out-alt'></i> Logout</a>
@@ -163,6 +163,11 @@
         </nav>
 
         <div id="page-wrapper">
+            @if (session()->has('success'))
+                    <script>
+                        swal("Acción correcta","{{session('success')}}", "success");
+                    </script>
+            @endif
             @yield('content')
         </div>
         <!-- /#page-wrapper -->
@@ -178,42 +183,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/sb-admin-2.js')}}"></script>
-    <script src="js/sweetalert.min.js"></script>
+    {{-- <script src="js/sweetalert.min.js"></script> --}}
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{ asset('js/metisMenu.min.js')}}"></script>
     <!-- Alertas -->
 
-
     <script>
-        //TODAS LAS FUNCIONES PARA CARGAR LAS PAGINAS SIN REGARGAR
-        //LLama a la funcion cada 10 seg
-        // setInterval("irPagina('dashboard.php')",20000);
-
-        //Funcion para no cambiar de página
-        function irPaginaPrincipal(pag) {
-            $("#page-wrapper").load(pag);
-            document.getElementById('btnmenu').click();
-        }
-
-        function paginaPrincipal(pag, param = "") {
-            $("#page-wrapper").load(pag, param);
-        }
-
-        //Funcion para no cambiar de página
-        function irSubPagina(pag) {
-            $("#sub-pagina").load(pag);
-            document.getElementById('btnmenu').click();
-        }
-
-        function subPagina(pag, param) {
-            // alert(parametros);
-            $("#sub-pagina").load(pag, param);
-        }
-
-        function recargaPedido() {
-            // alert(parametros);
-            $("#cantidadpedidos").load('itemspedido.php');
-        }
 
         function openmenu() {
             document.getElementById('btnmenu').click();

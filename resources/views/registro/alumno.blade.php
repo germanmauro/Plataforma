@@ -22,6 +22,9 @@
                                 @error('usuario')
                                     <p>{{$message}}</p>
                                 @enderror
+                                @error('email')
+                                    <p>{{$message}}</p>
+                                @enderror
                             </div>
                             
                             <div class="input-container">      
@@ -41,7 +44,7 @@
                                 <label>DNI</label>
                             </div>
                             <div class="input-container">
-                                <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
+                                <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
                             <div class="input-container">
@@ -67,7 +70,7 @@
                             <div class="form-group">
                                 <label> 
                                     <input type="checkbox" id="terminos" name="terminos"> 
-                                    <a class="formregistro" target="_blank" href="Terminos">Aceptar Terminos y condiciones</a>
+                                    <a class="formregistro" target="_blank" href="Terminos">Al registrarte aceptarás los términos y condiciones</a>
                                 </label>
                             </div>
 
