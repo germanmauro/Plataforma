@@ -1,4 +1,4 @@
 @extends('layouts.main')
 @section('content')
-<p class="titulo">Bienvenido a la plataforma para gestionar cursos entre alumnos y profesores</p class="titulo">
+<h1 class="titulo">Bienvenido a la plataforma para gestionar cursos entre alumnos y profesores</h1>
 @endsection

@@ -16,6 +16,9 @@
                                 @error('terminos')
                                     <p>{{$message}}</p>
                                 @enderror
+                                @error('webcam')
+                                    <p>{{$message}}</p>
+                                @enderror
                                 @error('passrepeat')
                                     <p>{{$message}}</p>
                                 @enderror
@@ -66,6 +69,12 @@
                             <div class="input-container">
                                 <input required type="password" class="form-control" id="passrepeat" name="passrepeat" minlength="8" maxlength="20" >
                                 <label>Repetir contraseña</label>                            
+                            </div>
+                            <div class="form-group">
+                                <label> 
+                                    <input type="checkbox" id="webcam" name="webcam"> 
+                                    Declaro que cuento con webcam y micrófono
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label> 

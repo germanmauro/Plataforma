@@ -92,22 +92,43 @@ p.category {
   background-color: #8777e2;
   border:rgb(128, 125, 125) 2px solid;
   padding: 3px;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
-/* Imagenes menú */
-.menu-images {
-  width: 15vw;
-  height: 15vw;
+
+/* Info de profesor */
+.infoprofesor {
+  background-color: white;
+  border:rgb(128, 125, 125) double 4px;
+  padding: 15px;
 }
-.menu-images img{
-  width:10vh;
-  height:10vh;
-  /* height: 30vh; */
+
+.infoicono {
+  color:red;
 }
-.menu-text {
-  padding-top: 50%;
-  /* height: 30vh; */
+
+h2.detalle {
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }
+p.detalle {
+    font-weight: bold;
+    font-size: 18px;
+    background:linear-gradient(#676363,#808a80);
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    text-align: center;
+    border: black solid 2px;
+}
+
+.detalledesc {
+  color:white;
+}
+/* Fin info profesor */
+
 .error {
   color:red;
   font-style:oblique;

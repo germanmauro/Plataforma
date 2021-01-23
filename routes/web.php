@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AmountController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\TimeRangeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Storage;
@@ -34,12 +36,15 @@ Route::view('/ResetPass','resetpass');
 Route::post('/Login/Ingreso', [LoginController::class, 'ingreso']);
 
 Route::get('/Usuarios', [UserController::class, 'index']);
+
 // Registro
 Route::get('/Registro/Alumno', [RegisterController::class, 'registroalumno']);
 Route::get('/Registro/Profesor', [RegisterController::class, 'registroprofesor']);
 Route::post('/Registro/StoreAlumno', [RegisterController::class, 'storealumno']);
 Route::post('/Registro/StoreProfesor', [RegisterController::class, 'storeprofesor']);
 Route::view('Registro/Terminos','registro.terminos');
+//Verificación email
+Route::get('/VerificarEmail/{id}', [RegisterController::class, 'edit']);
 
 // Categorías
 Route::get('/Categoria', [CategoryController::class, 'index']);
@@ -51,6 +56,23 @@ Route::get('/Categoria/{categoria}/Edit', [CategoryController::class, 'edit'])->
 
 Route::put('/Categoria/Delete/{categoria}', [CategoryController::class, 'destroy'])->name("category.destroy");
 Route::get('/Categoria/{categoria}/Delete', [CategoryController::class, 'delete'])->name("category.delete");
+
+// Rangos horarios
+Route::get('/RangoHorario', [TimeRangeController::class, 'index']);
+
+Route::view("/RangoHorario/Create","rangohorario.create");
+Route::post('/RangoHorario/Store', [TimeRangeController::class, 'store']);
+
+Route::put('/RangoHorario/Update/{rangohorario}', [TimeRangeController::class, 'update'])->name("timerange.update");
+Route::get('/RangoHorario/{rangohorario}/Edit', [TimeRangeController::class, 'edit'])->name("timerange.edit");
+
+Route::put('/RangoHorario/Delete/{rangohorario}', [TimeRangeController::class, 'destroy'])->name("timerange.destroy");
+Route::get('/RangoHorario/{rangohorario}/Delete', [TimeRangeController::class, 'delete'])->name("timerange.delete");
+
+//Monto por hora
+// Rangos horarios
+Route::get('/Monto', [AmountController::class, 'index']);
+Route::put('/Monto/Update/{monto}', [AmountController::class, 'update'])->name("amount.update");
 
 // Especialidades
 Route::get('/Especialidad', [SpecialtyController::class, 'index']);
@@ -65,16 +87,7 @@ Route::get('/Especialidad/{especialidad}/Delete', [SpecialtyController::class, '
 
 // Administración de Profesores
 Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar']);
-// Route::get('/AdministrarProfesores/{archivo}', function ($archivo) {
-//     $public_path = public_path();
-//     $url = $public_path . '/titulo/' . $archivo;
-//     //verificamos si el archivo existe y lo retornamos
-//     if (Storage::exists($archivo)) {
-//         return response()->download($url);
-//     }
-//     //si no se encuentra lanzamos un error 404.
-//     abort(404);
-// });
+Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"info"])->name("profesor.info");
 
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
@@ -82,3 +95,6 @@ Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
 //Cambio de datos de usuario
 Route::put('/EditarPerfil/{user}', [UserController::class, 'update'])->name("user.update");
 Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");
+
+//Profesor
+Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferencias"]);

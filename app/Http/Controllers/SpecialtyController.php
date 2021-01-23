@@ -31,7 +31,7 @@ class SpecialtyController extends Controller
         $especialidad->categoria = $request->categoria;
         $especialidad->save();
 
-        return redirect("/Especialidad");
+        return redirect("/Especialidad")->with("success", "Registro generado correctamente");;
     }
 
     public function edit(Specialty $especialidad)
@@ -49,7 +49,7 @@ class SpecialtyController extends Controller
         $especialidad->categoria = $request->categoria;
         $especialidad->save();
 
-        return redirect("/Especialidad");
+        return redirect("/Especialidad")->with("success", "Registro actualizado correctamente");;
     }
 
     public function delete(Specialty $especialidad)
@@ -65,6 +65,6 @@ class SpecialtyController extends Controller
         $especialidad->baja = "true";
         $especialidad->save();
 
-        return redirect("/Especialidad");
+        return redirect("/Especialidad")->with("success", "Registro eliminado correctamente");;
     }
 }

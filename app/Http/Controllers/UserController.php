@@ -29,7 +29,7 @@ class UserController extends Controller
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
         $user->dni = $request->dni;
-        $user->email = $request->email;
+        // $user->email = $request->email;
         $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;
         $user->direccion = $request->direccion;
@@ -37,9 +37,9 @@ class UserController extends Controller
             $user->cuentabancaria = $request->cuentabancaria;
         }
         //Si existe el email
-        if (User::where('email', $request->email)->where('id','!=',$user->id)->count()) {
-            throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
-        }
+        // if (User::where('email', $request->email)->where('id','!=',$user->id)->count()) {
+        //     throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
+        // }
         if($request->pass!="") {
             if ($request->pass <> $request->passrepeat) {
                 throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
@@ -53,5 +53,4 @@ class UserController extends Controller
         ]);
         return redirect("")->with("success","Perfil modificado correctamente");
     }
-    
 }

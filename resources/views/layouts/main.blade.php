@@ -56,7 +56,12 @@
                         @if (session()->has('Usuario'))
                             <li>
                                 <a href='{{route("user.edit")}}'><i class='fas fa-exchange-alt'></i> Modificar Datos</a>
-                            </li> 
+                            </li>
+                             @if(session('Perfil')=="profesor")
+                             <li>
+                                <a href='/Profesor/MisPreferencias'><i class='fas fa-id-card'></i> Mis Preferencias</a>
+                            </li>
+                             @endif
                             <li>
                                 <a href='/Logout'><i class='fa fa-sign-out-alt'></i> Logout</a>
                             </li>
@@ -85,10 +90,13 @@
                                     <a href='/Categoria'> <i class='fas fa-folder-open'></i> Categorias</a>
                                 </li>
                                 <li>
-                                    <a href='/Especialidad'> <i class='fas fa-folder-open'></i> Especialidades</a>
+                                    <a href='/Especialidad'> <i class='fas fa-user-tag'></i> Especialidades</a>
                                 </li>
                                 <li>
-                                    <a href='Configuracion/index.php'> <i class='fas fa-cog'></i> Monto por hora</a>
+                                    <a href='/RangoHorario'> <i class='far fa-clock'></i> Rangos Horarios</a>
+                                </li>
+                                <li>
+                                    <a href='/Monto'> <i class='far fa-money-bill-alt'></i> Monto por hora</a>
                                 </li>
                             </ul>
                         </li>
@@ -96,10 +104,7 @@
                             <a href='#'><i class='fas fa-chalkboard-teacher'></i> PROFESORES <span class='fas fa-angle-double-right'></span></a>
                             <ul class='nav nav-second-level'>
                                 <li>
-                                    <a href='Categoria/index.php'> <i class='fas fa-folder-open'></i> Categorías</a>
-                                </li>
-                                <li>
-                                    <a href='Producto/index.php'> <i class='fas fa-carrot'></i> Productos </a>
+                                    <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Administración de Profesores</a>
                                 </li>
                             </ul>
                         </li>
@@ -107,42 +112,42 @@
                             <a href='#'><i class='fas fa-book-reader'></i> ALUMNOS <span class='fas fa-angle-double-right'></span></a>
                             <ul class='nav nav-second-level'>
                                 <li>
-                                    <a  href='AdministrarAlumnos'> <i class='fas fa-user-cog'></i> Administración de Alumnos</a>
-                                </li>
-                                <li>
-                                    <a href='Pedido/index.php'> <i class='fas fa-table'></i> Gestión de Pedidos </a>
-                                </li>
-                                <li>
-                                    <a href='Imprimir/index.php'> <i class='fas fa-print'></i> Imprimir Pedidos</a>
-                                </li>
-                                <li>
-                                    <a href='Reporte/index.php'> <i class='fas fa-file-download'></i> Reporte de Entrega Diaria</a>
+                                    <a  href='/AdministrarAlumnos'> <i class='fas fa-user-cog'></i> Administración de Alumnos</a>
                                 </li>
                             </ul>
                         </li>
                                 @break
-                        @case('alumno')
-                        <li>
-                            <a onclick=irPaginaPrincipal('pedido.php')><i class='fas fa-shopping-cart'></i> COMPRAR</a>
-                        </li>
-                        <li>
-                            <a onclick=irPaginaPrincipal('pedidodetalle.php')><i class='fas fa-shopping-basket'></i> VER CANASTA</a>
-                        </li>
-                        <li>
-                            <a onclick=irPaginaPrincipal('mispedidos.php')><i class='fas fa-clipboard-list'></i></i> MIS PEDIDOS</a>
-                        </li>
-                         @break
                         @case('profesor')
                         <li>
-                            <a onclick=irPaginaPrincipal('pedido.php')><i class='fas fa-shopping-cart'></i> PROFESOR</a>
+                            <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                </li>
+                                <li>
+                                    <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a onclick=irPaginaPrincipal('pedidodetalle.php')><i class='fas fa-shopping-basket'></i> VER CANASTA</a>
+                            <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
+                                </li>
+                            </ul>
                         </li>
+                        @break
+                        @case('alumno')
                         <li>
-                            <a onclick=irPaginaPrincipal('mispedidos.php')><i class='fas fa-clipboard-list'></i></i> MIS PEDIDOS</a>
+                            <a href='#'><i class='fas fa-chalkboard-teacher'></i> PROFESORES <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Administración de Profesores</a>
+                                </li>
+                            </ul>
                         </li>
-                            @break
+                        @break
                          @default
                     @endswitch
                     @else    
@@ -151,7 +156,7 @@
                         </li>
                         <li>
                             <a href='/Registro/Alumno'><i class='fas fa-book-reader'></i> REGISTRO ALUMNO</a>
-                            <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> REGISTO PROFESOR</a>
+                            <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> REGISTRO PROFESOR</a>
                         </li>
                     @endif
 

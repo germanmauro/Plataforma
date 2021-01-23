@@ -1,22 +1,44 @@
-Fijarse la parte de especialidades para pasarle la categoría.
+Fijarse la parte de especialidades para pasarle la categoría.OK
 Cómo se pasa? OK
 
+PREGUNTAR:
+YA ESTÁ EL HOSTING? NO, NO ESTÁ
+PROBAR INSTALAR MIGRAR DB, ETC.
 
 REGISTRO
 Alumno:
-Aceptar condiciones, preguntar como van a poner eso
-Poner condiciones genéricas y después las cambio
+Aceptar condiciones, preguntar como van a poner eso OK
+Poner condiciones genéricas y después las cambio OK
 
 profesor
-ademas de los datos de alumno tambien deben subir título (opción) y agregar datos de cuenta de banco
+ademas de los datos de alumno tambien deben OK
+ subir título (opción) y  OK  
+ agregar datos de cuenta de banco OK
+ Agregar para que elijas las especialidades, organizadas por categorías. OK
+ Agregar días y horarios. OK
+ En el perfil del profesor que pueda ver sus especialidades y dias y horarios.
+ Que el administrador pueda ver el titulo de los profesores en la grilla, al hacer click
+
+Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub)
+
+DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
+REGISTRO OK.
+ENVIO DE CONTRATO POR EMAIL.
+USUARIOS.
+ADMINISTRACIÓN.
+ENVÍO DE EMAIL.
+VER PROCESO SICRONIZACIÓN PARA ENVIO DE EMAIL 30 MIN ANTES DE LAS CLASES, ETC.
+
 TABLAS
 ********************
 CLASS
 id
 fecha
 
-REQUEST //Solicitud de clase
+CLASSREQUEST //Solicitud de clase
 
-profesorespecialidad
-id_user
-id_specialties
+user_id
+specialty_id
+fecha
+hora
+estado //Generada - Avisada - Concretada
