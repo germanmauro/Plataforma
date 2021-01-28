@@ -21,15 +21,8 @@
                             @case("registrado")
                                 E-mail a validar
                                 @break
-                            @case("validado")
-                                Contrato sin enviar
-                                @break
-                            @case("aceptado")
-                                Aceptado
-                                @break
-                            
                             @default
-                                
+                                {{$user->estado}}
                         @endswitch
                             </span>
                         </p>

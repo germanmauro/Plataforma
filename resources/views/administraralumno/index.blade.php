@@ -10,7 +10,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [9]
+                   targets: [8]
                }]}
             );
         });
@@ -33,7 +33,6 @@
                 <th>Teléfono</th>
                 <th>E-mail</th>
                 <th>Fecha de nacimiento</th>
-                <th>Contrato</th>
                 <th>Estado</th>
                 <th>Acciones</th>
               </tr>
@@ -49,31 +48,13 @@
                         <td>{{$item->email}} </td>
                         <td>{{$item->fechanacimiento->format('d/m/Y')}} </td>
                         <td>
-                          @if ($item->contrato==null)
-                           Sin enviar
-                          @else 
-                            {{$item->contrato}}
-                        @endif </td>
-                        <td>
-                        @switch($item->estado)
-                            @case("registrado")
-                                E-mail a validar
-                                @break
-                            @case("validado")
-                                Contrato sin enviar
-                                @break
-                            @case("aceptado")
-                                Aceptado
-                                @break
-                            
-                            @default
-                                
-                        @endswitch
+                          {{ucfirst($item->estado)}}
                         </td>
                       
                         <td>
                         <a class="accionmenu" href="{{route('category.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
                         <a class="accionmenu" href="{{route('category.delete',$item->id) }}" title='Eliminar Registro' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

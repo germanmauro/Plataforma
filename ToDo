@@ -16,10 +16,22 @@ ademas de los datos de alumno tambien deben OK
  agregar datos de cuenta de banco OK
  Agregar para que elijas las especialidades, organizadas por categorías. OK
  Agregar días y horarios. OK
- En el perfil del profesor que pueda ver sus especialidades y dias y horarios.
- Que el administrador pueda ver el titulo de los profesores en la grilla, al hacer click
+ En el perfil del profesor que pueda ver sus especialidades y dias y horarios. OK
+ Que el administrador pueda ver el titulo de los profesores en la grilla, al hacer click OK
 
-Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub)
+Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub) OK
+
+Que los usuario suban el contrato. OK, pero solo para profesor
+
+Que el administrador acredite el perfil de los usuarios despues de ver el contrato.
+Alumno habilitado al validar email OK
+
+Para el registro del profesor lo que conviene hacer es dividir el registro en dos partes.
+la segunda parte especialidades titulo y horario. OK PERO MEDIO RARO
+
+Ver el tema de resetear el password OK
+
+Ver si se puede agregar un pop up para eliminar actualizar y habilitar profesor.
 
 DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
 REGISTRO OK.

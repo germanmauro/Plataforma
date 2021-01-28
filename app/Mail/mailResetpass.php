@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
 
-class mailRegistry extends Mailable
+class mailResetpass extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,14 +19,14 @@ class mailRegistry extends Mailable
      *
      * @return void
      */
-    public $subject="Registro exitoso";
+    public $subject="Password reseteado con éxito";
     public $user;
-    public $cadenaverificacion;
+    public $newpass;
 
-    public function __construct(User $user,$cadenadaverificacion)
+    public function __construct(User $user,$newpass)
     {
         $this->user = $user;
-        $this->cadenaverificacion = $cadenadaverificacion;
+        $this->newpass = $newpass;
     }
 
     /**
@@ -36,11 +36,6 @@ class mailRegistry extends Mailable
      */
     public function build()
     { 
-        if($this->user->perfil=="profesor") {
-            return $this->view('email.registroprofesor');
-        } else {
-            return $this->view('email.registroalumno');
-        }
-        
+        return $this->view('email.resetpass');
     }
 }

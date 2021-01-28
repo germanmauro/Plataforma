@@ -16,30 +16,17 @@
                     <p class="detalle">
                             Estado
                             <span class="detalledesc">
-                        @switch($user->estado)
-                            @case("registrado")
-                                E-mail a validar
-                                @break
-                            @case("validado")
-                                Contrato sin enviar
-                                @break
-                            @case("aceptado")
-                                Aceptado
-                                @break
-                            
-                            @default
-                                
-                        @endswitch
+                                {{ucfirst($user->estado)}}
                             </span>
                         </p>
-                        <p class="detalle">
+                        {{-- <p class="detalle">
                             Contrato: 
                           @if ($user->contrato==null)
                            <span class="detalledesc">Sin enviar </span>
                           @else 
                             <span class="detalledesc">{{$user->contrato}} </span>
                         @endif 
-                        </p>
+                        </p> --}}
                 </div>
                 <div class="col-md-6">
                         <p class="detalle">USUARIO <span class="detalledesc">{{$user->usuario}}</span> </p>

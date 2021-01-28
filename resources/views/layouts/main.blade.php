@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="mygsystems">
 
-    <title>Plataforma de clases de profesores y alumnos</title>
+    <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css?v=7') }}" rel="stylesheet">
@@ -35,7 +35,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-brand">PLATAFORMA DE GESTIÓN DE CLASES</div>
+                <div class="navbar-brand">
+                    <a href="/" class="marca">CAPACITACIÓN EN ESPAÑOL</a>
+                </div>
             </div>
             <!-- /.navbar-header -->
 
@@ -118,35 +120,56 @@
                         </li>
                                 @break
                         @case('profesor')
-                        <li>
-                            <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
-                            <ul class='nav nav-second-level'>
+                        @switch(session('Estado'))
+                            @case("validado")
                                 <li>
-                                    <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                                    <ul class='nav nav-second-level'>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                        </li>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                    <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
+                                    <ul class='nav nav-second-level'>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
-                            <ul class='nav nav-second-level'>
-                                <li>
-                                    <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
-                                </li>
-                            </ul>
-                        </li>
+                                @break
+                            @default
+                        @endswitch
                         @break
                         @case('alumno')
-                        <li>
-                            <a href='#'><i class='fas fa-chalkboard-teacher'></i> PROFESORES <span class='fas fa-angle-double-right'></span></a>
-                            <ul class='nav nav-second-level'>
+                        @switch(session('Estado'))
+                            @case("validado")
                                 <li>
-                                    <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Administración de Profesores</a>
+                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                                    <ul class='nav nav-second-level'>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                        </li>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                            </ul>
-                        </li>
+                                <li>
+                                    <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
+                                    <ul class='nav nav-second-level'>
+                                        <li>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @break
+                            @default
+                        @endswitch
                         @break
                          @default
                     @endswitch
@@ -176,6 +199,9 @@
             @yield('content')
         </div>
         <!-- /#page-wrapper -->
+        <div class="footer">
+            Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a>
+        </div>
     </div>
     <!-- /#wrapper -->
 

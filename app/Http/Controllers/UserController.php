@@ -16,10 +16,10 @@ class UserController extends Controller
 
     public function edit()
     {
-        $user = User::find(session("Id"));
         if (!session()->has('Perfil')) {
             return redirect("");
         }
+        $user = User::find(session("Id"));
         return view('cambiodatos', compact("user"));
     }
 
@@ -52,5 +52,36 @@ class UserController extends Controller
             'Apellido' => $user->apellido,
         ]);
         return redirect("")->with("success","Perfil modificado correctamente");
+    }
+
+    //Carga de contrato
+    public function cargacontract()
+    {
+        if (!session()->has('Perfil')) {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        if($user->estado == "contrato a enviar") {
+            return view('contrato.index');
+        } else {
+            return redirect("");
+        }  
+    }
+
+    public function storecontract(Request $request)
+    {
+        if (!session()->has('Perfil')) {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        if ($request->hasFile('contrato')) {
+            $nombre = $request->file('contrato')->store("public");
+            $nombre = str_replace("public/", "", $nombre);
+        }
+        $user->contrato = $nombre;
+        $user->estado = "contrato a validar";
+        $user->save();
+        session(['Estado' => $user->estado]);
+        return redirect("")->with("success","Contrato cargado correctamente");
     }
 }

@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                REGISTRATE COMO PROFESOR PARA PODER ACCEDER A CONCRETAR CLASES CON ALUMNOS
+                DATOS DE PERFIL
             </div>
             <div class="panel-body">
                 <div class="row">

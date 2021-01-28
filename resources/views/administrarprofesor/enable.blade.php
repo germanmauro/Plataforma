@@ -10,14 +10,14 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form action="{{route("category.destroy",$categoria)}}" method="post">
+                        <form action="{{route("profesor.enable",$user)}}" method="post">
                             @csrf
                             @method("put")
                         <div class="alert alert-danger fade in">
-                            <p>¿Desea borrar este registro?</p><br>
+                            <p>¿Desea habilitar al profesor {{$user->nombre}} {{$user->apellido}}?</p><br>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger">
-                                <a href="/Categoria" class="btn btn-default">No</a>
+                                <a href="/AdministrarProfesores" class="btn btn-default">No</a>
                             </p>
                         </div>
                     </form>

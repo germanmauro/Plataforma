@@ -59,7 +59,7 @@
                                 <label>E-Mail</label>
                             </div>
                             <div class="input-container">
-                                <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="20"  value= "{{old('usuario')}}">
+                                <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
                                 <label>Usuario</label>
                             </div>
                             <div class="input-container">

@@ -26,25 +26,34 @@ use Illuminate\Support\Facades\Storage;
 Route::view('/','welcome');
 Route::view('/Login','login');
 Route::get('/Logout', function () {
-    session()->forget('Usuario');
+    //Borro la session
+    session()->flush();
     if (!session()->has('Usuario')) {
         return redirect('/Login');
     }
 });
 
-Route::view('/ResetPass','resetpass');
+Route::view('/ResetPass','sendpass');
+
 Route::post('/Login/Ingreso', [LoginController::class, 'ingreso']);
+Route::post('/Login/Resetear', [LoginController::class, 'resetear']);
 
 Route::get('/Usuarios', [UserController::class, 'index']);
 
 // Registro
 Route::get('/Registro/Alumno', [RegisterController::class, 'registroalumno']);
-Route::get('/Registro/Profesor', [RegisterController::class, 'registroprofesor']);
 Route::post('/Registro/StoreAlumno', [RegisterController::class, 'storealumno']);
+Route::get('/Registro/Profesor', [RegisterController::class, 'registroprofesor']);
 Route::post('/Registro/StoreProfesor', [RegisterController::class, 'storeprofesor']);
+// Route::view('/Registro/StoreProfesor/Paso2', 'registro.profesorpaso2');
+Route::put('/Registro/Profesor/{user}', [RegisterController::class, 'storeprofesor2'])->name("registroprofesor");
+
 Route::view('Registro/Terminos','registro.terminos');
+
+Route::view('/RegistroExitoso', 'message.successuser');
 //Verificación email
-Route::get('/VerificarEmail/{id}', [RegisterController::class, 'edit']);
+Route::get('/ValidarEmail/{id}', [RegisterController::class, 'verifyemail']);
+Route::view("/Validacion/Contrato", "registro.contrato");
 
 // Categorías
 Route::get('/Categoria', [CategoryController::class, 'index']);
@@ -88,7 +97,8 @@ Route::get('/Especialidad/{especialidad}/Delete', [SpecialtyController::class, '
 // Administración de Profesores
 Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar']);
 Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"info"])->name("profesor.info");
-
+Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::class, 'enable'])->name("profesor.enable");
+Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::class, 'disable'])->name("profesor.disable");
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
 
@@ -98,3 +108,7 @@ Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");
 
 //Profesor
 Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferencias"]);
+
+//Subir contrato
+Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");
+Route::post('/Contrato/Store', [UserController::class, 'storecontract']);

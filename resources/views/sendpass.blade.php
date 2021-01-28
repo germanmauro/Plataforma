@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ingreso al Sistema</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
 </head>
@@ -12,15 +12,18 @@
  <div class="login-page">
     <div class="form">
 
-      <form class="login-form" action="/Login/Ingreso" method="post">
-        <input name="user" required type="text" maxlength=100 placeholder="Usuario (E-Mail)" />
-        <input name="pass" required type="password" maxlength=15 placeholder="Contraseña" />
-        <input name="formulario" value="ingreso" type="hidden" />
-        <?php echo "<span class='mensaje'>" . $password_err . "</span>"; ?>
-        <button>ingresar</button>
+      <form class="login-form" action="/Login/Resetear" method="post">
+        @csrf
+        <label for="email">Ingrese su email para que le enviemos su nueva contraseña</label>
+        <input name="email" required type="email" maxlength=100 placeholder="Ingrese su e-mail" />
+        @error('email')
+            <span class='mensaje'>{{$message}}</span>
+        @enderror
+   
+        <button>Resetear Password</button>
 
       </form>
-      <a href="resetpass.php">Olvide mi contraseña</a>
+      
     </div>
 
   </div>

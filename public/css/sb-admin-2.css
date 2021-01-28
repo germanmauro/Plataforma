@@ -3,16 +3,41 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+
 body {
   background-color: #d1b7b7;
+  font-family: 'Josefin Sans', sans-serif;
 }
 #wrapper {
   width: 100%;
-  background-color: #6673ff;
+  background-color: #595a6b;
 }
-h1.titulo {
-  font-size: 25px;
-  color: #e2e2e2
+a.marca {
+  font-family: 'Philosopher', sans-serif;
+  font-size: larger;
+}
+
+a.marca:hover,a.marca:active {
+ color:thistle;
+ text-decoration: none;
+}
+.titulo {
+    margin-top: 10px;
+    font-family: 'Courgette';
+    font-size: 30px;
+    color: #010204;
+    background-color: #ffffff1e;
+    padding: 10px;
+    text-align: center;
+    border:#3b3f3b1e solid 4px;
+}
+
+.subtitulo {
+  font-size: 26px;
+  color: #ffffff
 }
 
 p.titulo {
@@ -27,12 +52,26 @@ p.titulo {
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  /* background: url('../images/fondo2.jpg'); */
+  background: url('../image/logo.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+}
+/* Letra para información */
+.informacion {
+  font-family: 'Courgette', cursive;
 }
 
+.informacion-header {
+  font-family: 'Courgette', cursive;
+  font-size: 24px
+}
+.informacion p {
+ font-size: 18;
+}
+.informacion h4 {
+ font-size: 22px;
+}
 /*Formulario registro*/
 a.formregistro {
   color: #11119b;
@@ -53,7 +92,7 @@ a.formregistro {
   top:0px;
 	left:0px;
 	font-size:16px;
-	color:rgb(128, 125, 125);	
+	color:#010204;	
   pointer-events:none;
 	transition: all 0.5s ease-in-out;
 }
@@ -138,6 +177,23 @@ p.detalle {
 .accionmenu {
   color:#292525;
 }
+
+.footer {
+  left: 0;
+  bottom: 0;
+  margin-top:10px;
+  width: 100%;
+  padding: 3px;
+  font-size:15px;
+  color:white;
+  text-align: left;
+  background-color: #36363b;
+}
+
+.footer a {
+  font-weight: bolder;
+}
+
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
@@ -200,7 +256,7 @@ p.detalle {
   padding-left: 0;
   padding-right: 0;
   margin-top: 9px;
-  background-color:#0d0e52;
+  background-color:#36363b;
 }
 .sidebar .sidebar-search {
   padding: 15px;

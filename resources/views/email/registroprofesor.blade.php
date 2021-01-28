@@ -11,12 +11,14 @@
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css?v=7') }}" rel="stylesheet">
 </head>
-<body>
-    <h1>Registro exitoso</h1>
-    <p>{{$user->nombre}} gracias por registrarte en nuestra plataforma</p>
-    <p>Te has registrado exitosamente en la plataforma de cursos online</p>
+<body style="background-color: #474545; color:white">
+    <h1>Registro exitoso - Capacitación en Español</h1>
+    <p>{{$user->nombre}} {{$user->apellido}}, Gracias por registrarte en nuestra plataforma.</p>
+    <p>Tu perfil es: {{ucfirst($user->perfil)}}</p>
     <p>El próximo paso es validar tu e-mail</p>
-    <p>Podes hacerlo desde el siguiente link</p>
-
+    <p>Podés hacerlo desde el siguiente <a style="color:white; font-weight: bold" href="{{$cadenaverificacion}}" target="_blank">link</a></p> 
+    <br>
+    <p>¡Muchas gracias!</p>
+    <p>El equipo de Capacitación en Español</p>
 </body>
 </html>

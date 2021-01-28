@@ -25,7 +25,7 @@
         <button>ingresar</button>
 
       </form>
-      <a href="/Ingreso/Ressetpass">Olvide mi contraseña</a>
+      <a href="/ResetPass">Olvide mi contraseña</a>
     </div>
 
   </div>
