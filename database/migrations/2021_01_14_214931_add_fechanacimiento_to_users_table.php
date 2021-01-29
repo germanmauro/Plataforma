@@ -14,7 +14,7 @@ class AddFechanacimientoToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->date("fechanacimiento");
+            $table->date("fechanacimiento")->nullable();
         });
     }
 

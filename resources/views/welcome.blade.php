@@ -27,8 +27,7 @@
             @break
         @case("a entrevistar")
            <div class="alert alert-success" role="alert">
-                La administración de Capacitación en Español lo contactará vía e-mail para concertar una
-                entrevista vía Zoom.
+                El usuario ha sido deshabilitado
            </div>
             @break
     @endswitch

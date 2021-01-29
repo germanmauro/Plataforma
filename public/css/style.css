@@ -119,7 +119,7 @@ body {
     .login-page {
       width: 90%;
   }   
-    .form button {
+    /* .form button {
       font-size: 45px;
       background: #1053e8;
   }   
@@ -131,5 +131,5 @@ body {
  
    .mensaje{
      font-size:35px;
-  }
+  } */
 }    

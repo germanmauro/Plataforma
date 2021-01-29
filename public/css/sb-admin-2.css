@@ -26,7 +26,7 @@ a.marca:hover,a.marca:active {
 }
 .titulo {
     margin-top: 10px;
-    font-family: 'Courgette';
+    font-family: 'Philosopher', sans-serif;
     font-size: 30px;
     color: #010204;
     background-color: #ffffff1e;

@@ -50,7 +50,7 @@ Route::put('/Registro/Profesor/{user}', [RegisterController::class, 'storeprofes
 
 Route::view('Registro/Terminos','registro.terminos');
 
-Route::view('/RegistroExitoso', 'message.successuser');
+Route::view('/RegistroExitoso', 'messages.successuser');
 //Verificación email
 Route::get('/ValidarEmail/{id}', [RegisterController::class, 'verifyemail']);
 Route::view("/Validacion/Contrato", "registro.contrato");
