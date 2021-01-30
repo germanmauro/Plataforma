@@ -172,7 +172,7 @@ class RegisterController extends Controller
     //Genero un enclace para encriptar
     public function enlaceVerificacion($id)
     {
-        return env("APP_URL")."/ValidarEmail//". $this->encriptar($id);
+        return env("APP_URL")."/ValidarEmail/". $this->encriptar($id);
     }
 
     protected function encriptar($text)

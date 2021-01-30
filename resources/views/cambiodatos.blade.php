@@ -25,7 +25,7 @@
                             
                             <div class="input-container">      
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20"  value= "{{old('nombre',$user->nombre)}}">
-                                <label>Nombre</label>
+                                <label>Nombre PRobando</label>
                             </div>
                             <div class="input-container">
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido',$user->apellido)}}">
@@ -36,8 +36,12 @@
                                 <label>Dirección (Calle, Número, Ciudad y País)</label>
                             </div>
                             <div class="input-container">      
+                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento',$user->tipodocumento)}}">
+                                <label>Tipo de Documento</label>
+                            </div>
+                            <div class="input-container">      
                                 <input class="form-control" required id="dni" name="dni" maxlength="20"  value= "{{old('dni',$user->dni)}}">
-                                <label>DNI</label>
+                                <label>Documento</label>
                             </div>
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento',$user->fechanacimiento->format('Y-m-d'))}}">

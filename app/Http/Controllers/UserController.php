@@ -28,6 +28,7 @@ class UserController extends Controller
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
+        $user->tipodocumento = $request->tipodocumento;
         $user->dni = $request->dni;
         // $user->email = $request->email;
         $user->cuentabancaria = $request->cuentabancaria;
