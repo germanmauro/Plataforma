@@ -38,8 +38,12 @@
                                 <label>Dirección (Calle, Número, Ciudad y País)</label>
                             </div>
                             <div class="input-container">      
+                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
+                                <label>Tipo de Documento</label>
+                            </div>
+                            <div class="input-container">      
                                 <input class="form-control" required id="dni" name="dni" maxlength="20"  value= "{{old('dni')}}">
-                                <label>DNI</label>
+                                <label>Número de Documento</label>
                             </div>
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
@@ -59,7 +63,7 @@
                             </div>
                             <div class="input-container">
                                 <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria')}}">
-                                <label>Número de CBU</label>
+                                <label>Cuenta Corriente</label>
                             </div>
                             <div class="input-container">
                                 <input required type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">

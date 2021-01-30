@@ -55,10 +55,6 @@
                                         @endforeach
                                     </div>
                             </div>
-                            <div class="input-container">
-                                <input required type="number" class="form-control" id="horas" name="horas" min=1 max=24  value= "{{old('horas')}}">
-                                <label>Horas disponibles por día</label>
-                            </div>
                             <div class="form-group">
                                 <label>Subir archivo de título (En caso de corresponder con las especialidades elegidas).</label>
                                 <input type="file" name="titulo" id="titulo" accept="image/*,pdf" class="form-control">
@@ -66,7 +62,7 @@
                             <div class="form-group">
                                 <label> 
                                     <input type="checkbox" id="webcam" name="webcam"> 
-                                    Declaro que cuento con webcam y micrófono
+                                    Declaro que cuento con webcam, micrófono y conexión a internet.
                                 </label>
                             </div>
                             <div class="form-group">

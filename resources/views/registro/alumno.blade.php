@@ -43,8 +43,12 @@
                                 <label>Dirección (Calle, Número, Ciudad y País)</label>
                             </div>
                             <div class="input-container">      
+                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
+                                <label>Tipo de Documento</label>
+                            </div>
+                            <div class="input-container">      
                                 <input class="form-control" required id="dni" name="dni" maxlength="20"  value= "{{old('dni')}}">
-                                <label>DNI</label>
+                                <label>Número de Documento</label>
                             </div>
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
@@ -73,7 +77,7 @@
                             <div class="form-group">
                                 <label> 
                                     <input type="checkbox" id="webcam" name="webcam"> 
-                                    Declaro que cuento con webcam y micrófono
+                                    Declaro que cuento con webcam, micrófono y conexión a internet.
                                 </label>
                             </div>
                             <div class="form-group">

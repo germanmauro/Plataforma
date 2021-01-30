@@ -39,7 +39,7 @@ class RegisterController extends Controller
             throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
         }
         if (!$request->has("webcam")) {
-            throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam y micrófono para poder participar de clases']);
+            throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam, micrófono y conexión a internet para poder participar de clases']);
         }
         if (!$request->has("terminos")) {
             throw ValidationException::withMessages(['terminos' => 'Debe aceptar los términos 
@@ -50,6 +50,7 @@ class RegisterController extends Controller
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
         $user->dni = $request->dni;
+        $user->tipodocumento = $request->tipodocumento;
         $user->email = $request->email;
         $user->fechanacimiento = $request->fechanacimiento;
         $user->direccion = $request->direccion;
@@ -87,6 +88,7 @@ class RegisterController extends Controller
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
         $user->dni = $request->dni;
+        $user->tipodocumento = $request->tipodocumento;
         $user->email = $request->email;
         $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;
@@ -115,9 +117,9 @@ class RegisterController extends Controller
             y condiciones para ingresar al sistema']);
         }
         if (!$request->has("webcam")) {
-            throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam y micrófono para poder participar de clases']);
+            throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam, micrófono y conexión a internet para poder participar de clases']);
         }
-        $user->horas = $request->horas;
+        // $user->horas = $request->horas;
         //Título
         $nombre = "";
         if ($request->hasFile('titulo')) {
@@ -170,7 +172,7 @@ class RegisterController extends Controller
     //Genero un enclace para encriptar
     public function enlaceVerificacion($id)
     {
-        return env("APP_URL")."/". $this->encriptar($id);
+        return env("APP_URL")."/ValidarEmail//". $this->encriptar($id);
     }
 
     protected function encriptar($text)
