@@ -13,16 +13,9 @@
                         <form class="formregistro" name="envio" id="envio" role="form" action="/Registro/StoreProfesor" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="error">
-                                @error('passrepeat')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('usuario')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('email')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
                             </div>
                             
                             <div class="input-container">      
@@ -73,8 +66,78 @@
                                 <input required type="password" class="form-control" id="passrepeat" name="passrepeat" minlength="8" maxlength="20" >
                                 <label>Repetir contraseña</label>                            
                             </div>
+                            {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
+                            <div>
+                            <label>Seleccione las especialidades que desea enseñar</label>
+                            @foreach ($category as $item)
+                                @if(count($item->specialties)>0)
+                                    <p class="category"> {{$item->nombre}} </p>
+                                    <div class="specialty">
+                                       
+                                        @foreach ($item->specialties as $subitem)
+                                               <label><input type="checkbox" name="especialidades[]" value="{{$subitem->id}}" @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif/>  {{$subitem->nombre}} </label>
+                                        @endforeach
+                                    </div>
+                                    
+                                @endif
+                            @endforeach
+                            </div>
+                            {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
+                            <div class="col-md-12 grillahorario">
+                                <label>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</label>
+                                            @php
+                                                $dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+                                            @endphp
+                                            @foreach ($dias as $day)
+                                            <div class="col-md-12 day">
+                                                <div class="col-md-4">
+                                                    <p> 
+                                                        <label>
+                                                            <input type="checkbox" name="dias[]" value="{{$day}}" @if(is_array(old('dias')) && in_array($day, old('dias'))) checked @endif/> {{$day}}
+                                                        </label>
+                                                    </p>
+                                                </div>
+                                                    <div class="col-md-4">
+                                                        <label>Desde</label>
+                                                            <select class="form-control" name="desde{{$day}}">
+                                                                @for ($i = 0; $i < 24; $i++)
+                                                                    <option value="{{$i}}:00" {{ (old('desde'.$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
+                                                                    <option value="{{$i}}:30" {{ (old('desde'.$day) == $i.":30") ? 'selected' : '' }}>{{$i}}:30 Hs</option>
+                                                                @endfor
+                                                            </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Hasta</label>
+                                                            <select class="form-control" name="hasta{{$day}}">
+                                                                <option value="0:30"> 0:30 Hs</option>
+                                                                @for ($i = 1; $i < 24; $i++)
+                                                                    <option value="{{$i}}:00" {{ (old("hasta".$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
+                                                                    <option value="{{$i}}:30" {{ (old("hasta".$day) == $i.":30") ? 'selected' : '' }}>{{$i}}:30 Hs</option>
+                                                                @endfor
+                                                                <option value="24:00"> 24:00 Hs</option>
+                                                            </select>
+                                                    </div>
+                                            </div>
+                                            @endforeach
+                            </div>
+                            <div class="form-group">
+                                <label>Subir archivo de título (En caso de corresponder con las especialidades elegidas).</label>
+                                <input type="file" name="titulo" id="titulo" accept="image/*,pdf" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label> 
+                                    <input type="checkbox" id="webcam" name="webcam"> 
+                                    Declaro que cuento con webcam, micrófono y conexión a internet.
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label> 
+                                    <input type="checkbox" id="terminos" name="terminos"> 
+                                    <a class="formregistro" target="_blank" href="Terminos">Al registrarte aceptarás los términos y condiciones</a>
+                                </label>
+                            </div>
                             
-                            <button type="submit" id="Send" name="Send" class="btn btn-default">Siguiente</button>
+                            <button type="submit" id="Send" name="Send" class="btn btn-default">Confirmar Registro</button>
                         </form>
                     </div>
 

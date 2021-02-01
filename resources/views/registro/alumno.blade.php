@@ -13,21 +13,9 @@
                         <form class="formregistro" name="envio" id="envio" role="form" action="/Registro/StoreAlumno" method="post">
                             @csrf
                             <div class="error">
-                                @error('terminos')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('webcam')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('passrepeat')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('usuario')
-                                    <p>{{$message}}</p>
-                                @enderror
-                                @error('email')
-                                    <p>{{$message}}</p>
-                                @enderror
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
                             </div>
                             
                             <div class="input-container">      

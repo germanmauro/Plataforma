@@ -24,8 +24,8 @@ class User extends Model
     }
 
     //Un usuario(Profesor) tiene muchos días.// días disponibles en los que da clases.
-    public function days()
+    public function availabilities()
     {
-        return $this->belongsToMany("App\Models\Day");
+        return $this->hasMany("App\Models\Availability");
     }
 }

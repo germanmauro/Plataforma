@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Mail\mailContract;
 use App\Mail\mailRegistry;
+use App\Models\Availability;
 use App\Models\Category;
 use App\Models\Day;
 use App\Models\User;
+use DateTime;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -20,12 +22,21 @@ class RegisterController extends Controller
 
     public function registroprofesor()
     {
-        return view('registro.profesor');
+        $category = Category::all()->where("baja", "false")->sortBy("nombre");
+        return view('registro.profesor',compact("category"));
     }
 
     //Registro de Alumno
     public function storealumno(Request $request)
     {
+        //Mayor de 18
+        $nacimiento = DateTime::createFromFormat('Y-m-d', $request->fechanacimiento);
+        $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
+
+        if ($nacimiento < 18) {
+            throw ValidationException::withMessages(['menoredad' => 'Debe ser mayor de 18 años para poder registrarse en la plataforma']);
+        }
+        
         //Debe aceptar términos
         if($request->pass<>$request->passrepeat) {
             throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
@@ -68,8 +79,14 @@ class RegisterController extends Controller
     //Registro de profesor, paso 1
     public function storeprofesor(Request $request)
     {
-        $category = Category::all()->where("baja", "false")->sortBy("nombre");
-        $day = Day::all();
+        // return $request["nombre"];
+        //Mayor de 18
+        $nacimiento = DateTime::createFromFormat('Y-m-d', $request->fechanacimiento);
+        $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
+        
+        if($nacimiento < 18) {
+            throw ValidationException::withMessages(['menoredad' => 'Debe ser mayor de 18 años para poder registrarse en la plataforma']);
+        }
         //Pass iguales
         if($request->pass<>$request->passrepeat) {
             throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
@@ -82,29 +99,6 @@ class RegisterController extends Controller
         if (User::where('email', $request->email)->count()) {
             throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
         }
-   
-        $user = new User();
-        $user->nombre = $request->nombre;
-        $user->apellido = $request->apellido;
-        $user->telefono = $request->telefono;
-        $user->dni = $request->dni;
-        $user->tipodocumento = $request->tipodocumento;
-        $user->email = $request->email;
-        $user->cuentabancaria = $request->cuentabancaria;
-        $user->fechanacimiento = $request->fechanacimiento;
-        $user->direccion = $request->direccion;
-        $user->usuario = $request->usuario;
-        $user->baja = "true"; //Por si solo completa la mitad
-   
-        //Password generator
-        $user->password = password_hash($request->pass, PASSWORD_DEFAULT);
-        $user->perfil = "profesor";
-        $user->save();
-        return view("registro.profesorpaso2", compact("user","category","day"));
-    }
-
-    public function storeprofesor2(User $user, Request $request)
-    {
         if (!$request->has('especialidades')) {
             throw ValidationException::withMessages(['especialidades' => 'Debe elegir al menos una especialidad']);
         }
@@ -119,25 +113,60 @@ class RegisterController extends Controller
         if (!$request->has("webcam")) {
             throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam, micrófono y conexión a internet para poder participar de clases']);
         }
+        //Verifico los días y horarios elegidos
+        foreach ($request->dias as $value) {
+            $desde = new DateTime($request["desde" . $value]);
+            $hasta = new DateTime($request["hasta" . $value]);
+            if ($desde->diff($hasta)->format("%h") < 1) {
+                throw ValidationException::withMessages(['horas' => 'Al menos debe tener disponibilidad de una hora para el día seleccionado (' . $value . ')']);
+            }
+            if ($desde > $hasta) {
+                throw ValidationException::withMessages(['horas' => 'En el día ' . $value . "la hora hasta debe ser mayor que la hora desde"]);
+            }
+        }
+
+        $user = new User();
+        
+        $user->nombre = $request->nombre;
+        $user->apellido = $request->apellido;
+        $user->telefono = $request->telefono;
+        $user->dni = $request->dni;
+        $user->tipodocumento = $request->tipodocumento;
+        $user->email = $request->email;
+        $user->cuentabancaria = $request->cuentabancaria;
+        $user->fechanacimiento = $request->fechanacimiento;
+        $user->direccion = $request->direccion;
+        $user->usuario = $request->usuario;
+   
+        //Password generator
+        $user->password = password_hash($request->pass, PASSWORD_DEFAULT);
+        $user->perfil = "profesor";
         // $user->horas = $request->horas;
         //Título
         $nombre = "";
         if ($request->hasFile('titulo')) {
             $nombre = $request->file('titulo')->store("public");
-            $nombre = str_replace("public/","",$nombre);
+            $nombre = str_replace("public/", "", $nombre);
         }
         $user->titulo = $nombre;
         $user->baja = "false";
         $user->save();
         //Agrego las especialidades
         $user->specialties()->attach($request->input('especialidades'));
-        //Agrego los días disponibles
-        $user->days()->attach($request->input('dias'));
-
+        //Días y horarios
+        foreach ($request->dias as $value) {
+            $desde = new DateTime($request["desde" . $value]);
+            $hasta = new DateTime($request["hasta" . $value]);
+            $availability = new Availability();
+            $availability->dia = $value;
+            $availability->desde = $desde;
+            $availability->hasta = $hasta;
+            $user->availabilities()->save($availability);
+        }
         //Envío de email.
         $url = $this->enlaceVerificacion($user->id);
-        Mail::to($user->email)->send(new mailRegistry($user,$url));
-        
+        Mail::to($user->email)->send(new mailRegistry($user, $url));
+
         return redirect("/RegistroExitoso");
     }
 

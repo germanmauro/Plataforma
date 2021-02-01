@@ -45,8 +45,6 @@ Route::get('/Registro/Alumno', [RegisterController::class, 'registroalumno']);
 Route::post('/Registro/StoreAlumno', [RegisterController::class, 'storealumno']);
 Route::get('/Registro/Profesor', [RegisterController::class, 'registroprofesor']);
 Route::post('/Registro/StoreProfesor', [RegisterController::class, 'storeprofesor']);
-// Route::view('/Registro/StoreProfesor/Paso2', 'registro.profesorpaso2');
-Route::put('/Registro/Profesor/{user}', [RegisterController::class, 'storeprofesor2'])->name("registroprofesor");
 
 Route::view('Registro/Terminos','registro.terminos');
 

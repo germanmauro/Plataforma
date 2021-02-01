@@ -134,6 +134,18 @@ p.category {
   margin-bottom: 12px;
 }
 
+/* Grilla de horarios */
+.grillahorario {
+    background-color: #a29b9b;
+    border: rgb(0 0 0) 2px solid;
+    padding: 3px;
+    margin-bottom: 12px;
+}
+.day {
+  background-color: #888787;
+  margin-bottom: 5px;
+  padding: 3px;
+}
 /* Info de profesor */
 .infoprofesor {
   background-color: white;

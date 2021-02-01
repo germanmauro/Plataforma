@@ -21,7 +21,7 @@ ademas de los datos de alumno tambien deben OK
 
 Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub) OK
 
-Que los usuario suban el contrato. OK, pero solo para profesor
+Que los usuario suban el contrato. OK, pero solo para profesor NO
 
 Que el administrador acredite el perfil de los usuarios despues de ver el contrato.
 Alumno habilitado al validar email OK
@@ -31,7 +31,10 @@ la segunda parte especialidades titulo y horario. OK PERO MEDIO RARO
 
 Ver el tema de resetear el password OK
 
-Ver si se puede agregar un pop up para eliminar actualizar y habilitar profesor.
+Ver si se puede agregar un pop up para eliminar actualizar y habilitar profesor. OK
+
+Probar cargar días y horarios del profesor.
+Validar hora menos mas que sea mas de una hora de diferencia.
 
 DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
 REGISTRO OK.
