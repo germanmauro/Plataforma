@@ -23,8 +23,6 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::call('storage:link');
-
 Route::view('/','welcome');
 Route::view('/Login','login');
 Route::get('/Logout', function () {
