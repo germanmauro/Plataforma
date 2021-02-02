@@ -66,16 +66,11 @@
                 
                         <p class="detalle"> 
                             Días elegidos <span class="detalledesc">
-                            @foreach ($user->days as $dia)
-                                 <br>   {{$dia->nombre}}
+                            @foreach ($user->availabilities as $ava)
+                                 <br>   {{$ava->dia}} Desde: {{$ava->desde()}} hs Hasta: {{$ava->hasta()}} hs
                             @endforeach 
                             </span>
                         </p>
-                        <p class="detalle">
-                            Cantidad de horas por día: 
-                            <span class="detalledesc">{{$user->horas}} </span>
-                        </p>
-                        
                         
                 </div>
             </div>
