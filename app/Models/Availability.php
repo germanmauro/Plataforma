@@ -18,4 +18,14 @@ class Availability extends Model
     {
         return $this->belongsTo("App/Models/User");
     }
+
+    public function desde()
+    {
+        return substr($this->desde,0,5);
+    }
+
+    public function hasta()
+    {
+        return substr($this->hasta,0,5);
+    }
 }
