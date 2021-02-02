@@ -52,7 +52,7 @@
                             @if($user->titulo=="")
                                 No enviado
                             @else
-                                <a class="accionmenu" target="_blank" href="/storage/{{$user->titulo}}">Abrir</a>
+                                <a class="accionmenu" target="_blank" href="{{$user->path()}}">Abrir</a>
                             @endif
                             </span>
                         </p>

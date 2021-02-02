@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Model
 {
@@ -14,6 +15,11 @@ class User extends Model
     protected $primaryKey = 'id';
 
     protected $dates = ['fechanacimiento'];
+
+    public function path()
+    {
+        return Storage::url($this->titulo);
+    }
 
     //Un usuario tiene muchas especialidades
     public function specialties()
