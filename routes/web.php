@@ -10,7 +10,7 @@ use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TimeRangeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Storage;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Artisan::call('storage:link');
 
 Route::view('/','welcome');
 Route::view('/Login','login');
