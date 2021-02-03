@@ -117,8 +117,9 @@ Route::get('/Publicaciones', [PublicationController::class, 'index']);
 Route::get("/Publicaciones/Create", [PublicationController::class, 'create'])->name("publication.create");
 Route::post('/Publicaciones/Store', [PublicationController::class, 'store']);
 
-Route::put('/Publicaciones/Update/{categoria}', [PublicationController::class, 'update'])->name("publication.update");
-Route::get('/Publicaciones/{categoria}/Edit', [PublicationController::class, 'edit'])->name("publication.edit");
+Route::put('/Publicaciones/Update/{publicacion}', [PublicationController::class, 'update'])->name("publication.update");
+Route::get('/Publicaciones/{publicacion}/Edit', [PublicationController::class, 'edit'])->name("publication.edit");
 
-Route::put('/Publicaciones/Delete/{categoria}', [PublicationController::class, 'destroy'])->name("publication.destroy");
-Route::get('/Publicaciones/{categoria}/Delete', [PublicationController::class, 'delete'])->name("publication.delete");
+Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class, 'pause'])->name("publication.pause");
+Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");
+Route::post('/Publicaciones/Delete/{publicacion}', [PublicationController::class, 'delete'])->name("publication.delete");

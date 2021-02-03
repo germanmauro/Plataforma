@@ -2,15 +2,12 @@
 @section('content')
 {{-- <link rel="stylesheet" href="{{ asset('css/estiloprincipal.css') }}"> --}}
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-{{-- <script src="{{ asset('js/bootstrap.min.js') }}"> </script> --}}
-<link rel="stylesheet" href="{{asset('Tables/jquery.dataTables.css')}}">
-<script src="{{asset('Tables/jquery.dataTables.js')}}"></script>
 <script type="text/javascript">
         $(document).ready(function() {
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [1]
+                   targets: [12]
                }]}
             );
         });
@@ -70,13 +67,12 @@
                         <td>{{$item->updated_at->format('d/m/Y H:i:s')}} </td>
                         <td>
                           @if ($item->estado=="Activa")
-                              <a class="accionmenu" href="{{route('timerange.delete',$item->id) }}" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
-                              <a class="accionmenu" href="{{route('timerange.delete',$item->id) }}" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
+                              <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
+                              <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
 
                           @endif
                           @if ($item->estado=="Pausada")
-                              Reactivar
-                          
+                              <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
                           @endif
                     </tr>
                 @endforeach
@@ -88,4 +84,98 @@
         </div>
       </div>
     </div>
+<script>
+  function pausar(id) {
+    swal("¿Desea pausar la publicación?", {
+        icon:"warning",
+        buttons: {
+            catch: {
+                text: "SI",
+                value: "catch",
+            },
+            cancel: "NO",
+            },
+        })
+          .then((value) => {
+                var token = '{{csrf_token()}}';
+                switch (value) {
+                    case "catch":
+                        $.ajax
+                            ({
+                                
+                                url: '/Publicaciones/Pausar/'+id,
+                                data: { _token:token },
+                                type: 'post',
+                                cache: false,
+                                success: function (r) {
+                                        location.reload();
+                                }
+                            });
+                        break;
+                }
+            });    
+    }
+
+  function eliminar(id) {
+    swal("¿Desea eliminar la publicación?", {
+        icon:"warning",
+        buttons: {
+            catch: {
+                text: "SI",
+                value: "catch",
+            },
+            cancel: "NO",
+            },
+        })
+          .then((value) => {
+                var token = '{{csrf_token()}}';
+                switch (value) {
+                    case "catch":
+                        $.ajax
+                            ({
+                                
+                                url: '/Publicaciones/Delete/'+id,
+                                data: { _token:token },
+                                type: 'post',
+                                cache: false,
+                                success: function (r) {
+                                   location.reload();
+                                }
+                            });
+                        break;
+                }
+            });    
+    }
+
+  function reactivar(id) {
+    swal("¿Desea ractivar la publicación?", {
+        icon:"warning",
+        buttons: {
+            catch: {
+                text: "SI",
+                value: "catch",
+            },
+            cancel: "NO",
+            },
+        })
+          .then((value) => {
+                var token = '{{csrf_token()}}';
+                switch (value) {
+                    case "catch":
+                        $.ajax
+                            ({
+                                
+                                url: '/Publicaciones/Reactivar/'+id,
+                                data: { _token:token },
+                                type: 'post',
+                                cache: false,
+                                success: function (r) {
+                                        location.reload();
+                                }
+                            });
+                        break;
+                }
+            });    
+    }
+</script>
 @endsection

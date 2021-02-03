@@ -2,9 +2,6 @@
 @section('content')
 {{-- <link rel="stylesheet" href="{{ asset('css/estiloprincipal.css') }}"> --}}
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-{{-- <script src="{{ asset('js/bootstrap.min.js') }}"> </script> --}}
-<link rel="stylesheet" href="{{asset('Tables/jquery.dataTables.css')}}">
-<script src="{{asset('Tables/jquery.dataTables.js')}}"></script>
 <script type="text/javascript">
         $(document).ready(function() {
             $('#tabla').DataTable({

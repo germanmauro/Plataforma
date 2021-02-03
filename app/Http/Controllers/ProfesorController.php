@@ -49,15 +49,15 @@ class ProfesorController extends Controller
     {
         $user->estado = "validado";
         $user->save();
-        
-        return redirect("/AdministrarProfesores")->with("success", "Profesor habilitado para operar");
+
+        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
     }
 
     public function disable(User $user)
     {
         $user->estado = "invalidado";
         $user->save();
-        return redirect("/AdministrarProfesores")->with("success", "Profesor deshabilitado");
+        session()->flash("success", "El profesor: " . $user->nombre . " ".$user->apellido." ha sido deshabilitado");
     }
 
     //Al aprobar la entrevista se habilita al profesor para enviar el contrato

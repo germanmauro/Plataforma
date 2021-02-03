@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publication;
-use App\Models\Specialty;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class PublicationController extends Controller
@@ -74,19 +74,26 @@ class PublicationController extends Controller
         return redirect("/Categoria")->with("success", "Registro actualizado correctamente");;
     }
 
-    public function delete(Publication $categoria)
+    //Pausar, eliminar y reactivar publicacion
+    public function pause(Publication $publicacion)
     {
-        if (!session()->has('Perfil') || session("Perfil") != "admin") {
-            return redirect("");
-        }
-        return view('categoria.delete', compact("categoria"));
+        $publicacion->estado = "Pausada";
+        $publicacion->save();
+        session()->flash("success", "La publicación ".$publicacion->titulo." ha sido pausada");
     }
-
-    public function destroy(Publication $categoria)
+    
+    public function reactivate(Publication $publicacion)
     {
-        $categoria->baja = "true";
-        $categoria->save();
-
-        return redirect("/Categoria")->with("success", "Registro eliminado correctamente");
+        $publicacion->estado = "Activa";
+        $publicacion->save();
+        session()->flash("success","La publicación ".$publicacion->titulo." ha sido reactivada");
+    }
+    
+    public function delete(Publication $publicacion)
+    {
+        $publicacion->estado = "Eliminada";
+        $publicacion->baja = "true";
+        $publicacion->save();
+        session()->flash("success", "La publicación " . $publicacion->titulo . " ha sido eliminada");
     }
 }
