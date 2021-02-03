@@ -120,6 +120,8 @@ Route::post('/Publicaciones/Store', [PublicationController::class, 'store']);
 Route::put('/Publicaciones/Update/{publicacion}', [PublicationController::class, 'update'])->name("publication.update");
 Route::get('/Publicaciones/{publicacion}/Edit', [PublicationController::class, 'edit'])->name("publication.edit");
 
+Route::post('/Publicaciones/DeleteImage/{publicacion}/{image}', [PublicationController::class, 'deleteimage'])->name("publication.deleteimage");
+
 Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class, 'pause'])->name("publication.pause");
 Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");
 Route::post('/Publicaciones/Delete/{publicacion}', [PublicationController::class, 'delete'])->name("publication.delete");

@@ -53,9 +53,24 @@
                         <td>{{$item->specialty->nombre}} </td>
                         <td>{{$item->duracion}} </td>
                         <td>{{$item->precio}} </td>
-                        <td><img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen1)}}" alt="imagen1"> </td>
-                        <td><img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen2)}}" alt="imagen2"> </td>
-                        <td><img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen3)}}" alt="imagen3"> </td>
+                        <td>
+                          @if ($item->imagen1!="")
+                              <a class="error" onclick="borrarimagen({{$item->id}},1)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
+                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen1)}}" alt="imagen1">
+                          @endif
+                        </td>
+                        <td>
+                          @if ($item->imagen2!="")
+                              <a class="error" onclick="borrarimagen({{$item->id}},2)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
+                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen2)}}" alt="imagen1">
+                          @endif
+                        </td>
+                        <td>
+                          @if ($item->imagen3!="")
+                              <a class="error" onclick="borrarimagen({{$item->id}},3)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
+                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen3)}}" alt="imagen1">
+                          @endif
+                        </td>
                         <td>
                           @if ($item->video!="")
                           <a class="accionmenu" href="{{$item->video}}" target="_blank" rel="noopener noreferrer">Abrir video</a>    
@@ -72,8 +87,9 @@
 
                           @endif
                           @if ($item->estado=="Pausada")
-                              <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
+                              <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-check-circle'></span></a>
                           @endif
+                          <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
                     </tr>
                 @endforeach
             </tbody>
@@ -171,6 +187,37 @@
                                 cache: false,
                                 success: function (r) {
                                         location.reload();
+                                }
+                            });
+                        break;
+                }
+            });    
+    }
+    //Borra imagenes
+    function borrarimagen(id,imagen) {
+    swal("¿Desea eliminar la imagen?", {
+        icon:"warning",
+        buttons: {
+            catch: {
+                text: "SI",
+                value: "catch",
+            },
+            cancel: "NO",
+            },
+        })
+          .then((value) => {
+                var token = '{{csrf_token()}}';
+                switch (value) {
+                    case "catch":
+                        $.ajax
+                            ({
+                                
+                                url: '/Publicaciones/DeleteImage/'+id+'/'+imagen,
+                                data: { _token:token },
+                                type: 'post',
+                                cache: false,
+                                success: function (r) {
+                                   location.reload();
                                 }
                             });
                         break;

@@ -34,7 +34,7 @@
                                 <input class="form-control" required name="duracion" maxlength="100" placeholder="Duración" value= "{{old('duracion')}}">
                             </div>
                             <div class="form-group">
-                                <label>Precio por mes (4 clases)</label>
+                                <label>Precio en Euros por mes (4 clases)</label>
                                 <input type="number" step="any" class="form-control" required name="precio" maxlength="20" placeholder="Precio" value= "{{old('precio')}}">
                             </div>
                             <div class="form-group">
@@ -50,7 +50,7 @@
                                 <input type="file" name="imagen3" accept="image/*,pdf" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Video (Adjunte la url de youtube al siguiente aquí)</label>
+                                <label>Video (Si posee un video, adjunte la url de youtube al siguiente aquí)</label>
                                 <input class="form-control" required name="video" maxlength="200" placeholder="Video (Url)" value= "{{old('video')}}">
                             </div>
                             

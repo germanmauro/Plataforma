@@ -6,6 +6,7 @@ use App\Models\Publication;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PublicationController extends Controller
 {
@@ -63,15 +64,34 @@ class PublicationController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "profesor") {
             return redirect("");
         }
-        return view('publicacion.update', compact("publicacion"));
+        $user = User::find(session("Id"));
+        return view('publicacion.update', compact("user", "publicacion"));
     }
 
-    public function update(Publication $categoria, Request $request)
+    public function update(Publication $publicacion, Request $request)
     {
-        $categoria->nombre = $request->nombre;
-        $categoria->save();
+        $publicacion->titulo = $request->titulo;
+        $publicacion->descripcion = $request->descripcion;
+        $publicacion->specialty_id = $request->especialidad;
+        $publicacion->duracion = $request->duracion;
+        $publicacion->precio = $request->precio;
+        $publicacion->video = $request->video;
+        $nombre = "";
+        if ($request->hasFile('imagen1')) {
+            $nombre = $request->file('imagen1')->store("public/publicaciones");
+            $publicacion->imagen1 = str_replace("public/publicaciones/", "", $nombre);
+        }
+        if ($request->hasFile('imagen2')) {
+            $nombre = $request->file('imagen2')->store("public/publicaciones");
+            $publicacion->imagen2 = str_replace("public/publicaciones/", "", $nombre);
+        }
+        if ($request->hasFile('imagen3')) {
+            $nombre = $request->file('imagen3')->store("public/publicaciones");
+            $publicacion->imagen3 = str_replace("public/publicaciones/", "", $nombre);
+        }
+        $publicacion->save();
 
-        return redirect("/Categoria")->with("success", "Registro actualizado correctamente");;
+        return redirect("/Publicaciones")->with("success", "Registro actualizado correctamente");;
     }
 
     //Pausar, eliminar y reactivar publicacion
@@ -95,5 +115,28 @@ class PublicationController extends Controller
         $publicacion->baja = "true";
         $publicacion->save();
         session()->flash("success", "La publicación " . $publicacion->titulo . " ha sido eliminada");
+    }
+
+    public function deleteimage(Publication $publicacion, $image)
+    {
+        //Borro las imagenes de la db y del disco
+        switch ($image) {
+            case '1':
+                Storage::disk("public")->delete("publicaciones/" . $publicacion->imagen1);
+                $publicacion->imagen1 = "";
+                break;
+            case '2':
+                Storage::disk("public")->delete("publicaciones/".$publicacion->imagen2);
+                $publicacion->imagen2 = "";
+                break;
+            case '3':
+                Storage::disk("public")->delete("publicaciones/".$publicacion->imagen3);
+                $publicacion->imagen3 = "";
+                break;
+            
+            default:
+                break;
+        }
+        $publicacion->save();
     }
 }
