@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=7') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=8') }}" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -94,12 +94,12 @@
                                 <li>
                                     <a href='/Especialidad'> <i class='fas fa-user-tag'></i> Especialidades</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href='/RangoHorario'> <i class='far fa-clock'></i> Rangos Horarios</a>
                                 </li>
                                 <li>
                                     <a href='/Monto'> <i class='far fa-money-bill-alt'></i> Monto por hora</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li>
@@ -122,6 +122,17 @@
                         @case('profesor')
                         @switch(session('Estado'))
                             @case("validado")
+                                <li>
+                                    <a href='#'><i class='fas fa-photo-video'></i> PUBLICACIONES <span class='fas fa-angle-double-right'></span></a>
+                                    <ul class='nav nav-second-level'>
+                                        <li>
+                                            <a  href='/Publicaciones/Create'> <i class='fas fa-plus'></i> Nueva publicación</a>
+                                        </li>
+                                        <li>
+                                            <a  href='/Publicaciones'> <i class='fas fa-list-ol'></i> Mis publicaciones</a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li>
                                     <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>

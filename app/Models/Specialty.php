@@ -22,4 +22,9 @@ class Specialty extends Model
         return $this->belongsToMany("App\Models\User");
     }
 
+    //Pertenece a muchos usuarios
+    public function publication() {
+        return $this->hasMany("App\Models\Specialty");
+    }
+
 }

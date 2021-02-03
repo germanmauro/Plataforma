@@ -34,4 +34,10 @@ class User extends Model
     {
         return $this->hasMany("App\Models\Availability");
     }
+
+    //Publicaciones
+    public function publications()
+    {
+        return $this->hasMany("App\Models\Publication");
+    }
 }

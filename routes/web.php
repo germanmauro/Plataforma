@@ -5,6 +5,7 @@ use App\Http\Controllers\AmountController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TimeRangeController;
@@ -110,3 +111,14 @@ Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferen
 //Subir contrato
 Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");
 Route::post('/Contrato/Store', [UserController::class, 'storecontract']);
+
+//Publicaciones
+Route::get('/Publicaciones', [PublicationController::class, 'index']);
+Route::get("/Publicaciones/Create", [PublicationController::class, 'create'])->name("publication.create");
+Route::post('/Publicaciones/Store', [PublicationController::class, 'store']);
+
+Route::put('/Publicaciones/Update/{categoria}', [PublicationController::class, 'update'])->name("publication.update");
+Route::get('/Publicaciones/{categoria}/Edit', [PublicationController::class, 'edit'])->name("publication.edit");
+
+Route::put('/Publicaciones/Delete/{categoria}', [PublicationController::class, 'destroy'])->name("publication.destroy");
+Route::get('/Publicaciones/{categoria}/Delete', [PublicationController::class, 'delete'])->name("publication.delete");
