@@ -46,7 +46,6 @@
                   <p class="curso-descripcion">
                     Especialidad: {{$item->specialty->nombre}} 
                   </p>
-                  <p class="curso-descripcion">{{$item->descripcion}}</p>
                   @if ($item->video!="")
                     <a class="curso-descripcion" href="{{$item->video}}" target="_blank">Video del curso</a>
                   @endif
