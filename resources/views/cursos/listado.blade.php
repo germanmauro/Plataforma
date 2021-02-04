@@ -21,17 +21,30 @@
         <div id="curso-wrapper" class="col-md-12">
           
           @foreach ($publicaciones as $item)
-              <div class="curso-item col-md-12">
-                
+              <div class="curso-item col-md-4">  
+                <div class="col-md-12">
+                  <p class="curso-especialidad">
+                    {{$item->specialty->nombre}} 
+                  </p>
+                </div>
                 <div class="col-md-12">
                   <p class="curso-titulo">
                     {{$item->titulo}}
                   </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <p class="curso-descripcion">
-                    Descripción: {{$item->descripcion}}
+                    @if (strlen($item->descripcion)>100)
+                    {{substr($item->descripcion,0,100)}}..
+                    @else
+                    {{$item->descripcion}}    
+                    @endif 
                   </p>
+                  <div class="col-md-12">
+                    <p class="curso-profesor">
+                      Por {{$item->user->nombre}} {{$item->user->apellido}}
+                    </p>
+                  </div>
                   <p class="curso-descripcion">
                     Duración: 
                     @if ($item->duracion=="")
@@ -43,14 +56,11 @@
                   <p class="curso-descripcion">
                     Precio: {{$item->precio}} Euros
                   </p>
-                  <p class="curso-descripcion">
-                    Especialidad: {{$item->specialty->nombre}} 
-                  </p>
                   @if ($item->video!="")
                     <a class="curso-descripcion" href="{{$item->video}}" target="_blank">Video del curso</a>
                   @endif
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   @if ($item->imagen1!="")
                       <img class="curso-image" src="{{asset('storage/publicaciones/'.$item->imagen1)}}" alt="imagen1">
                   @endif
@@ -61,11 +71,7 @@
                       <img class="curso-image" src="{{asset('storage/publicaciones/'.$item->imagen3)}}" alt="imagen1">
                   @endif
                 </div>
-                <div class="col-md-12">
-                  <p class="curso-descripcion">
-                    Curso dictado por el profesor: {{$item->user->nombre}} {{$item->user->apellido}}
-                  </p>
-                </div>
+                
             </div>
           @endforeach
         </div>

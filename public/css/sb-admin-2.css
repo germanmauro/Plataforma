@@ -219,12 +219,10 @@ p.detalle {
 }
 .curso-item {
   padding: 5px;
-  border:#010204 3px solid;
-  background: url('../image/curso-fondo.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 5px;
+  /* border:#010204 3px solid; */
+  border-radius: 5px;
+  background: linear-gradient(#968e8e,#443fd4);
+  margin: 10px;
 }
 
 .curso-titulo {
@@ -233,9 +231,24 @@ p.detalle {
   font-weight: bold;
 }
 
+.curso-especialidad {
+  font-family: 'Courgette';
+  font-size: 16px;
+  color:#337335;
+  font-weight: bold;
+}
+
+.curso-profesor {
+  font-family: 'Courgette';
+  font-size: 14px;
+  text-align: left;
+  color:#1d201d;
+}
+
 .curso-descripcion, a.curso-descripcion{
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 22px;
+  text-align: left;
+  font-size: 20px;
   color:black;
 }
 img.curso-image {
@@ -244,7 +257,6 @@ img.curso-image {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 150px;
 }
 @media (min-width: 768px) {
   #page-wrapper {
