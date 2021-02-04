@@ -211,6 +211,40 @@ p.detalle {
   font-weight: bolder;
 }
 
+/* Vista de cursos */
+#curso-wrapper {
+  background-color: white;
+  text-align: center;
+  padding: 15px;
+}
+.curso-item {
+  padding: 5px;
+  border:#010204 3px solid;
+  background: url('../image/curso-fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.curso-titulo {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.curso-descripcion, a.curso-descripcion{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  color:black;
+}
+img.curso-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;

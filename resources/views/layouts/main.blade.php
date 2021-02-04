@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=8') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=9') }}" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -68,10 +68,13 @@
                                 <a href='/Logout'><i class='fa fa-sign-out-alt'></i> Logout</a>
                             </li>
                         @else
-                            <li><a href='/Login'><i class='fas fa-exchange-alt'></i> Ingresar</a>
+                            <li>
+                                <a href='/Login'><i class='fas fa-exchange-alt'></i> Ingresar</a>
                             </li>
-                            <li><a href='/Registro/Alumno'><i class='fas fa-book-reader'></i> Registro Alumno</a>
-                            <li><a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> Registro Profesor</a>
+                            <li>
+                                <a href='/Registro/Alumno'><i class='fas fa-book-reader'></i> Registro Alumno</a>
+                            <li>
+                                <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> Registro Profesor</a>
                             </li>
                         @endif
                     </ul>
@@ -82,6 +85,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        
                         @if (session()->has('Usuario'))
                         @switch(session('Perfil'))
                             @case("admin")
@@ -159,6 +163,9 @@
                         @case('alumno')
                         @switch(session('Estado'))
                             @case("validado")
+                            <li>
+                                <a href='/Cursos'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                            </li>
                                 <li>
                                     <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
@@ -184,7 +191,10 @@
                         @break
                          @default
                     @endswitch
-                    @else    
+                    @else
+                        <li>
+                            <a href='/Cursos'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                        </li>   
                         <li>
                             <a href='/Login'><i class='fas fa-exchange-alt'></i> INGRESAR</a>
                         </li>

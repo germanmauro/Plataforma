@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AmountController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
@@ -125,3 +126,6 @@ Route::post('/Publicaciones/DeleteImage/{publicacion}/{image}', [PublicationCont
 Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class, 'pause'])->name("publication.pause");
 Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");
 Route::post('/Publicaciones/Delete/{publicacion}', [PublicationController::class, 'delete'])->name("publication.delete");
+
+//Cursos página de búsqueda y contratación
+Route::get('/Cursos', [CourseController::class, 'listado']);
