@@ -21,7 +21,7 @@
         <div id="curso-wrapper" class="col-md-12">
           
           @foreach ($publicaciones as $item)
-              <div class="curso-item col-md-4">  
+              <div class="curso-item col-md-3">  
                 <div class="col-md-12">
                   <p class="curso-especialidad">
                     {{$item->specialty->nombre}} 
