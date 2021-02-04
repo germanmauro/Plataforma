@@ -217,12 +217,15 @@ p.detalle {
   text-align: center;
   padding: 15px;
 }
+.curso-item-margin { 
+  margin: 10px;
+}
+
 .curso-item {
   padding: 5px;
   /* border:#010204 3px solid; */
   border-radius: 5px;
   background: linear-gradient(#968e8e,#443fd4);
-  margin: 10px;
 }
 
 .curso-titulo {
