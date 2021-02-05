@@ -44,7 +44,9 @@
                       </p>
                       
                       @if ($publicacion->video!="")
-                        <a class="curso-descripcion" href="{{$publicacion->video}}" target="_blank">Video del curso</a>
+                        <p class="curso-descripcion">
+                          <a class="accionmenu" href="{{$publicacion->video}}" target="_blank">Video del curso</a>
+                        </p>
                       @endif
                     </div>
                     <div class="col-md-12">
@@ -57,8 +59,18 @@
                           @if($publicacion->imagen3!="")
                             <img class="curso-image" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}" />
                           @endif
-                          </div>
-                        <a class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / Mes</a>
+                      </div>
+                       <div class="col-md-12">
+                          <p class="curso-descripcion">
+                            Disponibilidad del profesor
+                            @foreach ($publicacion->user->availabilities as $ava)
+                                  <br>   {{$ava->dia}} de: {{$ava->desde()}} hs a: {{$ava->hasta()}} hs
+                            @endforeach 
+                          </p>
+                        </div> 
+                      <div class="col-md-12">
+                        <a class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / Mes (4 clases)</a>
+                      </div>
                   </div>
                 </div>
         </div>
