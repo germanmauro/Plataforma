@@ -5,8 +5,8 @@
 <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <div class="page-header clearfix titulo">
-            <h2 class="pull-left">Listado de cursos</h2>
+          <div class="page-header clearfix curso-encabezado">
+            <h2>Listado de cursos</h2>
           </div>
         </div>
       </div>

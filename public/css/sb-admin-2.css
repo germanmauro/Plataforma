@@ -219,6 +219,18 @@ p.detalle {
 }
 
 /* Vista de cursos */
+.curso-encabezado {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 30px;
+    color: #010204;
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    border:#3b3f3b1e solid 4px;
+}
+
 #curso-wrapper {
   background-color: rgba(255, 255, 255, 0.37);
   text-align: center;
@@ -227,21 +239,26 @@ p.detalle {
 
 .curso-item {
     padding: 5px;
-    border: #d4b706 3px solid;
+    border: #18181749 3px solid;
     border-radius: 5px;
-    background: linear-gradient(#968e8e59,#0a0775ad);
+    background: url('../image/curso-fondo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 10px;
 }
 
 .curso-titulo {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 25px;
+  color:#04355f;
   font-weight: bold;
 }
 
 .curso-especialidad {
   font-family: 'Courgette';
-  font-size: 16px;
-  color:#337335;
+  font-size: 18px;
+  color:#2e332e;
   font-weight: bold;
 }
 
@@ -250,6 +267,7 @@ p.detalle {
   font-size: 14px;
   text-align: left;
   color:#1d201d;
+  margin-top: -10px;
 }
 
 .curso-descripcion, a.curso-descripcion{
