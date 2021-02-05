@@ -264,9 +264,10 @@ p.detalle {
 
 .curso-profesor {
   font-family: 'Courgette';
-  font-size: 14px;
+  font-size: 15px;
   text-align: left;
-  color:#1d201d;
+  color:#3d3792;
+  font-weight: bold;
   margin-top: -10px;
 }
 
