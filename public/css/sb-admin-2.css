@@ -193,6 +193,13 @@ p.detalle {
 
 .accionmenu {
   color:#292525;
+  text-decoration: none;
+}
+.accionmenu:hover {
+  color:white;
+  text-decoration: none;
+  background-color: #391fce;
+  padding: 5px;
 }
 
 .footer {
@@ -213,19 +220,16 @@ p.detalle {
 
 /* Vista de cursos */
 #curso-wrapper {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.37);
   text-align: center;
   padding: 15px;
 }
-.curso-item-margin { 
-  margin: 10px;
-}
 
 .curso-item {
-  padding: 5px;
-  /* border:#010204 3px solid; */
-  border-radius: 5px;
-  background: linear-gradient(#968e8e,#443fd4);
+    padding: 5px;
+    border: #d4b706 3px solid;
+    border-radius: 5px;
+    background: linear-gradient(#968e8e59,#0a0775ad);
 }
 
 .curso-titulo {
@@ -262,6 +266,25 @@ img.curso-image {
   border-radius: 4px;
   padding: 5px;
 }
+.btn-comprar {
+    margin-top:10px;
+    width: 90%;
+    color: #fff;
+    background-color: #277527;
+    border-color: #b8b6b6;
+}
+.btn-comprar:hover {
+    color: rgb(27, 26, 26);
+    background-color: #06be34;
+    font-weight: bold;
+    border-color: #101010;
+}
+
+a.curso-link,a.curso-link:hover  {
+  text-decoration: none;
+}
+/* fin vista curso */
+
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;

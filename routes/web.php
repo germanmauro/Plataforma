@@ -24,8 +24,11 @@ use Illuminate\Support\Facades\Artisan;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Cursos página de búsqueda y contratación
+Route::get('/', [CourseController::class, 'listado']);
+Route::get('/Cursos/{publicacion}', [CourseController::class, 'show']);
 
-Route::view('/','welcome');
+Route::view('/Inicio','welcome');
 Route::view('/Login','login');
 Route::get('/Logout', function () {
     //Borro la session
@@ -127,5 +130,3 @@ Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class
 Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");
 Route::post('/Publicaciones/Delete/{publicacion}', [PublicationController::class, 'delete'])->name("publication.delete");
 
-//Cursos página de búsqueda y contratación
-Route::get('/Cursos', [CourseController::class, 'listado']);

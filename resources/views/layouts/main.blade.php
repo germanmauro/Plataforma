@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=9') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=10') }}" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -85,7 +85,6 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        
                         @if (session()->has('Usuario'))
                         @switch(session('Perfil'))
                             @case("admin")
@@ -163,9 +162,6 @@
                         @case('alumno')
                         @switch(session('Estado'))
                             @case("validado")
-                            <li>
-                                <a href='/Cursos'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
-                            </li>
                                 <li>
                                     <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
@@ -191,10 +187,7 @@
                         @break
                          @default
                     @endswitch
-                    @else
-                        <li>
-                            <a href='/Cursos'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
-                        </li>   
+                    @else  
                         <li>
                             <a href='/Login'><i class='fas fa-exchange-alt'></i> INGRESAR</a>
                         </li>
@@ -203,7 +196,9 @@
                             <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> REGISTRO PROFESOR</a>
                         </li>
                     @endif
-
+                        <li>
+                            <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                        </li> 
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -217,6 +212,32 @@
                         swal("Acción correcta","{{session('success')}}", "success");
                     </script>
             @endif
+            @if(session()->has('Perfil')&&session('Perfil')!="admin")
+    @switch(session('Estado'))
+        @case("registrado")
+            <div class="alert alert-danger" role="alert">
+                Debe validar su e-mail. Le hemos enviado un correo a su casiila. 
+                Si no lo encuentra revise el spam.
+            </div>
+            @break
+        @case("contrato a enviar")
+           <div class="alert alert-danger" role="alert">
+                Debe subir el contrato recibido por e-mail firmado. <a href="/Contrato/Carga" class="btn btn-default"> Cargueló aquí </a>
+           </div>
+            @break
+        @case("a entrevistar")
+           <div class="alert alert-success" role="alert">
+                La administración de Capacitación en Español lo contactará vía e-mail para concertar una
+                entrevista vía Zoom.
+           </div>
+            @break
+        @case("a entrevistar")
+           <div class="alert alert-success" role="alert">
+                El usuario ha sido deshabilitado
+           </div>
+            @break
+    @endswitch
+@endif
             @yield('content')
         </div>
         <!-- /#page-wrapper -->

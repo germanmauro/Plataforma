@@ -25,21 +25,19 @@ class Publication extends Model
         return $this->belongsTo("App\Models\Specialty");
     }
 
-    //Retorna la cantidad de imagenes de la publicación
-    // para poder organizar la vista
-    public function cantidadImagenes()
+    //Retorna la primera imagen del curso
+    public function firstImage()
     {
-        $cantidad = 0;
         if($this->imagen1 != "") {
-            $cantidad++;
+            return "1";
         }
         if($this->imagen2 != "") {
-            $cantidad++;
+            return "2";
         }
         if($this->imagen3 != "") {
-            $cantidad++;
+            return "3";
         }
-        return $cantidad;
+        return "";
     }
 
 }

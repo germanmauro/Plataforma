@@ -49,7 +49,13 @@
                 @foreach ($publicaciones as $item)
                     <tr>
                         <td>{{$item->titulo}} </td>
-                        <td>{{$item->descripcion}} </td>
+                        <td>
+                          @if (strlen($item->descripcion)>100)
+                            {{substr($item->descripcion,0,100)}}..
+                          @else
+                            {{$item->descripcion}}    
+                          @endif 
+                       </td>
                         <td>{{$item->specialty->nombre}} </td>
                         <td>{{$item->duracion}} </td>
                         <td>{{$item->precio}} </td>
