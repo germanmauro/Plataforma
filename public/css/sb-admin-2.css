@@ -288,12 +288,12 @@ img.curso-image {
     margin-top:10px;
     width: 90%;
     color: #fff;
-    background-color: #277527;
+    background-color: #242724;
     border-color: #b8b6b6;
 }
 .btn-comprar:hover {
-    color: rgb(27, 26, 26);
-    background-color: #06be34;
+    color: rgb(236, 236, 236);
+    background-color: #3c3f3c;
     font-weight: bold;
     border-color: #101010;
 }
