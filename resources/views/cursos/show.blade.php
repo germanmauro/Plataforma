@@ -65,7 +65,7 @@
                             Disponibilidad del profesor <br>
                             @foreach ($publicacion->user->availabilities as $ava)
                               <div class="col-md-4">
-                                <p class="curso-descripcion"><i class='fas fa-clock'></i> {{$ava->dia}} de: {{$ava->desde()}} hs a: {{$ava->hasta()}} hs</p>
+                                <p class="curso-especialidad"><i class='fas fa-clock'></i> {{$ava->dia}} de: {{$ava->desde()}} hs a: {{$ava->hasta()}} hs</p>
                               </div>
                             @endforeach 
                           </p>
