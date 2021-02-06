@@ -9,6 +9,12 @@
             <h2>Listado de cursos</h2>
           </div>
         </div>
+        <div class="col-md-12">
+          <form class="buscador" action="/Cursos/Filter" method="GET">
+            <input type="text" autocomplete="off" placeholder="Buscar cursos.." name="filter">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
       </div>
         <div id="curso-wrapper">
           <div class="row">  
@@ -26,34 +32,20 @@
                         {{$item->titulo}}
                       </p>
                     </div>
-                    <div class="col-md-12">
-                      <p class="curso-descripcion">
-                        @if (strlen($item->descripcion)>100)
-                        {{substr($item->descripcion,0,100)}}..
-                        @else
-                        {{$item->descripcion}}    
-                        @endif 
-                      </p>
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$item->user->nombre}} {{$item->user->apellido}}
                         </p>
                       </div>
-                      <p class="curso-descripcion">
-                        Duración: 
-                        @if ($item->duracion=="")
-                            Sin especificar
-                        @else
-                            {{$item->duracion}}
-                        @endif
-                      </p>
                       
                       @if ($item->video!="")
+                      <div class="col-md-12">
                         <p class="curso-descripcion">
                           <a class="accionmenu" href="{{$item->video}}" target="_blank">Video del curso</a>
                         </p>
+                      </div>
                       @endif
-                    </div>
+                    
                     <div class="col-md-12">
                       @if ($item->firstImage()!="")
                           <img class="curso-image" 
@@ -74,17 +66,14 @@
                           />     
                       @endif                  
                     </div>
-                    <div class="col-md-12">
-                        @php 
-                        
-                        @endphp
-                      </div>
                         <a class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / Mes</a>
                   </div>
                 </div>
               </a>
           @endforeach
+          
         </div>
+        {{$publicaciones->links()}}
       </div>
   </div>
 @endsection

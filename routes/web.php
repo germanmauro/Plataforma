@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 //Cursos página de búsqueda y contratación
-Route::get('/', [CourseController::class, 'listado']);
+Route::get('/', [CourseController::class, 'listado'])->name("listado");
+Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("coursefilter");
 Route::get('/Cursos/{publicacion}', [CourseController::class, 'show']);
 
 Route::view('/Inicio','welcome');

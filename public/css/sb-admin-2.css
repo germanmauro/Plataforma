@@ -219,6 +219,52 @@ p.detalle {
 }
 
 /* Vista de cursos */
+/* * {
+  box-sizing: border-box;
+} */
+
+form.buscador input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.buscador button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.buscador button:hover {
+  background: #0b7dda;
+}
+
+form.buscador::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.busqueda-izquierda {
+  width: 8%;
+  padding:5px;
+  text-align: center;
+  float: right;
+  border:white solid 3px;
+}
+.busqueda-derecha {
+  width: 92%;
+  float:left;
+  border:white solid 3px;
+}
 .curso-encabezado {
     margin-top: 10px;
     margin-bottom: 2px;
@@ -241,23 +287,24 @@ p.detalle {
     padding: 5px;
     border: #18181749 3px solid;
     border-radius: 5px;
-    background: url('../image/curso-fondo.jpg');
+    background-color: #337335;
+    /* background: url('../image/curso-fondo.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     margin-bottom: 10px;
 }
 
 .curso-titulo {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   color:#04355f;
   font-weight: bold;
 }
 
 .curso-especialidad {
   font-family: 'Courgette';
-  font-size: 18px;
+  font-size: 16px;
   color:#2e332e;
   font-weight: bold;
 }
