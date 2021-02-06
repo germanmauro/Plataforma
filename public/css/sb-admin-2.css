@@ -285,9 +285,9 @@ form.buscador::after {
 
 .curso-item {
     padding: 5px;
-    border: #18181749 3px solid;
-    border-radius: 5px;
-    background-color: #337335;
+    border: #18181749 5px solid;
+    border-radius: 15px;
+    background-color: #f5f5f569;
     /* background: url('../image/curso-fondo.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -318,10 +318,16 @@ form.buscador::after {
   margin-top: -10px;
 }
 
-.curso-descripcion, a.curso-descripcion{
+.curso-descripcion{
   font-family: 'Josefin Sans', sans-serif;
   text-align: left;
   font-size: 20px;
+  color:black;
+}
+a.curso-descripcion{
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: left;
+  font-size: 18px;
   color:black;
 }
 img.curso-image {
