@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Publication extends Model
 {
@@ -38,6 +39,11 @@ class Publication extends Model
             return "3";
         }
         return "";
+    }
+
+    public function slug()
+    {
+        return Str::slug($this->titulo,'-');
     }
 
 }

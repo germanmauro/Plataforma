@@ -293,7 +293,7 @@ form.buscador::after {
     padding: 5px;
     border: #18181749 5px solid;
     border-radius: 15px;
-    background-color: #f5f5f569;
+    background-color: #fffffde5;
     /* background: url('../image/curso-fondo.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -364,7 +364,7 @@ a.curso-link,a.curso-link:hover  {
 
 .curso-share {
   text-align: left;
-  padding: 5px;
+  padding: 5px 15px 0px 15px;
   margin-top: 5px;
   font-size:x-large;
   font-weight: bolder;
@@ -375,7 +375,7 @@ a.curso-link,a.curso-link:hover  {
 }
 
 .curso-favorite:hover {
-    color: red;
+    color: #ca0202;
 }
 
 .curso-compartir {
@@ -383,7 +383,7 @@ a.curso-link,a.curso-link:hover  {
 }
 
 .curso-compartir:hover {
-    color: rgb(0, 141, 63);
+    color: rgb(0, 0, 0);
 }
 
 

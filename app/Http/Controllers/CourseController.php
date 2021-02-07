@@ -34,8 +34,9 @@ class CourseController extends Controller
         return view("cursos.listado", compact("publicaciones", "request"));
     }
 
-    public function show(Publication $publicacion)
+    public function show($id,$slug="")
     {
+        $publicacion = Publication::find($id);
         return view("cursos.show", compact("publicacion"));
     }
 

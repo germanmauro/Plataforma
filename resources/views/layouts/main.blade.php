@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand">
-                    <a href="/" class="marca"><img width="40px" src="{{asset('image/logo.png')}}" alt="CEE"/> CAPACITACIÓN EN ESPAÑOL</a>
+                    <a href="/" class="marca">CAPACITACIÓN EN ESPAÑOL</a>
                 </div>
             </div>
             <!-- /.navbar-header -->
