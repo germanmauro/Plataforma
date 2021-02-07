@@ -66,7 +66,14 @@
                           />     
                       @endif                  
                     </div>
-                        <a class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / Mes</a>
+                        <a class="btn btn-comprar" href="" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / Mes</a>
+                      <div class="col-md-12 curso-share">
+                        <a class="curso-favorite" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                        <a class="curso-compartir" title='Comaprtir'><i class='fa fa-share-alt'></i></a>
+                        <a class="curso-compartir" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$item->id}}" data-text="{{$item->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp'></i></a>
+                   
+                      </div>
+                      
                   </div>
                 </div>
               </a>
@@ -76,4 +83,6 @@
         {{$publicaciones->links()}}
       </div>
   </div>
+  
+
 @endsection

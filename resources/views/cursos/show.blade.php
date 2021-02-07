@@ -73,6 +73,7 @@
                       <div class="col-md-12">
                         <a class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / Mes (4 clases)</a>
                       </div>
+                      
                   </div>
                 </div>
         </div>

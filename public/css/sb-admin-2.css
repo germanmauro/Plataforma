@@ -224,6 +224,7 @@ p.detalle {
 } */
 
 form.buscador input[type=text] {
+  box-sizing: border-box;
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -233,6 +234,7 @@ form.buscador input[type=text] {
 }
 
 form.buscador button {
+  box-sizing: border-box;
   float: left;
   width: 20%;
   padding: 10px;
@@ -245,15 +247,18 @@ form.buscador button {
 }
 
 form.buscador button:hover {
+  box-sizing: border-box;
   background: #0b7dda;
 }
 
 form.buscador::after {
   content: "";
+  box-sizing: border-box;
   clear: both;
   display: table;
 }
 .busqueda-izquierda {
+  box-sizing: border-box;
   width: 8%;
   padding:5px;
   text-align: center;
@@ -261,6 +266,7 @@ form.buscador::after {
   border:white solid 3px;
 }
 .busqueda-derecha {
+  box-sizing: border-box;
   width: 92%;
   float:left;
   border:white solid 3px;
@@ -355,6 +361,34 @@ img.curso-image {
 a.curso-link,a.curso-link:hover  {
   text-decoration: none;
 }
+
+.curso-share {
+  text-align: left;
+  padding: 5px;
+  margin-top: 5px;
+  font-size:x-large;
+  font-weight: bolder;
+}
+
+.curso-favorite {
+  color: #5a5454;
+}
+
+.curso-favorite:hover {
+    color: red;
+}
+
+.curso-compartir {
+  color: #5a5454;
+}
+
+.curso-compartir:hover {
+    color: rgb(0, 141, 63);
+}
+
+
+
+
 /* fin vista curso */
 
 @media (min-width: 768px) {
@@ -653,7 +687,7 @@ table.menutable th, table.menutable td {
     a.pedido, a:hover.pedido{
       font-size: 14px;
     }
-    button{
+    /* button{
       margin-top: 5px;
-    }
+    } */
 }       

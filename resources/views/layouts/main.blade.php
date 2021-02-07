@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=12') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=13') }}" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.png" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
