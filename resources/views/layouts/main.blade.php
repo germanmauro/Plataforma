@@ -255,21 +255,21 @@
 @endif
             @yield('content')
         </div>
-        <script>
-    
-            // var element = document.querySelector("#page-wrapper");
-
-            // // scroll to element
-            // element.scrollIntoView();
         
-        </script>
         <!-- /#page-wrapper -->
         <div class="footer">
             Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a>
         </div>
     </div>
     <!-- /#wrapper -->
+    <script>
+    
+        var element = document.querySelector("#page-wrapper");
 
+        // scroll to element
+        element.scrollIntoView();
+    
+    </script>
 
     <!-- jQuery -->
     <script src="{{ asset('js/jquery.min.js')}}"></script>
