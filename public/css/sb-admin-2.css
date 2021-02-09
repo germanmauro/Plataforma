@@ -10,6 +10,7 @@
 body {
   background-color: #d1b7b7;
   font-family: 'Josefin Sans', sans-serif;
+  font-size:16px
 }
 #wrapper {
   width: 100%;
@@ -24,6 +25,37 @@ a.marca:hover,a.marca:active {
  color:thistle;
  text-decoration: none;
 }
+
+#banner {
+  /* width: 100%; */
+  margin: 0!important;
+  padding:10px;
+  background-color:white;
+}
+#banner img {
+  height: 180px;
+}
+.imagenbanner{
+  text-align: center;
+  height: 180px;
+}
+
+ .textobanner {
+  font-family: 'Philosopher', sans-serif;
+  text-align: center;
+   display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+}
+#banner h1 {
+  font-size: 38px;
+}
+
+#banner p {
+  font-size: 32px;
+}
+
 .titulo {
     margin-top: 10px;
     margin-bottom: 2px;
@@ -394,7 +426,7 @@ a.curso-link,a.curso-link:hover  {
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
-    margin: 0 0 0 250px;
+    /* margin: 0 0 0 250px; */
     padding: 0 30px;
     border-left: 1px solid #e7e7e7;
   }
@@ -687,7 +719,11 @@ table.menutable th, table.menutable td {
     a.pedido, a:hover.pedido{
       font-size: 14px;
     }
-    /* button{
-      margin-top: 5px;
-    } */
+    #banner h1 {
+      font-size: x-large;
+    }
+
+    #banner p {
+      font-size: large;
+    }
 }       

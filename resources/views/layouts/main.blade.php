@@ -12,8 +12,8 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=14') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="./favicon.png" />
+    <link href="{{ asset('css/sb-admin-2.css?v=15') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
     <link rel="stylesheet" href="{{ asset('Tables/jquery.dataTables.css') }}">
@@ -25,30 +25,43 @@
 <body>
 
     <div id="wrapper">
+        <div id="banner" class="row">
+            <div class="col-md-12">
+                <div class="imagenbanner col-md-3">
+                	<img src="{{asset('image/logo.png')}}"/>
+                </div>
+                <div class="textobanner col-md-9">
 
+                        <h1>
+                            CAPACITACIÓN EN ESPAÑOL
+                        </h1>
+                        <p>
+                            Los cursos que buscas están aquí
+                        </p>
+                    
+                </div>
+            </div>
+        </div>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+            <div class="">
                 <button id='btnmenu' type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-brand">
-                    <a href="/" class="marca">CAPACITACIÓN EN ESPAÑOL</a>
-                </div>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-
-
                 <li class="dropdown">
 
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                         @if(session()->has('Usuario'))
                             <span class='nombre'>{{session("Nombre")}} {{session("Apellido")}} </span>
+                        @else
+                            Ingresa al sistema
                         @endif
                         
                         <i class=' fa fa-user fa-fw'></i> <i class='fa fa-caret-down'></i>
@@ -82,8 +95,8 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+            <div class="navbar-collapse" role="navigation">
+                <div class="navbar-collapse pull-left">
                     <ul class="nav" id="side-menu">
                         @if (session()->has('Usuario'))
                         @switch(session('Perfil'))
