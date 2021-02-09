@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=6') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=16') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=17') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -206,6 +206,8 @@
                         </li>
                         <li>
                             <a href='/Registro/Alumno'><i class='fas fa-book-reader'></i> REGISTRO ALUMNO</a>
+                        </li>
+                        <li>
                             <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> REGISTRO PROFESOR</a>
                         </li>
                     @endif
@@ -254,7 +256,12 @@
             @yield('content')
         </div>
         <script>
-            window.location.hash = "page-wrapper";
+    
+            // var element = document.querySelector("#page-wrapper");
+
+            // // scroll to element
+            // element.scrollIntoView();
+        
         </script>
         <!-- /#page-wrapper -->
         <div class="footer">
@@ -276,16 +283,6 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{ asset('js/metisMenu.min.js')}}"></script>
     <!-- Alertas -->
-
-    <script>
-
-        var element = document.getElementById("page-wrapper");
-
-element.scrollIntoView();
-element.scrollIntoView(false);
-element.scrollIntoView({block: "end"});
-element.scrollIntoView({block: "end", behavior: "smooth"});
-    </script>
 </body>
 
 </html>

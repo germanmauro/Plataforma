@@ -12,12 +12,13 @@ html {
 }
 
 body {
-  background-color: #d1b7b7;
+  background-color: #252525;
   font-family: 'Josefin Sans', sans-serif;
   font-size:16px
 }
 #wrapper {
-  width: 100%;
+  /* width: 100%; */
+  margin:10px;
   background-color: #595a6b;
 }
 a.marca {
@@ -54,10 +55,12 @@ a.marca:hover,a.marca:active {
 }
 #banner h1 {
   font-size: 38px;
+  color: #024b94;
 }
 
 #banner p {
   font-size: 32px;
+  color: #0c3a63;
 }
 
 .titulo {
