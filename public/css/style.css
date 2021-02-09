@@ -9,10 +9,15 @@
   color: white;
   font-style: oblique;
 }
+.form a:hover {
+ color: black;
+ font-weight: bold;
+ text-decoration: none;
+}
 .form {
   position: relative;
   z-index: 1;
-  background: #040404b9;
+  background: #0c3a63b9;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
