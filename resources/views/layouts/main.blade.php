@@ -267,7 +267,7 @@
         var element = document.querySelector("#side-menu");
 
         // scroll to element
-        // element.scrollIntoView();
+        element.scrollIntoView();
     
     </script>
 
