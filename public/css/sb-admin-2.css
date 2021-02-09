@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #d1b7b7;
   font-family: 'Josefin Sans', sans-serif;

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Capacitación en español, todos los cursos que buscas">
     <meta name="author" content="mygsystems">
 
     <title>Capacitación en Español</title>
@@ -253,6 +253,9 @@
 @endif
             @yield('content')
         </div>
+        <script>
+            window.location.hash = "page-wrapper";
+        </script>
         <!-- /#page-wrapper -->
         <div class="footer">
             Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a>
@@ -276,9 +279,12 @@
 
     <script>
 
-        function openmenu() {
-            document.getElementById('btnmenu').click();
-        }
+        var element = document.getElementById("page-wrapper");
+
+element.scrollIntoView();
+element.scrollIntoView(false);
+element.scrollIntoView({block: "end"});
+element.scrollIntoView({block: "end", behavior: "smooth"});
     </script>
 </body>
 

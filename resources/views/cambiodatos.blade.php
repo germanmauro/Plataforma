@@ -25,7 +25,7 @@
                             
                             <div class="input-container">      
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20"  value= "{{old('nombre',$user->nombre)}}">
-                                <label>Nombre PRobando</label>
+                                <label>Nombre</label>
                             </div>
                             <div class="input-container">
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido',$user->apellido)}}">
