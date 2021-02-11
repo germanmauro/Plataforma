@@ -813,6 +813,7 @@ table.menutable th, table.menutable td {
     }
     #menu-secundario {
       display: block;
+      padding: 0;
     }
     
     #menu-secundario a{
