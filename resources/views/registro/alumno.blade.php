@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12 box">
+                    <div class="col-lg-6 box">
                         <form class="formregistro" name="envio" id="envio" role="form" action="/Registro/StoreAlumno" method="post">
                             @csrf
                             <div class="error">
@@ -42,6 +42,8 @@
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
+                        </div>
+                        <div class="col-lg-6 box">
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
                                 <label>Teléfono</label>

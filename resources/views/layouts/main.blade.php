@@ -11,8 +11,8 @@
 
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css?v=8') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=18') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css?v=9') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=19') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -36,12 +36,13 @@
                             CAPACITACIÓN EN ESPAÑOL
                         </h1>
                         <p>
-                            Los cursos que buscas están aquí
+                            Aprendé desde tu casa lo que siempre deseaste
                         </p>
                     
                 </div>
             </div>
         </div>
+        
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="">
@@ -52,11 +53,32 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
+            
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                @if(session()->has('Usuario'))
+                <li class="dropdown notifications">
+                    
+                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                        <i class='fa fa-bell'></i> <span class="label label-warning">3</span>
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href='/Login'>Ejemplo de notificación 1</a>
+                        </li>
+                        <li>
+                            <a href='/Login'>Ejemplo de notificación 2</a>
+                        </li>
+                        <li>
+                            <a href='/Login'>Ejemplo de notificación mas larga 3</a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
                 <li class="dropdown">
-
+                    
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                         @if(session()->has('Usuario'))
                             <span class='nombre'>{{session("Nombre")}} {{session("Apellido")}} </span>
@@ -66,7 +88,7 @@
                         
                         <i class=' fa fa-user fa-fw'></i> <i class='fa fa-caret-down'></i>
                     </a>
-
+                    
                     <ul class="dropdown-menu dropdown-user">
                         @if (session()->has('Usuario'))
                             <li>
@@ -92,12 +114,19 @@
                         @endif
                     </ul>
                 </li>
+                
             </ul>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-collapse" role="navigation">
                 <div class="navbar-collapse pull-left">
                     <ul class="nav" id="side-menu">
+                        <li>
+                            <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                        </li> 
+                        <li>
+                            <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
+                        </li> 
                         @if (session()->has('Usuario'))
                         @switch(session('Perfil'))
                             @case("admin")
@@ -205,22 +234,25 @@
                             <a href='/Login'><i class='fas fa-exchange-alt'></i> INGRESAR</a>
                         </li>
                         <li>
-                            <a href='/Registro/Alumno'><i class='fas fa-book-reader'></i> REGISTRO ALUMNO</a>
-                        </li>
-                        <li>
-                            <a href='/Registro/Profesor'><i class='fas fa-chalkboard-teacher'></i> REGISTRO PROFESOR</a>
+                            <a href='#'><i class='fas fa-book'></i> REGISTRO <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/Registro/Alumno'> <i class='fas fa-book-reader'></i> Alumno</a>
+                                </li>
+                                <li>
+                                    <a  href='/Registro/Profesor'> <i class='fas fa-chalkboard-teacher'></i> Profesor</a>
+                                </li>
+                            </ul>
                         </li>
                     @endif
-                        <li>
-                            <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
-                        </li> 
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
+        @yield('header')
         <div id="page-wrapper">
             @if (session()->has('success'))
                     <script>
@@ -263,7 +295,7 @@
     </div>
     <!-- /#wrapper -->
     <script>
-    
+       
         var element = document.querySelector("#side-menu");
 
         // scroll to element

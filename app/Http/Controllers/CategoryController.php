@@ -17,6 +17,14 @@ class CategoryController extends Controller
         return view("categoria.index",compact("categorias"));
     }
 
+    //Listar para cursos
+    public function showcategories()
+    {
+        $categorias = Category::where('baja','false')->get();
+      
+        return view("cursos.categorias",compact("categorias"));
+    }
+
     public function store(Request $request)
     {
         $categoria = new Category();

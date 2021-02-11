@@ -19,7 +19,7 @@ body {
 #wrapper {
   /* width: 100%; */
   margin:10px;
-  background-color: #595a6b;
+  background-color: #0c3a63;
 }
 a.marca {
   font-family: 'Philosopher', sans-serif;
@@ -37,9 +37,11 @@ a.marca:hover,a.marca:active {
   padding:10px;
   background-color:white;
 }
+
 #banner img {
   height: 180px;
 }
+
 .imagenbanner{
   text-align: center;
   height: 180px;
@@ -48,19 +50,61 @@ a.marca:hover,a.marca:active {
  .textobanner {
   font-family: 'Philosopher', sans-serif;
   text-align: center;
-   display: inline-grid;
+   display: grid;
   justify-content: center;
   align-items: center;
   height: 180px;
 }
+
 #banner h1 {
-  font-size: 38px;
+  font-size: 48px;
+  text-align: center;
   color: #024b94;
 }
 
 #banner p {
-  font-size: 32px;
+  font-size: 36px;
+  text-align: center;
   color: #0c3a63;
+}
+
+#banner-buscador {
+  width: 100%;
+  padding: 10px 25px;
+  display: grid;
+  height: 250px;
+  background: url('../image/fondo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#banner-buscador h2 {
+  color:#0c0c0c;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#menu-secundario {
+  min-height: 50px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  border-bottom: white 1px solid;
+  background-color:#024b94;
+}
+
+#menu-secundario a{
+  text-transform: uppercase;
+  padding: 20px 15px;
+  text-decoration: none;
+  display: grid;
+  color:white;
+}
+#menu-secundario a:hover{
+  text-decoration: none;
+  background-color: white;
+  color: #024b94;
 }
 
 .titulo {
@@ -403,7 +447,7 @@ a.curso-link,a.curso-link:hover  {
 
 .curso-share {
   text-align: left;
-  padding: 5px 15px 0px 15px;
+  padding: 5px 40px 0px 40px;
   margin-top: 5px;
   font-size:x-large;
   font-weight: bolder;
@@ -418,6 +462,8 @@ a.curso-link,a.curso-link:hover  {
 }
 
 .curso-compartir {
+  float: right;
+  padding-left: 10px;
   color: #5a5454;
 }
 
@@ -425,11 +471,20 @@ a.curso-link,a.curso-link:hover  {
     color: rgb(0, 0, 0);
 }
 
-
-
-
 /* fin vista curso */
 
+.open>.dropdown-user,.open>.dropdown-menu {
+    display: block;
+    position: absolute;
+    width: 260px;
+}
+
+.open>.dropdown-menu>li>a {
+    color: #444444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px;
+}
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
@@ -485,8 +540,7 @@ a.curso-link,a.curso-link:hover  {
   margin-left: -123px;
 }
 .navbar-top-links .dropdown-user {
-  right: 0;
-  left: auto;
+  left: 0;
 }
 .sidebar .sidebar-nav.navbar-collapse {
   padding-left: 0;
@@ -717,6 +771,10 @@ table.menutable th, table.menutable td {
     color: white;
 }
 @media only screen and (max-device-width: 480px) {
+    #page-wrapper {
+      padding:0;
+    }
+
     h1.menutext   {
         font-size: 25px;
     }
@@ -732,5 +790,25 @@ table.menutable th, table.menutable td {
 
     #banner p {
       font-size: large;
+    }
+
+    #banner-buscador {
+      padding: 0;
+    }
+    #banner-buscador h2 {
+      font-size: 20px;
+    }
+    #menu-secundario {
+      display: block;
+    }
+    form.buscador ::placeholder {
+      font-size: 12px;
+    }
+   .content-fluid {
+     padding: 0;
+   }
+
+   .curso-compartir {
+      float: none;
     }
 }       

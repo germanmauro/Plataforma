@@ -12,6 +12,7 @@ use App\Http\Controllers\SpecialtyController;
 use App\Http\Controllers\TimeRangeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/', [CourseController::class, 'listado'])->name("listado");
 Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("coursefilter");
 Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
+//Cursos por categorias
+Route::get('/Cursos/Categorias', [Category::class, 'showcategories'])->name("showcategories");
 
 Route::view('/Inicio','welcome');
 Route::view('/Login','login');
@@ -53,6 +56,7 @@ Route::get('/Registro/Profesor', [RegisterController::class, 'registroprofesor']
 Route::post('/Registro/StoreProfesor', [RegisterController::class, 'storeprofesor']);
 
 Route::view('Registro/Terminos','registro.terminos');
+Route::view('Contacto','contacto');
 
 Route::view('/RegistroExitoso', 'messages.successuser');
 //Verificación email

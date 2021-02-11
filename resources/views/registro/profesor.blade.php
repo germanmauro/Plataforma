@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12 box">
+                    <div class="col-lg-6 box">
                         <form class="formregistro" name="envio" id="envio" role="form" action="/Registro/StoreProfesor" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="error">
@@ -82,6 +82,8 @@
                                 @endif
                             @endforeach
                             </div>
+                            </div>
+                        <div class="col-lg-6 box">
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div class="col-md-12 grillahorario">
                                 <label>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</label>
