@@ -88,6 +88,7 @@ a.marca:hover,a.marca:active {
 #menu-secundario {
   min-height: 50px;
   width: 100%;
+  padding-left: 40px;
   text-align: center;
   display: flex;
   border-bottom: white 1px solid;
@@ -96,7 +97,7 @@ a.marca:hover,a.marca:active {
 
 #menu-secundario a{
   text-transform: uppercase;
-  padding: 20px 15px;
+  padding: 20px 35px;
   text-decoration: none;
   display: grid;
   color:white;
@@ -377,10 +378,6 @@ form.buscador::after {
     border: #18181749 5px solid;
     border-radius: 15px;
     background-color: #fffffde5;
-    /* background: url('../image/curso-fondo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
     margin-bottom: 10px;
 }
 
@@ -650,42 +647,58 @@ a.curso-link,a.curso-link:hover  {
   background-color: #eee !important;
 }
 
-/* Slider */
-:root {
-  --gutter: 20px;
+/*Como funciona*/
+.comofunciona{
+  font-family:'Philosopher', sans-serif;
+  text-align: center;
+  color:white;
 }
 
-.app {
-  /* padding: var(--gutter) 0; */
-  margin-bottom: 10px;
-  display: grid;
-  grid-gap: var(--gutter) 0;
-  grid-template-columns: var(--gutter) 1fr var(--gutter);
-  align-content: start;
+.comofunciona h1{
+  color:white;
+  font-size:36px;
 }
 
-.app > * {
-  grid-column: 2 / -2;
+.comofunciona h2{
+  margin-top: 5px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 26px;
 }
 
-.app > .full {
-  grid-column: 1 / -1;
+.comofunciona p{
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: justify;
 }
-
-.hs {
-  display: grid;
-  grid-gap: calc(var(--gutter) / 2);
-  grid-template-columns: repeat(15, 100px);
-  grid-template-rows: minmax(120px, 1fr);
-  
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
-  padding-bottom: 15px;
-  /* margin-bottom: calc(-.25 * var(--gutter)); */
-}
-
+/*Como funciona*/
 
 /* Category styles */
+#categorias {
+ display: flex;
+ /* overflow: auto; */
+}
+
+.categoria-item {
+  border: 1px solid white;
+  font-size: 24px;
+  margin: 5px;
+  background-color: #0c3a63;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.categoria-item:hover {
+  border:1px solid#0c3a63;
+  border-radius: 15px;
+  color: #0c3a63;
+  font-weight: bolder;
+  font-family: Philosopher;
+  background-color: white;
+}
+
+/* Fin Category styles */
 
 
 ul {
@@ -801,6 +814,11 @@ table.menutable th, table.menutable td {
     #menu-secundario {
       display: block;
     }
+    
+    #menu-secundario a{
+      border-bottom: white 1px solid; 
+    }
+
     form.buscador ::placeholder {
       font-size: 12px;
     }
@@ -811,4 +829,8 @@ table.menutable th, table.menutable td {
    .curso-compartir {
       float: none;
     }
+    #categorias {
+      display: inline-block;
+    }
+
 }       

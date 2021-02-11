@@ -20,7 +20,7 @@ class CategoryController extends Controller
     //Listar para cursos
     public function showcategories()
     {
-        $categorias = Category::where('baja','false')->get();
+        $categorias = Category::where('baja','false')->orderBy('nombre')->get();
       
         return view("cursos.categorias",compact("categorias"));
     }

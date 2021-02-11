@@ -10,7 +10,7 @@
   <div id="menu-secundario">
     <a href="/Cursos/Categorias">Qué te gustaría aprender</a>
     <a href="">Cursos</a>
-    <a href="">Cómo funciona</a>
+    <a href="/Info/ComoFunciona">Cómo funciona</a>
     <a href="">Nuestros profesores</a>
   </div>
 @endsection

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Publication;
+use App\Models\Specialty;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -32,6 +34,13 @@ class CourseController extends Controller
         
 
         return view("cursos.listado", compact("publicaciones", "request"));
+    }
+
+    public function showbycategories($id,$slug="")
+    {
+        $categoria = Category::find($id);
+        $publicaciones = $categoria->publications;
+        return view("cursos.listadocategoria", compact("publicaciones"));
     }
 
     public function show($id,$slug="")

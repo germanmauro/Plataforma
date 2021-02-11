@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -18,4 +18,13 @@ class Category extends Model
         return $this->hasMany('App\Models\Specialty',"categoria","id")->where("baja","false")->orderBy("nombre");
     }
 
+    //Para obtener las publicaciones a través de una categoria
+    public function publications() {
+        return $this->hasManyThrough(Publication::class, Specialty::class,"categoria");
+    }
+
+    public function slug()
+    {
+        return Str::slug($this->nombre, '-');
+    }
 }
