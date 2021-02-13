@@ -68,4 +68,11 @@ class ProfesorController extends Controller
         return redirect("/AdministrarProfesores")->with("success", "Entrevista aprobada, se ha enviado un contrato al profesor");
         // return redirect("Validacion/Contrato"); //Esta url va en el mail de contrato
     }
+
+    //Listado profesores validados con calificaciones
+    public function infoprofesor()
+    {
+        $users = User::where(['baja' => 'false', 'perfil' => 'profesor','estado' => 'validado'])->get();
+        return view("cursos.profesores", compact("users"));
+    }
 }

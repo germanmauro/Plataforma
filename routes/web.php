@@ -27,14 +27,14 @@ use Illuminate\Support\Facades\Artisan;
 */
 //Cursos página de búsqueda y contratación
 Route::get('/', [CourseController::class, 'listado'])->name("listado");
+Route::view('/PoliticaPrivacidad', 'politica')->name("politica");
 Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("coursefilter");
 //Cursos por categorias
 Route::view('/Info/ComoFunciona', 'cursos.comofunciona')->name('comofunciona');
+Route::get('/Info/Profesores', [ProfesorController::class, 'infoprofesor'])->name("infoprofesor");
 Route::get('/Cursos/Categorias', [CategoryController::class, 'showcategories'])->name("showcategories");
 Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);
 Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
-
-
 
 Route::view('/Inicio','welcome');
 Route::view('/Login','login');

@@ -11,8 +11,8 @@
 
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css?v=10') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=21') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css?v=11') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=22') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -66,13 +66,13 @@
                     
                     <ul class="dropdown-menu">
                         <li>
-                            <a href='/Login'>Ejemplo de notificación 1</a>
+                            <a href='/'>Ejemplo de notificación 1</a>
                         </li>
                         <li>
-                            <a href='/Login'>Ejemplo de notificación 2</a>
+                            <a href='/'>Ejemplo de notificación 2</a>
                         </li>
                         <li>
-                            <a href='/Login'>Ejemplo de notificación mas larga 3</a>
+                            <a href='/'>Ejemplo de notificación mas larga 3</a>
                         </li>
                     </ul>
                 </li>
@@ -290,13 +290,13 @@
         
         <!-- /#page-wrapper -->
         <div class="footer">
-            Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a>
+            Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a> - <a href="/PoliticaPrivacidad">Política de privacidad</a>
         </div>
     </div>
     <!-- /#wrapper -->
     <script>
        
-        var element = document.querySelector("#side-menu");
+        var element = document.querySelector("#page-wrapper");
 
         // scroll to element
         element.scrollIntoView();

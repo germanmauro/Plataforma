@@ -14,6 +14,11 @@
           <div class="infoprofesor">
             <div class="row">
                 <div class="col-md-12">
+                    @if($user->foto!="")
+                        <img class="perfil-img" src="/storage/foto/{{$user->foto}}"/>
+                    @endif
+                </div>
+                <div class="col-md-12">
                     <p class="detalle">
                             Estado
                             <span class="detalledesc">

@@ -1,9 +1,10 @@
+Ver la parte de profesor para guardar también la foto
+
+Ver generar un registro de clase (sin pago)
+Buscar los días disponibles.
+
 Fijarse la parte de especialidades para pasarle la categoría.OK
 Cómo se pasa? OK
-
-PREGUNTAR:
-YA ESTÁ EL HOSTING? NO, NO ESTÁ
-PROBAR INSTALAR MIGRAR DB, ETC.
 
 REGISTRO
 Alumno:
@@ -21,13 +22,8 @@ ademas de los datos de alumno tambien deben OK
 
 Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub) OK
 
-Que los usuario suban el contrato. OK, pero solo para profesor NO
-
 Que el administrador acredite el perfil de los usuarios despues de ver el contrato.
 Alumno habilitado al validar email OK
-
-Para el registro del profesor lo que conviene hacer es dividir el registro en dos partes.
-la segunda parte especialidades titulo y horario. OK PERO MEDIO RARO
 
 Ver el tema de resetear el password OK
 
@@ -38,11 +34,10 @@ Validar hora menos mas que sea mas de una hora de diferencia.
 
 DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
 REGISTRO OK.
-ENVIO DE CONTRATO POR EMAIL.
-USUARIOS.
-ADMINISTRACIÓN.
-ENVÍO DE EMAIL.
-VER PROCESO SICRONIZACIÓN PARA ENVIO DE EMAIL 30 MIN ANTES DE LAS CLASES, ETC.
+USUARIOS.OK
+ADMINISTRACIÓN.OK
+ENVÍO DE EMAIL.OK
+VER PROCESO SICRONIZACIÓN PARA ENVIO DE EMAIL 30 MIN ANTES DE LAS CLASES, ETC. (Con Cron)
 
 TABLAS
 ********************

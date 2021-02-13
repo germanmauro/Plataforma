@@ -70,7 +70,7 @@
           @endforeach
           
         </div>
-        {{-- {{$publicaciones->links()}} --}}
+        {{$publicaciones->links()}}
       </div>
   </div>
   

@@ -54,6 +54,10 @@
                                 <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
                                 <label>Usuario</label>
                             </div>
+                            <div class="form-group">
+                                <label>Subir foto de perfil.</label>
+                                <input required type="file" name="foto" id="foto" accept="image/*" class="form-control">
+                            </div>
                             <div class="input-container">
                                 <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria')}}">
                                 <label>Cuenta Corriente</label>

@@ -39,7 +39,7 @@ class CourseController extends Controller
     public function showbycategories($id,$slug="")
     {
         $categoria = Category::find($id);
-        $publicaciones = $categoria->publications;
+        $publicaciones = $categoria->publications()->paginate(15);
         return view("cursos.listadocategoria", compact("publicaciones"));
     }
 

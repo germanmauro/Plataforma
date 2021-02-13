@@ -149,6 +149,13 @@ class RegisterController extends Controller
             $nombre = str_replace("public/", "", $nombre);
         }
         $user->titulo = $nombre;
+        //Foto
+        $nombre = "";
+        if ($request->hasFile('foto')) {
+            $nombre = $request->file('foto')->store("public/foto");
+            $nombre = str_replace("public/foto/", "", $nombre);
+        }
+        $user->foto = $nombre;
         $user->baja = "false";
         $user->save();
         //Agrego las especialidades
