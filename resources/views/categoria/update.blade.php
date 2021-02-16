@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form name="envio" id="envio" role="form" action="{{route("category.update",$categoria)}}" method="POST">
+                        <form name="envio" id="envio" role="form" action="{{route("category.update",$categoria)}}" method="POST" enctype="multipart/form-data">
                             @method("put")
                             @csrf
                             
@@ -18,7 +18,11 @@
                                 <label>Nombre</label>
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{$categoria->nombre}}">
                             </div>
-
+                            <div class="form-group">
+                                <label>Imagen (Si desea matener la misma no es necesario cargarla otra vez)</label>
+                                <img height="60px" src="{{asset('storage/categorias/'.$categoria->imagen)}}">
+                                <input type="file" name="imagen" accept="image/*,pdf" class="form-control">
+                            </div>
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
                             <a href="/Categoria"  class="btn btn-danger">Cencelar</a>
                         </form>

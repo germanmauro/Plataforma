@@ -10,14 +10,17 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form name="envio" id="envio" role="form" action="/Categoria/Store" method="post">
+                        <form name="envio" id="envio" role="form" action="/Categoria/Store" method="post" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{old('nombre')}}">
                             </div>
-
+                            <div class="form-group">
+                                <label>Imágen (Opcional)</label>
+                                <input type="file" name="imagen" accept="image/*,pdf" class="form-control">
+                            </div>
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
                             <a href="/Categoria"  class="btn btn-danger">Cencelar</a>
                         </form>

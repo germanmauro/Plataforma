@@ -29,6 +29,11 @@ class CategoryController extends Controller
     {
         $categoria = new Category();
         $categoria->nombre = $request->nombre;
+        $nombre = "";
+        if ($request->hasFile('imagen')) {
+            $nombre = $request->file('imagen')->store("public/categorias");
+            $categoria->imagen = str_replace("public/categorias/", "", $nombre);
+        }
         $categoria->save();
 
         return redirect("/Categoria")->with("success", "Registro generado correctamente");
@@ -45,6 +50,11 @@ class CategoryController extends Controller
     public function update(Category $categoria, Request $request)
     {
         $categoria->nombre = $request->nombre;
+        $nombre = "";
+        if ($request->hasFile('imagen')) {
+            $nombre = $request->file('imagen')->store("public/categorias");
+            $categoria->imagen = str_replace("public/categorias/", "", $nombre);
+        }
         $categoria->save();
 
         return redirect("/Categoria")->with("success", "Registro actualizado correctamente");;

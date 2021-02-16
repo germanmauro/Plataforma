@@ -1,42 +1,10 @@
-Ver la parte de profesor para guardar también la foto
+Ver la parte de profesor para guardar también la foto OK
 
 Ver generar un registro de clase (sin pago)
 Buscar los días disponibles.
 
-Fijarse la parte de especialidades para pasarle la categoría.OK
-Cómo se pasa? OK
-
-REGISTRO
-Alumno:
-Aceptar condiciones, preguntar como van a poner eso OK
-Poner condiciones genéricas y después las cambio OK
-
-profesor
-ademas de los datos de alumno tambien deben OK
- subir título (opción) y  OK  
- agregar datos de cuenta de banco OK
- Agregar para que elijas las especialidades, organizadas por categorías. OK
- Agregar días y horarios. OK
- En el perfil del profesor que pueda ver sus especialidades y dias y horarios. OK
- Que el administrador pueda ver el titulo de los profesores en la grilla, al hacer click OK
-
-Enviar el contrato generado con pdf-- VER INSTALAR FPDF POR CONSOLA (gitgub) OK
-
-Que el administrador acredite el perfil de los usuarios despues de ver el contrato.
-Alumno habilitado al validar email OK
-
-Ver el tema de resetear el password OK
-
-Ver si se puede agregar un pop up para eliminar actualizar y habilitar profesor. OK
-
-Probar cargar días y horarios del profesor.
-Validar hora menos mas que sea mas de una hora de diferencia.
-
 DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
-REGISTRO OK.
-USUARIOS.OK
-ADMINISTRACIÓN.OK
-ENVÍO DE EMAIL.OK
+
 VER PROCESO SICRONIZACIÓN PARA ENVIO DE EMAIL 30 MIN ANTES DE LAS CLASES, ETC. (Con Cron)
 
 TABLAS
@@ -44,11 +12,9 @@ TABLAS
 CLASS
 id
 fecha
-
-CLASSREQUEST //Solicitud de clase
-
-user_id
+profesor_id
+alumno_id
 specialty_id
-fecha
-hora
+fecha hora
+aviso
 estado //Generada - Avisada - Concretada

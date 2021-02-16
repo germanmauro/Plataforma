@@ -14,4 +14,13 @@ class AlumnoController extends Controller
         $usuarios = User::where(['baja' => 'false', 'perfil' => 'alumno'])->get();
         return view("administraralumno.index", compact("usuarios"));
     }
+
+    public function misfavoritos()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        return view('alumno.misfavoritos', compact("user"));
+    }
 }

@@ -6,20 +6,20 @@
 <div class="container-fluid">
       
         <div id="curso-wrapper">
-          <div class="row">  
           @foreach ($categorias as $item)
               <a href="/Cursos/Categoria/{{$item->id}}/{{$item->slug()}}" class="curso-link">
-                <div class="col-md-4">
-                  <div class="categoria-item col-md-12">
-                    <div class="col-md-12">
+                  <div class="categoria-item">
+                      @if ($item->imagen!="")
+                        <img height="60px" src="{{asset('storage/categorias/'.$item->imagen)}}">
+                      @else
+                        <img height="60px" src="{{asset('image/category.png')}}">
+                      @endif
+                      <br>
                         {{$item->nombre}} 
                     </div>
-                  </div>
-                </div>
               </a>
           @endforeach
           
-        </div>
       </div>
   </div>
   

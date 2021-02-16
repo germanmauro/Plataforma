@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Publication;
-use App\Models\Specialty;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CourseController extends Controller
 {
@@ -19,15 +20,15 @@ class CourseController extends Controller
     //filtro de cursos
     public function coursefilter(Request $request)
     {
+        
         if($request->filter!="") {
             $array = explode(' ', $request->filter);
             $regex = "'".implode("|", $array)."'";
             $publicaciones = Publication::where('baja', 'false')
             ->where("estado", "Activa")
-            // ->whereIn("titulo", $array)
-                // ->where('titulo','like','%'.$request->filter.'%')
-                ->where('titulo','regexp',implode("|",$array))
-                ->paginate(15);
+            ->where('titulo','regexp',implode("|",$array))
+            // ->orderByRaw("titulo regexp '" .implode("|",$array)."' asc")
+            ->paginate(15);
         } else {
            return $this->listado();
         }
@@ -48,5 +49,26 @@ class CourseController extends Controller
         $publicacion = Publication::find($id);
         return view("cursos.show", compact("publicacion"));
     }
+
+    //Agregar a favoritos
+    public function addfavorite($id)
+    {
+        $user = User::find(session("Id"));
+        if(!$user->favorites()->where('publication_id', $id)->count())
+        {
+            $user->favorites()->attach($id);
+        }
+        
+        return Redirect::back()->with('success', 'Curso agregado a favoritos');
+    }
+
+    //Agregar a favoritos
+    public function removefavorite($id)
+    {
+        $user = User::find(session("Id"));
+        $user->favorites()->detach($id);
+        return Redirect::back()->with('success', 'Curso eliminado de favoritos');
+    }
+    
 
 }

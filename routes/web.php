@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpecialtyController;
@@ -33,7 +34,10 @@ Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("c
 Route::view('/Info/ComoFunciona', 'cursos.comofunciona')->name('comofunciona');
 Route::get('/Info/Profesores', [ProfesorController::class, 'infoprofesor'])->name("infoprofesor");
 Route::get('/Cursos/Categorias', [CategoryController::class, 'showcategories'])->name("showcategories");
+Route::get('/Cursos/AddFavorite/{id}', [CourseController::class, 'addfavorite'])->name("addfavorite");
+Route::get('/Cursos/RemoveFavorite/{id}', [CourseController::class, 'removefavorite'])->name("removefavorite");
 Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);
+Route::get('/Cursos/Comprar/{id}/{slug?}', [MeetingController::class, 'comprar']);
 Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
 
 Route::view('/Inicio','welcome');
@@ -120,6 +124,9 @@ Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");
 
 //Profesor
 Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferencias"]);
+
+//Profesor
+Route::get("/Alumno/MisFavoritos", [AlumnoController::class, "misfavoritos"]);
 
 //Subir contrato
 Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.info')
 @section('content')
 <!-- /.row -->
 <div class="row">
@@ -90,7 +90,7 @@
                         <div class="col-lg-6 box">
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div class="col-md-12 grillahorario">
-                                <label>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</label>
+                                <p>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</p>
                                             @php
                                                 $dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
                                             @endphp

@@ -24,6 +24,7 @@
               <thead>
               <tr>
                 <th>Nombre</th>
+                <th>Imagen</th>
                 <th>Acciones</th>
               </tr>
               </thead>
@@ -31,6 +32,11 @@
                 @foreach ($categorias as $item)
                     <tr>
                         <td>{{$item->nombre}} </td>
+                        <td>
+                          @if ($item->imagen!="")
+                          <img height="60px" src="{{asset('storage/categorias/'.$item->imagen)}}" alt="imagen1">
+                          @endif
+                        </td>
                         <td>
                         <a class="accionmenu" href="{{route('category.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
                         <a class="accionmenu" href="{{route('category.delete',$item->id) }}" title='Eliminar Registro' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>

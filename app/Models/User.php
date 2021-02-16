@@ -35,9 +35,15 @@ class User extends Model
         return $this->hasMany("App\Models\Availability");
     }
 
-    //Publicaciones
+    //Publicaciones(Profesor)
     public function publications()
     {
         return $this->hasMany("App\Models\Publication");
+    }
+
+    //Favoritos(Alumno)
+    public function favorites()
+    {
+        return $this->belongsToMany("App\Models\Publication");
     }
 }

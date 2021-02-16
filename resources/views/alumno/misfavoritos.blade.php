@@ -4,10 +4,17 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 
 <div class="container-fluid">
-      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header clearfix curso-encabezado">
+            <h2><i class="fas fa-star favorites"></i> Mis favoritos <i class="fas fa-star favorites"></i></h2>
+          </div>
+        </div>
+      </div>
         <div id="curso-wrapper">
-          <div class="row">  
-          @foreach ($publicaciones as $item)
+          <div class="row">
+          @if(count($user->favorites)>0)  
+          @foreach ($user->favorites as $item)
               <a href="/Cursos/{{$item->id}}/{{$item->slug()}}" class="curso-link">
                 <div class="col-md-4">
                   <div class="curso-item col-md-12">
@@ -58,11 +65,7 @@
                         <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / Mes</a>
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
-                          @if($item->esFavorito())    
-                            <a class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
-                          @else
-                            <a class="curso-favorite" href="/Cursos/AddFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
-                          @endif
+                              <a class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='borrar de favoritos'><i class='fa fa-heart'></i></a>
                         @endif
                           <a class="curso-compartir" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$item->id}}/{{$item->slug()}}" data-text="{{$item->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>
                           <a class="curso-compartir" title="Compartir por email" href="mailto:?subject=Quiero compartirte este curso&amp;body=Mirá este curso {{$item->titulo}} http://capacitacionee.com/Cursos/{{$item->id}}/{{$item->slug()}}"><i class='fas fa-envelope'></i></a>
@@ -72,9 +75,12 @@
                 </div>
               </a>
           @endforeach
-          
+          @else
+          <p>
+            Aún no tiene favoritos. Busque los cursos que desee y agrégelos.
+          </p>
+          @endif
         </div>
-        {{$publicaciones->links()}}
       </div>
   </div>
   

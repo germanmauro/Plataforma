@@ -43,17 +43,17 @@
                                 <input type="number" step="any" class="form-control" required name="precio" maxlength="20" placeholder="Precio" value= "{{$publicacion->precio}}">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 1 (Si desea matener la misma no es necesario cargarla otra vez)</label>
+                                <label>Imagen 1 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen1)}}">
                                 <input type="file" name="imagen1" accept="image/*,pdf" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 2 (Si desea matener la misma no es necesario cargarla otra vez)</label>
+                                <label>Imagen 2 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen2)}}">
                                 <input type="file" name="imagen2" accept="image/*,pdf" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 3 (Si desea matener la misma no es necesario cargarla otra vez)</label>
+                                <label>Imagen 3 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}">
                                 <input type="file" name="imagen3" accept="image/*,pdf" class="form-control">
                             </div>

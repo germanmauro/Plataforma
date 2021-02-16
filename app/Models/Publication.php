@@ -26,6 +26,12 @@ class Publication extends Model
         return $this->belongsTo("App\Models\Specialty");
     }
 
+    //Usuarios (alumnos)
+    public function alumnos()
+    {
+        return $this->belongsToMany("App\Models\User");
+    }
+
     //Retorna la primera imagen del curso
     public function firstImage()
     {
@@ -46,4 +52,8 @@ class Publication extends Model
         return Str::slug($this->titulo,'-');
     }
 
+    public function esFavorito()
+    {
+        return $this->alumnos()->where('user_id', session("Id"))->count();
+    }
 }

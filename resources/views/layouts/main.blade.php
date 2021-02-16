@@ -11,8 +11,8 @@
 
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css?v=11') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=23') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=24') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -27,9 +27,11 @@
     <div id="wrapper">
         <div id="banner" class="row">
             <div class="col-md-12">
-                <div class="imagenbanner col-md-3">
-                	<img src="{{asset('image/logo.png')}}"/>
-                </div>
+                <a href="/">
+                    <div class="imagenbanner col-md-3">
+                    	<img src="{{asset('image/logo.png')}}"/>
+                    </div>
+                </a>
                 <div class="textobanner col-md-9">
 
                         <h1>
@@ -97,6 +99,11 @@
                              @if(session('Perfil')=="profesor")
                              <li>
                                 <a href='/Profesor/MisPreferencias'><i class='fas fa-id-card'></i> Mis Preferencias</a>
+                            </li>
+                             @endif
+                             @if(session('Perfil')=="alumno")
+                             <li>
+                                <a href='/Alumno/MisFavoritos'><i class='fas fa-star'></i> Mis Favoritos</a>
                             </li>
                              @endif
                             <li>
@@ -257,6 +264,11 @@
             @if (session()->has('success'))
                     <script>
                         swal("Acción correcta","{{session('success')}}", "success");
+                    </script>
+            @endif
+            @if (session()->has('warning'))
+                    <script>
+                        swal("¡Atención!","{{session('warning')}}", "warning");
                     </script>
             @endif
             @if(session()->has('Perfil')&&session('Perfil')!="admin")
