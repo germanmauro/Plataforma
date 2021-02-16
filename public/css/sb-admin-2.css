@@ -52,6 +52,7 @@ a.marca:hover,a.marca:active {
  .textobanner {
   font-family: 'Philosopher', sans-serif;
   text-align: center;
+  padding: 0px 5px;
    display: table-cell;
   justify-content: center;
   align-items: center;
@@ -891,7 +892,7 @@ table.menutable th, table.menutable td {
     #banner img {
       margin: 0 0;
     }
-    
+
     #banner h1 {
       font-size: x-large;
     }
