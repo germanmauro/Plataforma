@@ -32,28 +32,29 @@ a.marca:hover,a.marca:active {
 }
 
 #banner {
-  /* width: 100%; */
+  width: 100%;
   margin: 0!important;
-  padding:10px;
+  display:block;
+  /* padding:10px; */
   background-color:white;
 }
 
 #banner img {
-  height: 180px;
+  margin: 0px 50px;
+  height: 280px;
 }
 
 .imagenbanner{
   text-align: center;
-  height: 180px;
+  display: table-cell;
 }
 
  .textobanner {
   font-family: 'Philosopher', sans-serif;
   text-align: center;
-   display: grid;
+   display: table-cell;
   justify-content: center;
   align-items: center;
-  height: 180px;
 }
 
 #banner h1 {
@@ -703,7 +704,7 @@ a.curso-link,a.curso-link:hover  {
   margin-top:50px;
 }
 
-.comofunciona-split {
+.comofunciona-split, .comofunciona-split-right, .comofunciona-split-left {
   display: table-cell;
   vertical-align: middle;
 }
@@ -883,8 +884,9 @@ table.menutable th, table.menutable td {
     .inputmenu{
       width: 100%;
     }
-    a.pedido, a:hover.pedido{
-      font-size: 14px;
+ 
+    #banner, .imagenbanner {
+      display: block;
     }
     #banner h1 {
       font-size: x-large;
@@ -930,9 +932,14 @@ table.menutable th, table.menutable td {
     #categorias {
       display: inline-block;
     }
-  .comofunciona-item,.comofunciona-split	 {
+  .comofunciona-item,.comofunciona-split  {
     display: block;
   }
+  
+  .comofunciona-split-right {
+    display:table-header-group;
+  }
+
   .comofunciona img {
     margin:5px 0px;
     max-width:100%;

@@ -27,24 +27,8 @@
                                 <label>Apellido</label>
                             </div>
                             <div class="input-container">
-                                <input type="text" required class="form-control" id="direccion" name="direccion" maxlength="200" value= "{{old('direccion')}}">
-                                <label>Dirección (Calle, Número, Ciudad y País)</label>
-                            </div>
-                            <div class="input-container">      
-                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
-                                <label>Tipo de Documento</label>
-                            </div>
-                            <div class="input-container">      
-                                <input class="form-control" required id="dni" name="dni" maxlength="20"  value= "{{old('dni')}}">
-                                <label>Número de Documento</label>
-                            </div>
-                            <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
-                            </div>
-                            <div class="input-container">
-                                <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
-                                <label>Teléfono</label>
                             </div>
                             <div class="input-container">
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
@@ -57,10 +41,6 @@
                             <div class="form-group">
                                 <label>Subir foto de perfil.</label>
                                 <input required type="file" name="foto" id="foto" accept="image/*" class="form-control">
-                            </div>
-                            <div class="input-container">
-                                <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria')}}">
-                                <label>Cuenta Corriente</label>
                             </div>
                             <div class="input-container">
                                 <input required type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">

@@ -129,13 +129,13 @@ class RegisterController extends Controller
         
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
-        $user->telefono = $request->telefono;
-        $user->dni = $request->dni;
-        $user->tipodocumento = $request->tipodocumento;
+        // $user->telefono = $request->telefono;
+        // $user->dni = $request->dni;
+        // $user->tipodocumento = $request->tipodocumento;
         $user->email = $request->email;
-        $user->cuentabancaria = $request->cuentabancaria;
+        // $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;
-        $user->direccion = $request->direccion;
+        // $user->direccion = $request->direccion;
         $user->usuario = $request->usuario;
    
         //Password generator

@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=25') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=26') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -25,23 +25,19 @@
 <body>
 
     <div id="wrapper">
-        <div id="banner" class="row">
-            <div class="col-md-12">
+        <div id="banner">
+            <div class="imagenbanner">
                 <a href="/">
-                    <div class="imagenbanner col-md-3">
-                    	<img src="{{asset('image/logo.png')}}"/>
-                    </div>
+                    <img src="{{asset('image/logo.png')}}"/>
                 </a>
-                <div class="textobanner col-md-9">
-
-                        <h1>
-                            CAPACITACIÓN EN ESPAÑOL
-                        </h1>
-                        <p>
-                            Aprendé desde tu casa lo que siempre deseaste
-                        </p>
-                    
-                </div>
+            </div>
+            <div class="textobanner">
+                <h1>
+                    CAPACITACIÓN EN ESPAÑOL
+                </h1>
+                <p>
+                    Aprendé desde tu casa lo que siempre deseaste
+                </p>
             </div>
         </div>
         

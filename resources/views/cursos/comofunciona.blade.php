@@ -31,7 +31,7 @@
           
           <div class="comofunciona-item">
             
-            <div class="comofunciona-split">
+            <div class="comofunciona-split-left">
               <h2>
                 Elegí los días y los horarios
               </h2>
@@ -40,7 +40,7 @@
                 solo click. Para días y horarios especiales contactate con nosotros.
               </p>
             </div>
-            <div class="comofunciona-split">
+            <div class="comofunciona-split-right">
               <img src="{{asset('image/dias.jpg')}}"/>
             </div>
           </div>
