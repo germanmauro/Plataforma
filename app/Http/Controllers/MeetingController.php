@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buy;
+use App\Models\Meeting;
 use App\Models\Publication;
 use App\Models\RegistroDias;
 use DateInterval;
@@ -65,8 +67,16 @@ class MeetingController extends Controller
     //Comprar la clase
     public function create(Publication $publicacion, Request $request)
     {
-        return $request;
+        $buy = new Buy();
+        $buy->publication_id = $publicacion->id;
+        $buy->user_id = session("Id");
+        $buy->save();
+        foreach ($request->dias as $dia) {
+            $meeting = new Meeting();
+            $meeting->fecha = $dia;
+            $buy->meetings()->save($meeting);
+        }
 
-        return redirect("/Categoria")->with("success", "Registro actualizado correctamente");;
+        return redirect("/")->with("success", "Compra registrada con éxito");;
     }
 }
