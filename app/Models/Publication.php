@@ -26,6 +26,12 @@ class Publication extends Model
         return $this->belongsTo("App\Models\Specialty");
     }
 
+    //Tiene muchas compras
+    public function buys()
+    {
+        return $this->hasMany("App\Models\Buy");
+    }
+
     //Usuarios (alumnos)
     public function alumnos()
     {

@@ -46,4 +46,10 @@ class User extends Model
     {
         return $this->belongsToMany("App\Models\Publication");
     }
+
+    //Compras(Alumno)
+    public function buys()
+    {
+        return $this->hasMany("App\Models\Buy");
+    }
 }

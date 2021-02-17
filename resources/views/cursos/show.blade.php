@@ -71,7 +71,7 @@
                           </p>
                         </div> 
                       <div class="col-md-12">
-                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$publicacion->id}}/{{$publicacion->slug()}}" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / Mes (4 clases)</a>
+                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$publicacion->id}}/{{$publicacion->slug()}}" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / 4 Clases</a>
                       </div>
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}

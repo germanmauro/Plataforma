@@ -13,15 +13,14 @@ class CreateMeetingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('meetings', function (Blueprint $table) {
+        Schema::create('buys', function (Blueprint $table) {
             $table->id();
-            $table->dateTime("fecha");
             $table->unsignedBigInteger("publication_id");
             $table->unsignedBigInteger("user_id");
-            $table->string("estado",100)->default("generada");
-            $table->boolean("aviso30m")->default(false);
-            $table->boolean("aviso1h")->default(false);
-            $table->smallInteger("calificacion");
+            $table->string("estado",100)->default("cobrada");
+
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+            $table->foreign("publication_id")->references("id")->on("publications")->onDelete("cascade");
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateMeetingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meetings');
+        Schema::dropIfExists('buys');
     }
 }

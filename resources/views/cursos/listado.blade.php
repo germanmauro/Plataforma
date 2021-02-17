@@ -55,7 +55,7 @@
                           />     
                       @endif                  
                     </div>
-                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / Mes</a>
+                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / 4 Clases</a>
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
                           @if($item->esFavorito())    

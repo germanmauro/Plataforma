@@ -39,6 +39,8 @@ Route::get('/Cursos/RemoveFavorite/{id}', [CourseController::class, 'removefavor
 Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);
 Route::get('/Cursos/Comprar/{id}/{slug?}', [MeetingController::class, 'comprar']);
 Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
+//Compra de curso
+Route::put('/Meeting/Create/{publicacion}', [MeetingController::class, 'create'])->name("meeting.create");
 
 Route::view('/Inicio','welcome');
 Route::view('/Login','login');
@@ -81,18 +83,6 @@ Route::get('/Categoria/{categoria}/Edit', [CategoryController::class, 'edit'])->
 
 Route::put('/Categoria/Delete/{categoria}', [CategoryController::class, 'destroy'])->name("category.destroy");
 Route::get('/Categoria/{categoria}/Delete', [CategoryController::class, 'delete'])->name("category.delete");
-
-// Rangos horarios
-Route::get('/RangoHorario', [TimeRangeController::class, 'index']);
-
-Route::view("/RangoHorario/Create","rangohorario.create");
-Route::post('/RangoHorario/Store', [TimeRangeController::class, 'store']);
-
-Route::put('/RangoHorario/Update/{rangohorario}', [TimeRangeController::class, 'update'])->name("timerange.update");
-Route::get('/RangoHorario/{rangohorario}/Edit', [TimeRangeController::class, 'edit'])->name("timerange.edit");
-
-Route::put('/RangoHorario/Delete/{rangohorario}', [TimeRangeController::class, 'destroy'])->name("timerange.destroy");
-Route::get('/RangoHorario/{rangohorario}/Delete', [TimeRangeController::class, 'delete'])->name("timerange.delete");
 
 //Monto por hora
 // Rangos horarios
