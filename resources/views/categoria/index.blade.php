@@ -6,7 +6,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [2]
+                   targets: [3]
                }]}
             );
         });

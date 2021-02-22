@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Texto</label>
-                                <textarea rows="6" class="form-control" name="texto" required maxlength="1000" placeholder="Descripción (hasta 1000 caracteres)">{{$categoria->texto}}</textarea>
+                                <textarea rows="6" class="form-control" name="texto" required maxlength="5000" placeholder="Descripción (hasta 5000 caracteres)">{{$categoria->texto}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Imagen (Si desea matener la misma no es necesario cargarla otra vez)</label>

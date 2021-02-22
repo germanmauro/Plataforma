@@ -15,6 +15,21 @@ class AlumnoController extends Controller
         return view("administraralumno.index", compact("usuarios"));
     }
 
+    public function enable(User $user)
+    {
+        $user->estado = "validado";
+        $user->save();
+
+        session()->flash("success", "El alumno: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
+    }
+
+    public function disable(User $user)
+    {
+        $user->estado = "invalidado";
+        $user->save();
+        session()->flash("success", "El alumno: " . $user->nombre . " ".$user->apellido." ha sido deshabilitado");
+    }
+
     public function misfavoritos()
     {
         if (!session()->has('Perfil') || session("Perfil") != "alumno") {
