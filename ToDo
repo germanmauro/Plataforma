@@ -1,7 +1,10 @@
 Ver la parte de profesor para guardar también la foto OK
 
-Ver generar un registro de clase (sin pago)
-Buscar los días disponibles.
+Ver generar un registro de clase (sin pago) OK
+Buscar los días disponibles. OK
+ Cambiar clases
+ por ejemplo en buys (tabla)
+ agregar tipo mensual
 
 DESPUÉS DE QUE ESTÉ LA BASE DEL SISTEMA 
 
@@ -18,3 +21,5 @@ specialty_id
 fecha hora
 aviso
 estado //Generada - Avisada - Concretada
+
+Ver lo que quiere hacer este tipo con la cantidad de clases
