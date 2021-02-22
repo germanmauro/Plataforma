@@ -18,6 +18,10 @@
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{old('nombre')}}">
                             </div>
                             <div class="form-group">
+                                <label>Texto</label>
+                                <textarea rows="6" class="form-control" name="texto" required maxlength="1000" placeholder="Texto (hasta 1000 caracteres)">{{old('texto')}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label>Imágen (Opcional)</label>
                                 <input type="file" name="imagen" accept="image/*,pdf" class="form-control">
                             </div>

@@ -7,14 +7,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpecialtyController;
-use App\Http\Controllers\TimeRangeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
-use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +39,14 @@ Route::get('/Cursos/Comprar/{id}/{slug?}', [MeetingController::class, 'comprar']
 Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
 //Compra de curso
 Route::put('/Meeting/Create/{publicacion}', [MeetingController::class, 'create'])->name("meeting.create");
+
+//Paypal - Pagos
+Route::get('/paypal/pay/{buy}', [PaymentController::class, 'payWithPayPal'])->name("paypal");
+Route::get('/paypal/process', [PaymentController::class, 'process']);
+Route::get('/paypal/cancel', [PaymentController::class, 'cancel']);
+// Route::get('handle-payment', 'PaymentController@handlePayment')->name('make.payment');
+// Route::get('cancel-payment', [PaymentController::class,'paymentCancel'])->name('cancel.payment');
+// Route::get('payment-success', [PaymentController::class,'paymentSuccess'])->name('success.payment');
 
 Route::view('/Inicio','welcome');
 Route::view('/Login','login');

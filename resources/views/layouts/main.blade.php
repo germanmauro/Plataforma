@@ -267,6 +267,11 @@
                         swal("¡Atención!","{{session('warning')}}", "warning");
                     </script>
             @endif
+            @if (session()->has('error'))
+                    <script>
+                        swal("¡Atención!","{{session('error')}}", "error");
+                    </script>
+            @endif
             @if(session()->has('Perfil')&&session('Perfil')!="admin")
     @switch(session('Estado'))
         @case("registrado")

@@ -11,7 +11,7 @@
     <link href="{{ asset('css/bootstrap.min.css?v=5') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css?v=7') }}" rel="stylesheet">
 </head>
-<body style="background-color: #c5c5c5; color:#1b1a1a; padding:5px">
+<body style="color:#1b1a1a; padding:5px">
     <h1>Registro exitoso - Capacitación en Español</h1>
         <img src="{{asset('image/logo.png')}}" width="180px" height="180px"/>
         <p>
@@ -39,7 +39,7 @@
         </p>
         <p>
             Puede hacerlo desde el siguiente 
-            <a style="color:white; font-weight: bold" href="{{$cadenaverificacion}}" target="_blank">link</a>
+            <a style="font-weight: bold" href="{{$cadenaverificacion}}" target="_blank">link</a>
         </p> 
         <p>
             Agradecemos su atención y le deseamos un feliz dia!!!

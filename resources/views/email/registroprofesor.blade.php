@@ -41,7 +41,7 @@
         </p>
         <p>
             Puede hacerlo desde el siguiente 
-            <a style="color:white; font-weight: bold" href="{{$cadenaverificacion}}" target="_blank">link</a>
+            <a style="font-weight: bold" href="{{$cadenaverificacion}}" target="_blank">link</a>
         </p> 
         <p>
             Agradecemos su atención y le deseamos un feliz dia!!!

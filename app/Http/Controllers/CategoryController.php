@@ -29,6 +29,7 @@ class CategoryController extends Controller
     {
         $categoria = new Category();
         $categoria->nombre = $request->nombre;
+        $categoria->texto = $request->texto;
         $nombre = "";
         if ($request->hasFile('imagen')) {
             $nombre = $request->file('imagen')->store("public/categorias");
@@ -50,6 +51,7 @@ class CategoryController extends Controller
     public function update(Category $categoria, Request $request)
     {
         $categoria->nombre = $request->nombre;
+        $categoria->texto = $request->texto;
         $nombre = "";
         if ($request->hasFile('imagen')) {
             $nombre = $request->file('imagen')->store("public/categorias");

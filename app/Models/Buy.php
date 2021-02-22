@@ -27,4 +27,9 @@ class Buy extends Model
     {
         return $this->belongsTo("App\Models\Publication");
     }
+
+    public function pay()
+    {
+        return $this->hasOne("App\Models\PayPal");
+    }
 }

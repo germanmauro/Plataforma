@@ -19,6 +19,10 @@
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{$categoria->nombre}}">
                             </div>
                             <div class="form-group">
+                                <label>Texto</label>
+                                <textarea rows="6" class="form-control" name="texto" required maxlength="1000" placeholder="Descripción (hasta 1000 caracteres)">{{$categoria->texto}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label>Imagen (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/categorias/'.$categoria->imagen)}}">
                                 <input type="file" name="imagen" accept="image/*,pdf" class="form-control">

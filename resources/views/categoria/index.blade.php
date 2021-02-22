@@ -24,6 +24,7 @@
               <thead>
               <tr>
                 <th>Nombre</th>
+                <th>Texto</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
               </tr>
@@ -32,6 +33,13 @@
                 @foreach ($categorias as $item)
                     <tr>
                         <td>{{$item->nombre}} </td>
+                        <td>
+                          @if (strlen($item->texto)>100)
+                            {{substr($item->texto,0,100)}}..
+                          @else
+                            {{$item->texto}}    
+                          @endif 
+                        </td>
                         <td>
                           @if ($item->imagen!="")
                           <img height="60px" src="{{asset('storage/categorias/'.$item->imagen)}}" alt="imagen1">
