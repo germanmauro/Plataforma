@@ -730,7 +730,53 @@ a.curso-link,a.curso-link:hover  {
   border:rgb(148, 146, 146) solid 3px;
   width:440px;
 }
-/*Como funciona*/
+/*Fin Como funciona*/
+
+/*Categoria info*/
+.categoriainfo{
+  font-family:'Philosopher', sans-serif;
+  text-align: center;
+  background-color: #5199db;
+  color: white;
+  margin:-51px -46px 0px -46px;
+}
+
+.categoriainfo h1{
+  color: white;
+  font-size:36px;
+}
+
+.categoriainfo-item {
+  display: table;
+  margin-top:50px;
+}
+
+.categoriainfo-split, .categoriainfo-split-right, .categoriainfo-split-left {
+  display: table-cell;
+  vertical-align: middle;
+}
+.categoriainfo h2{
+  /* padding:20px 10px; */
+  color:#0c3a63;
+  font-weight: bold;
+  /* text-decoration: underline; */
+  font-size: 40px;
+}
+
+.categoriainfo p{
+  margin-bottom: 30px;
+  padding:20px 20px;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.categoriainfo img {
+  margin:10px;
+  border-radius: 10%;
+  border:rgb(148, 146, 146) solid 3px;
+  width:500px;
+}
+/*Categoria Info*/
 
 /* Category styles */
 #categorias {
@@ -750,7 +796,10 @@ a.curso-link,a.curso-link:hover  {
   /* border-radius: 15px; */
   margin-bottom: 10px;
 }
+
 .categoria-item img {
+  width: 100%;
+
   border-radius: 10%;
 }
 
@@ -948,6 +997,24 @@ table.menutable th, table.menutable td {
   .comofunciona img {
     margin:5px 0px;
     max-width:100%;
+    max-height:100%;
+  }
+  
+  .categoriainfo {
+    margin: -52px -15px 0px -15px;
+  }
+
+  .categoriainfo-item,.categoiainfo-split  {
+    display: block;
+  }
+  
+  .categoriainfo-split-right {
+    display:table-header-group;
+  }
+
+  .categoriainfo img {
+    margin:5px 0px;
+    max-width:95%;
     max-height:100%;
   }
 }

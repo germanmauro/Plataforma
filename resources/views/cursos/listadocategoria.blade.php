@@ -4,8 +4,23 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 
 <div class="container-fluid">
-      
-        <div id="curso-wrapper">
+      {{-- Info de la categoria --}}
+          <div class="categoriainfo">
+            <div class="categoriainfo-item">
+              <div class="categoriainfo-split-left">
+                <h2>
+                  {{$categoria->nombre}}
+                </h2>
+                <p>
+                  {{$categoria->texto}}
+                </p>
+              </div>
+              <div class="categoriainfo-split-right">
+                <img src="{{asset('storage/categorias/'.$categoria->imagen)}}"/>
+              </div>
+            </div>
+          </div>
+        <div id="curso-wrapper">      
           <div class="row">  
           @foreach ($publicaciones as $item)
               <a href="/Cursos/{{$item->id}}/{{$item->slug()}}" class="curso-link">

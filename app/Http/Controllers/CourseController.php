@@ -41,7 +41,7 @@ class CourseController extends Controller
     {
         $categoria = Category::find($id);
         $publicaciones = $categoria->publications()->paginate(15);
-        return view("cursos.listadocategoria", compact("publicaciones"));
+        return view("cursos.listadocategoria", compact("publicaciones","categoria"));
     }
 
     public function show($id,$slug="")

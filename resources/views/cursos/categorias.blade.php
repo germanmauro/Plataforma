@@ -10,9 +10,9 @@
               <a href="/Cursos/Categoria/{{$item->id}}/{{$item->slug()}}" class="curso-link">
                   <div class="categoria-item">
                       @if ($item->imagen!="")
-                        <img height="60px" src="{{asset('storage/categorias/'.$item->imagen)}}">
+                        <img width="200px" src="{{asset('storage/categorias/'.$item->imagen)}}">
                       @else
-                        <img height="60px" src="{{asset('image/category.png')}}">
+                        <img width="200px" src="{{asset('image/category.png')}}">
                       @endif
                       <br>
                         {{$item->nombre}} 
