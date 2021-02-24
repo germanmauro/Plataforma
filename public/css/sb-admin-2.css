@@ -339,7 +339,8 @@ p.detalle {
   .item-nosotros {
     margin: 20px 15px 0 15px;
     padding: 20px 30px;
-    border:solid #024b94 1px;
+    border:solid #024b94 2px;
+    border-radius: 5%;
     /* min-height: 380px; */
   }
 /* Fin nosotros */
