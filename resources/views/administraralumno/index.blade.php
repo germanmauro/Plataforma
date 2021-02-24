@@ -20,7 +20,7 @@
           </div>
 
           @if(count($usuarios)>0)
-              <table id='tabla' class='display menutable tablagrande'>
+              <table id='tabla' class='display menutable'>
               <thead>
               <tr>
                 <th>Nombre</th>
@@ -49,8 +49,12 @@
                         </td>
                       
                         <td>
-                        <a class="accionmenu" href="{{route('category.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
-                        <a class="accionmenu" href="{{route('category.delete',$item->id) }}" title='Eliminar Registro' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
+                         @if ($item->estado=="a entrevistar"||$item->estado=="invalidado")
+                             <a class="accionmenu" onclick="habilitaralumno({{$item->id}})" title='Habilitar alumno' data-toggle='tooltip'><i class='far fa-thumbs-up'></i></span></a>
+                         @endif
+                         @if ($item->estado=="validado")
+                             <a class="accionmenu" onclick="deshabilitaralumno({{$item->id}})" title='Dehabilitar alumno' data-toggle='tooltip'><i class='far fa-thumbs-down'></i></span></a>
+                         @endif
                         </td>
                     </tr>
                 @endforeach
@@ -62,4 +66,67 @@
         </div>
       </div>
     </div>
+    <script>
+      function habilitaralumno(id) {
+        swal("¿Desea habilitar al alumno?", {
+            icon:"warning",
+            buttons: {
+                catch: {
+                    text: "SI",
+                    value: "catch",
+                },
+                cancel: "NO",
+                },
+            })
+              .then((value) => {
+                    var token = '{{csrf_token()}}';
+                    switch (value) {
+                        case "catch":
+                            $.ajax
+                                ({
+                                    
+                                    url: '/AdministrarAlumnos/Habilitar/'+id,
+                                    data: { _token:token },
+                                    type: 'post',
+                                    cache: false,
+                                    success: function (r) {
+                                            location.reload();
+                                    }
+                                });
+                            break;
+                    }
+                });    
+        }
+
+      function deshabilitaralumno(id) {
+        swal("¿Desea deshabilitar al alumno?", {
+            icon:"warning",
+            buttons: {
+                catch: {
+                    text: "SI",
+                    value: "catch",
+                },
+                cancel: "NO",
+                },
+            })
+              .then((value) => {
+                    var token = '{{csrf_token()}}';
+                    switch (value) {
+                        case "catch":
+                            $.ajax
+                                ({
+                                    
+                                    url: '/AdministrarAlumnos/Deshabilitar/'+id,
+                                    data: { _token:token },
+                                    type: 'post',
+                                    cache: false,
+                                    success: function (r) {
+                                        location.reload();
+                                    }
+                                });
+                            break;
+                    }
+                });    
+        }
+    </script>
 @endsection

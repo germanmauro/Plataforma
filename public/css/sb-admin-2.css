@@ -129,7 +129,11 @@ a.marca:hover,a.marca:active {
     text-align: center;
     border:#3b3f3b1e solid 4px;
 }
-
+h1.titulo {
+    font-family: 'Philosopher', sans-serif;
+    color: #024b94;
+    font-size: 36px;
+}
 .subtitulo {
   font-size: 26px;
   color: #131212
@@ -310,6 +314,55 @@ p.detalle {
   background-color: #391fce;
   padding: 5px;
 }
+/* Nosotros */
+  .nosotros {
+    padding-top: 10px;
+    font-family:'Philosopher', sans-serif;
+    text-align: center;
+    background-color: white;
+    color: #024b94;
+  }
+  .nosotros p {
+    font-size: 22px;
+  }
+  .nosotros h2 {
+    color: #0c3a63;
+  }
+  .imagen-nosotros{
+    display: block;
+  }
+ 
+/* Fin nosotros */
+
+/* Contacto */
+.contact-info {
+  font-family: 'Philosopher', sans-serif;
+  color: #024b94;
+}
+
+.contact-info .fas {
+    background: #024b94;
+    border-radius: 100%;
+    color: #ffffff;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.contact-info a, .contact-info ::placeholder {
+  color: #024b94;
+}
+
+.contact-info h1 {
+  color: #024b94;
+  font-size: 36px;
+}
+/* Fin Contacto */
+
 
 .footer {
   left: 0;
@@ -1016,5 +1069,15 @@ table.menutable th, table.menutable td {
     margin:5px 0px;
     max-width:95%;
     max-height:100%;
+  }
+
+   .nosotros img {
+    width: 100%;
+  }
+}
+/* Pantallas muy anchas */
+@media (min-width: 1440px) {
+  .textobanner {
+    padding: 0 0 0 100px;
   }
 }

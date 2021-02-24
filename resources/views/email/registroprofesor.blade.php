@@ -48,9 +48,6 @@
         </p>
 
         <p>
-            Noelia Sabrina Arrighetti
-        </p>
-        <p>
             C.E.E Capacitación en español
         </p>
 </body>

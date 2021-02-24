@@ -24,7 +24,7 @@
         <p>
             A la brevedad recibirá un e-mail de un miembro de C.E.E que lo invitará a participar de una entrevista
         formal a través de la plataforma Zoom, la misma tendrá como objetivo principal conocerlo, contarle 
-        cuales son nuestros objetivos, de modo tal que conozca más acerca de nosotros y por último verificar
+        cuáles son nuestros objetivos, de modo tal que conozca más acerca de nosotros y por último verificar
         que el sistema funcione correctamente.
         </p>
         <p>
@@ -45,9 +45,6 @@
             Agradecemos su atención y le deseamos un feliz dia!!!
         </p>
 
-        <p>
-            Noelia Sabrina Arrighetti
-        </p>
         <p>
             C.E.E Capacitación en español
         </p>

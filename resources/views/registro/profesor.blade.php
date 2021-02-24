@@ -1,4 +1,11 @@
 @extends('layouts.info')
+@section('head')
+<link rel="stylesheet" href="{{asset('css/treeview.css')}}">
+{{-- <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-rtl.min.css">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css"> --}}
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+@endsection
 @section('content')
 <!-- /.row -->
 <div class="row">
@@ -53,18 +60,24 @@
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div>
                             <label>Seleccione las especialidades que desea enseñar</label>
+                            <ul data-role="treeview">
                             @foreach ($category as $item)
                                 @if(count($item->specialties)>0)
-                                    <p class="category"> {{$item->nombre}} </p>
-                                    <div class="specialty">
-                                       
+                                <li>
+                                    <input type="checkbox" data-role="checkbox" data-caption="{{$item->nombre}}" title="">
+                                    <ul>
                                         @foreach ($item->specialties as $subitem)
-                                               <label><input type="checkbox" name="especialidades[]" value="{{$subitem->id}}" @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif/>  {{$subitem->nombre}} </label>
+                                            <li><input type="checkbox" 
+                                                name="especialidades[]" value="{{$subitem->id}}" 
+                                                @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
+                                                data-role="checkbox" data-caption="{{$subitem->nombre}}" title="">
+                                            </li>
                                         @endforeach
-                                    </div>
-                                    
+                                    </ul>
+                                </li>
                                 @endif
                             @endforeach
+                            </ul>
                             </div>
                             </div>
                         <div class="col-lg-6 box">

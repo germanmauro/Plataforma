@@ -13,12 +13,5 @@
     <a href="/Info/ComoFunciona">Cómo funciona</a>
     <a href="/Info/Profesores">Nuestros profesores</a>
   </div>
-  <script>
-       
-        var element = document.querySelector("#menu-secundario");
-
-        // scroll to element
-        element.scrollIntoView();
-    
-    </script>
+ 
 @endsection

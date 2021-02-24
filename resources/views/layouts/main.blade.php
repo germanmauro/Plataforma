@@ -12,14 +12,14 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=29') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=30') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
     <link rel="stylesheet" href="{{ asset('Tables/jquery.dataTables.css') }}">
     <!-- alertas --> 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    @yield('head')
 </head>
 
 <body>
@@ -27,7 +27,7 @@
     <div id="wrapper">
         <div id="banner">
             <div class="imagenbanner">
-                <a href="/">
+                <a href="/#banner">
                     <img src="{{asset('image/logo.png')}}"/>
                 </a>
             </div>
@@ -126,6 +126,9 @@
                     <ul class="nav" id="side-menu">
                         <li>
                             <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                        </li> 
+                        <li>
+                            <a href='/Nosotros'><i class='fas fa-users'></i> NOSOTROS</a>
                         </li> 
                         <li>
                             <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
@@ -308,12 +311,9 @@
     </div>
     <!-- /#wrapper -->
     <script>
-       
-        var element = document.querySelector("#page-wrapper");
-
+        var element = document.querySelector("#menu-secundario");
         // scroll to element
         element.scrollIntoView();
-    
     </script>
 
     <!-- jQuery -->

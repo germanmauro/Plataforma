@@ -21,7 +21,7 @@
             @break
         @case("a entrevistar")
            <div class="alert alert-success" role="alert">
-                La administración de Capacitación en Español lo contactará vía e-mail para concertar una
+                La administración de Capacitación en Español lo contactará vía e-mail para concretar una
                 entrevista vía Zoom.
            </div>
             @break

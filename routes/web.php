@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AmountController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
@@ -58,6 +59,8 @@ Route::get('/Logout', function () {
     }
 });
 
+Route::post('/Contacto/Contacto', [ContactController::class, 'contacto'])->name("contacto");
+
 Route::view('/ResetPass','sendpass');
 
 Route::post('/Login/Ingreso', [LoginController::class, 'ingreso']);
@@ -73,6 +76,7 @@ Route::post('/Registro/StoreProfesor', [RegisterController::class, 'storeprofeso
 
 Route::view('Registro/Terminos','registro.terminos');
 Route::view('Contacto','contacto');
+Route::view('Nosotros','nosotros');
 
 Route::view('/RegistroExitoso', 'messages.successuser');
 //Verificación email
@@ -113,6 +117,8 @@ Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::clas
 Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::class, 'disable'])->name("profesor.disable");
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
+Route::post('/AdministrarAlumnos/Habilitar/{user}', [AlumnoController::class, 'enable'])->name("alumno.enable");
+Route::post('/AdministrarAlumnos/Deshabilitar/{user}', [AlumnoController::class, 'disable'])->name("alumno.disable");
 
 //Cambio de datos de usuario
 Route::put('/EditarPerfil/{user}', [UserController::class, 'update'])->name("user.update");
