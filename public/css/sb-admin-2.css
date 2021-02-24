@@ -109,7 +109,7 @@ a.marca:hover,a.marca:active {
   text-transform: uppercase;
   padding: 20px 35px;
   text-decoration: none;
-  display: grid;
+  display: inline-block;
   color:white;
 }
 #menu-secundario a:hover{
@@ -324,14 +324,24 @@ p.detalle {
   }
   .nosotros p {
     font-size: 22px;
+    text-align: left;
   }
   .nosotros h2 {
+    text-align: left;
     color: #0c3a63;
   }
   .imagen-nosotros{
     display: block;
   }
- 
+  .nosotros img{
+    border-radius: 12%;
+  }
+  .item-nosotros {
+    margin: 20px 15px 0 15px;
+    padding: 20px 30px;
+    border:solid #024b94 1px;
+    /* min-height: 380px; */
+  }
 /* Fin nosotros */
 
 /* Contacto */
@@ -353,10 +363,12 @@ p.detalle {
     margin-bottom: 2px;
 }
 
-.contact-info a, .contact-info ::placeholder {
+.contact-info a{
   color: #024b94;
 }
-
+.contact-info ::placeholder {
+  color: #024b94b9;
+}
 .contact-info h1 {
   color: #024b94;
   font-size: 36px;
@@ -1022,6 +1034,7 @@ table.menutable th, table.menutable td {
     }
 
     #menu-secundario a{
+      display: grid;
       border-bottom: white 1px solid;
     }
 
