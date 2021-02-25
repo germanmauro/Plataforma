@@ -54,6 +54,7 @@
                          @if ($item->estado=="validado")
                              <a class="accionmenu" onclick="deshabilitarprofesor({{$item->id}})" title='Dehabilitar Profesor' data-toggle='tooltip'><i class='far fa-thumbs-down'></i></span></a>
                          @endif
+                          <a class="accionmenu" href="AdministrarProfesores/{{$item->id}}/Clases" title='Ver clases del profesor' data-toggle='tooltip'><i class='fas fa-chalkboard-teacher'></i></span></a>
                       </td>
                     </tr>
                 @endforeach

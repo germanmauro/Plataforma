@@ -113,10 +113,12 @@ Route::get('/Especialidad/{especialidad}/Delete', [SpecialtyController::class, '
 // Administración de Profesores
 Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar']);
 Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"info"])->name("profesor.info");
+Route::get("/AdministrarProfesores/{user}/Clases", [ProfesorController::class, "clases"])->name("profesor.clases");
 Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::class, 'enable'])->name("profesor.enable");
 Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::class, 'disable'])->name("profesor.disable");
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
+Route::get("/AdministrarAlumnos/{user}/Clases", [AlumnoController::class, "clases"])->name("alumno.clases");
 Route::post('/AdministrarAlumnos/Habilitar/{user}', [AlumnoController::class, 'enable'])->name("alumno.enable");
 Route::post('/AdministrarAlumnos/Deshabilitar/{user}', [AlumnoController::class, 'disable'])->name("alumno.disable");
 

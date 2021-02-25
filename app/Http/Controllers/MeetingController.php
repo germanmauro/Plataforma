@@ -88,6 +88,7 @@ class MeetingController extends Controller
         if(!$cantindad) {
             $buy = new Buy();
             $buy->publication_id = $publicacion->id;
+            $buy->precio = $publicacion->precio;
             $buy->user_id = session("Id");
             $buy->save();
             foreach ($request->dias as $dia) {

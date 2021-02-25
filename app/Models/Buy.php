@@ -18,7 +18,7 @@ class Buy extends Model
         return $this->hasMany("App\Models\Meeting");
     }
 
-    public function alumno()
+    public function user()
     {
         return $this->belongsTo("App\Models\User");
     }

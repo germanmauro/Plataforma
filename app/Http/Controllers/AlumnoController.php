@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buy;
 use Illuminate\Http\Request;
 use App\Models\User;
 class AlumnoController extends Controller
@@ -13,6 +14,15 @@ class AlumnoController extends Controller
         }
         $usuarios = User::where(['baja' => 'false', 'perfil' => 'alumno'])->get();
         return view("administraralumno.index", compact("usuarios"));
+    }
+
+    public function clases(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        $buys = Buy::where(["estado"=>"pagado","user_id" => $user->id])->paginate(5);
+        return view("administraralumno.clases", compact("buys","user"));
     }
 
     public function enable(User $user)

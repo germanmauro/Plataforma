@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Mail\mailContract;
+use App\Models\Buy;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class ProfesorController extends Controller
@@ -16,6 +18,18 @@ class ProfesorController extends Controller
         }
         $usuarios = User::where(['baja'=>'false','perfil'=>'profesor'])->get();
         return view("administrarprofesor.index", compact("usuarios"));
+    }
+
+    public function clases(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        $id = $user->id;
+        $buys = Buy::where('estado','pagado')->whereIn('publication_id', function ($query) use ($id) {
+            $query->select('id')->from('publications')->where('user_id',$id);
+        })->paginate(5);
+        return view("administrarprofesor.clases", compact("buys", "user"));
     }
 
     public function info($id)

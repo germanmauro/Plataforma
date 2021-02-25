@@ -341,10 +341,34 @@ p.detalle {
     padding: 20px 30px;
     border:solid #024b94 2px;
     border-radius: 5%;
-    /* min-height: 380px; */
+    min-height: 400px;
+    vertical-align: middle;
+    /* display: table-cell; */
   }
 /* Fin nosotros */
 
+/* Info Clases */
+.info-clases {
+  padding: 30px;
+}
+.info-clases p{
+  font-size: 20px;;
+}
+.info-clases-item {
+  border: #000 solid 2px;
+  border-radius: 5%;
+  padding: 10px;
+  margin: 5px;
+}
+.info-clases h1 {
+  font-size:24px;
+  color:#024b94;
+}
+.info-clases .profesor {
+  font-size:22px;
+  color:rgb(59, 58, 58);
+}
+/* Info Clases */
 /* Contacto */
 .contact-info {
   font-family: 'Philosopher', sans-serif;

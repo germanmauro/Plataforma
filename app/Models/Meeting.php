@@ -12,7 +12,7 @@ class Meeting extends Model
     protected $table = "meetings";
 
     protected $primaryKey = 'id';
-
+    protected $dates = ["fecha"];
     //Usuarios (profesor)
     public function buy()
     {
