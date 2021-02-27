@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buy;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
+
 class AlumnoController extends Controller
 {
     public function administrar()
@@ -29,14 +32,17 @@ class AlumnoController extends Controller
     {
         $user->estado = "validado";
         $user->save();
-
-        session()->flash("success", "El alumno: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
+        $not = new Notification();
+        $not->userValidated($user);
+        Redirect::back()->with("success", "El alumno: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
     }
 
     public function disable(User $user)
     {
         $user->estado = "invalidado";
         $user->save();
+        $not = new Notification();
+        $not->userInvalidated($user);
         session()->flash("success", "El alumno: " . $user->nombre . " ".$user->apellido." ha sido deshabilitado");
     }
 

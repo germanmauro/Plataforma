@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=31') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=32') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -59,19 +59,31 @@
                 <li class="dropdown notifications">
                     
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <i class='fa fa-bell'></i> <span class="label label-warning">3</span>
+                        <i class='fa fa-bell'></i> 
+                        @if (count($notifications)>0)
+                        <span class="label label-warning">
+                           {{ count($notifications)}}
+                        </span>
+                        @endif
                     </a>
                     
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href='/'>Ejemplo de notificación 1</a>
-                        </li>
-                        <li>
-                            <a href='/'>Ejemplo de notificación 2</a>
-                        </li>
-                        <li>
-                            <a href='/'>Ejemplo de notificación mas larga 3</a>
-                        </li>
+                        @foreach ($notifications as $item)
+                            <li>
+                                <a href='/Notificaciones/{{$item->id}}/Show'>{{$item->texto}}</a>
+                            </li>
+                           
+                        @endforeach
+                        @if (count($notifications)>1)
+                            <li>
+                                <a href="/Notificaciones/Todas">VER TODAS</a>
+                            </li>
+                        @endif
+                        @if (count($notifications)==0)
+                            <li>
+                                <a>Sin notificaciones nuevas</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
                 @endif

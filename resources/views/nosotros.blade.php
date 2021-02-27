@@ -1,44 +1,37 @@
 @extends('layouts.info')
 @section('content')
-<h1 class="titulo">
+{{-- <h1 class="titulo">
     NOSOTROS
-</h1>
-<div class="nosotros">
-    <div class="imagen-nosotros">
-        <img src="{{asset('image/nosotros.jpg')}}">
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="item-nosotros">
-                <h2>
-                    <i class="fas fa-users"></i>
-                </h2>
-                <h2>
-                    Acerca de nosotros
-                </h2>
-                <p>
-                    Somos una empresa familiar, que tiene como objetivo brindar cursos personales y de manera online en español,
-                     para que todas las personas, niños, adolescentes y adultos, puedan capacitarse desde la comodidad de su casa 
-                     con material de alta calidad. 
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="item-nosotros">
-                <h2>
-                    <i class="fas fa-question"></i>
-                </h2>
-                <h2>
-                    ¿Quienes somos?
-                </h2>
-                <p>
+</h1> --}}
+<div class="container-fluid">
+	<div class="categoriainfo">
+	    <div class="categoriainfo-item">
+	        <div class="categoriainfo-split-left">
+	        <h2>
+	            Acerca de nosotros
+	        </h2>
+	        <p>
+	            Somos una empresa familiar, que tiene como objetivo brindar cursos personales y de manera online en español,
+	                para que todas las personas, niños, adolescentes y adultos, puedan capacitarse desde la comodidad de su casa 
+                    con material de alta calidad. 
+                    <br><br>
                     Nos apasiona el desarrollo humano como fuente de progreso. 
                     En estos tiempos que corren, para no quedar fuera del sistema, entendimos que es imprescindible la
-                    capacitación constante. Por eso decidimos crear C.E.E “Capacitación en español” que intenta dar las
+                    capacitación constante. Por eso decidimos crear C.E.E “Capacitación en español” que ofrece las
                     herramientas necesarias a niños, adolescentes y adultos para su crecimiento personal.
                 </p>
-            </div>
-        </div>
+	        </div>
+	        <div class="categoriainfo-split-right">
+	        <img src="{{asset('image/nosotros.jpg')}}">
+	        </div>
+	    </div>
+	</div>
+</div>
+<div class="nosotros">
+    <div class="imagen-nosotros">
+        
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <div class="item-nosotros">
                 <h2>

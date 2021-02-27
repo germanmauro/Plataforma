@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Video (Si posee un video, adjunte la url de youtube al siguiente aquí)</label>
-                                <input class="form-control" required name="video" maxlength="200" placeholder="Video (Url)" value= "{{old('video')}}">
+                                <input class="form-control"  name="video" maxlength="200" placeholder="Video (Url)" value= "{{old('video')}}">
                             </div>
                             
 

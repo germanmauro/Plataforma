@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
@@ -45,9 +46,10 @@ Route::put('/Meeting/Create/{publicacion}', [MeetingController::class, 'create']
 Route::get('/paypal/pay/{buy}', [PaymentController::class, 'payWithPayPal'])->name("paypal");
 Route::get('/paypal/process', [PaymentController::class, 'process']);
 Route::get('/paypal/cancel', [PaymentController::class, 'cancel']);
-// Route::get('handle-payment', 'PaymentController@handlePayment')->name('make.payment');
-// Route::get('cancel-payment', [PaymentController::class,'paymentCancel'])->name('cancel.payment');
-// Route::get('payment-success', [PaymentController::class,'paymentSuccess'])->name('success.payment');
+
+//Notificaciones
+Route::get('/Notificaciones/Todas', [NotificationController::class, 'showall'])->name("notification.showall");
+Route::get('/Notificaciones/{notification}/Show', [NotificationController::class, 'show'])->name("notification.show");
 
 Route::view('/Inicio','welcome');
 Route::view('/Login','login');

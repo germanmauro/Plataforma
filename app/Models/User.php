@@ -52,4 +52,14 @@ class User extends Model
     {
         return $this->hasMany("App\Models\Buy");
     }
+
+    public function notifications()
+    {
+        return $this->hasMany("App\Models\Notificarion");
+    }
+
+    public function notificacionesSinLeer()
+    {
+        return $this->notificacionesSinLeer->where("estado","creada");
+    }
 }

@@ -320,7 +320,7 @@ p.detalle {
     font-family:'Philosopher', sans-serif;
     text-align: center;
     background-color: white;
-    color: #024b94;
+    color: white;
   }
   .nosotros p {
     font-size: 22px;
@@ -328,7 +328,6 @@ p.detalle {
   }
   .nosotros h2 {
     text-align: left;
-    color: #0c3a63;
   }
   .imagen-nosotros{
     display: block;
@@ -338,15 +337,34 @@ p.detalle {
   }
   .item-nosotros {
     margin: 20px 15px 0 15px;
-    padding: 20px 30px;
-    border:solid #024b94 2px;
+    padding: 15px 30px;
+    /* border:solid #024b94 2px; */
     border-radius: 5%;
-    min-height: 400px;
+    background-color: #024b94;
+    min-height: 330px;
     vertical-align: middle;
     /* display: table-cell; */
   }
 /* Fin nosotros */
 
+/* Notificaciones */
+.notificacion {
+  padding: 30px;
+}
+.item-notificacion {
+  background-color: #024b94ab;
+  padding:15px;
+  border: 2px solid black;
+  margin:5px;
+}
+.item-notificacion .fecha {
+  font-size: 15px;
+  font-style: oblique;
+}
+.item-notificacion .texto {
+  font-size: 20px;
+}
+/* Fin Notificaciones */
 /* Info Clases */
 .info-clases {
   padding: 30px;

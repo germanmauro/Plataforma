@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\mailContract;
 use App\Models\Buy;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -63,7 +64,8 @@ class ProfesorController extends Controller
     {
         $user->estado = "validado";
         $user->save();
-
+        $not = new Notification();
+        $not->userValidated($user);
         session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
     }
 
@@ -71,6 +73,8 @@ class ProfesorController extends Controller
     {
         $user->estado = "invalidado";
         $user->save();
+        $not = new Notification();
+        $not->userInvalidated($user);
         session()->flash("success", "El profesor: " . $user->nombre . " ".$user->apellido." ha sido deshabilitado");
     }
 
