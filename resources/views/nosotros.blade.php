@@ -14,7 +14,7 @@
 	            Somos una empresa familiar, que tiene como objetivo brindar cursos personales y de manera online en español,
 	                para que todas las personas, niños, adolescentes y adultos, puedan capacitarse desde la comodidad de su casa 
                     con material de alta calidad. 
-                    <br><br>
+                    <br>
                     Nos apasiona el desarrollo humano como fuente de progreso. 
                     En estos tiempos que corren, para no quedar fuera del sistema, entendimos que es imprescindible la
                     capacitación constante. Por eso decidimos crear C.E.E “Capacitación en español” que ofrece las
