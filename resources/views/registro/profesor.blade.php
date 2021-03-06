@@ -101,19 +101,15 @@
                                                             <select class="form-control" name="desde{{$day}}">
                                                                 @for ($i = 0; $i < 24; $i++)
                                                                     <option value="{{$i}}:00" {{ (old('desde'.$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                    <option value="{{$i}}:30" {{ (old('desde'.$day) == $i.":30") ? 'selected' : '' }}>{{$i}}:30 Hs</option>
                                                                 @endfor
                                                             </select>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label>Hasta</label>
                                                             <select class="form-control" name="hasta{{$day}}">
-                                                                <option value="0:30"> 0:30 Hs</option>
-                                                                @for ($i = 1; $i < 24; $i++)
+                                                                @for ($i = 1; $i <= 24; $i++)
                                                                     <option value="{{$i}}:00" {{ (old("hasta".$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                    <option value="{{$i}}:30" {{ (old("hasta".$day) == $i.":30") ? 'selected' : '' }}>{{$i}}:30 Hs</option>
                                                                 @endfor
-                                                                <option value="24:00"> 24:00 Hs</option>
                                                             </select>
                                                     </div>
                                             </div>

@@ -28,7 +28,7 @@
                             </div>
 
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
-                            <a href="/Especialidad"  class="btn btn-danger">Cencelar</a>
+                            <a href="/Especialidad"  class="btn btn-danger">Cancelar</a>
                         </form>
                     </div>
 

@@ -43,7 +43,7 @@ Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
 Route::put('/Meeting/Create/{publicacion}', [MeetingController::class, 'create'])->name("meeting.create");
 
 //Paypal - Pagos
-Route::get('/paypal/pay/{buy}', [PaymentController::class, 'payWithPayPal'])->name("paypal");
+Route::get('/paypal/pay', [PaymentController::class, 'payWithPayPal'])->name("paypal");
 Route::get('/paypal/process', [PaymentController::class, 'process']);
 Route::get('/paypal/cancel', [PaymentController::class, 'cancel']);
 
@@ -97,7 +97,6 @@ Route::put('/Categoria/Delete/{categoria}', [CategoryController::class, 'destroy
 Route::get('/Categoria/{categoria}/Delete', [CategoryController::class, 'delete'])->name("category.delete");
 
 //Monto por hora
-// Rangos horarios
 Route::get('/Monto', [AmountController::class, 'index']);
 Route::put('/Monto/Update/{monto}', [AmountController::class, 'update'])->name("amount.update");
 
@@ -131,8 +130,9 @@ Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");
 //Profesor
 Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferencias"]);
 
-//Profesor
+//Alumno
 Route::get("/Alumno/MisFavoritos", [AlumnoController::class, "misfavoritos"]);
+Route::get("/Alumno/ClasesPendientes", [AlumnoController::class, "clasespendientes"]);
 
 //Subir contrato
 Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");
@@ -146,7 +146,12 @@ Route::post('/Publicaciones/Store', [PublicationController::class, 'store']);
 Route::put('/Publicaciones/Update/{publicacion}', [PublicationController::class, 'update'])->name("publication.update");
 Route::get('/Publicaciones/{publicacion}/Edit', [PublicationController::class, 'edit'])->name("publication.edit");
 
+Route::put('/Publicaciones/Calendar/{publicacion}', [PublicationController::class, 'updatecalendar'])->name("publication.updatecalendar");
+Route::get('/Publicaciones/{publicacion}/Calendar', [PublicationController::class, 'calendar'])->name("publication.calendar");
+
 Route::post('/Publicaciones/DeleteImage/{publicacion}/{image}', [PublicationController::class, 'deleteimage'])->name("publication.deleteimage");
+
+Route::post('/Publicaciones/DeleteCourse/{course}', [PublicationController::class, 'deletecourse'])->name("publication.deletecourse");
 
 Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class, 'pause'])->name("publication.pause");
 Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");

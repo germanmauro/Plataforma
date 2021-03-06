@@ -27,7 +27,6 @@ class CourseController extends Controller
             $publicaciones = Publication::where('baja', 'false')
             ->where("estado", "Activa")
             ->where('titulo','regexp',implode("|",$array))
-            // ->orderByRaw("titulo regexp '" .implode("|",$array)."' asc")
             ->paginate(15);
         } else {
            return $this->listado();
@@ -40,7 +39,9 @@ class CourseController extends Controller
     public function showbycategories($id,$slug="")
     {
         $categoria = Category::find($id);
-        $publicaciones = $categoria->publications()->paginate(15);
+        $publicaciones = $categoria->publications()
+        ->where('publications.baja', 'false')
+        ->where("estado", "Activa")->paginate(15);
         return view("cursos.listadocategoria", compact("publicaciones","categoria"));
     }
 

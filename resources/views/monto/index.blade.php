@@ -5,7 +5,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                MONTO POR HORA EN EUROS
+                ADMINISTRE EL PORCENTAJE QUE COBRARÁN LOS PROFESORES DEL MONTO DE LOS CURSOS
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -16,11 +16,11 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 {{-- <label>Monto</label> --}}
-                                <input type="number" step="any" class="form-control" required id="valor" name="valor" min=0 max=10000 placeholder="Monto por hora" value= "{{$monto->valor}}">
+                                <input type="number" step="any" class="form-control" required id="valor" name="valor" min=1 max=99 placeholder="Porcentaje" value= "{{$monto->valor}}">
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <button type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Monto</button>
+                            <button type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Porcentaje</button>
                         </div>
                           </form>
                     

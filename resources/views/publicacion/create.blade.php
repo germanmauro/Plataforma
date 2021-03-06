@@ -9,10 +9,9 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <form name="envio" id="envio" role="form" action="/Publicaciones/Store" method="post" enctype="multipart/form-data">
                             @csrf
-                            
                             <div class="form-group">
                                 <label>Título</label>
                                 <input class="form-control" required name="titulo" maxlength="100" placeholder="Título" value= "{{old('titulo')}}">
@@ -30,12 +29,34 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Duración del curso (Opcional)</label>
-                                <input class="form-control" required name="duracion" maxlength="100" placeholder="Duración" value= "{{old('duracion')}}">
+                                <label>Tipo de clase (Si elije Grupal, luego deberá cargar las los inicios de cada curso)</label>
+                                <select class="form-control" required name="tipo">
+                                    <option value="Grupal">Grupal (Varios Alumnos)</option>
+                                    <option value="Individual">Individual</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label>Precio en Euros por mes (4 clases)</label>
-                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" placeholder="Precio" value= "{{old('precio')}}">
+                                <label>Cantidad de clases</label>
+                                <select onchange="mostrarDuracion()" class="form-control" required name="clases" id="clases">
+                                    <option value="0">Indefinido (Abono mensual)</option>
+                                    @for ($i = 1; $i < 13; $i++)
+                                        <option value="{{$i}}">{{$i}} Clases</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="duracion" class="form-group">
+                                <label>Duración del curso (en meses)</label>
+                                <select class="form-control" name="duracion">
+                                    @for ($i = 2; $i <= 12; $i++)
+                                        <option value="{{$i}}">{{$i}} Meses</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Precio en Euros por clase</label>
+                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" min=1 max=200 placeholder="Precio" value= "{{old('precio')}}">
                             </div>
                             <div class="form-group">
                                 <label>Imágen 1 (Opcional)</label>
@@ -53,13 +74,11 @@
                                 <label>Video (Si posee un video, adjunte la url de youtube al siguiente aquí)</label>
                                 <input class="form-control"  name="video" maxlength="200" placeholder="Video (Url)" value= "{{old('video')}}">
                             </div>
-                            
 
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
-                            <a href="/"  class="btn btn-danger">Cencelar</a>
+                            <a href="/"  class="btn btn-danger">Cancelar</a>
                         </form>
                     </div>
-
                     <!-- /.col-lg-6 (nested) -->
                 </div>
                 <!-- /.row (nested) -->
@@ -68,6 +87,17 @@
         </div>
         <!-- /.panel -->
     </div>
-    <!-- /.col-lg-12 -->
+    <!-- /.col-lg-6 -->
 </div>
 @endsection
+<script>
+    function mostrarDuracion()
+    {
+        var clase = document.getElementById("clases").value;
+        if(clase == 0) {
+            $("#duracion").show();
+        } else {
+            $("#duracion").hide();
+        }
+    }
+</script>

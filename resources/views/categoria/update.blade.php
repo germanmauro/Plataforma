@@ -28,7 +28,7 @@
                                 <input type="file" name="imagen" accept="image/*,pdf" class="form-control">
                             </div>
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
-                            <a href="/Categoria"  class="btn btn-danger">Cencelar</a>
+                            <a href="/Categoria"  class="btn btn-danger">Cancelar</a>
                         </form>
                     </div>
 

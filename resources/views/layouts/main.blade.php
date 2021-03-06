@@ -159,10 +159,10 @@
                                 </li>
                                 {{-- <li>
                                     <a href='/RangoHorario'> <i class='far fa-clock'></i> Rangos Horarios</a>
-                                </li>
-                                <li>
-                                    <a href='/Monto'> <i class='far fa-money-bill-alt'></i> Monto por hora</a>
                                 </li> --}}
+                                <li>
+                                    <a href='/Monto'> <i class='far fa-money-bill-alt'></i>Porcentaje de cobro</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -203,7 +203,7 @@
                                             <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
                                         </li>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                            <a  href='/Profesores/ClasesPendientes'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -223,13 +223,13 @@
                         @switch(session('Estado'))
                             @case("validado")
                                 <li>
-                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CURSOS <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Realizados</a>
                                         </li>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                            <a  href='/Alumno/ClasesPendientes'> <i class='fas fa-list-ol'></i> Pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -306,9 +306,9 @@
                 entrevista vía Zoom.
            </div>
             @break
-        @case("a entrevistar")
-           <div class="alert alert-success" role="alert">
-                El usuario ha sido deshabilitado
+        @case("invalidado")
+           <div class="alert alert-danger" role="alert">
+                Su usuario ha sido deshabilitado
            </div>
             @break
     @endswitch
@@ -323,6 +323,9 @@
     </div>
     <!-- /#wrapper -->
     <script>
+        var element = document.querySelector("#page-wrapper");
+        // scroll to element
+        element.scrollIntoView();
         var element = document.querySelector("#menu-secundario");
         // scroll to element
         element.scrollIntoView();

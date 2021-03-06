@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$publicacion->titulo}}
+                        {{$publicacion->titulo}} <span class="curso-detalle">({{$publicacion->tipo}})</span>
                       </p>
                     </div>
                     <div class="col-md-12">
@@ -34,14 +34,20 @@
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
                         </p>
                       </div>
-                      <p class="curso-descripcion">
-                        Duración: 
-                        @if ($publicacion->duracion=="")
-                            Sin especificar
-                        @else
-                            {{$publicacion->duracion}}
-                        @endif
-                      </p>
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          Precio del curso: {{$publicacion->precio}} € / Clase
+                        </p>
+                      </div>
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          @if($publicacion->clases == 0)
+                            Abono mensual : {{$publicacion->duracion}} meses           
+                          @else
+                            {{$publicacion->clases}} Clases
+                          @endif
+                        </p>
+                      </div>
                       
                       @if ($publicacion->video!="")
                         <p class="curso-descripcion">
@@ -60,18 +66,8 @@
                             <img class="curso-image" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}" />
                           @endif
                       </div>
-                       <div class="col-md-12">
-                          <p class="curso-descripcion">
-                            Disponibilidad del profesor <br>
-                            @foreach ($publicacion->user->availabilities as $ava)
-                              <div class="col-md-4">
-                                <p class="curso-especialidad"><i class='fas fa-clock'></i> {{$ava->dia}} de: {{$ava->desde()}} hs a: {{$ava->hasta()}} hs</p>
-                              </div>
-                            @endforeach 
-                          </p>
-                        </div> 
                       <div class="col-md-12">
-                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$publicacion->id}}/{{$publicacion->slug()}}" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$publicacion->precio}} € / 4 Clases</a>
+                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$publicacion->id}}/{{$publicacion->slug()}}" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  Comprar Curso</a>
                       </div>
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}

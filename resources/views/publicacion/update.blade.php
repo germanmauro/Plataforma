@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <form name="envio" id="envio" role="form" action="{{route("publication.update",$publicacion)}}" method="POST" enctype="multipart/form-data">
                             @method("put")
                             @csrf
@@ -35,12 +35,34 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Duración del curso (Opcional)</label>
-                                <input class="form-control" required name="duracion" maxlength="100" placeholder="Duración" value= "{{$publicacion->duracion}}">
+                                <label>Tipo de clase (Si elije Grupal, luego deberá cargar las los inicios de cada curso)</label>
+                                <select class="form-control" required name="tipo">
+                                    <option @if($publicacion->tipo == "Grupal") selected @endif value="Grupal">Grupal (Varios Alumnos)</option>
+                                    <option @if($publicacion->tipo == "Individual") selected @endif value="Individual">Individual</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label>Precio en Euros por mes (4 clases)</label>
-                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" placeholder="Precio" value= "{{$publicacion->precio}}">
+                                <label>Cantidad de clases</label>
+                                <select onchange="mostrarDuracion()" class="form-control" required name="clases" id="clases">
+                                    <option value="0">Indefinido (Abono mensual)</option>
+                                    @for ($i = 1; $i < 13; $i++)
+                                        <option @if($publicacion->clases == $i) selected @endif value="{{$i}}">{{$i}} Clases</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="duracion" class="form-group">
+                                <label>Duración del curso (en meses)</label>
+                                <select class="form-control" name="duracion">
+                                    @for ($i = 2; $i <= 12; $i++)
+                                        <option @if($publicacion->duracion == $i) selected @endif value="{{$i}}">{{$i}} Meses</option>
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Precio en Euros por clase</label>
+                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" min=1 max=200 placeholder="Precio" value= "{{$publicacion->precio}}">
                             </div>
                             <div class="form-group">
                                 <label>Imagen 1 (Si desea matener la misma no es necesario cargarla otra vez)</label>
@@ -63,7 +85,7 @@
                             </div>
                             
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
-                            <a href="/Publicaciones"  class="btn btn-danger">Cencelar</a>
+                            <a href="/Publicaciones"  class="btn btn-danger">Cancelar</a>
                         </form>
                     </div>
 
@@ -78,3 +100,15 @@
     <!-- /.col-lg-12 -->
 </div>
 @endsection
+<script>
+    function mostrarDuracion()
+    {
+        var clase = document.getElementById("clases").value;
+        if(clase == 0) {
+            $("#duracion").show();
+        } else {
+            $("#duracion").hide();
+        }
+    }
+    mostrarDuracion();
+</script>

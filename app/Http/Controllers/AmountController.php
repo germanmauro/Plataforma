@@ -12,7 +12,7 @@ class AmountController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "admin") {
             return redirect("");
         }
-        //Esta tabla tiene un único registro, que es el monto por hora.
+        //Esta tabla tiene un único registro, que es el porcentaje que cobra cada profesor.
         $monto = Amount::find(1);
         return view('monto.index', compact("monto"));
     }
@@ -22,6 +22,6 @@ class AmountController extends Controller
         $monto->valor = $request->valor;
         $monto->save();
 
-        return redirect("/Monto")->with("success", "Monto por hora actualizado");;
+        return redirect("/Monto")->with("success", "Porcentaje a cobrar actualizado");;
     }
 }

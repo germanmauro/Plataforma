@@ -47,6 +47,12 @@ class User extends Model
         return $this->belongsToMany("App\Models\Publication");
     }
 
+    //Pertenece a muchos courses
+    public function courses()
+    {
+        return $this->belongsToMany("App\Models\Course");
+    }
+
     //Compras(Alumno)
     public function buys()
     {

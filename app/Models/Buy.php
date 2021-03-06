@@ -23,13 +23,18 @@ class Buy extends Model
         return $this->belongsTo("App\Models\User");
     }
 
-    public function publication()
+    public function course()
     {
-        return $this->belongsTo("App\Models\Publication");
+        return $this->belongsTo("App\Models\Course");
     }
 
     public function pay()
     {
         return $this->hasOne("App\Models\PayPal");
+    }
+
+    public function teacher_pay()
+    {
+        return $this->hasOne("App\Models\Teacher_Pay");
     }
 }

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buy;
 use App\Models\PayPal;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use PayPal\Api\Amount;
@@ -36,45 +34,43 @@ class PaymentController extends Controller
         
     }
 
-    // ...
 
-    public function payWithPayPal(Buy $buy)
+    public function payWithPayPal()
     {
-        //Guardo la compra en la sessión para 
-        session(["Compra" => serialize($buy)]);
-        $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
-
-        $amount = new Amount();
-        $amount->setTotal($buy->publication->precio);
-        $amount->setCurrency('EUR');
-
-        $transaction = new Transaction();
-        $transaction->setAmount($amount);
-        $transaction->setDescription('Producto');
-
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(url('/paypal/process'))
-            ->setCancelUrl(url('/paypal/cancel'));
-        //Esto es para que no aparezca la opción de envíos que acá no hace falta
-        $inputFields = new InputFields();
-        $inputFields->setNoShipping(1); // 1 No envíos.
-
-        $webProfile = new WebProfile();
-        $webProfile->setName('test' . uniqid())->setInputFields($inputFields);
-        $webProfileId = $webProfile->create($this->apiContext)->getId();
-
-        $payment = new Payment();
-        $payment->setIntent('sale')
-            ->setPayer($payer)
-            ->setTransactions(array($transaction))
-            ->setRedirectUrls($redirectUrls)
-            ->setExperienceProfileId($webProfileId);
-
         try {
+            $payer = new Payer();
+            $payer->setPaymentMethod('paypal');
+            $buy = unserialize(session("Compra"));
+            $amount = new Amount();
+            $amount->setTotal($buy->precio);
+            $amount->setCurrency('EUR');
+
+            $transaction = new Transaction();
+            $transaction->setAmount($amount);
+            $transaction->setDescription("Curso");
+
+            $redirectUrls = new RedirectUrls();
+            $redirectUrls->setReturnUrl(url('/paypal/process'))
+                ->setCancelUrl(url('/paypal/cancel'));
+            //Esto es para que no aparezca la opción de envíos que acá no hace falta
+            $inputFields = new InputFields();
+            $inputFields->setNoShipping(1); // 1 No envíos.
+
+            $webProfile = new WebProfile();
+            $webProfile->setName('test' . uniqid())->setInputFields($inputFields);
+            $webProfileId = $webProfile->create($this->apiContext)->getId();
+
+            $payment = new Payment();
+            $payment->setIntent('sale')
+                ->setPayer($payer)
+                ->setTransactions(array($transaction))
+                ->setRedirectUrls($redirectUrls)
+                ->setExperienceProfileId($webProfileId);
+        
             $payment->create($this->apiContext);
             return redirect()->away($payment->getApprovalLink());
         } catch (PayPalConnectionException $ex) {
+            $buy->delete();
             echo $ex->getData();
         }
     }
@@ -92,9 +88,7 @@ class PaymentController extends Controller
         if (!$paymentId || !$payerId || !$token) {
             $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
             $pago->status = "error";
-            $buy->estado = "cancelado";
-            $buy->save();
-            $buy->pay()->save($pago);
+            $buy->delete();
             return redirect('')->with('error', $status);
         }
 
@@ -109,16 +103,15 @@ class PaymentController extends Controller
         $pago->status = $result->getState();
         if ($result->getState() === 'approved') {
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
-            $buy->estado = "pagado";
+            $buy->estado = "Pagado";
             $buy->save();
             $buy->pay()->save($pago);
             return redirect('')->with('success', $status);
         }
 
         $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-        $buy->estado = "cancelado";
-        $buy->save();
-        $buy->pay()->save($pago);
+        $buy->delete();
+        
         return redirect('')->with('error',$status);
     }
 

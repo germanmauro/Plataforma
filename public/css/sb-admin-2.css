@@ -309,10 +309,10 @@ p.detalle {
   text-decoration: none;
 }
 .accionmenu:hover {
-  color:white;
+  color: #024b94;
   text-decoration: none;
-  background-color: #391fce;
-  padding: 5px;
+  /* background-color: #391fce; */
+  /* padding: 5px; */
 }
 /* Nosotros */
   .nosotros {
@@ -518,14 +518,26 @@ form.buscador::after {
     padding: 5px;
     border: #18181749 5px solid;
     border-radius: 15px;
-    background-color: #5199db69;
+    background-color: #5198dbef;
     margin-bottom: 10px;
 }
 .curso-item:hover {
     border: #181817a2 5px solid;
     border-radius: 15px;
-    background-color: #5198dbc0;
+    background-color: #2967a1c0;
 }
+
+.curso-item input[type="radio"] {
+    padding: 6px;
+    height: 20px;
+    width: 20px;
+    background-color: #024b94;
+    color: white;
+    text-align-last:left; 
+    font-weight: 600;
+    border: black solid 2px;
+}
+
 
 .curso-titulo {
   font-family: 'Josefin Sans', sans-serif;
@@ -534,9 +546,10 @@ form.buscador::after {
   font-weight: bold;
 }
 
-.curso-especialidad {
+.curso-detalle {
   font-family: 'Courgette';
   font-size: 16px;
+  text-align: left;
   color:#2e332e;
   font-weight: bold;
 }
@@ -616,6 +629,7 @@ a.curso-link,a.curso-link:hover  {
 .curso-compartir:hover {
     color: rgb(0, 0, 0);
 }
+
 
 /* fin vista curso */
 
@@ -1130,6 +1144,10 @@ table.menutable th, table.menutable td {
    .nosotros img {
     width: 100%;
   }
+
+  .curso-item input[type="radio"] {
+    font-size: 10px;
+}
 }
 /* Pantallas muy anchas */
 @media (min-width: 1440px) {

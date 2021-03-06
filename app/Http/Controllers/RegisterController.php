@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\mailRegistry;
 use App\Models\Availability;
 use App\Models\Category;
+use App\Models\Notification;
 use App\Models\User;
 use DateTime;
 use Illuminate\Validation\ValidationException;
@@ -71,7 +72,8 @@ class RegisterController extends Controller
         $url = $this->enlaceVerificacion($user->id);
         Mail::to($user->email)->send(new mailRegistry($user, $url));
         //Notificacion
-        NotificationController::userRegister($user,"alumno");
+        $not = new Notification();
+        $not->userRegister($user,"alumno");
         return redirect("/RegistroExitoso");
     }
 
@@ -172,7 +174,8 @@ class RegisterController extends Controller
         //Envío de email.
         $url = $this->enlaceVerificacion($user->id);
         Mail::to($user->email)->send(new mailRegistry($user, $url));
-        NotificationController::userRegister($user, "profesor");
+        $not = new Notification();
+        $not->userRegister($user, "profesor");
         return redirect("/RegistroExitoso");
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableDayPublication extends Migration
+class CreateDaysTable2 extends Migration
 {
     /**
      * Run the migrations.
@@ -15,9 +15,11 @@ class CreateTableDayPublication extends Migration
     {
         Schema::create('days', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("publication_id");
+            $table->unsignedBigInteger("course_id");
             $table->dateTime("fecha");
             $table->timestamps();
+
+            $table->foreign("course_id")->references("id")->on("courses")->onDelete("cascade");
         });
     }
 
@@ -28,6 +30,6 @@ class CreateTableDayPublication extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('days');
+        Schema::dropIfExists('days_table2');
     }
 }

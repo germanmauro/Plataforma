@@ -6,6 +6,7 @@ use App\Models\Buy;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
+use DateTime;
 use Illuminate\Support\Facades\Redirect;
 
 class AlumnoController extends Controller
@@ -54,4 +55,27 @@ class AlumnoController extends Controller
         $user = User::find(session("Id"));
         return view('alumno.misfavoritos', compact("user"));
     }
+
+    public function clasespendientes()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $hoy = new DateTime();
+        $clases = $user->buys()->("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
+        return view('alumno.clasespendientes', compact("clases","user"));
+    }
+
+    public function clasespasadas()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $hoy = new DateTime();
+        $clases = $user->courses()->where("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
+        return view('alumno.clasespendientes', compact("clases","user"));
+    }
+    
 }

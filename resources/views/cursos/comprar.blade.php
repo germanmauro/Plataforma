@@ -2,8 +2,8 @@
 @section('content')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <!-- Multiple Select JS -->
-<link rel="stylesheet" href="{{asset('css/multiple-select.css')}}">
-<script src="{{asset('js/multiple-select.js')}}"></script>
+{{-- <link rel="stylesheet" href="{{asset('css/multiple-select.css')}}">
+<script src="{{asset('js/multiple-select.js')}}"></script> --}}
 
 <div class="container-fluid">
       <div class="row">
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$publicacion->titulo}}
+                        {{$publicacion->titulo}} <span class="curso-detalle">({{$publicacion->tipo}})</span>
                       </p>
                     </div>
                     <div class="col-md-12">
@@ -37,42 +37,49 @@
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
                         </p>
                       </div>
-                      <p class="curso-descripcion">
-                        Duración: 
-                        @if ($publicacion->duracion=="")
-                            Sin especificar
-                        @else
-                            {{$publicacion->duracion}}
-                        @endif
-                      </p>
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          Precio del curso: {{$publicacion->precio}} € / Clase
+                        </p>
+                      </div>
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          @if($publicacion->clases == 0)
+                            Abono mensual : {{$publicacion->duracion}} meses (El precio mensual depende de las clases que tenga el mes).
+                          @else
+                            {{$publicacion->clases}} Clases
+                          @endif
+                        </p>
+                      </div>
                       
                     </div>
               
                        <div class="col-md-12">
-                         <form name="envio" id="envio" role="form" action="{{route("meeting.create",$publicacion)}}" method="POST">
+                        @if(count($dias)>0) 
+                        <form name="envio" id="envio" role="form" action="{{route("meeting.create",$publicacion)}}" method="POST">
                             @method("put")
                             @csrf
                             <div class="form-group">
-                              <label for="dias"></label>
-                              <select id="dias" name="dias[]" multiple>
                                 @foreach ($dias as $day)
-                                  <option value="{{$day->id}} ">{{$day->descripcion}} </option>
+                                  <input id="{{$day->id}}" type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}} 
+                                  @if($publicacion->clases == 0) - Precio primer mes <strong>€ {{$publicacion->precio*$day->clases}} ({{$day->clases}} clases)</strong>@endif <br>
                                 @endforeach 
-                              </select>
                             </div>
                          
                         </div> 
                       <div class="col-md-12">
-                        <button type="submit" disabled id="botoncomprar" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Elija 4 clases</button>
+                        <button type="submit" id="botoncomprar" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso  
+                          @if($publicacion->clases > 0) € {{$publicacion->precio*$publicacion->clases}} / {{$publicacion->clases}} Clases @endif
+                        </button>
                       </div>
                       </form>
+                      @else
+                        <p class="curso-descripcion">
+                          Este curso ya no tiene clases disponibles. Intenta más adelante.
+                        </p>
+                      @endif
                   </div>
                 </div>
         </div>
       </div>
-<script>
-  new MultipleSelect('#dias', {
-    placeholder: 'Elija cuatro fechas'
-})
-</script>
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTipoToPublicationsTable extends Migration
+class ChangeVideoColumnToPublicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddTipoToPublicationsTable extends Migration
     public function up()
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->string("tipo",20)->default("Grupal");//Individual
-            $table->unsignedTinyInteger("clases")->default("0");//Individual
-            $table->unsignedDecimal("total")->default("0.00");//Individual
+            $table->string("video",300)->nullable()->change();
         });
     }
 
@@ -28,9 +26,7 @@ class AddTipoToPublicationsTable extends Migration
     public function down()
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->dropColumn("tipo");
-            $table->dropColumn("clases");
-            $table->dropColumn("total");
+            //
         });
     }
 }

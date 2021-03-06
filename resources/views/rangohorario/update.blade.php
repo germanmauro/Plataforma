@@ -23,7 +23,7 @@
                                 <input class="form-control" required id="rango" name="rango" maxlength="30" placeholder="Rango" value= "{{$rangohorario->rango}}">
                             </div>
                             <button type="submit" id="Send" name="Send" class="btn btn-default">Guardar</button>
-                            <a href="/RangoHorario"  class="btn btn-warning">Cencelar</a>
+                            <a href="/RangoHorario"  class="btn btn-warning">Cancelar</a>
                         </form>
                     </div>
 

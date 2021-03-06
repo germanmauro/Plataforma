@@ -12,13 +12,13 @@
                 <div class="col-md-4">
                   <div class="curso-item col-md-12">
                     <div class="col-md-12">
-                      <p class="curso-especialidad">
+                      <p class="curso-detalle">
                         {{$item->specialty->nombre}} 
                       </p>
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$item->titulo}}
+                        {{$item->titulo}} <span class="curso-detalle">({{$item->tipo}})</span>
                       </p>
                     </div>
                       <div class="col-md-12">
@@ -34,6 +34,20 @@
                         </p>
                       </div>
                       @endif
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          Precio del curso: {{$item->precio}} € / Clase
+                        </p>
+                      </div>
+                      <div class="col-md-12">
+                        <p class="curso-detalle">
+                          @if($item->clases == 0)
+                            Abono mensual : {{$item->duracion}} meses           
+                          @else
+                            {{$item->clases}} Clases
+                          @endif
+                        </p>
+                      </div>
                     
                     <div class="col-md-12">
                       @if ($item->firstImage()!="")
@@ -55,7 +69,7 @@
                           />     
                       @endif                  
                     </div>
-                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  {{$item->precio}} € / 4 Clases</a>
+                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  Comprar Curso </a>
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
                           @if($item->esFavorito())    

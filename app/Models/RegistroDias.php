@@ -7,4 +7,5 @@ class RegistroDias
 {
     public $id;
     public $descripcion;
+    public $clases;
 }

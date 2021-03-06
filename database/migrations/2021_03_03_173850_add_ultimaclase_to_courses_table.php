@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableDayPublication extends Migration
+class AddUltimaclaseToCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTableDayPublication extends Migration
      */
     public function up()
     {
-        Schema::create('days', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger("publication_id");
-            $table->dateTime("fecha");
-            $table->timestamps();
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dateTime("ultimaclase")->after("inicio");
         });
     }
 
@@ -28,6 +25,8 @@ class CreateTableDayPublication extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('days');
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropColumn("ultimaclase");
+        });
     }
 }

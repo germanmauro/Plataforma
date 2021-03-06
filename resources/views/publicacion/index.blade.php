@@ -7,7 +7,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [12]
+                   targets: [15]
                }]}
             );
         });
@@ -33,8 +33,11 @@
                 <th>Título</th>
                 <th>Descripcion</th>
                 <th>Especialidad</th>
+                <th>Tipo</th>
                 <th>Duración</th>
-                <th>Precio</th>
+                <th>Cursos Activos</th>
+                <th>Precio / Clase</th>
+                <th>Total</th>
                 <th>Imagen 1</th>
                 <th>Imagen 2</th>
                 <th>Imagen 3</th>
@@ -57,8 +60,19 @@
                           @endif 
                        </td>
                         <td>{{$item->specialty->nombre}} </td>
-                        <td>{{$item->duracion}} </td>
-                        <td>{{$item->precio}} </td>
+                        <td>{{$item->tipo}} </td>
+                        <td>
+                          @if($item->clases==0)
+                            {{$item->duracion}} Meses
+                            @else
+                            {{$item->clases}} Clases
+                          @endif
+                        </td>
+                        <td>
+                          {{count($item->cursosActivos())}}
+                        </td>
+                        <td>{{$item->precio}}</td>
+                        <td>{{$item->total}}</td>
                         <td>
                           @if ($item->imagen1!="")
                               <a class="error" onclick="borrarimagen({{$item->id}},1)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
@@ -87,15 +101,20 @@
                         <td>{{$item->created_at->format('d/m/Y H:i:s')}} </td>
                         <td>{{$item->updated_at->format('d/m/Y H:i:s')}} </td>
                         <td>
-                          @if ($item->estado=="Activa")
-                              <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
-                              <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
-
+                          @if ($item->estado=="Activa")  
+                              {{-- @if($item->tipo == "Grupal") --}}
+                                <a class="accionmenu" href="{{route('publication.calendar',$item->id) }}" title='Administrar Cursos' data-toggle='tooltip'><i class='fas fa-calendar'></i></span></a>
+                              {{-- @endif --}}
+                              @if(count($item->courses) == 0)
+                                <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
+                                <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
+                                <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
+                              @endif
                           @endif
                           @if ($item->estado=="Pausada")
                               <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-check-circle'></span></a>
                           @endif
-                          <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
+                          
                     </tr>
                 @endforeach
             </tbody>
@@ -130,7 +149,7 @@
                                 type: 'post',
                                 cache: false,
                                 success: function (r) {
-                                        location.reload();
+                                  location.reload();
                                 }
                             });
                         break;
