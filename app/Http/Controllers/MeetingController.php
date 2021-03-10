@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Meeting;
 use App\Models\Publication;
 use App\Models\RegistroDias;
+use App\Models\Teacher_Pay;
 use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
@@ -40,12 +41,15 @@ class MeetingController extends Controller
 
             $hoy = new DateTime();
             // return $publicacion->courses->where("inicio",">",$hoy);
-            foreach ($publicacion->courses->where("inicio",">",$hoy) as $item) {
-                $itemdia = new RegistroDias();
-                $itemdia->id = $item->id;
-                $itemdia->clases = $item->cantidadclases;
-                $itemdia->descripcion = "Inicio: ". array_search($item->inicio->format("l"), $diaSemana) . " " . $item->inicio->format('d/m/Y H:i');
-                $dias[] = $itemdia;
+            foreach ($publicacion->courses()->where("inicio",">",$hoy)->orderBy("inicio")->get() as $item) {
+                if(!($publicacion->tipo=="Individual" && count($item->users)>0))
+                {
+                    $itemdia = new RegistroDias();
+                    $itemdia->id = $item->id;
+                    $itemdia->clases = $item->cantidadclases;
+                    $itemdia->descripcion = "Inicio: " . array_search($item->inicio->format("l"), $diaSemana) . " " . $item->inicio->format('d/m/Y H:i');
+                    $dias[] = $itemdia;
+                }
             }
             
 
@@ -98,16 +102,22 @@ class MeetingController extends Controller
             $buy->course_id = $curso->id;
             //Calculo el total, que va a pagar el alumno
             $buy->precio = $curso->cantidadclases * $curso->precioclase;
+            $buy->montoadministrador = number_format($buy->precio * (100 - $curso->porcentajeprofesor)/100,2);
             $buy->user_id = session("Id");
             $buy->estado = "Sin pago";
             if ($curso->cantidadcuotas > 0) {
                 $buy->tipopago = "mensual";
-            } 
+            }
             $buy->cuota = $curso->cuotaactual;
             $buy->fecha = $curso->fechaactual;
             $buy->save();
+
+            //Cargo el pago del profesor
+            $pago_profesor = new Teacher_Pay();
+            $pago_profesor->pago = number_format($buy->precio - $buy->montoadministrador,2);
+            $pago_profesor->user_id = $publicacion->user_id;
             
-            $curso->users()->attach(session("Id"));
+            $buy->teacher_pay()->save($pago_profesor);
             foreach ($curso->diasActuales() as $dia) 
             {
                 $meeting = new Meeting();

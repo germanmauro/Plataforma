@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <div class="page-header clearfix">
             <h2 class="detalle"><span class="infoicono"><i class='fas fa-info-circle'></i></span> 
-              Mis cursos activos</h2>
+              Mis cursos realizados</h2>
           </div>
           <div class="info-clases">
             <div class="row">

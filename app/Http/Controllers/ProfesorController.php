@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Mail\mailContract;
 use App\Models\Buy;
+use App\Models\Course;
+use App\Models\Day;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,11 +29,10 @@ class ProfesorController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "admin") {
             return redirect("");
         }
-        $id = $user->id;
-        $buys = Buy::where('estado','pagado')->whereIn('publication_id', function ($query) use ($id) {
-            $query->select('id')->from('publications')->where('user_id',$id);
-        })->paginate(5);
-        return view("administrarprofesor.clases", compact("buys", "user"));
+        $hoy = new DateTime();
+        
+        $clases = $user->cursosActivos();
+        return view("administrarprofesor.clases", compact("clases", "user"));
     }
 
     public function info($id)
@@ -92,5 +94,63 @@ class ProfesorController extends Controller
     {
         $users = User::where(['baja' => 'false', 'perfil' => 'profesor','estado' => 'validado'])->get();
         return view("cursos.profesores", compact("users"));
+    }
+
+    public function clasespendientes()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "profesor") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $hoy = new DateTime();
+        
+        $clases = $user->cursosActivos();
+        return view('profesor.clasespendientes', compact("clases", "user"));
+    }
+
+    public function clasespasadas()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "profesor") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $hoy = new DateTime();
+        $clases = $user->cursosPasados();
+        return view('profesor.clasesrealizadas', compact("clases", "user"));
+    }
+
+    public function clasescurso(Course $course)
+    {
+        if (!session()->has('Perfil') || !in_array(session("Perfil"),["profesor","admin"])) {
+            return redirect("");
+        }
+        $days = Day::where("course_id", $course->id)
+            ->get();
+        return view('profesor.clases', compact("course", "days"));
+    }
+
+    //Info pagos
+    public function pagosrecibidos()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "profesor") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $pays = $user->teachers_pays()->where("Estado","Pagado")
+            ->orderBy("updated_at", "desc")
+            ->paginate(10);
+        return view('profesor.pagosrecibidos', compact("pays"));
+    }
+
+    public function pagospendientes()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "profesor") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $pays = $user->teachers_pays()->where("Estado", "A pagar")
+        ->orderBy("updated_at","desc")
+        ->paginate(10);
+        return view('profesor.pagospendientes', compact("pays"));
     }
 }

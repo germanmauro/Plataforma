@@ -70,8 +70,12 @@
                         <a class="btn btn-comprar" href="/Cursos/Comprar/{{$publicacion->id}}/{{$publicacion->slug()}}" title='Actualizar Registro' data-toggle='tooltip'> <i class='fas fa-money-bill'></i></span>  Comprar Curso</a>
                       </div>
                       <div class="col-md-12 curso-share">
-                        @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
-                            <a class="curso-favorite" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                       @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
+                          @if($publicacion->esFavorito())    
+                            <a onclick="loader()" class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$publicacion->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                          @else
+                            <a onclick="loader()" class="curso-favorite" href="/Cursos/AddFavorite/{{$publicacion->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                          @endif
                         @endif
                         
                           <a class="curso-compartir" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$publicacion->id}}/{{$publicacion->slug()}}" data-text="{{$publicacion->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>

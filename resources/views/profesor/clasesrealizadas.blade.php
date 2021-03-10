@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <div class="page-header clearfix">
             <h2 class="detalle"><span class="infoicono"><i class='fas fa-info-circle'></i></span> 
-              Mis cursos activos</h2>
+              Mis cursos finalizados</h2>
           </div>
           <div class="info-clases">
             <div class="row">
@@ -28,12 +28,23 @@
                         @else
                         <p>Cantidad de clases: {{$item->cantidadclases}}</p>
                         @endif
-                        <a class="accionmenu" href="/Alumno/Clases/{{$item->id}}">Ver Clases del curso</a>
+                        @if(count($item->users)>0)
+                        <h3>Alumnos inscriptos al curso</h3>
+                        <p>
+                          @foreach ($item->users as $usuario)
+                            <i class='fas fa-user'></i> {{$usuario->nombre}} {{$usuario->apellido}}
+                          @endforeach
+                        </p>
+                        @else
+                        <p class="infoicono">No tiene alumnos inscriptos</p>
+                        @endif
+                        
+                        <a class="accionmenu" href="/Profesor/Clases/{{$item->id}}">Ver Clases del curso</a>
                   </div>
               @endforeach
                 
             </div>
-            {{$clases->links()}}
+            {{-- {{$clases->links()}} --}}
           </div>
         </div>
       </div>

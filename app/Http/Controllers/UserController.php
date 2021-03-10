@@ -36,6 +36,10 @@ class UserController extends Controller
         $user->direccion = $request->direccion;
         if(session("Perfil")=="profesor") {
             $user->cuentabancaria = $request->cuentabancaria;
+            $user->banco = $request->banco;
+            $user->alias = $request->alias;
+            $user->cbu = $request->cbu;
+            $user->titular = $request->titular;
         }
         //Si existe el email
         // if (User::where('email', $request->email)->where('id','!=',$user->id)->count()) {

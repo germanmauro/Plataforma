@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,5 +17,15 @@ class Day extends Model
     public function course()
     {
         return $this->belongsTo("App\Models\Course");
+    }
+
+    public function getEstado()
+    {
+        $hoy = new DateTime();
+        if ($this->fecha > $hoy) {
+            return "Pendiente";
+        } else {
+            return "Cursada";
+        }
     }
 }

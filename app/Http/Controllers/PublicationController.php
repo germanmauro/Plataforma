@@ -11,6 +11,7 @@ use App\Models\User;
 use DateInterval;
 use DateTime;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -185,6 +186,7 @@ class PublicationController extends Controller
             $porcentaje = Amount::find(1);
             $course->porcentajeprofesor = $porcentaje->valor;
             $days = array();
+            $dias = new Collection();
             //abono mensual
             if ($publicacion->clases == 0) {
                 $flagFirst = true;
@@ -197,6 +199,10 @@ class PublicationController extends Controller
                     $mesActual = $fecha->format("m");
                     while ($fecha->format("m") == $mesActual) {
                         $days[] = $fecha->format("Y-m-d H:i:s");
+                        $dia = new Day();
+                        $dia->fecha = $fecha->format("Y-m-d H:i:s");
+                        $dia->cuota = $i + 1;
+                        $dias->add($dia);
                         $fecha->add(new DateInterval("P7D"));
                     }
                 }
@@ -205,6 +211,10 @@ class PublicationController extends Controller
             {
                 for ($i = 0; $i < $publicacion->clases; $i++) {
                     $days[] = $fecha->format("Y-m-d H:i:s");
+                    $dia = new Day();
+                    $dia->fecha = $fecha->format("Y-m-d H:i:s");
+                    $dia->cuota = $i + 1;
+                    $dias->add($dia);
                     $fecha->add(new DateInterval("P7D"));
                 }
                 $course->ultimaclase = $days[count($days) - 1];
@@ -235,11 +245,8 @@ class PublicationController extends Controller
                 //Salvo el curso
                 $course->save();
                 //Salvo todas las clases
-                foreach ($days as $dia) {
-                    $day = new Day();
-                    $day->fecha = $dia;
-                    $course->days()->save($day);
-                }
+                $course->days()->saveMany($dias);
+                
                 DB::commit();
                 return Redirect::back()->with("success", "Fecha agredada");
             }

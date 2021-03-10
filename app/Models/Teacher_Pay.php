@@ -13,6 +13,11 @@ class Teacher_Pay extends Model
 
     public function buy()
     {
-        return $this->hasOne("App\Models\Buy");
+        return $this->belongsTo("App\Models\Buy");
+    }
+
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User");
     }
 }

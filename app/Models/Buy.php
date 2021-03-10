@@ -13,6 +13,8 @@ class Buy extends Model
 
     protected $primaryKey = 'id';
 
+    protected $dates = ["fecha"];
+
     public function meetings()
     {
         return $this->hasMany("App\Models\Meeting");

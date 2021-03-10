@@ -61,16 +61,17 @@
                             @csrf
                             <div class="form-group">
                                 @foreach ($dias as $day)
-                                  <input id="{{$day->id}}" type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}} 
+                                  <input id="{{$day->id}}" checked required type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}} 
                                   @if($publicacion->clases == 0) - Precio primer mes <strong>€ {{$publicacion->precio*$day->clases}} ({{$day->clases}} clases)</strong>@endif <br>
                                 @endforeach 
                             </div>
                          
                         </div> 
                       <div class="col-md-12">
-                        <button type="submit" id="botoncomprar" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso  
+                        <button type="submit" id="botoncomprar" onclick="loader()" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso 
                           @if($publicacion->clases > 0) € {{$publicacion->precio*$publicacion->clases}} / {{$publicacion->clases}} Clases @endif
                         </button>
+                        
                       </div>
                       </form>
                       @else

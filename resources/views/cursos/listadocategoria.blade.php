@@ -12,7 +12,9 @@
                   {{$categoria->nombre}}
                 </h2>
                 <p>
-                  {{$categoria->texto}}
+                  @php
+                  echo $categoria->texto;
+                  @endphp
                 </p>
               </div>
               <div class="categoriainfo-split-right">
@@ -88,9 +90,9 @@
                       <div class="col-md-12 curso-share">
                         @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
                           @if($item->esFavorito())    
-                            <a class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                            <a onclick="loader()" class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
                           @else
-                            <a class="curso-favorite" href="/Cursos/AddFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                            <a onclick="loader()" class="curso-favorite" href="/Cursos/AddFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
                           @endif
                         @endif
                           <a class="curso-compartir" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$item->id}}/{{$item->slug()}}" data-text="{{$item->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>

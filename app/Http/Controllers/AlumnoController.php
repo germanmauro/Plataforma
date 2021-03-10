@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buy;
+use App\Models\Course;
+use App\Models\Meeting;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -25,8 +27,20 @@ class AlumnoController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "admin") {
             return redirect("");
         }
-        $buys = Buy::where(["estado"=>"pagado","user_id" => $user->id])->paginate(5);
-        return view("administraralumno.clases", compact("buys","user"));
+        $hoy = new DateTime();
+        $clases = $user->courses()->where("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
+        return view("administraralumno.clases", compact("clases","user"));
+    }
+
+    public function pagos(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        $pagos = $user->buys()->whereIn("Estado",["Pagado","Pendiente"])
+        ->orderBy("fecha","desc")
+        ->paginate(6);
+        return view("administraralumno.pagos", compact("pagos","user"));
     }
 
     public function enable(User $user)
@@ -63,7 +77,7 @@ class AlumnoController extends Controller
         }
         $user = User::find(session("Id"));
         $hoy = new DateTime();
-        $clases = $user->buys()->("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
+        $clases = $user->courses()->where("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
         return view('alumno.clasespendientes', compact("clases","user"));
     }
 
@@ -74,8 +88,43 @@ class AlumnoController extends Controller
         }
         $user = User::find(session("Id"));
         $hoy = new DateTime();
-        $clases = $user->courses()->where("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->paginate(6);
-        return view('alumno.clasespendientes', compact("clases","user"));
+        $clases = $user->courses()->where("ultimaclase", "<", $hoy->format("Y-m-d H:i"))->paginate(6);
+        return view('alumno.clasesrealizadas', compact("clases","user"));
     }
-    
+
+    public function clasescurso(Course $course, User $user = null)
+    {
+        if (!session()->has('Perfil') || !in_array(session("Perfil"),["alumno","admin"])) {
+            return redirect("");
+        }
+        if($user==null)
+        {
+            $user = User::find(session("Id"));
+        }
+        $buys = Buy::where("course_id",$course->id)
+        ->where("user_id",$user->id)
+        ->get();
+        return view('alumno.clases', compact("course","buys", "user"));
+    }
+
+    //Info pagos
+    public function pagosrealizados()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $buys = $user->buys()->where("Estado","Pagado")->paginate(10);
+        return view('alumno.pagosrealizados', compact("buys", "user"));
+    }
+
+    public function pagospendientes()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return redirect("");
+        }
+        $user = User::find(session("Id"));
+        $buys = $user->buys()->where("Estado","Pendiente")->paginate(10);
+        return view('alumno.pagospendientes', compact("buys", "user"));
+    }
 }

@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=32') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=33') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -171,6 +171,9 @@
                                 <li>
                                     <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Administración de Profesores</a>
                                 </li>
+                                <li>
+                                    <a  href='/Pagos/Transferir'> <i class='fas fa-hand-holding-usd'></i> Dinero  a transferir</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
@@ -178,6 +181,17 @@
                             <ul class='nav nav-second-level'>
                                 <li>
                                     <a  href='/AdministrarAlumnos'> <i class='fas fa-user-cog'></i> Administración de Alumnos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/Pagos/Recibidos'> <i class='fas fa-clipboard-check'></i> Recibidos</a>
+                                </li>
+                                <li>
+                                    <a  href='/Pagos/Pendientes'> <i class='fas fa-clock'></i> Pendientes</a>
                                 </li>
                             </ul>
                         </li>
@@ -197,13 +211,13 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                                    <a href='#'><i class='fas fa-chalkboard-teacher'></i> CURSOS <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Clases realizadas</a>
+                                            <a  href='/Profesor/ClasesRealizadas'> <i class='fas fa-clipboard-check'></i> Finalizados</a>
                                         </li>
                                         <li>
-                                            <a  href='/Profesores/ClasesPendientes'> <i class='fas fa-list-ol'></i> Clases pendientes</a>
+                                            <a  href='/Profesor/ClasesPendientes'> <i class='fas fa-clock'></i> Pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -211,7 +225,10 @@
                                     <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
+                                            <a  href='/Profesor/Pagos/Recibidos'> <i class='fas fa-clipboard-check'></i> Recibidos</a>
+                                        </li>
+                                        <li>
+                                            <a  href='/Profesor/Pagos/Pendientes'> <i class='fas fa-clock'></i> Pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -226,10 +243,10 @@
                                     <a href='#'><i class='fas fa-chalkboard-teacher'></i> CURSOS <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-clipboard-check'></i> Realizados</a>
+                                            <a  href='/Alumno/ClasesRealizadas'> <i class='fas fa-clipboard-check'></i> Finalizados</a>
                                         </li>
                                         <li>
-                                            <a  href='/Alumno/ClasesPendientes'> <i class='fas fa-list-ol'></i> Pendientes</a>
+                                            <a  href='/Alumno/ClasesPendientes'> <i class='fas fa-clock'></i> Pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -237,7 +254,10 @@
                                     <a href='#'><i class='fas fa-file-invoice-dollar'></i> PAGOS <span class='fas fa-angle-double-right'></span></a>
                                     <ul class='nav nav-second-level'>
                                         <li>
-                                            <a  href='/AdministrarProfesores'> <i class='fas fa-user-cog'></i> Mis clases</a>
+                                            <a  href='/Alumno/Pagos/Realizados'> <i class='fas fa-clipboard-check'></i> Realizados</a>
+                                        </li>
+                                        <li>
+                                            <a  href='/Alumno/Pagos/Pendientes'> <i class='fas fa-clock'></i> Pendientes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -312,13 +332,19 @@
            </div>
             @break
     @endswitch
-@endif
-            @yield('content')
+@endif      
+             
+             @yield('content')
+             <div id="loader" class="loader" style="display: none">
+                 <div class="circulo"></div>
+             </div>
         </div>
         
         <!-- /#page-wrapper -->
         <div class="footer">
-            Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a> - <a href="/PoliticaPrivacidad">Política de privacidad</a>
+            Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a> 
+            - <a href="/PoliticaPrivacidad">Política de privacidad</a> 
+            - <a href="/Registro/Terminos">Términos y condiciones</a>
         </div>
     </div>
     <!-- /#wrapper -->
@@ -343,6 +369,13 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{ asset('js/metisMenu.min.js')}}"></script>
     <!-- Alertas -->
+    <script>
+        function loader()
+        {
+            $("#loader").show();
+        }
+        
+    </script>
 </body>
 
 </html>

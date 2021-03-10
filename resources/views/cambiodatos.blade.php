@@ -61,9 +61,25 @@
                             </div>
                             @if (session('Perfil')=="profesor")
                               <div class="input-container">
-                                <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria',$user->cuentabancaria)}}">
+                                <input required type="text" class="form-control" id="banco" name="banco" minlength="2" maxlength="30"  value= "{{old('banco',$user->banco)}}">
+                                <label>Banco</label>
+                              </div>  
+                              <div class="input-container">
+                                <input required type="text" class="form-control" id="cbu" name="cbu" minlength="12" maxlength="30"  value= "{{old('cbu',$user->cbu)}}">
                                 <label>Número de CBU</label>
-                            </div>  
+                              </div>  
+                              <div class="input-container">
+                                <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria',$user->cuentabancaria)}}">
+                                <label>Cuenta Bancaria</label>
+                              </div>  
+                              <div class="input-container">
+                                <input type="text" class="form-control" id="alias" name="alias" minlength="4" maxlength="30"  value= "{{old('alias',$user->alias)}}">
+                                <label>Alias</label>
+                              </div>  
+                              <div class="input-container">
+                                <input required type="text" class="form-control" id="titular" name="titular" minlength="12" maxlength="30"  value= "{{old('titular',$user->titular)}}">
+                                <label>Titular</label>
+                              </div>  
                             @endif
                             <div class="input-container">
                                 <input type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">

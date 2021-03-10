@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\PayPal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use PayPal\Api\Amount;
 use PayPal\Api\InputFields;
 use PayPal\Api\Payer;
@@ -102,11 +104,27 @@ class PaymentController extends Controller
 
         $pago->status = $result->getState();
         if ($result->getState() === 'approved') {
-            $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
-            $buy->estado = "Pagado";
-            $buy->save();
-            $buy->pay()->save($pago);
-            return redirect('')->with('success', $status);
+            try {
+                DB::beginTransaction();
+                $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
+                $buy->estado = "Pagado";
+                $buy->save();
+                $buy->course->users()->attach(session("Id"));
+                $buy->pay()->save($pago);
+                $not = new Notification();
+                $not2 = new Notification();
+                $not3 = new Notification();
+                $not->compraAlumno($buy->course);
+                $not2->compraProfesor($buy->course);
+                $not3->compraAdministrador($buy->course);
+                DB::commit();
+                return redirect('')->with('success', $status);
+
+            } catch (\Throwable $th) {
+                DB::rollBack();
+                return redirect('')->with('error', "Error al realizar la transacción");
+            }
+            
         }
 
         $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';

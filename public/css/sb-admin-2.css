@@ -17,6 +17,9 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-size:16px
 }
+
+strong { font-weight: bold; }
+
 #wrapper {
   margin:10px;
   background-color: white;
@@ -29,6 +32,31 @@ a.marca {
 a.marca:hover,a.marca:active {
  color:thistle;
  text-decoration: none;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(0,0,0,.4);
+  z-index: 10000;
+}
+.circulo {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 2s linear infinite;
+  margin-top: 200px;
+  width: 200px;
+  height: 200px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #banner {
@@ -375,7 +403,7 @@ p.detalle {
 .info-clases-item {
   border: #000 solid 2px;
   border-radius: 5%;
-  padding: 10px;
+  padding: 25px;
   margin: 5px;
 }
 .info-clases h1 {
@@ -888,6 +916,7 @@ a.curso-link,a.curso-link:hover  {
 .categoriainfo p{
   margin-bottom: 30px;
   padding:20px 20px;
+  font-weight: normal;
   font-size: 20px;
   text-align: justify;
 }
@@ -1148,6 +1177,7 @@ table.menutable th, table.menutable td {
   .curso-item input[type="radio"] {
     font-size: 10px;
 }
+
 }
 /* Pantallas muy anchas */
 @media (min-width: 1440px) {

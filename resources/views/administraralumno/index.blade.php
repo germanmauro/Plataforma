@@ -56,6 +56,7 @@
                              <a class="accionmenu" onclick="deshabilitaralumno({{$item->id}})" title='Dehabilitar alumno' data-toggle='tooltip'><i class='far fa-thumbs-down'></i></span></a>
                          @endif
                          <a class="accionmenu" href="AdministrarAlumnos/{{$item->id}}/Clases" title='Ver clases del alumno' data-toggle='tooltip'><i class='fas fa-chalkboard-teacher'></i></span></a>
+                         <a class="accionmenu" href="AdministrarAlumnos/{{$item->id}}/Pagos" title='Ver pagos del alumno' data-toggle='tooltip'><i class='fas fa-euro-sign'></i></span></a>
                         </td>
                     </tr>
                 @endforeach

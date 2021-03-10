@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\RegisterController;
@@ -120,8 +121,15 @@ Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::c
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
 Route::get("/AdministrarAlumnos/{user}/Clases", [AlumnoController::class, "clases"])->name("alumno.clases");
+Route::get("/AdministrarAlumnos/{user}/Pagos", [AlumnoController::class, "pagos"])->name("alumno.pagos");
 Route::post('/AdministrarAlumnos/Habilitar/{user}', [AlumnoController::class, 'enable'])->name("alumno.enable");
 Route::post('/AdministrarAlumnos/Deshabilitar/{user}', [AlumnoController::class, 'disable'])->name("alumno.disable");
+//Pagos
+Route::get("Pagos/Recibidos", [PagoController::class, "pagosrecibidos"]);
+Route::get("Pagos/Pendientes", [PagoController::class, "pagospendientes"]);
+Route::get("Pagos/Transferir", [PagoController::class, "transferir"]);
+Route::post('/Pagos/SetPaid/{pago}', [PagoController::class, 'setPaid'])->name("transferir");
+
 
 //Cambio de datos de usuario
 Route::put('/EditarPerfil/{user}', [UserController::class, 'update'])->name("user.update");
@@ -129,10 +137,23 @@ Route::get('/EditarPerfil', [UserController::class, 'edit'])->name("user.edit");
 
 //Profesor
 Route::get("/Profesor/MisPreferencias", [ProfesorController::class, "mispreferencias"]);
+    //Clases
+Route::get("/Profesor/ClasesPendientes", [ProfesorController::class, "clasespendientes"]);
+Route::get("/Profesor/ClasesRealizadas", [ProfesorController::class, "clasespasadas"]);
+Route::get("/Profesor/Clases/{course}", [ProfesorController::class, "clasescurso"]);
+    //Pagos
+Route::get("/Profesor/Pagos/Recibidos", [ProfesorController::class, "pagosrecibidos"]);
+Route::get("/Profesor/Pagos/Pendientes", [ProfesorController::class, "pagospendientes"]);
 
 //Alumno
 Route::get("/Alumno/MisFavoritos", [AlumnoController::class, "misfavoritos"]);
+    //Clases
 Route::get("/Alumno/ClasesPendientes", [AlumnoController::class, "clasespendientes"]);
+Route::get("/Alumno/ClasesRealizadas", [AlumnoController::class, "clasespasadas"]);
+Route::get("/Alumno/Clases/{course}/{user?}", [AlumnoController::class, "clasescurso"]);
+    //Pagos
+Route::get("/Alumno/Pagos/Realizados", [AlumnoController::class, "pagosrealizados"]);
+Route::get("/Alumno/Pagos/Pendientes", [AlumnoController::class, "pagospendientes"]);
 
 //Subir contrato
 Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");
