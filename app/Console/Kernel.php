@@ -25,12 +25,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        
-        $schedule->call(function() {
-            $not = new Notification();
-            $not->register(1,"prueba","prueba 1 minuto");
-        }
-    )->everyFiveMinutes();
+
+        $schedule->call(
+            function () {
+                $not = new Notification();
+                $not->register(1, "prueba", "prueba 5 minutos");
+            }
+        )->everyMinute();
+    
         $schedule->call(
             function () {
                 $not = new Notification();
