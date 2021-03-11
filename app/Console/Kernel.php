@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(
             function () {
                 $not = new Notification();
-                $not->register(1, "prueba", "prueba 5 minutos");
+                $not->register(1, "prueba", "prueba 1 minutos");
             }
         )->everyMinute();
     
