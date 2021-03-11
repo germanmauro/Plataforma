@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
                 $not = new Notification();
                 $not->register(1, "prueba", "prueba 5 minutos");
             }
-        )->everyMinute();
+        )->everyFiveMinutes();
     }
 
     /**
