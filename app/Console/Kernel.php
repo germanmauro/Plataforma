@@ -24,7 +24,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        
+        $schedule->call(function() {
+            logger("5 minutejos amigacho");
+        }
+    )->everyFiveMinutes();
+        $schedule->call(
+            function () {
+                logger("hola");
+                logger("cara de caca");
+            }
+        )->everyMinute();
     }
 
     /**

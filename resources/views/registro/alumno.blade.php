@@ -73,7 +73,12 @@
                             <div class="form-group">
                                 <label> 
                                     <input type="checkbox" id="terminos" name="terminos"> 
-                                    <a class="formregistro" target="_blank" href="Terminos">Al registrarte aceptarás los términos y condiciones</a>
+                                        Al registrarte aceptarás los 
+                                        <a class="formregistro" target="_blank" href="Terminos">
+                                            Términos y condiciones</a>
+                                            y las
+                                        <a class="formregistro" target="_blank" href="/PoliticaPrivacidad">
+                                            Políticas de privacidad</a>
                                 </label>
                             </div>
 
