@@ -55,7 +55,7 @@
                         </p>
                       @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                           @if($publicacion->imagen1!="")
                             <img class="curso-image-compra" src="{{asset('storage/publicaciones/'.$publicacion->imagen1)}}" />
                           @endif
