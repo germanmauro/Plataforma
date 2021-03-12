@@ -55,15 +55,15 @@
                         </p>
                       @endif
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                           @if($publicacion->imagen1!="")
-                            <img class="curso-image" src="{{asset('storage/publicaciones/'.$publicacion->imagen1)}}" />
+                            <img class="curso-image-compra" src="{{asset('storage/publicaciones/'.$publicacion->imagen1)}}" />
                           @endif
                           @if($publicacion->imagen2!="")
-                            <img class="curso-image" src="{{asset('storage/publicaciones/'.$publicacion->imagen2)}}" />
+                            <img class="curso-image-compra" src="{{asset('storage/publicaciones/'.$publicacion->imagen2)}}" />
                           @endif
                           @if($publicacion->imagen3!="")
-                            <img class="curso-image" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}" />
+                            <img class="curso-image-compra" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}" />
                           @endif
                       </div>
                       <div class="col-md-12">
@@ -78,8 +78,8 @@
                           @endif
                         @endif
                         
-                          <a class="curso-compartir" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$publicacion->id}}/{{$publicacion->slug()}}" data-text="{{$publicacion->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>
-                          <a class="curso-compartir" title="Compartir por email" href="mailto:?subject=Quiero compartirte este curso&amp;body=Mirá este curso {{$publicacion->titulo}} http://capacitacionee.com/Cursos/{{$publicacion->id}}/{{$publicacion->slug()}}"><i class='fas fa-envelope'></i></a>
+                          <a class="curso-compartir whatsapp" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$publicacion->id}}/{{$publicacion->slug()}}" data-text="{{$publicacion->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>
+                          <a class="curso-compartir correo" title="Compartir por email" href="mailto:?subject=Quiero compartirte este curso&amp;body=Mirá este curso {{$publicacion->titulo}} http://capacitacionee.com/Cursos/{{$publicacion->id}}/{{$publicacion->slug()}}"><i class='fas fa-envelope'></i></a>
                         
                       </div>
                   </div>

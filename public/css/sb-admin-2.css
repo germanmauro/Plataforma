@@ -545,14 +545,14 @@ form.buscador::after {
 .curso-item {
     padding: 5px;
     border: #18181749 5px solid;
-    border-radius: 15px;
-    background-color: #5198dbef;
+    /* border-radius: 15px; */
+    background-color: white;
     margin-bottom: 10px;
 }
 .curso-item:hover {
     border: #181817a2 5px solid;
-    border-radius: 15px;
-    background-color: #2967a1c0;
+    /* border-radius: 15px; */
+    background-color: #f5efef;
 }
 
 .curso-item input[type="radio"] {
@@ -575,7 +575,7 @@ form.buscador::after {
 }
 
 .curso-detalle {
-  font-family: 'Courgette';
+  /* font-family: 'Courgette'; */
   font-size: 16px;
   text-align: left;
   color:#2e332e;
@@ -583,7 +583,7 @@ form.buscador::after {
 }
 
 .curso-profesor {
-  font-family: 'Courgette';
+  /* font-family: 'Courgette'; */
   font-size: 15px;
   text-align: left;
   color:#3d3792;
@@ -604,6 +604,16 @@ a.curso-descripcion{
   color:black;
 }
 img.curso-image {
+  /* max-width: 100%;
+  max-height: 200px; */
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(20, 20, 20, 0.589);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+img.curso-image-compra {
   max-width: 100%;
   max-height: 200px;
   height: auto;
@@ -615,12 +625,12 @@ img.curso-image {
     margin-top:10px;
     width: 90%;
     color: #fff;
-    background-color: #242724;
+    background-color: #024b94;
     border-color: #b8b6b6;
 }
 .btn-comprar:hover {
     color: rgb(236, 236, 236);
-    background-color: #3c3f3c;
+    background-color: #094886;
     font-weight: bold;
     border-color: #101010;
 }
@@ -651,11 +661,20 @@ a.curso-link,a.curso-link:hover  {
 }
 .curso-compartir {
   padding-left: 10px;
-  color: #5a5454;
 }
 
-.curso-compartir:hover {
-    color: rgb(0, 0, 0);
+.whatsapp {
+    color: #15c515;
+}
+.whatsapp:hover {
+    color: rgb(19, 148, 25);
+}
+
+.correo {
+    color: #2727dd;
+}
+.correo:hover {
+    color: #1919c2;
 }
 
 

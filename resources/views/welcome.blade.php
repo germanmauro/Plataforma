@@ -22,7 +22,7 @@
         @case("a entrevistar")
            <div class="alert alert-success" role="alert">
                 La administración de Capacitación en Español lo contactará vía e-mail para concretar una
-                entrevista vía Zoom.
+                entrevista vía Google Meet.
            </div>
             @break
         @case("a entrevistar")

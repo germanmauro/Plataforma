@@ -24,17 +24,10 @@
         </p>
         <p>
            A la Brevedad recibirá un e-mail de un miembro de C.E.E que lo invitará a participar de 
-           una entrevista formal a través de la plataforma Zoom, la misma tendrá como objetivo principal 
+           una entrevista formal a través de la plataforma Google Meet, la misma tendrá como objetivo principal 
            conocerlo, contarle cuales son nuestros objetivos, verificar que el sistema funcione 
            correctamente y así poder descubrir si cumple con las condiciones básicas para poder ser 
            parte colaborativa de nuestro proyecto.
-        </p>
-        <p>
-            Si aún no lo ha hecho, lo invitamos a que descargue en su ordenador, tablet o smartphone 
-            la aplicación “ZOOM”, aquí le dejamos un link para facilitar su descarga.
-        </p>
-        <p>
-            Link: <a href="https://zoom.us/download">Descargar Zoom</a>
         </p>
         <p>
             El próximo paso es validar tu e-mail

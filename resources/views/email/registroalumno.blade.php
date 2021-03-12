@@ -23,17 +23,11 @@
         </p>
         <p>
             A la brevedad recibirá un e-mail de un miembro de C.E.E que lo invitará a participar de una entrevista
-        formal a través de la plataforma Zoom, la misma tendrá como objetivo principal conocerlo, contarle 
+        formal a través de la plataforma Google Meet, la misma tendrá como objetivo principal conocerlo, contarle 
         cuáles son nuestros objetivos, de modo tal que conozca más acerca de nosotros y por último verificar
         que el sistema funcione correctamente.
         </p>
-        <p>
-            Si aún no lo ha hecho, lo invitamos a que descargue en su ordenador, tablet o smartphone 
-            la aplicación “ZOOM”, aquí le dejamos un link para facilitar su descarga.
-        </p>
-        <p>
-            Link: <a href="https://zoom.us/download">Descargar Zoom</a>
-        </p>
+     
         <p>
             El próximo paso es validar tu e-mail
         </p>

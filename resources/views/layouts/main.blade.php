@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=33') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=34') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -323,7 +323,7 @@
         @case("a entrevistar")
            <div class="alert alert-success" role="alert">
                 La administración de Capacitación en Español lo contactará vía e-mail para concertar una
-                entrevista vía Zoom.
+                entrevista vía Google Meet.
            </div>
             @break
         @case("invalidado")
