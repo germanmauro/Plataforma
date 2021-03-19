@@ -44,7 +44,7 @@ class Notification extends Model
         $mensaje = "Has comprado el curso: " . $course->publication->titulo .
             ". Inicio de cursada " . $course->inicio->format("d/m/Y H:i");
         $this->register($user->id,"Compra",$mensaje);
-        Mail::to($user->email)->send(new notificationMessage("Compra reailzada - CEE","Compra exitosa",$mensaje));
+        Mail::to($user->email)->send(new notificationMessage("Compra reailzada - CEE","Muchas gracias por su compra",$mensaje));
     }
 
     public function compraProfesor(Course $course)
@@ -54,7 +54,7 @@ class Notification extends Model
         $mensaje = "El usuario " . $user->nombre . " " . $user->apellido . " ha comprado " . $course->publication->titulo .
             " para la fecha " . $course->inicio->format("d/m/Y H:i");
         $this->register($profesor->id,"Compra",$mensaje);
-        Mail::to($profesor->email)->send(new notificationMessage("Compra realizada - CEE", "Compra exitosa", $mensaje));
+        Mail::to($profesor->email)->send(new notificationMessage("Compra realizada - CEE", "Compra registrada", $mensaje));
     }
 
     public function compraAdministrador(Course $course)
@@ -64,7 +64,7 @@ class Notification extends Model
         $mensaje =  "El usuario " . $user->nombre . " " . $user->apellido . " ha comprado " . $course->publication->titulo .
         " para la fecha " . $course->inicio->format("d/m/Y H:i");
         $this->register(1, "Compra",$mensaje);
-        Mail::to($admin->email)->send(new notificationMessage("Compra realizada - CEE", "Compra exitosa", $mensaje));
+        Mail::to($admin->email)->send(new notificationMessage("Compra realizada - CEE", "Compra registrada", $mensaje));
     }
 
     public function pagoAlumno(Buy $buy)
