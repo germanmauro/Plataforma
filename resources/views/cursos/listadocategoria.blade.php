@@ -81,6 +81,9 @@
                         <p class="curso-detalle">
                           Precio del curso: {{$item->precio}} € / Clase
                         </p>
+                        <p class="curso-detalle">
+                          {{$item->primerDiaDisponible()}}
+                        </p>
                       </div>
                       <div class="col-md-12">
                         <p class="curso-detalle">
