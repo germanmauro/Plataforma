@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('header')
     <div id="banner-buscador">
-      <h2>Cursos personales y grupales online para niños y adultos</h2>
+      <h2>Clases personales y grupales online para niños y adultos</h2>
       <form class="buscador" action="/Cursos/Filter" method="GET">
         <input type="text" autocomplete="off" placeholder="ENCUENTRA CLASES Y PROFESORES" name="filter">
         <button type="submit"><i class="fa fa-search"></i></button>

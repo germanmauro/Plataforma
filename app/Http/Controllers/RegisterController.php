@@ -131,8 +131,8 @@ class RegisterController extends Controller
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         // $user->telefono = $request->telefono;
-        // $user->dni = $request->dni;
-        // $user->tipodocumento = $request->tipodocumento;
+        $user->dni = $request->dni;
+        $user->tipodocumento = $request->tipodocumento;
         $user->email = $request->email;
         // $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;

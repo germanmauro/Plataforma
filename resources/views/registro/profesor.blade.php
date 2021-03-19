@@ -33,6 +33,14 @@
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido')}}">
                                 <label>Apellido</label>
                             </div>
+                            <div class="input-container">      
+                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento',$user->tipodocumento)}}">
+                                <label>Tipo de Documento</label>
+                            </div>
+                            <div class="input-container">      
+                                <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni',$user->dni)}}">
+                                <label>Documento</label>
+                            </div>
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
