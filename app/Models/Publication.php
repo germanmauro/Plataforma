@@ -105,7 +105,7 @@ class Publication extends Model
         $hoy = new DateTime();
         foreach ($this->courses()->where("inicio", ">", $hoy)->orderBy("inicio")->get() as $item) {
             if (!($this->tipo == "Individual" && count($item->users) > 0)) {
-                return "Inicio: ".$item->inicio->format("d/m/Y H:i");
+                return "Inicio: ".$item->inicio->format("d/m/Y");
             }
         }
         return "Sin clases disponibles";
