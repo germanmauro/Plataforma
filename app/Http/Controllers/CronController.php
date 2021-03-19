@@ -96,10 +96,4 @@ class CronController extends Controller
             ->where('fecha',">", $hoy->format("Y-m-d H:i"))
             ->update(['estado' => "realizada"]);
     }
-
-    //Generar nuevas cuotas mensuales
-    public static function generateBuy()
-    {
-
-    }
 }

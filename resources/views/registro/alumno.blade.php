@@ -35,7 +35,7 @@
                                 <label>Tipo de Documento</label>
                             </div>
                             <div class="input-container">      
-                                <input class="form-control" required id="dni" name="dni" maxlength="20"  value= "{{old('dni')}}">
+                                <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni')}}">
                                 <label>Número de Documento</label>
                             </div>
                             <div class="input-container">

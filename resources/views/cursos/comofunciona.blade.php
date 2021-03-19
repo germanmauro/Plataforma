@@ -22,7 +22,7 @@
                 <p>
                   Seleccioná los cursos que deseas aprender. CEE te da la posibilidad desde la comodidad 
                   de tu casa a capacitarte desde el lugar del mundo en donde estés, de manera personal y 
-                  con profesores de habla hispana.
+                  grupal con profesores de habla hispana.
                 </p>
             </div>
             </div>

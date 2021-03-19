@@ -55,7 +55,7 @@
                     Nuestros profesores
                 </h2>
                 <p>
-                    Son reconocidos en el ámbito educativo, dominan la metodología online y ofrecen cursos 
+                    Son reconocidos en el ámbito educativo, dominan la metodología online y brindan cursos 
                     de altísima calidad para lograr resultados extraordinarios en los alumnos.
                 </p>
             </div>
