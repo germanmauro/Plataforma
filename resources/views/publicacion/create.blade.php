@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Precio en Euros por clase</label>
-                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" min=1 max=200 placeholder="Precio" value= "{{old('precio')}}">
+                                <input type="number" step="any" class="form-control" required name="precio" maxlength="20" min=0.1 max=200 placeholder="Precio" value= "{{old('precio')}}">
                             </div>
                             <div class="form-group">
                                 <label>Imágen 1 (Opcional)</label>
