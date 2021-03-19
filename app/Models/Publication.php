@@ -99,4 +99,15 @@ class Publication extends Model
     {
         return $this->alumnos()->where('user_id', session("Id"))->count();
     }
+
+    public function primerDiaDisponible()
+    {
+        $hoy = new DateTime();
+        foreach ($this->courses()->where("inicio", ">", $hoy)->orderBy("inicio")->get() as $item) {
+            if (!($this->tipo == "Individual" && count($item->users) > 0)) {
+                return "Inicio: ".$item->inicio->format("d/m/Y H:i");
+            }
+        }
+        return "Sin clases disponibles";
+    }
 }

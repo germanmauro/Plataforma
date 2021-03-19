@@ -36,13 +36,16 @@
                           {{$publicacion->user->calificaciones()}}
                           <i class=" fa fa-star"></i> de 5
                           @else
-                          Sin calificaciones
+                          (sin calificaciones)
                           @endif
                         </p>
                       </div>
                       <div class="col-md-12">
                         <p class="curso-detalle">
                           Precio del curso: {{$publicacion->precio}} € / Clase
+                        </p>
+                        <p class="curso-detalle">
+                          {{$item->primerDiaDisponible()}}
                         </p>
                       </div>
                       <div class="col-md-12">
