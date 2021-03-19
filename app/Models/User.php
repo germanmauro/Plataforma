@@ -6,6 +6,7 @@ use DateTime;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class User extends Model
@@ -71,7 +72,7 @@ class User extends Model
         $hoy = new DateTime();
         $cursosActivos = new Collection();
         foreach ($this->Cursadas as $item) {
-            if ($item->inicio > $hoy || ($item->utilmaclase > $hoy && count($item->users) > 0)) {
+            if ($item->ultimaclase > $hoy && count($item->users) > 0) {
                 $cursosActivos[] = $item;
             }
         }
@@ -83,7 +84,7 @@ class User extends Model
         $hoy = new DateTime();
         $cursosActivos = new Collection();
         foreach ($this->Cursadas as $item) {
-            if ($item->utilmaclase < $hoy && count($item->users) > 0) {
+            if ($item->ultimaclase < $hoy && count($item->users) > 0) {
                 $cursosActivos[] = $item;
             }
         }
@@ -104,5 +105,19 @@ class User extends Model
     public function notificacionesSinLeer()
     {
         return $this->notificacionesSinLeer->where("estado","creada");
+    }
+
+    //Calificaciones de profesores
+    public function calificaciones()
+    {
+        $suma = DB::table('meetings')
+                ->join('buys', 'buys.id', '=', 'meetings.buy_id')
+                ->join('courses', 'courses.id', '=', 'buys.course_id')
+                ->join('publications', 'publications.id', '=', 'courses.publication_id')
+                ->select('fecha')
+                ->where('publications.user_id', "=", $this->id)
+                ->whereNotNull("calificacion")
+                ->avg("calificacion");
+        return $suma+0;
     }
 }

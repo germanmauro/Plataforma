@@ -20,7 +20,11 @@
                       <span class="profesor">{{$item->course->publication->user->nombre}} {{$item->course->publication->user->apellido}}</span>
                         </h1>
                         <p>Tipo de curso: {{$item->course->publication->tipo}}</p>
-                        <p>Fecha: {{$item->fecha->format('d/m/Y H:i')}}</p>
+                        @if($item->estado == "Pagado")
+                          <p>Fecha pago: {{$item->fecha->format('d/m/Y H:i')}}</p>
+                        @else
+                          <p>Fecha vencimiento: {{$item->fechavencimiento->format('d/m/Y H:i')}}</p>
+                        @endif
                         @if($item->course->cantidadcuotas>0)
                         <p>Cuota Actual: {{$item->cuota}}</p>
                         @endif

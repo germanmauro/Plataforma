@@ -41,7 +41,7 @@ class Notification extends Model
     public function compraAlumno(Course $course)
     {
         $user = User::find(session("Id"));
-        $mensaje = "Has comprado la clase: " . $course->publication->titulo .
+        $mensaje = "Has comprado el curso: " . $course->publication->titulo .
             ". Inicio de cursada " . $course->inicio->format("d/m/Y H:i");
         $this->register($user->id,"Compra",$mensaje);
         Mail::to($user->email)->send(new notificationMessage("Compra reailzada - CEE","Compra exitosa",$mensaje));
@@ -65,5 +65,50 @@ class Notification extends Model
         " para la fecha " . $course->inicio->format("d/m/Y H:i");
         $this->register(1, "Compra",$mensaje);
         Mail::to($admin->email)->send(new notificationMessage("Compra realizada - CEE", "Compra exitosa", $mensaje));
+    }
+
+    public function pagoAlumno(Buy $buy)
+    {
+        $user = User::find(session("Id"));
+        $mensaje = "Has pagado la cuota: ".$buy->cuota." del curso: " 
+        . $buy->course->publication->titulo;
+        $this->register($user->id,"Pago",$mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Cuota abonada - CEE","Pago exitoso",$mensaje));
+    }
+
+    public function pagoProfesor(Buy $buy)
+    {
+        $user = User::find(session("Id"));
+        $profesor = $buy->course->publication->user;
+        $mensaje = "El usuario " . $user->nombre . " " . $user->apellido . " ha pagado la cuota ".$buy->cuota .
+         " del curso ". $buy->course->publication->titulo;
+        $this->register($profesor->id,"Pago",$mensaje);
+        Mail::to($profesor->email)->send(new notificationMessage("Cuota abonada - CEE", "Pago exitoso", $mensaje));
+    }
+
+    public function pagoAdministrador(Buy $buy)
+    {
+        $user = User::find(session("Id"));
+        $admin = User::find(1);
+        $mensaje =  "El usuario " . $user->nombre . " " . $user->apellido . 
+        " ha pagado la cuota ".$buy->cuota." del curso " . $buy->course->publication->titulo;
+        $this->register(1, "Pago",$mensaje);
+        Mail::to($admin->email)->send(new notificationMessage("Cuota abonada - CEE", "Pago exitoso", $mensaje));
+    }
+
+    public function avisoClase(User $user,Course $course, $fecha)
+    {
+        $mensaje =  "Le recordamos que en el día de mañana tiene una clase a las ".$fecha->format("H:i"). 
+        " horas, correspondiente al curso ".$course->publication->titulo;
+        $this->register($user->id, "Aviso Clase", $mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Recordatorio de clase - CEE", "Recordatorio de clase", $mensaje));
+    }
+
+    public function avisoClase30min(User $user,Course $course)
+    {
+        $mensaje =  "Le recordamos que en 30 minutos comienza la clase del curso "
+        .$course->publication->titulo;
+        $this->register($user->id, "Aviso Clase", $mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Recordatorio de clase - CEE", "Recordatorio de clase", $mensaje));
     }
 }

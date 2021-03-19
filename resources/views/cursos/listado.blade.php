@@ -44,6 +44,12 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$item->user->nombre}} {{$item->user->apellido}}
+                          @if($item->user->calificaciones()>0)
+                          {{$item->user->calificaciones()}}
+                          <i class=" fa fa-star"></i> de 5
+                          @else
+                          Sin calificaciones
+                          @endif
                         </p>
                       </div>
                       

@@ -7,11 +7,14 @@ use App\Models\Buy;
 use App\Models\Course;
 use App\Models\Day;
 use App\Models\Notification;
+use App\Models\Teacher_Pay;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DateTime;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfesorController extends Controller
 {
@@ -60,6 +63,30 @@ class ProfesorController extends Controller
             return redirect("");
         }
         return view('administrarprofesor.enable', compact("user"));
+    }
+
+    public function pagos(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        $pagos = $user->teachers_pays()->whereIn("estado", ["A pagar", "Pagado"])
+        ->orderBy("estado")->orderBy("updated_at")
+        ->paginate(6);
+        $totalpagar = $user->teachers_pays()->where("estado","A pagar")->sum("pago");
+        
+        return view("administrarprofesor.pagos", compact("pagos", "user","totalpagar"));
+    }
+
+    public function transferirTodo(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        DB::table('teachers_pays')
+        ->where('user_id', $user->id)
+        ->update(['estado' => "Pagado"]);
+        return redirect('AdministrarProfesores/'.$user->id."/Pagos")->with("success", "Monto marcad como transferido");
     }
 
     public function enable(User $user)
@@ -114,7 +141,6 @@ class ProfesorController extends Controller
             return redirect("");
         }
         $user = User::find(session("Id"));
-        $hoy = new DateTime();
         $clases = $user->cursosPasados();
         return view('profesor.clasesrealizadas', compact("clases", "user"));
     }

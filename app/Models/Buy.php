@@ -13,7 +13,7 @@ class Buy extends Model
 
     protected $primaryKey = 'id';
 
-    protected $dates = ["fecha"];
+    protected $dates = ["fecha","fechavencimiento"];
 
     public function meetings()
     {

@@ -25,7 +25,7 @@ class PagoController extends Controller
             return redirect("");
         }
         $buys = Buy::where("Estado", "Pendiente")
-        ->orderBy("fecha", "desc")
+        ->orderBy("fechavencimiento")
         ->paginate(10);
         return view('pago.pagospendientes', compact("buys"));
     }

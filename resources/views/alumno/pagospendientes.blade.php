@@ -17,11 +17,12 @@
               @foreach ($buys as $item)
                   <div class="info-clases-item">
                     <p>
-                      {{$item->updated_at->format('d/m/Y H:i:s')}} <br>
-                      Pago de cuota {{$item->cuota}} del curso {{$item->course->publication->titulo}} <br>
-                      Monto € {{$item->precio}}
+                      {{-- Inicio{{$item->fecha->format('d/m/Y H:i')}} <br> --}}
+                      Cuota {{$item->cuota}} del curso {{$item->course->publication->titulo}} <br>
+                      Monto € {{$item->precio}} <br>
+                      Vencimiento {{$item->fechavencimiento->format('d/m/Y H:i')}}
                     </p>
-                      
+                      <a href="{{route('paypalBuy',$item)}}" class="btn btn-warning" title='Marca Transferido'>Realizar Pago <span class='fas fa-shopping-cart'></span></a>
                   </div>
               @endforeach
               @else

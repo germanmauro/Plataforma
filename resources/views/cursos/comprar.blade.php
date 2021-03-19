@@ -35,6 +35,12 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
+                          @if($publicacion->user->calificaciones()>0)
+                          {{$publicacion->user->calificaciones()}}
+                          <i class=" fa fa-star"></i> de 5
+                          @else
+                          Sin calificaciones
+                          @endif
                         </p>
                       </div>
                       <div class="col-md-12">
@@ -49,6 +55,11 @@
                           @else
                             {{$publicacion->clases}} Clases
                           @endif
+                          @if($primeraClase)
+                          <p class="curso-detalle">
+                          	¡¡Primera clase bonificada!!
+                          </p>
+                          @endif
                         </p>
                       </div>
                       
@@ -62,14 +73,15 @@
                             <div class="form-group">
                                 @foreach ($dias as $day)
                                   <input id="{{$day->id}}" checked required type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}} 
-                                  @if($publicacion->clases == 0) - Precio primer mes <strong>€ {{$publicacion->precio*$day->clases}} ({{$day->clases}} clases)</strong>@endif <br>
+                                  @if($publicacion->clases == 0) - Precio primer mes <strong>€ 
+                                    {{$publicacion->precio*($day->clases-$primeraClase)}} ({{$day->clases}} clases)</strong>@endif <br>
                                 @endforeach 
                             </div>
                          
                         </div> 
                       <div class="col-md-12">
                         <button type="submit" id="botoncomprar" onclick="loader()" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso 
-                          @if($publicacion->clases > 0) € {{$publicacion->precio*$publicacion->clases}} / {{$publicacion->clases}} Clases @endif
+                          @if($publicacion->clases > 0) € {{$publicacion->precio*($publicacion->clases - $primeraClase)}} / {{$publicacion->clases}} Clases @endif
                         </button>
                         
                       </div>

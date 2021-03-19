@@ -8,6 +8,7 @@ use App\Models\Meeting;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
+use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\Redirect;
 
@@ -37,8 +38,8 @@ class AlumnoController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "admin") {
             return redirect("");
         }
-        $pagos = $user->buys()->whereIn("Estado",["Pagado","Pendiente"])
-        ->orderBy("fecha","desc")
+        $pagos = $user->buys()->whereIn("estado",["Pagado","Pendiente"])
+        ->orderBy("estado")->orderBy("fechavencimiento")
         ->paginate(6);
         return view("administraralumno.pagos", compact("pagos","user"));
     }
@@ -123,8 +124,13 @@ class AlumnoController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "alumno") {
             return redirect("");
         }
+        //fecha a 15 días
+        $hoy = new DateTime();
+        $hoy->add(new DateInterval("P15D"));
         $user = User::find(session("Id"));
-        $buys = $user->buys()->where("Estado","Pendiente")->paginate(10);
+        $buys = $user->buys()->where("Estado","Pendiente")
+        ->where('fechavencimiento',"<",$hoy->format('Y-m-d H:i'))
+        ->paginate(10);
         return view('alumno.pagospendientes', compact("buys", "user"));
     }
 }

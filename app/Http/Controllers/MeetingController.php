@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Buy;
 use App\Models\Course;
 use App\Models\Meeting;
+use App\Models\Notification;
 use App\Models\Publication;
 use App\Models\RegistroDias;
 use App\Models\Teacher_Pay;
+use App\Models\User;
 use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Stmt\Return_;
 
 class MeetingController extends Controller
 {
@@ -47,7 +50,8 @@ class MeetingController extends Controller
                     $itemdia = new RegistroDias();
                     $itemdia->id = $item->id;
                     $itemdia->clases = $item->cantidadclases;
-                    $itemdia->descripcion = "Inicio: " . array_search($item->inicio->format("l"), $diaSemana) . " " . $item->inicio->format('d/m/Y H:i');
+                    $itemdia->descripcion = "Inicio: " . array_search($item->inicio->format("l"), $diaSemana) .
+                     " " . $item->inicio->format('d/m/Y H:i');
                     $dias[] = $itemdia;
                 }
             }
@@ -101,7 +105,13 @@ class MeetingController extends Controller
             $curso = Course::find($request->dia); //Obtengo el curso
             $buy->course_id = $curso->id;
             //Calculo el total, que va a pagar el alumno
-            $buy->precio = $curso->cantidadclases * $curso->precioclase;
+            $primeraclase = count(Buy::where(["user_id" => session("Id"), "estado" => "Pagado"])->get());
+            if ($primeraclase) {
+                $primeraclase = 0;
+            } else {
+                $primeraclase = 1;
+            }
+            $buy->precio = ($curso->cantidadclases - $primeraclase) * $curso->precioclase;
             $buy->montoadministrador = number_format($buy->precio * (100 - $curso->porcentajeprofesor)/100,2);
             $buy->user_id = session("Id");
             $buy->estado = "Sin pago";
@@ -111,28 +121,33 @@ class MeetingController extends Controller
             $buy->cuota = $curso->cuotaactual;
             $buy->fecha = $curso->fechaactual;
             $buy->save();
-
-            //Cargo el pago del profesor
-            $pago_profesor = new Teacher_Pay();
-            $pago_profesor->pago = number_format($buy->precio - $buy->montoadministrador,2);
-            $pago_profesor->user_id = $publicacion->user_id;
             
-            $buy->teacher_pay()->save($pago_profesor);
             foreach ($curso->diasActuales() as $dia) 
             {
                 $meeting = new Meeting();
                 $meeting->fecha = $dia->fecha;
                 $buy->meetings()->save($meeting);
             }
-            //Commit acá?
+            
             DB::commit();
             session(["Compra" => serialize($buy)]);
             
             return Redirect::route("paypal", compact('buy'));
         } catch (\Throwable $th) {
             DB::rollBack();
-            Redirect::back()->with("error","Error al realizar la compra ".$th->getMessage());
+            return Redirect::back()->with("error","Error al realizar la compra ".$th->getMessage());
         }
         
+    }
+
+    public function calificar(Meeting $meeting, $valor)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "alumno") {
+            return Redirect::back()->with('warning', 'No tiene acceso a esta página');
+        } else {
+            $meeting->calificacion = $valor;
+            $meeting->save();
+            return Redirect::back()->with("success","¡Gracias por su calificación!");
+        }
     }
 }

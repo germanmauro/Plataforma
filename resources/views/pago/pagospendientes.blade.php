@@ -17,7 +17,7 @@
               @foreach ($buys as $item)
                   <div class="info-clases-item">
                     <p>
-                      {{$item->updated_at->format('d/m/Y H:i:s')}} <br>
+                      Vencimiento: {{$item->fechavencimiento->format('d/m/Y H:i')}} <br>
                       Pago de cuota {{$item->cuota}} del curso {{$item->course->publication->titulo}} <br>
                       Monto € {{$item->precio}}
 

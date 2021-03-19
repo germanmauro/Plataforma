@@ -48,6 +48,11 @@ Route::get('/paypal/pay', [PaymentController::class, 'payWithPayPal'])->name("pa
 Route::get('/paypal/process', [PaymentController::class, 'process']);
 Route::get('/paypal/cancel', [PaymentController::class, 'cancel']);
 
+//Paypal - Pago de cuotas
+Route::get('/paypal/pay/{buy}', [PaymentController::class, 'payBuy'])->name("paypalBuy");
+Route::get('/paypal/processbuy', [PaymentController::class, 'processBuy']);
+Route::get('/paypal/cancelbuy', [PaymentController::class, 'cancelBuy']);
+
 //Notificaciones
 Route::get('/Notificaciones/Todas', [NotificationController::class, 'showall'])->name("notification.showall");
 Route::get('/Notificaciones/{notification}/Show', [NotificationController::class, 'show'])->name("notification.show");
@@ -116,7 +121,9 @@ Route::get('/Especialidad/{especialidad}/Delete', [SpecialtyController::class, '
 Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar']);
 Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"info"])->name("profesor.info");
 Route::get("/AdministrarProfesores/{user}/Clases", [ProfesorController::class, "clases"])->name("profesor.clases");
+Route::get("/AdministrarProfesores/{user}/Pagos", [ProfesorController::class, "pagos"])->name("profesor.pagos");
 Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::class, 'enable'])->name("profesor.enable");
+Route::post('/AdministrarProfesores/TransferirTodo/{user}', [ProfesorController::class, 'transferirTodo'])->name("transferirtodo");
 Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::class, 'disable'])->name("profesor.disable");
 // Administración de Alumnos
 Route::get('/AdministrarAlumnos', [AlumnoController::class, 'administrar']);
@@ -151,6 +158,7 @@ Route::get("/Alumno/MisFavoritos", [AlumnoController::class, "misfavoritos"]);
 Route::get("/Alumno/ClasesPendientes", [AlumnoController::class, "clasespendientes"]);
 Route::get("/Alumno/ClasesRealizadas", [AlumnoController::class, "clasespasadas"]);
 Route::get("/Alumno/Clases/{course}/{user?}", [AlumnoController::class, "clasescurso"]);
+Route::get("/Calificar/Meeting/{meeting}/{value}", [MeetingController::class, "calificar"]);
     //Pagos
 Route::get("/Alumno/Pagos/Realizados", [AlumnoController::class, "pagosrealizados"]);
 Route::get("/Alumno/Pagos/Pendientes", [AlumnoController::class, "pagospendientes"]);

@@ -30,6 +30,7 @@ class LoginController extends Controller
                 'Estado'=> $user->estado,
                 'Nombre'=> $user->nombre,
                 'Apellido'=> $user->apellido,
+                'PrimeraClase'=> $user->primeraclase,
             ]);
             
             return redirect('');

@@ -26,5 +26,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('layouts.main','App\Http\View\Composers\ProfileComposer');
+        View::composer('cursos.comprar','App\Http\View\Composers\ProfileComposer');
     }
 }

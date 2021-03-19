@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\CronController;
 use App\Models\Notification;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -25,20 +26,31 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //Cada minuto
+        $schedule->call(
+            function () {
+                CronController::thirtyMinClassAlert();
+            }
+        )->everyMinute()->name("alerta30min")->withoutOverlapping();
 
         $schedule->call(
             function () {
-                // $not = new Notification();
-                // $not->register(1, "prueba", "prueba 1 minutos");
+                CronController::courseUpdate();
             }
-        )->everyMinute()->withoutOverlapping();
+        )->dailyAt("00:00")->name("cursoupdate")->withoutOverlapping();
     
         $schedule->call(
-            function () {
-                // $not = new Notification();
-                // $not->register(1, "prueba", "prueba 5 minutos");
+            function() {
+                CronController::dairyClassAlert();
             }
-        )->everyFiveMinutes()->withoutOverlapping();
+        )->dailyAt("00:00")->name("alertadiaria")->withoutOverlapping();
+
+        $schedule->call(
+            function() {
+                CronController::updateMeetingState();
+            }
+        )->dailyAt("00:00")->name("updatestate")->withoutOverlapping();
+
     }
 
     /**

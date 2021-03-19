@@ -20,7 +20,24 @@
                       <h3>Clases de la cuota {{$item->cuota}}</h3>
                     @endif
                      @foreach ($item->meetings as $subitem)
-                        <p>Clase N°{{$loop->iteration}} - {{$subitem->fecha->format('d/m/Y H:i')}} Estado: {{$subitem->getEstado()}}</p>
+                        <p>Clase N°{{$loop->iteration}} - {{$subitem->fecha->format('d/m/Y H:i')}} 
+                          Estado: {{$subitem->getEstado()}}
+                        @if($subitem->getEstado() == "Cursada" && $subitem->calificacion == "") - Disponible para calificar
+                        <div class="ec-stars-wrapper">
+                          <a href="/Calificar/Meeting/{{$subitem->id}}/1" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                          <a href="/Calificar/Meeting/{{$subitem->id}}/2" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+                          <a href="/Calificar/Meeting/{{$subitem->id}}/3" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+                          <a href="/Calificar/Meeting/{{$subitem->id}}/4" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+                          <a href="/Calificar/Meeting/{{$subitem->id}}/5" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+                        </div>
+                        @endif
+                        @if($subitem->calificacion != "")
+                         - Calificación 
+                        @for ($i = 0; $i < $subitem->calificacion; $i++)
+                            <i class='fas fa-star estrellas'></i>
+                        @endfor
+                        @endif
+                        </p>
                     @endforeach
                   </div>
               @endforeach

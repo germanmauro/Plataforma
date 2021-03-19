@@ -307,7 +307,12 @@
                         swal("¡Atención!","{{session('error')}}", "error");
                     </script>
             @endif
-            @if(session()->has('Perfil')&&session('Perfil')!="admin")
+@if(session()->has('Perfil')&&session('Perfil')!="admin")
+    @if (count($pendientes)>0)
+        <div class="alert alert-danger" role="alert">
+            Tiene cuotas por vencer
+        </div>
+    @endif
     @switch(session('Estado'))
         @case("registrado")
             <div class="alert alert-danger" role="alert">
