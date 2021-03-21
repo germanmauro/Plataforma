@@ -45,7 +45,7 @@
                           Precio del curso: {{$publicacion->precio}} € / Clase
                         </p>
                         <p class="curso-detalle">
-                          {{$item->primerDiaDisponible()}}
+                          {{$publicacion->primerDiaDisponible()}}
                         </p>
                       </div>
                       <div class="col-md-12">
