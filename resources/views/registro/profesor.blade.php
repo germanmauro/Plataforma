@@ -1,10 +1,7 @@
 @extends('layouts.info')
 @section('head')
 <link rel="stylesheet" href="{{asset('css/treeview.css')}}">
-{{-- <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
-<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-rtl.min.css">
-<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css"> --}}
-<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+<script src="{{asset('js/metro.min.js')}}"></script>
 @endsection
 @section('content')
 <!-- /.row -->
@@ -33,26 +30,30 @@
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido')}}">
                                 <label>Apellido</label>
                             </div>
-                            <div class="input-container">      
+                            {{-- <div class="input-container">      
                                 <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
                                 <label>Tipo de Documento</label>
                             </div>
                             <div class="input-container">      
                                 <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni')}}">
                                 <label>Documento</label>
-                            </div>
+                            </div> --}}
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
                             <div class="input-container">
+                                <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
+                                <label>Teléfono</label>
+                            </div>
+                            <div class="input-container">
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
                                 <label>E-Mail</label>
                             </div>
-                            <div class="input-container">
+                            {{-- <div class="input-container">
                                 <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
-                                <label>Usuario</label>
-                            </div>
+                                <label>Usuario (8 caracteres)</label>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Subir foto de perfil.</label>
                                 <input required type="file" name="foto" id="foto" accept="image/*" class="form-control">
@@ -71,14 +72,15 @@
                             <ul data-role="treeview">
                             @foreach ($category as $item)
                                 @if(count($item->specialties)>0)
-                                <li>
-                                    <input type="checkbox" data-role="checkbox" data-caption="{{$item->nombre}}" title="">
+                                <li data-collapsed="true">
+                                    <input type="checkbox" 
+                                    data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
                                     <ul>
                                         @foreach ($item->specialties as $subitem)
                                             <li><input type="checkbox" 
                                                 name="especialidades[]" value="{{$subitem->id}}" 
                                                 @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
-                                                data-role="checkbox" data-caption="{{$subitem->nombre}}" title="">
+                                                data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
                                             </li>
                                         @endforeach
                                     </ul>
@@ -122,6 +124,7 @@
                                                     </div>
                                             </div>
                                             @endforeach
+                                            <p class="referencia">* Huso horario italiano</p>
                             </div>
                             <div class="form-group">
                                 <label>Subir archivo de título (En caso de corresponder con las especialidades elegidas).</label>

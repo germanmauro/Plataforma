@@ -6,7 +6,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [8]
+                   targets: [7]
                }]}
             );
         });
@@ -24,7 +24,6 @@
               <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Usuario</th>
                 <th>DNI</th>
                 <th>Teléfono</th>
                 <th>E-mail</th>
@@ -38,7 +37,6 @@
                     <tr>
                         <td>{{$item->nombre}} </td>
                         <td>{{$item->apellido}} </td>
-                        <td>{{$item->usuario}} </td>
                         <td>{{$item->dni}} </td>
                         <td>{{$item->telefono}} </td>
                         <td>{{$item->email}} </td>

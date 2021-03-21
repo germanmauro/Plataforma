@@ -13,7 +13,7 @@
 
       <form class="login-form" action="/Login/Ingreso" method="post">
         @csrf
-        <input name="user" required type="text" maxlength=20 placeholder="Usuario" />
+        <input name="email" required type="email" maxlength=100 placeholder="E-mail" />
         <input name="pass" required type="password" maxlength=15 placeholder="Contraseña" />
         <input name="formulario" value="ingreso" type="hidden" />
         @error('usuario')

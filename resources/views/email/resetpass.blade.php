@@ -23,7 +23,8 @@
       
         <p>
             Nuevo password: {{$newpass}}<br>
-            Usuario: {{$user->usuario}}
+
+            Ingrese con su e-mail y ese nuevo password.
         </p>
         <p>
             Podrá modificarlo al ingresar al sistema.

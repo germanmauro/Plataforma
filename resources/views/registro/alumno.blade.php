@@ -26,36 +26,36 @@
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido')}}">
                                 <label>Apellido</label>
                             </div>
-                            <div class="input-container">
+                            {{-- <div class="input-container">
                                 <input type="text" required class="form-control" id="direccion" name="direccion" maxlength="200" value= "{{old('direccion')}}">
                                 <label>Dirección (Calle, Número, Ciudad y País)</label>
-                            </div>
-                            <div class="input-container">      
+                            </div> --}}
+                            {{-- <div class="input-container">      
                                 <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
                                 <label>Tipo de Documento</label>
                             </div>
                             <div class="input-container">      
                                 <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni')}}">
                                 <label>Número de Documento</label>
-                            </div>
+                            </div> --}}
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
-                        </div>
-                        <div class="col-lg-6 box">
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
                                 <label>Teléfono</label>
                             </div>
+                        </div>
+                        <div class="col-lg-6 box">     
                             <div class="input-container">
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
                                 <label>E-Mail</label>
                             </div>
-                            <div class="input-container">
+                            {{-- <div class="input-container">
                                 <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
-                                <label>Usuario</label>
-                            </div>
+                                <label>Usuario (8 caracteres)</label>
+                            </div> --}}
                             <div class="input-container">
                                 <input required type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">
                                 <label>Contraseña</label>

@@ -41,9 +41,9 @@ class RegisterController extends Controller
             throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
         }
         //Si existe el usuario
-        if (User::where('usuario', $request->usuario)->count()) {
-            throw ValidationException::withMessages(['usuario' => 'El nombre de usuario ya existe']);
-        }
+        // if (User::where('usuario', $request->usuario)->count()) {
+        //     throw ValidationException::withMessages(['usuario' => 'El nombre de usuario ya existe']);
+        // }
         //Si existe el email
         if (User::where('email', $request->email)->count()) {
             throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
@@ -59,12 +59,11 @@ class RegisterController extends Controller
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
-        $user->dni = $request->dni;
-        $user->tipodocumento = $request->tipodocumento;
+        $user->dni = "";
+        $user->tipodocumento = "";
         $user->email = $request->email;
         $user->fechanacimiento = $request->fechanacimiento;
-        $user->direccion = $request->direccion;
-        $user->usuario = $request->usuario;
+        $user->direccion = "";
         $user->password = password_hash($request->pass, PASSWORD_DEFAULT);
         $user->perfil = "alumno";
         $user->save();
@@ -93,9 +92,9 @@ class RegisterController extends Controller
             throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
         }
         //Si existe el usuario
-        if (User::where('usuario', $request->usuario)->count()) {
-            throw ValidationException::withMessages(['usuario' => 'El nombre de usuario ya existe']);
-        }
+        // if (User::where('usuario', $request->usuario)->count()) {
+        //     throw ValidationException::withMessages(['usuario' => 'El nombre de usuario ya existe']);
+        // }
         //Si existe el email
         if (User::where('email', $request->email)->count()) {
             throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
@@ -130,14 +129,13 @@ class RegisterController extends Controller
         
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
-        // $user->telefono = $request->telefono;
-        $user->dni = $request->dni;
-        $user->tipodocumento = $request->tipodocumento;
+        $user->telefono = $request->telefono;
+        $user->dni = "";
+        $user->tipodocumento = "";
         $user->email = $request->email;
         // $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;
         // $user->direccion = $request->direccion;
-        $user->usuario = $request->usuario;
    
         //Password generator
         $user->password = password_hash($request->pass, PASSWORD_DEFAULT);

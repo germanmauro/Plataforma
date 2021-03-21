@@ -15,22 +15,23 @@ class LoginController extends Controller
     public function ingreso(Request $request)
     {
         //Si existe el usuario
-        $user = User::where('usuario', $request->user)->where('baja', 'false')->first();
+        $user = User::where('email', $request->email)->where('baja', 'false')->first();
         // return $user->nombre;
         if (!$user) {
-            throw ValidationException::withMessages(['usuario' => 'El nombre de usuario no existe']);
+            throw ValidationException::withMessages(['usuario' => 'El e-mail ingresado no existe']);
         }
         $pass = $request->pass;
         $hash = $user->password;
         if (password_verify($pass, $hash)) {
             session([
                 'Id'=> $user->id,
-                'Usuario'=> $user->usuario,
+                // 'Usuario'=> $user->usuario,
+                'Email'=> $user->email,
                 'Perfil'=> $user->perfil,
                 'Estado'=> $user->estado,
                 'Nombre'=> $user->nombre,
                 'Apellido'=> $user->apellido,
-                'PrimeraClase'=> $user->primeraclase,
+                // 'PrimeraClase'=> $user->primeraclase,
             ]);
             
             return redirect('');

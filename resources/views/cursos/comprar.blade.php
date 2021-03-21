@@ -83,7 +83,9 @@
                         <button type="submit" id="botoncomprar" onclick="loader()" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso 
                           @if($publicacion->clases > 0) € {{$publicacion->precio*($publicacion->clases - $primeraClase)}} / {{$publicacion->clases}} Clases @endif
                         </button>
-                        
+                        <p class="referencia">
+                          * Huso horario italiano.
+                        </p>
                       </div>
                       </form>
                       @else

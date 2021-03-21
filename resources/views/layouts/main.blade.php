@@ -55,7 +55,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                @if(session()->has('Usuario'))
+                @if(session()->has('Perfil'))
                 <li class="dropdown notifications">
                     
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
@@ -90,7 +90,7 @@
                 <li class="dropdown">
                     
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        @if(session()->has('Usuario'))
+                        @if(session()->has('Perfil'))
                             <span class='nombre'>{{session("Nombre")}} {{session("Apellido")}} </span>
                         @else
                             Ingresa al sistema
@@ -100,7 +100,7 @@
                     </a>
                     
                     <ul class="dropdown-menu dropdown-user">
-                        @if (session()->has('Usuario'))
+                        @if (session()->has('Perfil'))
                             <li>
                                 <a href='{{route("user.edit")}}'><i class='fas fa-exchange-alt'></i> Modificar Datos</a>
                             </li>
@@ -145,7 +145,7 @@
                         <li>
                             <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
                         </li> 
-                        @if (session()->has('Usuario'))
+                        @if (session()->has('Perfil'))
                         @switch(session('Perfil'))
                             @case("admin")
                             <li>

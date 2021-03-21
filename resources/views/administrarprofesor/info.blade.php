@@ -34,10 +34,15 @@
                         </p> --}}
                 </div>
                 <div class="col-md-6">
-                        <p class="detalle">USUARIO <span class="detalledesc">{{$user->usuario}}</span> </p>
                         <p class="detalle">DNI <span class="detalledesc">{{$user->dni}} </span></p> 
                         <p class="detalle">TELÉFONO <span class="detalledesc">{{$user->telefono}} </span></p>
-                        <p class="detalle">CUENTA BANCARIA <span class="detalledesc">{{$user->cuentabancaria}}</span> </p>
+                        <p class="detalle">DATOS BANCARIOS
+                          <br> <span class="detalledesc">Banco: {{$user->banco}}</span>
+                          <br> <span class="detalledesc">CBU: {{$user->cbu}}</span>
+                          <br> <span class="detalledesc">Cuenta: {{$user->cuentabancaria}}</span>
+                          <br> <span class="detalledesc">Alias: {{$user->alias}}</span>
+                          <br> <span class="detalledesc">Titular: {{$user->titular}}</span>
+                        </p>
                         <p class="detalle">E-MAIL <span class="detalledesc">{{$user->email}}</span> </p>
                         <p class="detalle">FECHA DE NACIMIENTO <span class="detalledesc">{{$user->fechanacimiento->format('d/m/Y')}}</span> </p>
                         <p class="detalle">EDAD <span class="detalledesc">{{$user->fechanacimiento->diff(new DateTime())->format("%y")}} años</span> </p>

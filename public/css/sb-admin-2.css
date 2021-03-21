@@ -176,6 +176,13 @@ p.parrafo {
   color: #141313
 }
 
+p.referencia {
+  padding-top: 5px;
+  font-size: 16px;
+  text-align: left;
+  font-style: oblique;
+}
+
 .tablagrande {
   display: -webkit-box;
 }
@@ -258,7 +265,11 @@ a.formregistro {
 	top:-14px;
 	font-size:13px;
 }
-
+/*Para que se vea el campo date en safari*/
+ input[type=date]
+ {
+   min-width:95%;
+ }
 /* Titulo de categorias y especialidades menú registro profesor*/
 p.category {
   color:white;
@@ -421,7 +432,7 @@ p.detalle {
   color: #024b94;
 }
 
-.contact-info .fas {
+.contact-info .fas, .contact-info .fab {
     background: #024b94;
     border-radius: 100%;
     color: #ffffff;
@@ -712,7 +723,7 @@ a.curso-link,a.curso-link:hover  {
 }
 
 .estrellas {
-  color: rgb(39, 130, 228);;
+  color: rgb(39, 130, 228);
 }
 /*
  * El selector de hijo, es necesario para aumentar la especifidad
@@ -1245,4 +1256,9 @@ table.menutable th, table.menutable td {
   .textobanner {
     padding: 0 0 0 100px;
   }
+@media (min-width: 1700px) {
+  .textobanner {
+    padding: 0 0 0 170px;
+  }
+}
 }

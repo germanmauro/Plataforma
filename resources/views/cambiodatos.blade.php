@@ -55,10 +55,6 @@
                                 <input readonly type="email"  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email',$user->email)}}">
                                 <label>E-Mail</label>
                             </div>
-                            <div class="input-container">
-                                <input readonly  type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="20"  value= "{{old('usuario',$user->usuario)}}">
-                                <label>Usuario</label>
-                            </div>
                             @if (session('Perfil')=="profesor")
                               <div class="input-container">
                                 <input required type="text" class="form-control" id="banco" name="banco" minlength="2" maxlength="30"  value= "{{old('banco',$user->banco)}}">
