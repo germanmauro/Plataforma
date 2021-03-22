@@ -41,6 +41,9 @@
                         </p>
                       </div>
                       <div class="col-md-12">
+                        <p class="curso-detalle">Destinado a {{$publicacion->specialty->category->destinatario}}</p>
+                      </div>
+                      <div class="col-md-12">
                         <p class="curso-detalle">
                           Precio del curso: {{$publicacion->precio}} € / Clase
                         </p>

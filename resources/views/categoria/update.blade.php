@@ -19,6 +19,13 @@
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{$categoria->nombre}}">
                             </div>
                             <div class="form-group">
+                                <label>Destinatario</label>
+                                <select class="form-control" required name="destinatario">
+                                    <option @if($categoria->destinatario == "Adultos") selected @endif value="Adultos">Adultos</option>
+                                    <option @if($categoria->destinatario == "Niños") selected @endif value="Niños">Niños</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Texto</label>
                                 <textarea rows="6" class="form-control" name="texto" required maxlength="5000" placeholder="Descripción (hasta 5000 caracteres)">{{$categoria->texto}}</textarea>
                             </div>

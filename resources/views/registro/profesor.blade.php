@@ -68,26 +68,51 @@
                             </div>
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div>
-                            <label>Seleccione las especialidades que desea enseñar</label>
-                            <ul data-role="treeview">
-                            @foreach ($category as $item)
-                                @if(count($item->specialties)>0)
-                                <li data-collapsed="true">
-                                    <input type="checkbox" 
-                                    data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
-                                    <ul>
-                                        @foreach ($item->specialties as $subitem)
-                                            <li><input type="checkbox" 
-                                                name="especialidades[]" value="{{$subitem->id}}" 
-                                                @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
-                                                data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                @endif
-                            @endforeach
-                            </ul>
+                                <label>Seleccione las especialidades que desea enseñar</label>
+                                <div class="col-md-6">
+                                    <p>ESPECIALIDADES PARA ADULTOS</p>
+                                	<ul data-role="treeview">
+                                	@foreach ($categoryadulto as $item)
+                                	    @if(count($item->specialties)>0)
+                                	    <li data-collapsed="true">
+                                	        <input type="checkbox" 
+                                	        data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
+                                	        <ul>
+                                	            @foreach ($item->specialties as $subitem)
+                                	                <li><input type="checkbox" 
+                                	                    name="especialidades[]" value="{{$subitem->id}}" 
+                                	                    @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
+                                	                    data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
+                                	                </li>
+                                	            @endforeach
+                                	        </ul>
+                                	    </li>
+                                	    @endif
+                                	@endforeach
+                                	</ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>ESPECIALIDADES PARA NIÑOS</p>
+                                	<ul data-role="treeview">
+                                	@foreach ($categoryniño as $item)
+                                	    @if(count($item->specialties)>0)
+                                	    <li data-collapsed="true">
+                                	        <input type="checkbox" 
+                                	        data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
+                                	        <ul>
+                                	            @foreach ($item->specialties as $subitem)
+                                	                <li><input type="checkbox" 
+                                	                    name="especialidades[]" value="{{$subitem->id}}" 
+                                	                    @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
+                                	                    data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
+                                	                </li>
+                                	            @endforeach
+                                	        </ul>
+                                	    </li>
+                                	    @endif
+                                	@endforeach
+                                	</ul>
+                                </div>
                             </div>
                             </div>
                         <div class="col-lg-6 box">

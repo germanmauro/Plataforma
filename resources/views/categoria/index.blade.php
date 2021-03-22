@@ -6,7 +6,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [3]
+                   targets: [4]
                }]}
             );
         });
@@ -25,6 +25,7 @@
               <tr>
                 <th>Nombre</th>
                 <th>Texto</th>
+                <th>Destinatario</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
               </tr>
@@ -33,6 +34,7 @@
                 @foreach ($categorias as $item)
                     <tr>
                         <td>{{$item->nombre}} </td>
+                        <td>{{$item->destinatario}} </td>
                         <td>
                           @if (strlen($item->texto)>100)
                             {{substr($item->texto,0,100)}}..

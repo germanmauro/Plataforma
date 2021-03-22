@@ -8,10 +8,29 @@
       </form>
     </div>
   <div id="menu-secundario">
-    <a href="/Cursos/Categorias"><i class='fas fa-book-reader'></i> Qué te gustaría aprender</a>
-    <a href="/"><i class='far fa-lightbulb'></i> Cursos</a>
-    <a href="/Info/ComoFunciona"><i class='fas fa-question'></i> Cómo funciona</a>
-    <a href="/Info/Profesores"><i class='fas fa-chalkboard-teacher'></i> Nuestros profesores</a>
+    <ul class="nav" id="side-menu2">
+      <li>
+        <a href="#"><i class='fas fa-book-reader'></i> Qué te gustaría aprender</a>
+        <ul class='nav nav-second-level'>
+            <li>
+                <a  href='/Cursos/Categorias/Adultos'> <i class='fas fa-user-tie'></i> Adultos</a>
+            </li>
+            <li>
+                <a  href='/Cursos/Categorias/Niños'> <i class='fas fa-child'></i> Niños</a>
+            </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/"><i class='far fa-lightbulb'></i> Cursos</a>
+      </li>
+      <li>
+        <a href="/Info/ComoFunciona"><i class='fas fa-question'></i> Cómo funciona</a>
+      </li>
+      <li>
+        <a href="/Info/Profesores"><i class='fas fa-chalkboard-teacher'></i> Nuestros profesores</a>
+      </li>   
+    </ul>
+    
   </div>
  
 @endsection

@@ -21,8 +21,13 @@ class RegisterController extends Controller
 
     public function registroprofesor()
     {
-        $category = Category::all()->where("baja", "false")->sortBy("nombre");
-        return view('registro.profesor',compact("category"));
+        $categoryniño = Category::where("baja", "false")
+        ->where("destinatario","Niños")
+        ->orderBy("nombre")->get();
+        $categoryadulto = Category::where("baja", "false")
+            ->where("destinatario", "Adultos")
+        ->orderBy("nombre")->get();
+        return view('registro.profesor',compact("categoryniño", "categoryadulto"));
     }
 
     //Registro de Alumno

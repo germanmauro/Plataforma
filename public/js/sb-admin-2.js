@@ -5,6 +5,7 @@
  */
 $(function() {
     $('#side-menu').metisMenu({toggle: false});
+    $('#side-menu2').metisMenu({toggle: false});
 });
 
 //Loads the correct sidebar on window load,

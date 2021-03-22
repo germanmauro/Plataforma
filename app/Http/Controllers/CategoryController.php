@@ -18,9 +18,20 @@ class CategoryController extends Controller
     }
 
     //Listar para cursos
-    public function showcategories()
+    public function showcategoriesadultos()
     {
-        $categorias = Category::where('baja','false')->orderBy('nombre')->get();
+        $categorias = Category::where('baja','false')
+        ->where("destinatario","Adultos")
+        ->orderBy('nombre')->get();
+      
+        return view("cursos.categorias",compact("categorias"));
+    }
+
+    public function showcategoriesniños()
+    {
+        $categorias = Category::where('baja','false')
+        ->where("destinatario", "Niños")
+        ->orderBy('nombre')->get();
       
         return view("cursos.categorias",compact("categorias"));
     }
@@ -30,6 +41,7 @@ class CategoryController extends Controller
         $categoria = new Category();
         $categoria->nombre = $request->nombre;
         $categoria->texto = $request->texto;
+        $categoria->destinatario = $request->destinatario;
         $nombre = "";
         if ($request->hasFile('imagen')) {
             $nombre = $request->file('imagen')->store("public/categorias");
@@ -52,6 +64,7 @@ class CategoryController extends Controller
     {
         $categoria->nombre = $request->nombre;
         $categoria->texto = $request->texto;
+        $categoria->destinatario = $request->destinatario;
         $nombre = "";
         if ($request->hasFile('imagen')) {
             $nombre = $request->file('imagen')->store("public/categorias");

@@ -24,7 +24,7 @@
                                 <label>Elija una de sus especialidades</label>
                                 <select class="form-control" required name="especialidad">
                                     @foreach ($user->specialties as $item)
-                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        <option value="{{$item->id}}">{{$item->nombre}} ({{$item->category->destinatario}})</option>
                                     @endforeach
                                 </select>
                             </div>

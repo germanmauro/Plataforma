@@ -34,7 +34,8 @@ Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("c
 //Cursos por categorias
 Route::view('/Info/ComoFunciona', 'cursos.comofunciona')->name('comofunciona');
 Route::get('/Info/Profesores', [ProfesorController::class, 'infoprofesor'])->name("infoprofesor");
-Route::get('/Cursos/Categorias', [CategoryController::class, 'showcategories'])->name("showcategories");
+Route::get('/Cursos/Categorias/Adultos', [CategoryController::class, 'showcategoriesadultos'])->name("showcategoriesadultos");
+Route::get('/Cursos/Categorias/Niños', [CategoryController::class, 'showcategoriesniños'])->name("showcategoriesniños");
 Route::get('/Cursos/AddFavorite/{id}', [CourseController::class, 'addfavorite'])->name("addfavorite");
 Route::get('/Cursos/RemoveFavorite/{id}', [CourseController::class, 'removefavorite'])->name("removefavorite");
 Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);

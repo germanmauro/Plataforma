@@ -69,7 +69,9 @@
                           @endif
                         </p>
                       </div>
-                      
+                      <div class="col-md-12">
+                        <p class="curso-detalle">Destinado a {{$item->specialty->category->destinatario}}</p>
+                      </div>
                       @if ($item->video!="")
                       <div class="col-md-12">
                         <p class="curso-descripcion">

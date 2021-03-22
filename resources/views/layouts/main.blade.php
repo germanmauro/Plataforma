@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=35') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=36') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -369,7 +369,7 @@
     <script src="{{ asset('Tables/jquery.dataTables.js')}}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('js/sb-admin-2.js')}}"></script>
+    <script src="{{ asset('js/sb-admin-2.js?v=2')}}"></script>
     {{-- <script src="js/sweetalert.min.js"></script> --}}
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{ asset('js/metisMenu.min.js')}}"></script>

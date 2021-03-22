@@ -138,13 +138,12 @@ a.marca:hover,a.marca:active {
   padding: 20px 35px;
   text-decoration: none;
   display: inline-block;
-  color:white;
+  /* color:white; */
 }
-#menu-secundario a:hover{
-  text-decoration: none;
+/* #menu-secundario a:hover, #menu-secundario:focus{
   background-color: white;
   color: #024b94;
-}
+} */
 
 .titulo {
     margin-top: 10px;
