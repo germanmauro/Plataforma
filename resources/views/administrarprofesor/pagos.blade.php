@@ -20,7 +20,7 @@
                   @method("post")
                   @csrf
                   
-                  <button type="submit" class="btn btn-warning" title='Marca Transferido'>Transferir todo <span class='fas fa-shopping-cart'></span></button></h3>
+                  <button onclick="loader()" type="submit" class="btn btn-warning" title='Marca Transferido'>Transferir todo <span class='fas fa-shopping-cart'></span></button></h3>
                 </form>
                 @else
                 <h3>No hay dinero por transferir</h3>

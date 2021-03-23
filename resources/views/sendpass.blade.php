@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ingreso al Sistema</title>
 
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/style.css?v=2')}}">
 
 
 </head>

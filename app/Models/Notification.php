@@ -111,4 +111,11 @@ class Notification extends Model
         $this->register($user->id, "Aviso Clase", $mensaje);
         Mail::to($user->email)->send(new notificationMessage("Recordatorio de clase - CEE", "Recordatorio de clase", $mensaje));
     }
+
+    public function transfenciaPago($pago, User $user)
+    {
+        $mensaje =  "Transferencia realizada por el monto de € ". $pago;
+        $this->register($user->id, "Pago", $mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Transferencia enviada - CEE", "Transferencia enviada", $mensaje));
+    }
 }

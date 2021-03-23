@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buy;
+use App\Models\Notification;
 use App\Models\Teacher_Pay;
 use Illuminate\Http\Request;
 
@@ -46,5 +47,8 @@ class PagoController extends Controller
     {
         $pago->estado = "Pagado";
         $pago->save();
+        //Notificación
+        $not = new Notification();
+        $not->transfenciaPago($pago->pago,$pago->user);
     }
 }

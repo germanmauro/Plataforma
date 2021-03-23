@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ingreso al Sistema</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 
 </head>
 @section('content')
@@ -25,7 +25,7 @@
         <button>ingresar</button>
 
       </form>
-      <a href="/ResetPass">Olvide mi contraseña</a>
+      <a href="/ResetPass">Recuperar contraseña</a>
     </div>
 
   </div>

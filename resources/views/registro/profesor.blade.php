@@ -158,7 +158,7 @@
                             <div class="form-group">
                                 <label> 
                                     <input type="checkbox" id="webcam" name="webcam"> 
-                                    Declaro que cuento con webcam, micrófono y conexión a internet.
+                                    Cuento con micrófono y conexión a internet.
                                 </label>
                             </div>
                             <div class="form-group">

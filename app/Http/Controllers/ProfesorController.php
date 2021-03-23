@@ -83,9 +83,15 @@ class ProfesorController extends Controller
         if (!session()->has('Perfil') || session("Perfil") != "admin") {
             return redirect("");
         }
+        $totalpagar = $user->teachers_pays()->where("estado", "A pagar")->sum("pago");
+        
         DB::table('teachers_pays')
         ->where('user_id', $user->id)
         ->update(['estado' => "Pagado"]);
+        
+        $not = new Notification();
+        $not->transfenciaPago($totalpagar, $user);
+
         return redirect('AdministrarProfesores/'.$user->id."/Pagos")->with("success", "Monto marcad como transferido");
     }
 

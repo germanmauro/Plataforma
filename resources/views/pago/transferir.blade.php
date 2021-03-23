@@ -53,6 +53,7 @@
                 var token = '{{csrf_token()}}';
                 switch (value) {
                     case "catch":
+                      loader();
                         $.ajax
                             ({
                                 

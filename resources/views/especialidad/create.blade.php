@@ -22,7 +22,7 @@
                                 <label>Categoría</label>
                                 <select class="form-control" required name="categoria">
                                     @foreach ($categorias as $item)
-                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        <option value="{{$item->id}}">{{$item->nombre}} ({{$item->destinatario}})</option>
                                     @endforeach
                                 </select>
                             </div>

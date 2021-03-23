@@ -25,7 +25,7 @@
                                         <option @if ($especialidad->category->id == $item->id)
                                             selected
                                         @endif
-                                         value="{{$item->id}}">{{$item->nombre}}
+                                         value="{{$item->id}}">{{$item->nombre}} {{($item->destinatario)}}
                                         </option>
                                     @endforeach
                                 </select>

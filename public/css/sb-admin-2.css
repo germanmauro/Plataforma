@@ -236,9 +236,11 @@ a.formregistro {
 }
 .input-container label{
 	position:absolute;
-  top:0px;
-	left:0px;
-	font-size:16px;
+  /* top:0px; */
+  top:-14px;
+  left:0px;
+  font-weight: normal;
+	font-size:15px;
 	color:#010204;
   pointer-events:none;
 	transition: all 0.5s ease-in-out;
@@ -259,10 +261,11 @@ a.formregistro {
 
 .input-container input:focus ~ label,
 .input-container input:valid ~ label,
-.input-container input:read-only ~ label,
-.input-container input[type=date] ~ label {
+.input-container input:read-only ~ label
+ {
 	top:-14px;
-	font-size:13px;
+  font-size:15px;
+  font-weight:700;
 }
 /*Para que se vea el campo date en safari*/
  input[type=date]

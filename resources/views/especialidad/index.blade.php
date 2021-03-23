@@ -32,7 +32,7 @@
                 @foreach ($especialidades as $item)
                     <tr>
                         <td>{{$item->nombre}} </td>
-                        <td>{{$item->category->nombre}} </td>
+                        <td>{{$item->category->nombre}} ({{$item->category->destinatario}}) </td>
                         <td>
                         <a class="accionmenu" href="{{route('specialty.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
                         <a class="accionmenu" href="{{route('specialty.delete',$item->id) }}" title='Eliminar Registro' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
