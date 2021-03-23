@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ingreso al Sistema</title>
 
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 
 </head>
 @section('content')
