@@ -81,15 +81,18 @@
                       </div>
                     
                     
-                        <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-shopping-cart'></i></span>  Comprar Curso </a>
-                      <div class="col-md-12 curso-share">
-                        @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
-                          @if($item->esFavorito())    
-                            <a onclick="loader()" class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
-                          @else
-                            <a onclick="loader()" class="curso-favorite" href="/Cursos/AddFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                        <div class="col-md-12">
+                          @if (session()->has("Perfil") && session("Perfil")=="alumno"){{-- Solo si es alumno --}}
+                            @if($item->esFavorito())    
+                              <a onclick="loader()" class="curso-favorite-added" href="/Cursos/RemoveFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                            @else
+                              <a onclick="loader()" class="curso-favorite" href="/Cursos/AddFavorite/{{$item->id}}" title='Agregar a favoritos'><i class='fa fa-heart'></i></a>
+                            @endif
                           @endif
-                        @endif
+                          <a class="btn btn-comprar" href="/Cursos/Comprar/{{$item->id}}/{{$item->slug()}}" title='Comprar curso' data-toggle='tooltip'> <i class='fas fa-shopping-cart'></i></span>  Comprar Curso </a>
+                        </div>
+                      <div class="col-md-12 curso-share">
+                        
                           <a class="curso-compartir whatsapp" title="Compartir por Whatsapp" href="whatsapp://send?text=http://capacitacionee.com/Cursos/{{$item->id}}/{{$item->slug()}}" data-text="{{$item->titulo}}" data-action="share/whatsapp/share"><i class='fab fa-whatsapp-square'></i></a>
                           <a class="curso-compartir correo" title="Compartir por email" href="mailto:?subject=Quiero compartirte este curso&amp;body=Mirá este curso {{$item->titulo}} http://capacitacionee.com/Cursos/{{$item->id}}/{{$item->slug()}}"><i class='fas fa-envelope'></i></a>
                       </div>

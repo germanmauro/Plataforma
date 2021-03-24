@@ -68,7 +68,8 @@
                             </div>
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div>
-                                <label>Seleccione las especialidades que desea enseñar</label>
+                                <label>Seleccione las especialidades que desea enseñar 
+                                    (Expanda cada categoría para ver las especialidades)</label>
                                 <div class="col-md-6">
                                     <p>ESPECIALIDADES PARA ADULTOS</p>
                                 	<ul data-role="treeview">

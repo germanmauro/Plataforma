@@ -346,6 +346,8 @@ p.detalle {
 }
 
 .accionmenu {
+  font-size: 16px;
+  font-weight: normal;
   color:#292525;
   text-decoration: none;
 }
@@ -556,14 +558,13 @@ form.buscador::after {
 }
 
 .curso-item {
-    padding: 5px;
-    border: #18181749 5px solid;
-    /* border-radius: 15px; */
-    background-color: white;
+    box-shadow: 0 4px 18px 0 rgb(0 0 0 / 20%);
+    border-radius: 12px;
+    padding: 8px;
     margin-bottom: 10px;
 }
 .curso-item:hover {
-    border: #181817a2 5px solid;
+    /* border: #181817a2 5px solid; */
     /* border-radius: 15px; */
     background-color: #f5efef;
 }
@@ -592,7 +593,7 @@ form.buscador::after {
   font-size: 16px;
   text-align: left;
   color:#2e332e;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .curso-profesor {
@@ -600,7 +601,7 @@ form.buscador::after {
   font-size: 15px;
   text-align: left;
   color:#3d3792;
-  font-weight: bold;
+  font-weight: normal;
   margin-top: -10px;
 }
 
@@ -617,13 +618,9 @@ a.curso-descripcion{
   color:black;
 }
 img.curso-image {
-  /* max-width: 100%;
-  max-height: 200px; */
   width: 100%;
   height: auto;
-  border: 2px solid rgba(20, 20, 20, 0.589);
   border-radius: 4px;
-  padding: 5px;
 }
 
 
@@ -647,7 +644,7 @@ img.curso-image-compra {
 }
 .btn-comprar {
     margin-top:10px;
-    width: 90%;
+    width: 80%;
     color: #fff;
     background-color: #024b94;
     border-color: #b8b6b6;
@@ -671,14 +668,16 @@ a.curso-link,a.curso-link:hover  {
   font-weight: bolder;
 }
 
+.curso-favorite, .curso-favorite-added {
+  font-size: 20px;
+}
+
 .curso-favorite, .curso-favorite-added:hover {
   color: #5a5454;
-  margin-right: 40px;
 }
 
 .curso-favorite:hover, .curso-favorite-added {
     color: #ca0202;
-    margin-right: 40px;
 }
 .favorites {
   color:#ff0;
