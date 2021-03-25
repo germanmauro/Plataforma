@@ -112,6 +112,16 @@ class Notification extends Model
         Mail::to($user->email)->send(new notificationMessage("Recordatorio de clase - CEE", "Recordatorio de clase", $mensaje));
     }
 
+    public function avisoEnlaceClase(User $user,Day $day, $enlace)
+    {
+        $mensaje =  "Le enviamos el enlace a Google Meet para porder ralizar la clase correspondiente 
+        a la clase ".$day->course->publication->titulo. " el ".$day->fecha->format("d/m/Y").
+        " a las ". $day->fecha->format("H:i")."<br>
+         <a link href='".$enlace."'>Enlace: ".$enlace. "</a><br> Esperamos su asistencia";
+        $this->register($user->id, "Enlace a curso", $mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Enlace de conexión para clase - CEE", "Enlace de conexión para clase", $mensaje));
+    }
+
     public function transfenciaPago($pago, User $user)
     {
         $mensaje =  "Transferencia realizada por el monto de € ". $pago;

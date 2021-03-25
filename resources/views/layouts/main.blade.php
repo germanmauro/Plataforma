@@ -136,15 +136,17 @@
             <div class="navbar-collapse" role="navigation">
                 <div class="navbar-collapse pull-left">
                     <ul class="nav" id="side-menu">
-                        <li>
-                            <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
-                        </li> 
-                        <li>
-                            <a href='/Nosotros'><i class='fas fa-users'></i> NOSOTROS</a>
-                        </li> 
-                        <li>
-                            <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
-                        </li> 
+                        @if (session()->has('Perfil')&& session("Perfil") != "admin")
+                            <li>
+                                <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                            </li> 
+                            <li>
+                                <a href='/Nosotros'><i class='fas fa-users'></i> NOSOTROS</a>
+                            </li> 
+                            <li>
+                                <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
+                            </li>
+                        @endif 
                         @if (session()->has('Perfil'))
                         @switch(session('Perfil'))
                             @case("admin")
@@ -192,6 +194,14 @@
                                 </li>
                                 <li>
                                     <a  href='/Pagos/Pendientes'> <i class='fas fa-clock'></i> Pendientes</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#'><i class='fas fa-chalkboard-teacher'></i> CLASES <span class='fas fa-angle-double-right'></span></a>
+                            <ul class='nav nav-second-level'>
+                                <li>
+                                    <a  href='/Clases/Avisos'> <i class='fas fa-envelope'></i> Envio de avisos</a>
                                 </li>
                             </ul>
                         </li>

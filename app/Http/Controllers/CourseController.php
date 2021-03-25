@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Course;
+use App\Models\Day;
+use App\Models\Notification;
 use App\Models\Publication;
 use App\Models\User;
 use DateTime;
@@ -79,6 +82,34 @@ class CourseController extends Controller
         $user->favorites()->detach($id);
         return Redirect::back()->with('success', 'Curso eliminado de favoritos');
     }
-    
 
+    //Listado de clases para ver avisos
+    public function clasesaviso()
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+        //Listo los cursos vigentes con alumnos
+        $hoy = new DateTime();
+        $cursos = Course::where("cantidadalumnos", ">", 0)
+        ->where("ultimaclase", ">", $hoy->format("Y-m-d H:i"))->pluck("id");
+        $days = Day::whereIn("course_id",$cursos)
+        ->where("fecha", ">", $hoy->format("Y-m-d H:i"))
+        ->orderBy("fecha")->paginate(10);
+        return view("clases.aviso", compact("days"));
+    }
+
+    public function sendlink(Day $day, Request $request)
+    {
+        $not = new Notification();
+        $not->avisoEnlaceClase($day->course->publication->user, $day, $request->enlace);  
+        foreach ($day->course->users as $alumno) {
+                //aviso a profesor
+                $not = new Notification();
+                $not->avisoEnlaceClase($alumno,$day,$request->enlace);  
+        }
+        $day->envioenlace = true;
+        $day->save();
+        return Redirect::back()->with('success', 'Enlace enviados a todos los participantes');
+    }
 }

@@ -14,7 +14,9 @@
           {{$notification->created_at->format('d/m/Y H:i')}}
         </p> 
         <p class="texto">
-          {{$notification->tipo}}: {{$notification->texto}} 
+          {{$notification->tipo}}: @php
+            echo $notification->texto;
+          @endphp
         </p>
       </div>
     </div>

@@ -14,9 +14,11 @@
 <body style="color:#1b1a1a; padding:5px">
     <h1>{{$titulo}}</h1>
         <img src="{{asset('image/logo.png')}}" width="180px" height="180px"/>
-        <h4>
-            {{$mensaje}} 
-        </h4>
+        <h3>
+            @php
+            echo $mensaje;
+            @endphp
+        </h3>
 
         <p>
             C.E.E Capacitación en español

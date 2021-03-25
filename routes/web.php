@@ -36,12 +36,14 @@ Route::view('/Info/ComoFunciona', 'cursos.comofunciona')->name('comofunciona');
 Route::get('/Info/Profesores', [ProfesorController::class, 'infoprofesor'])->name("infoprofesor");
 Route::get('/Cursos/Categorias/Adultos', [CategoryController::class, 'showcategoriesadultos'])->name("showcategoriesadultos");
 Route::get('/Cursos/Categorias/Niños', [CategoryController::class, 'showcategoriesniños'])->name("showcategoriesniños");
+Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);
+Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
+
 Route::get('/Cursos/AddFavorite/{id}', [CourseController::class, 'addfavorite'])->name("addfavorite");
 Route::get('/Cursos/RemoveFavorite/{id}', [CourseController::class, 'removefavorite'])->name("removefavorite");
-Route::get('/Cursos/Categoria/{id}/{slug?}', [CourseController::class, 'showbycategories']);
-Route::get('/Cursos/Comprar/{id}/{slug?}', [MeetingController::class, 'comprar']);
-Route::get('/Cursos/{id}/{slug?}', [CourseController::class, 'show']);
+
 //Compra de curso
+Route::get('/Cursos/Comprar/{id}/{slug?}', [MeetingController::class, 'comprar']);
 Route::put('/Meeting/Create/{publicacion}', [MeetingController::class, 'create'])->name("meeting.create");
 
 //Paypal - Pagos
@@ -187,3 +189,6 @@ Route::post('/Publicaciones/Pausar/{publicacion}', [PublicationController::class
 Route::post('/Publicaciones/Reactivar/{publicacion}', [PublicationController::class, 'reactivate'])->name("publication.reactivate");
 Route::post('/Publicaciones/Delete/{publicacion}', [PublicationController::class, 'delete'])->name("publication.delete");
 
+//Aviso clases
+Route::get('/Clases/Avisos', [CourseController::class, 'clasesaviso']);
+Route::put('/Clases/SendAviso/{day}', [CourseController::class, 'sendlink'])->name("course.sendlink");
