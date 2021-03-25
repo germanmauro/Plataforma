@@ -7,7 +7,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [15]
+                   targets: [16]
                }]}
             );
         });
@@ -33,6 +33,7 @@
                 <th>Título</th>
                 <th>Descripcion</th>
                 <th>Especialidad</th>
+                <th>Nivel</th>
                 <th>Tipo</th>
                 <th>Duración</th>
                 <th>Cursos Activos</th>
@@ -59,7 +60,8 @@
                             {{$item->descripcion}}    
                           @endif 
                        </td>
-                        <td>{{$item->specialty->nombre}} </td>
+                        <td>{{$item->specialty->nombre}}</td>
+                        <td>{{$item->nivel}} </td>
                         <td>{{$item->tipo}} </td>
                         <td>
                           @if($item->clases==0)
@@ -76,19 +78,19 @@
                         <td>
                           @if ($item->imagen1!="")
                               <a class="error" onclick="borrarimagen({{$item->id}},1)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
-                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen1)}}" alt="imagen1">
+                          <img width="80px" src="{{asset('storage/publicaciones/'.$item->imagen1)}}" alt="imagen1">
                           @endif
                         </td>
                         <td>
                           @if ($item->imagen2!="")
                               <a class="error" onclick="borrarimagen({{$item->id}},2)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
-                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen2)}}" alt="imagen1">
+                          <img width="80px" src="{{asset('storage/publicaciones/'.$item->imagen2)}}" alt="imagen1">
                           @endif
                         </td>
                         <td>
                           @if ($item->imagen3!="")
                               <a class="error" onclick="borrarimagen({{$item->id}},3)" title='Eliminar' data-toggle='tooltip'><span class='fas fa-times'></span></a>
-                          <img height="60px" src="{{asset('storage/publicaciones/'.$item->imagen3)}}" alt="imagen1">
+                          <img width="80px" src="{{asset('storage/publicaciones/'.$item->imagen3)}}" alt="imagen1">
                           @endif
                         </td>
                         <td>

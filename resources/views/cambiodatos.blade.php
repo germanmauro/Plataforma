@@ -22,7 +22,13 @@
                                 @enderror --}}
                                 
                             </div>
-                            
+                            @if (session('Perfil')=="profesor")
+                            <div class="form-group">
+                                <label>Descripción de su perfil como profesor</label>
+                                <textarea rows="6" class="form-control" minlength="50" name="descripcion" required maxlength="500" 
+                                placeholder="Agregue una breve descripción de su formación académica y laboral">{{old('aprendizaje', $user->descripcion)}}</textarea>
+                            </div>
+                            @endif
                             <div class="input-container">      
                                 <input class="form-control" required id="nombre" name="nombre" maxlength="20"  value= "{{old('nombre',$user->nombre)}}">
                                 <label>Nombre</label>

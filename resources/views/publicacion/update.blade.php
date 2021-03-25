@@ -19,10 +19,6 @@
                                 <input class="form-control" required name="titulo" maxlength="100" placeholder="Título" value= "{{$publicacion->titulo}}">
                             </div>
                             <div class="form-group">
-                                <label>Descripción</label>
-                                <textarea rows="6" class="form-control" name="descripcion" required maxlength="1000" placeholder="Descripción (hasta 1000 caracteres)">{{$publicacion->descripcion}}</textarea>
-                            </div>
-                            <div class="form-group">
                                 <label>Elija una de sus especialidades</label>
                                 <select class="form-control" required name="especialidad">
                                     @foreach ($user->specialties as $item)
@@ -35,7 +31,36 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Tipo de clase (Si elije Grupal, luego deberá cargar las los inicios de cada curso)</label>
+                                <label>Descripción</label>
+                                <textarea rows="6" class="form-control" name="descripcion" required maxlength="1000" placeholder="Descripción (hasta 1000 caracteres)">{{$publicacion->descripcion}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Temas del curso</label>
+                                <textarea rows="6" class="form-control" minlength="50" name="temas" required maxlength="5000" 
+                                placeholder="Liste los temas del curso (hasta 5000 caracteres)">{{$publicacion->temas}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Beneficios del curso</label>
+                                <textarea rows="6" class="form-control" minlength="50" name="beneficios" required maxlength="5000" 
+                                placeholder="¿Que beneficios obtendrá el alumno? (hasta 5000 caracteres)">{{$publicacion->beneficios}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Aprendizaje del curso</label>
+                                <textarea rows="6" class="form-control" minlength="50" name="aprendizaje" required maxlength="5000" 
+                                placeholder="¿Qué aprenderá el alumno con este curso? (hasta 5000 caracteres)">{{$publicacion->aprendizaje}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Nivel</label>
+                                <select class="form-control" required name="nivel">
+                                    <option @if($publicacion->nivel == "Principiante") selected @endif value="Principiante">Principiante</option>
+                                    <option @if($publicacion->nivel == "Intermedio") selected @endif value="Intermedio">Intermedio</option>
+                                    <option @if($publicacion->nivel == "Avanzado") selected @endif value="Avanzado">Avanzado</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de clase</label>
                                 <select class="form-control" required name="tipo">
                                     <option @if($publicacion->tipo == "Grupal") selected @endif value="Grupal">Grupal (Varios Alumnos)</option>
                                     <option @if($publicacion->tipo == "Individual") selected @endif value="Individual">Individual</option>
@@ -50,8 +75,6 @@
                                     @endfor
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
                             <div id="duracion" class="form-group">
                                 <label>Duración del curso (en meses)</label>
                                 <select class="form-control" name="duracion">

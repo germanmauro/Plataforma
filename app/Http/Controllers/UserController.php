@@ -35,6 +35,7 @@ class UserController extends Controller
         $user->fechanacimiento = $request->fechanacimiento;
         $user->direccion = $request->direccion;
         if(session("Perfil")=="profesor") {
+            $user->descripcion = $request->descripcion;
             $user->cuentabancaria = $request->cuentabancaria;
             $user->banco = $request->banco;
             $user->alias = $request->alias;

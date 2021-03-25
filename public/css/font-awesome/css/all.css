@@ -4269,6 +4269,9 @@ readers do not read off random characters that represent icons */
 .fa-weebly:before {
   content: "\f5cc"; }
 
+.fa-webcam:before {
+  content: "\f5cc"; }
+
 .fa-weibo:before {
   content: "\f18a"; }
 

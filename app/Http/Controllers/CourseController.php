@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Publication;
 use App\Models\User;
+use DateTime;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -48,7 +50,14 @@ class CourseController extends Controller
     public function show($id,$slug="")
     {
         $publicacion = Publication::find($id);
-        return view("cursos.show", compact("publicacion"));
+        $dias = new Collection();
+        $hoy = new DateTime();
+        foreach ($publicacion->courses()->where("inicio", ">", $hoy)->orderBy("inicio")->get() as $item) {
+            if (!($publicacion->tipo == "Individual" && count($item->users) > 0)) {
+                $dias[] = $item;
+            }
+        }
+        return view("cursos.show", compact("publicacion","dias"));
     }
 
     //Agregar a favoritos

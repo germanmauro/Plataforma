@@ -47,6 +47,10 @@ class PublicationController extends Controller
         $publicacion->user_id = session("Id");
         $publicacion->titulo = $request->titulo;
         $publicacion->descripcion = $request->descripcion;
+        $publicacion->nivel = $request->nivel;
+        $publicacion->temas = $request->temas;
+        $publicacion->beneficios = $request->beneficios;
+        $publicacion->aprendizaje = $request->aprendizaje;
         $publicacion->specialty_id = $request->especialidad;
         $publicacion->tipo = $request->tipo;
         $publicacion->clases = $request->clases;
@@ -87,6 +91,10 @@ class PublicationController extends Controller
     {
         $publicacion->titulo = $request->titulo;
         $publicacion->descripcion = $request->descripcion;
+        $publicacion->nivel = $request->nivel;
+        $publicacion->temas = $request->temas;
+        $publicacion->beneficios = $request->beneficios;
+        $publicacion->aprendizaje = $request->aprendizaje;
         $publicacion->specialty_id = $request->especialidad;
         $publicacion->tipo = $request->tipo;
         $publicacion->clases = $request->clases;

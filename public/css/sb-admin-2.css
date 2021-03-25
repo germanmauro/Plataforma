@@ -580,7 +580,13 @@ form.buscador::after {
     border: black solid 2px;
 }
 
-
+.curso-info-profesor {
+  box-shadow: 0 4px 18px 0 rgb(0 0 0 / 20%);
+  border-radius: 12px;
+  font-size: 22px;
+  padding: 8px;
+  margin:10px 0 10px 0;;
+}
 .curso-titulo {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 22px;
@@ -596,6 +602,18 @@ form.buscador::after {
   font-weight: normal;
 }
 
+.curso-requisito {
+  /* font-family: 'Courgette'; */
+  margin: 25px 0 25px 0;
+  font-size: 18px;
+  text-align: left;
+  color:#2e332e;
+  font-weight: normal;
+}
+
+.curso-icono {
+  color:#024b94;
+}
 .curso-profesor {
   /* font-family: 'Courgette'; */
   font-size: 15px;
@@ -605,6 +623,28 @@ form.buscador::after {
   margin-top: -10px;
 }
 
+.curso-profesor-img
+{
+  box-shadow: 0 4px 18px 0 rgb(0 0 0 / 20%);
+  border-radius: 50%;
+  /* display: block; */
+  width: 130px;
+  height: 130px;
+}
+
+h3.curso-info{
+  font-size:22px;
+  margin-top: 15px;
+  text-align: left;
+  font-weight: normal;
+}
+
+h3.curso-info-center{
+  font-size:22px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: normal;
+}
 .curso-descripcion{
   font-family: 'Josefin Sans', sans-serif;
   text-align: left;
@@ -699,6 +739,7 @@ a.curso-link,a.curso-link:hover  {
 .correo:hover {
     color: #1919c2;
 }
+
 
 /* fin vista curso */
 
