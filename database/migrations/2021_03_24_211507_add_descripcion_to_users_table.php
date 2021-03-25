@@ -14,7 +14,7 @@ class AddDescripcionToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text("descripcion")->default("");
+            $table->text("descripcion");
         });
     }
 
