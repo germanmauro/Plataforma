@@ -14,9 +14,9 @@ class AddFieldsToPublicationsTable extends Migration
     public function up()
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->text("temas")->default("");
-            $table->text("beneficios")->default("");
-            $table->text("aprendizaje")->default("");
+            $table->text("temas");
+            $table->text("beneficios");
+            $table->text("aprendizaje");
         });
     }
 
