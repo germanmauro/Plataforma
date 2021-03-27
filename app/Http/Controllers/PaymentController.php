@@ -33,8 +33,8 @@ class PaymentController extends Controller
         $payPalConfig = Config::get('paypal');
         $this->apiContext = new ApiContext(
             new OAuthTokenCredential(
-                $payPalConfig["sandbox"]['client_id'],
-                $payPalConfig["sandbox"]['client_secret']
+                $payPalConfig["live"]['client_id'],
+                $payPalConfig["live"]['client_secret']
             )
         );
         $this->apiContext->setConfig($payPalConfig['settings']);
