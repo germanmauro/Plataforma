@@ -136,17 +136,15 @@
             <div class="navbar-collapse" role="navigation">
                 <div class="navbar-collapse pull-left">
                     <ul class="nav" id="side-menu">
-                        @if (session()->has('Perfil')&& session("Perfil") != "admin")
-                            <li>
-                                <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
-                            </li> 
-                            <li>
-                                <a href='/Nosotros'><i class='fas fa-users'></i> NOSOTROS</a>
-                            </li> 
-                            <li>
-                                <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
-                            </li>
-                        @endif 
+                        <li>
+                            <a href='/'><i class='fab fa-searchengin'></i> BUSCAR CURSOS</a>
+                        </li> 
+                        <li>
+                            <a href='/Nosotros'><i class='fas fa-users'></i> NOSOTROS</a>
+                        </li> 
+                        <li>
+                            <a href='/Contacto'><i class='fas fa-envelope'></i> CONTACTO</a>
+                        </li>
                         @if (session()->has('Perfil'))
                         @switch(session('Perfil'))
                             @case("admin")

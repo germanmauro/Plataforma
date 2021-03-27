@@ -11,7 +11,7 @@
 	            Acerca de nosotros
 	        </h2>
 	        <p>
-	            Somos una empresa familiar, que tiene como objetivo brindar cursos infividuales y grupales online en español,
+	            Somos una empresa familiar, que tiene como objetivo brindar cursos individuales y grupales online en español,
 	                para que todas las personas, niños, adolescentes y adultos, puedan capacitarse desde la comodidad de su casa 
                     con material de alta calidad. 
                     <br>

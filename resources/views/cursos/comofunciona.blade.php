@@ -17,10 +17,10 @@
             </div>
             <div class="comofunciona-split">
               <h2>
-                Buscá tu curso
+                Busca tu curso
               </h2>
                 <p>
-                  Seleccioná los cursos que deseas aprender. CEE te da la posibilidad desde la comodidad 
+                  Selecciona los cursos que deseas aprender. CEE te da la posibilidad desde la comodidad 
                   de tu casa a capacitarte desde el lugar del mundo en donde estés, de manera personal y 
                   grupal con profesores de habla hispana.
                 </p>
@@ -33,10 +33,10 @@
             
             <div class="comofunciona-split-left">
               <h2>
-                Elegí los días y los horarios
+                Elige los días y los horarios
               </h2>
               <p>
-                Seleccioná la fecha y hora del curso que más te convenga y reserva la clase con un 
+                Selecciona la fecha y hora del curso que más te convenga y reserva la clase con un 
                 solo click. Para días y horarios especiales contactate con nosotros.
               </p>
             </div>

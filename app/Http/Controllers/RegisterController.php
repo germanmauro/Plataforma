@@ -119,16 +119,16 @@ class RegisterController extends Controller
             throw ValidationException::withMessages(['webcam' => 'Debe contar con webcam, micrófono y conexión a internet para poder participar de clases']);
         }
         //Verifico los días y horarios elegidos
-        foreach ($request->dias as $value) {
-            $desde = new DateTime($request["desde" . $value]);
-            $hasta = new DateTime($request["hasta" . $value]);
-            if ($desde->diff($hasta)->format("%h") < 1) {
-                throw ValidationException::withMessages(['horas' => 'Al menos debe tener disponibilidad de una hora para el día seleccionado (' . $value . ')']);
-            }
-            if ($desde > $hasta) {
-                throw ValidationException::withMessages(['horas' => 'En el día ' . $value . "la hora hasta debe ser mayor que la hora desde"]);
-            }
-        }
+        // foreach ($request->dias as $value) {
+        //     $desde = new DateTime($request["desde" . $value]);
+        //     $hasta = new DateTime($request["hasta" . $value]);
+        //     if ($desde->diff($hasta)->format("%h") < 1) {
+        //         throw ValidationException::withMessages(['horas' => 'Al menos debe tener disponibilidad de una hora para el día seleccionado (' . $value . ')']);
+        //     }
+        //     if ($desde > $hasta) {
+        //         throw ValidationException::withMessages(['horas' => 'En el día ' . $value . "la hora hasta debe ser mayor que la hora desde"]);
+        //     }
+        // }
 
         $user = new User();
         
@@ -165,15 +165,15 @@ class RegisterController extends Controller
         //Agrego las especialidades
         $user->specialties()->attach($request->input('especialidades'));
         //Días y horarios
-        foreach ($request->dias as $value) {
-            $desde = new DateTime($request["desde" . $value]);
-            $hasta = new DateTime($request["hasta" . $value]);
-            $availability = new Availability();
-            $availability->dia = $value;
-            $availability->desde = $desde;
-            $availability->hasta = $hasta;
-            $user->availabilities()->save($availability);
-        }
+        // foreach ($request->dias as $value) {
+        //     $desde = new DateTime($request["desde" . $value]);
+        //     $hasta = new DateTime($request["hasta" . $value]);
+        //     $availability = new Availability();
+        //     $availability->dia = $value;
+        //     $availability->desde = $desde;
+        //     $availability->hasta = $hasta;
+        //     $user->availabilities()->save($availability);
+        // }
         //Envío de email.
         $url = $this->enlaceVerificacion($user->id);
         Mail::to($user->email)->send(new mailRegistry($user, $url));

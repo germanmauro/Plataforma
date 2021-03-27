@@ -66,6 +66,43 @@
                                 <input required type="password" class="form-control" id="passrepeat" name="passrepeat" minlength="8" maxlength="20" >
                                 <label>Repetir contraseña</label>                            
                             </div>
+                            
+                        </div>
+                        <div class="col-lg-6 box">
+                            {{-- <div class="col-md-12 grillahorario">
+                                <p>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</p>
+                                            @php
+                                                $dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+                                            @endphp
+                                            @foreach ($dias as $day)
+                                            <div class="col-md-12 day">
+                                                <div class="col-md-4">
+                                                    <p> 
+                                                        <label>
+                                                            <input type="checkbox" name="dias[]" value="{{$day}}" @if(is_array(old('dias')) && in_array($day, old('dias'))) checked @endif/> {{$day}}
+                                                        </label>
+                                                    </p>
+                                                </div>
+                                                    <div class="col-md-4">
+                                                        <label>Desde</label>
+                                                            <select class="form-control" name="desde{{$day}}">
+                                                                @for ($i = 0; $i < 24; $i++)
+                                                                    <option value="{{$i}}:00" {{ (old('desde'.$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
+                                                                @endfor
+                                                            </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Hasta</label>
+                                                            <select class="form-control" name="hasta{{$day}}">
+                                                                @for ($i = 1; $i <= 24; $i++)
+                                                                    <option value="{{$i}}:00" {{ (old("hasta".$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
+                                                                @endfor
+                                                            </select>
+                                                    </div>
+                                            </div>
+                                            @endforeach
+                                            <p class="referencia">* Huso horario italiano</p>
+                            </div> --}}
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div>
                                 <label>Seleccione las especialidades que desea enseñar 
@@ -114,43 +151,6 @@
                                 	@endforeach
                                 	</ul>
                                 </div>
-                            </div>
-                            </div>
-                        <div class="col-lg-6 box">
-                            {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
-                            <div class="col-md-12 grillahorario">
-                                <p>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</p>
-                                            @php
-                                                $dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
-                                            @endphp
-                                            @foreach ($dias as $day)
-                                            <div class="col-md-12 day">
-                                                <div class="col-md-4">
-                                                    <p> 
-                                                        <label>
-                                                            <input type="checkbox" name="dias[]" value="{{$day}}" @if(is_array(old('dias')) && in_array($day, old('dias'))) checked @endif/> {{$day}}
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                    <div class="col-md-4">
-                                                        <label>Desde</label>
-                                                            <select class="form-control" name="desde{{$day}}">
-                                                                @for ($i = 0; $i < 24; $i++)
-                                                                    <option value="{{$i}}:00" {{ (old('desde'.$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                @endfor
-                                                            </select>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Hasta</label>
-                                                            <select class="form-control" name="hasta{{$day}}">
-                                                                @for ($i = 1; $i <= 24; $i++)
-                                                                    <option value="{{$i}}:00" {{ (old("hasta".$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                @endfor
-                                                            </select>
-                                                    </div>
-                                            </div>
-                                            @endforeach
-                                            <p class="referencia">* Huso horario italiano</p>
                             </div>
                             <div class="form-group">
                                 <label>Subir archivo de título (En caso de corresponder con las especialidades elegidas).</label>
