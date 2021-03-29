@@ -21,7 +21,7 @@
                       Pago de cuota {{$item->cuota}} del curso {{$item->course->publication->titulo}} <br>
                       Abonado por el alumno {{$item->user->nombre}} {{$item->user->apellido}} <br>
                       Monto cobrado € {{$item->precio}} <br>
-                      Monto para el profesor € {{$item->montoadministrador}} 
+                      Monto para el profesor € {{$item->teacher_pay->pago}} 
                       <span class="infoicono">
                         @if($item->teacher_pay->estado == "Pagado")
                         (Transferido)
@@ -30,7 +30,7 @@
                         @endif
                       </span>
                       <br> 
-                      Comisión cobrada € {{$item->teacher_pay->pago}} 
+                      Comisión cobrada € {{$item->montoadministrador}} 
 
                     </p>
                       

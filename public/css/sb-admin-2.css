@@ -511,7 +511,7 @@ form.buscador {
 }
 
 form.buscador ::placeholder {
-  color:rgb(49, 47, 47);
+  color:rgba(49, 47, 47, 0.541);
 }
 
 form.buscador button:hover {
