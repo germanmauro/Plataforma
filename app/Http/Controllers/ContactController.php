@@ -17,7 +17,7 @@ class ContactController extends Controller
         $contacto->email = $request->email;
         $contacto->mensaje = $request->mensaje;
         $contacto->telefono = $request->telefono;
-        Mail::to("info@capacitacionee.com")->send(new mailContact($contacto));
+        Mail::to($contacto->email)->send(new mailContact($contacto));
         return redirect('')->with('success','Mensaje enviado con éxito, en breve le responderemos');
     }
 }
