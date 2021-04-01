@@ -8,7 +8,7 @@
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
             <h4>
-                <strong><i class="fas fa-phone"></i> WhatsApp</strong> +39 389 3137254
+                <strong><i class="fas fa-phone"></i> WhatsApp</strong> +39 351 9181771
             </h4>
             <h4>
                 <strong><i class="fas fa-envelope"></i> E-mail</strong> <a href="mailto:info@capacitacionee.com">info@capacitacionee.com</a>
