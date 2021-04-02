@@ -5,6 +5,7 @@ use App\Http\Controllers\AmountController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
@@ -109,6 +110,10 @@ Route::get('/Categoria/{categoria}/Delete', [CategoryController::class, 'delete'
 Route::get('/Monto', [AmountController::class, 'index']);
 Route::put('/Monto/Update/{monto}', [AmountController::class, 'update'])->name("amount.update");
 
+//Carga contrato
+Route::get('/Contrato', [ContractController::class, 'index']);
+Route::put('/Contrato/Update', [ContractController::class, 'update'])->name("contract.update");
+
 // Especialidades
 Route::get('/Especialidad', [SpecialtyController::class, 'index']);
 Route::get("/Especialidad/Create",[SpecialtyController::class,'create'])->name("specialty.create");
@@ -126,6 +131,7 @@ Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"inf
 Route::get("/AdministrarProfesores/{user}/Clases", [ProfesorController::class, "clases"])->name("profesor.clases");
 Route::get("/AdministrarProfesores/{user}/Pagos", [ProfesorController::class, "pagos"])->name("profesor.pagos");
 Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::class, 'enable'])->name("profesor.enable");
+Route::post('/AdministrarProfesores/HabilitarContrato/{user}', [ProfesorController::class, 'enablecontract'])->name("profesor.enablecontract");
 Route::post('/AdministrarProfesores/TransferirTodo/{user}', [ProfesorController::class, 'transferirTodo'])->name("transferirtodo");
 Route::post('/AdministrarProfesores/Deshabilitar/{user}', [ProfesorController::class, 'disable'])->name("profesor.disable");
 // Administración de Alumnos
@@ -167,8 +173,8 @@ Route::get("/Alumno/Pagos/Realizados", [AlumnoController::class, "pagosrealizado
 Route::get("/Alumno/Pagos/Pendientes", [AlumnoController::class, "pagospendientes"]);
 
 //Subir contrato
-Route::get("/Contrato/Carga", [UserController::class, 'cargacontract'])->name("contact.create");
-Route::post('/Contrato/Store', [UserController::class, 'storecontract']);
+Route::get("/Contrato/Envio", [UserController::class, 'cargacontract'])->name("contact.create");
+Route::post('/Contrato/Store', [UserController::class, 'storecontract'])->name("store.contract");
 
 //Publicaciones
 Route::get('/Publicaciones', [PublicationController::class, 'index']);

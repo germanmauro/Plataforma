@@ -5,23 +5,20 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                CARGUE EL CONTRATO QUE SE ENVIARÁ A LOS PROFESORES
+                SUBA EL ARCHIVO CON EL CONTRATO FIRMADO
             </div>
             <div class="panel-body">
                 <div class="row">
                     
-                        <form name="envio" id="envio" role="form" action="{{route("contract.update")}}" method="POST" enctype="multipart/form-data">
-                            @method("put")
+                        <form name="envio" id="envio" role="form" action="/Contrato/Store" method="POST" enctype="multipart/form-data">
                             @csrf
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{-- <label>Monto</label> --}}
-                                <div class="form-group">
-                                <input required type="file" name="contrato" accept="application/pdf" class="form-control">
+                                <input required type="file" name="contrato" id="contrato" accept="application/pdf" class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <button type="submit" id="Send" name="Send" class="btn btn-default">Cargar contrato a enviar</button>
+                            <button type="submit" id="Send" name="Send" class="btn btn-default">Cargar contrato</button>
                         </div>
                           </form>
                     

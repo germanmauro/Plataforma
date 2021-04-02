@@ -101,7 +101,16 @@ class ProfesorController extends Controller
         $user->save();
         $not = new Notification();
         $not->userValidated($user);
-        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado");
+        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado para utilizar el sistema");
+    }
+
+    public function enablecontract(User $user)
+    {
+        $user->estado = "contrato a enviar";
+        $user->save();
+        $not = new Notification();
+        $not->userContract($user);
+        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado para enviar contrato");
     }
 
     public function disable(User $user)

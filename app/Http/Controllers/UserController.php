@@ -68,7 +68,7 @@ class UserController extends Controller
         }
         $user = User::find(session("Id"));
         if($user->estado == "contrato a enviar") {
-            return view('contrato.index');
+            return view('contrato.carga');
         } else {
             return redirect("");
         }  
@@ -79,6 +79,7 @@ class UserController extends Controller
         if (!session()->has('Perfil')) {
             return redirect("");
         }
+        
         $user = User::find(session("Id"));
         if ($request->hasFile('contrato')) {
             $nombre = $request->file('contrato')->store("public");

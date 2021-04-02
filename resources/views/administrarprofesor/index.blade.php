@@ -46,7 +46,10 @@
                         </td>
                         <td>
                         <a class="accionmenu" href="{{route('profesor.info',$item) }}" title='Más información' data-toggle='tooltip'><i class='fas fa-info-circle'></i></span></a>
-                         @if ($item->estado=="a entrevistar"||$item->estado=="invalidado")
+                         @if ($item->estado=="a entrevistar")
+                             <a class="accionmenu" onclick="habilitarcontrato({{$item->id}})" title='Habilitar Contrato' data-toggle='tooltip'><i class='far fa-file'></i></span></a>
+                         @endif
+                         @if ($item->estado=="contrato a validar" || $item->estado=="invalidado")
                              <a class="accionmenu" onclick="habilitarprofesor({{$item->id}})" title='Habilitar Profesor' data-toggle='tooltip'><i class='far fa-thumbs-up'></i></span></a>
                          @endif
                          @if ($item->estado=="validado")
@@ -78,6 +81,7 @@
                 },
             })
               .then((value) => {
+                    loader();
                     var token = '{{csrf_token()}}';
                     switch (value) {
                         case "catch":
@@ -98,7 +102,7 @@
         }
 
       function deshabilitarprofesor(id) {
-        swal("¿Desea deshabilitar al profesor?", {
+        swal("¿Desea deshabilitar al profesor para utilizar el sistema?", {
             icon:"warning",
             buttons: {
                 catch: {
@@ -109,6 +113,7 @@
                 },
             })
               .then((value) => {
+                  loader();
                     var token = '{{csrf_token()}}';
                     switch (value) {
                         case "catch":
@@ -127,5 +132,38 @@
                     }
                 });    
         }
+
+        function habilitarcontrato(id) {
+        swal("¿Desea habilitar al profesor para enviar contrato?", {
+            icon:"warning",
+            buttons: {
+                catch: {
+                    text: "SI",
+                    value: "catch",
+                },
+                cancel: "NO",
+                },
+            })
+              .then((value) => {
+                  loader();
+                    var token = '{{csrf_token()}}';
+                    switch (value) {
+                        case "catch":
+                            $.ajax
+                                ({
+                                    
+                                    url: '/AdministrarProfesores/HabilitarContrato/'+id,
+                                    data: { _token:token },
+                                    type: 'post',
+                                    cache: false,
+                                    success: function (r) {
+                                            location.reload();
+                                    }
+                                });
+                            break;
+                    }
+                });    
+        }
+
     </script>
 @endsection

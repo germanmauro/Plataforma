@@ -62,7 +62,16 @@
                             @if($user->titulo=="")
                                 No enviado
                             @else
-                                <a class="accionmenu" target="_blank" href="{{$user->path()}}">Abrir</a>
+                                <a class="accionmenu" target="_blank" href="{{$user->path($user->titulo)}}">Abrir</a>
+                            @endif
+                            </span>
+                        </p>
+                        <p class="detalle">Contrato 
+                            <span class="detalledesc">
+                            @if($user->contrato=="")
+                                No enviado
+                            @else
+                                <a class="accionmenu" target="_blank" href="{{$user->path($user->contrato)}}">Abrir</a>
                             @endif
                             </span>
                         </p>

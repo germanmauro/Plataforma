@@ -19,9 +19,9 @@ class User extends Model
 
     protected $dates = ['fechanacimiento'];
 
-    public function path()
+    public function path($string)
     {
-        return Storage::url($this->titulo);
+        return Storage::url($string);
     }
 
     //Un usuario tiene muchas especialidades

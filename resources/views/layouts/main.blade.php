@@ -155,6 +155,9 @@
                                     <a href='/Categoria'> <i class='fas fa-folder-open'></i> Categorias</a>
                                 </li>
                                 <li>
+                                    <a href='/Contrato'> <i class='fas fa-folder-open'></i> Carga Contrato</a>
+                                </li>
+                                <li>
                                     <a href='/Especialidad'> <i class='fas fa-user-tag'></i> Especialidades</a>
                                 </li>
                                 {{-- <li>
@@ -330,7 +333,7 @@
             @break
         @case("contrato a enviar")
            <div class="alert alert-danger" role="alert">
-                Debe subir el contrato recibido por e-mail firmado. <a href="/Contrato/Carga" class="btn btn-default"> Cargueló aquí </a>
+                Debe subir el contrato recibido por e-mail firmado. <a href="/Contrato/Envio" class="btn btn-default"> Cargueló aquí </a>
            </div>
             @break
         @case("a entrevistar")
