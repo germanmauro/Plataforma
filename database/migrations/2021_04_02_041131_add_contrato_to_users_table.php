@@ -14,7 +14,7 @@ class AddContratoToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text("contrato")->default("");
+            $table->text("contrato")->nullable();
         });
     }
 
