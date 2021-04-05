@@ -154,4 +154,11 @@
 </div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/accordion.js') }}"></script>
+<script>
+  $(function() {
+    if (!Modernizr.inputtypes['date']) {
+        $('input[type=date]').datepicker();
+    }
+});
+</script>
 @endsection
