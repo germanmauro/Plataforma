@@ -50,7 +50,7 @@
                         <div class="col-lg-6 box">     
                             <div class="input-container">
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
-                                <label>E-Mail</label>
+                                <label>E-Mail (Gmail recomendado)</label>
                             </div>
                             {{-- <div class="input-container">
                                 <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
