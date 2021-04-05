@@ -226,9 +226,9 @@ a.formregistro {
 .formregistro {
   margin-top: 10px;
 }
-.formregistro input[type=checkbox] {
-  height: 20px;
-  width: 20px;
+input[type=checkbox] {
+  height: 18px;
+  width: 18px;
 }
 .input-container{
 	position:relative;

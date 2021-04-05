@@ -31,6 +31,7 @@ use App\Http\Controllers\UserController;
 //Cursos página de búsqueda y contratación
 Route::get('/', [CourseController::class, 'listado'])->name("listado");
 Route::view('/PoliticaPrivacidad', 'politica')->name("politica");
+Route::view('/FAQ', 'faq')->name("faq");
 Route::get('/Cursos/Filter', [CourseController::class, 'coursefilter'])->name("coursefilter");
 //Cursos por categorias
 Route::view('/Info/ComoFunciona', 'cursos.comofunciona')->name('comofunciona');

@@ -361,6 +361,7 @@
             Desarrollado por <a href="https://www.mygsystems.com">M&G Systems.com</a> 
             - <a href="/PoliticaPrivacidad">Política de privacidad</a> 
             - <a href="/Registro/Terminos">Términos y condiciones</a>
+            - <a href="/FAQ">FAQ</a>
         </div>
     </div>
     <!-- /#wrapper -->

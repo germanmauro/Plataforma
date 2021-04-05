@@ -1,7 +1,9 @@
 @extends('layouts.info')
 @section('head')
 <link rel="stylesheet" href="{{asset('css/treeview.css')}}">
-<script src="{{asset('js/metro.min.js')}}"></script>
+<link href="{{ asset('css/accordion.css') }}" rel="stylesheet">
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+{{-- <script src="{{asset('js/metro.min.js')}}"></script> --}}
 @endsection
 @section('content')
 <!-- /.row -->
@@ -30,14 +32,6 @@
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido')}}">
                                 <label>Apellido</label>
                             </div>
-                            {{-- <div class="input-container">      
-                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
-                                <label>Tipo de Documento</label>
-                            </div>
-                            <div class="input-container">      
-                                <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni')}}">
-                                <label>Documento</label>
-                            </div> --}}
                             <div class="input-container">
                                 <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
@@ -50,10 +44,6 @@
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
                                 <label>E-Mail</label>
                             </div>
-                            {{-- <div class="input-container">
-                                <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
-                                <label>Usuario (8 caracteres)</label>
-                            </div> --}}
                             <div class="form-group">
                                 <label>Subir foto de perfil.</label>
                                 <input required type="file" name="foto" id="foto" accept="image/*" class="form-control">
@@ -69,87 +59,61 @@
                             
                         </div>
                         <div class="col-lg-6 box">
-                            {{-- <div class="col-md-12 grillahorario">
-                                <p>SELECCIONE LOS DÍAS Y HORARIOS CON DISPONIBLIDAD PARA DAR CLASES</p>
-                                            @php
-                                                $dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
-                                            @endphp
-                                            @foreach ($dias as $day)
-                                            <div class="col-md-12 day">
-                                                <div class="col-md-4">
-                                                    <p> 
-                                                        <label>
-                                                            <input type="checkbox" name="dias[]" value="{{$day}}" @if(is_array(old('dias')) && in_array($day, old('dias'))) checked @endif/> {{$day}}
-                                                        </label>
-                                                    </p>
-                                                </div>
-                                                    <div class="col-md-4">
-                                                        <label>Desde</label>
-                                                            <select class="form-control" name="desde{{$day}}">
-                                                                @for ($i = 0; $i < 24; $i++)
-                                                                    <option value="{{$i}}:00" {{ (old('desde'.$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                @endfor
-                                                            </select>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Hasta</label>
-                                                            <select class="form-control" name="hasta{{$day}}">
-                                                                @for ($i = 1; $i <= 24; $i++)
-                                                                    <option value="{{$i}}:00" {{ (old("hasta".$day) == $i) ? 'selected' : '' }}>{{$i}}:00 Hs</option>
-                                                                @endfor
-                                                            </select>
-                                                    </div>
-                                            </div>
-                                            @endforeach
-                                            <p class="referencia">* Huso horario italiano</p>
-                            </div> --}}
                             {{-- Acá van todas las especialidades que el usuario profesor debe elegir --}}
                             <div>
                                 <label>Seleccione las especialidades que desea enseñar 
                                     (Expanda cada categoría para ver las especialidades)</label>
                                 <div class="col-md-6">
                                     <p>ESPECIALIDADES PARA ADULTOS</p>
-                                	<ul data-role="treeview">
+                                    <div class="accordion">
                                 	@foreach ($categoryadulto as $item)
                                 	    @if(count($item->specialties)>0)
-                                	    <li data-collapsed="true">
-                                	        <input type="checkbox" 
-                                	        data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
-                                	        <ul>
-                                	            @foreach ($item->specialties as $subitem)
-                                	                <li><input type="checkbox" 
-                                	                    name="especialidades[]" value="{{$subitem->id}}" 
-                                	                    @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
-                                	                    data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
-                                	                </li>
-                                	            @endforeach
-                                	        </ul>
-                                	    </li>
+                                        <div class="accordion__item">
+                                            <div class="accordion__item__header">
+                                                {{$item->nombre}}
+                                            </div>
+                                            <div class="accordion__item__content">
+                                            @foreach ($item->specialties as $subitem)
+                                            <div>
+                                                <label>
+                                                    <input type="checkbox"
+                                                        name="especialidades[]" value="{{$subitem->id}}"
+                                                        @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif>
+                                                        {{$subitem->nombre}}
+                                                </label>
+                                            </div>
+                                            @endforeach
+                                            </div>
+                                        </div>
                                 	    @endif
                                 	@endforeach
-                                	</ul>
+                                	</div>
                                 </div>
                                 <div class="col-md-6">
                                     <p>ESPECIALIDADES PARA NIÑOS</p>
-                                	<ul data-role="treeview">
+                                	<div class="accordion">
                                 	@foreach ($categoryniño as $item)
                                 	    @if(count($item->specialties)>0)
-                                	    <li data-collapsed="true">
-                                	        <input type="checkbox" 
-                                	        data-role="checkbox" data-caption="{{$item->nombre}}" title="{{$item->nombre}}">
-                                	        <ul>
-                                	            @foreach ($item->specialties as $subitem)
-                                	                <li><input type="checkbox" 
-                                	                    name="especialidades[]" value="{{$subitem->id}}" 
-                                	                    @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif 
-                                	                    data-role="checkbox" data-caption="{{$subitem->nombre}}" title="{{$subitem->nombre}}">
-                                	                </li>
-                                	            @endforeach
-                                	        </ul>
-                                	    </li>
+                                        <div class="accordion__item">
+                                            <div class="accordion__item__header">
+                                                {{$item->nombre}}
+                                            </div>
+                                            <div class="accordion__item__content">
+                                            @foreach ($item->specialties as $subitem)
+                                            <div>
+                                                <label>
+                                                    <input type="checkbox"
+                                                        name="especialidades[]" value="{{$subitem->id}}"
+                                                        @if(is_array(old('especialidades')) && in_array($subitem->id, old('especialidades'))) checked @endif>
+                                                        {{$subitem->nombre}}
+                                                </label>
+                                            </div>
+                                            @endforeach
+                                            </div>
+                                        </div>
                                 	    @endif
                                 	@endforeach
-                                	</ul>
+                                	</div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -188,4 +152,6 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/accordion.js') }}"></script>
 @endsection

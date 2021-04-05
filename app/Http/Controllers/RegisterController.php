@@ -84,7 +84,6 @@ class RegisterController extends Controller
     //Registro de profesor, paso 1
     public function storeprofesor(Request $request)
     {
-        // return $request["nombre"];
         //Mayor de 18
         $nacimiento = DateTime::createFromFormat('Y-m-d', $request->fechanacimiento);
         $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
@@ -96,10 +95,6 @@ class RegisterController extends Controller
         if($request->pass<>$request->passrepeat) {
             throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);
         }
-        //Si existe el usuario
-        // if (User::where('usuario', $request->usuario)->count()) {
-        //     throw ValidationException::withMessages(['usuario' => 'El nombre de usuario ya existe']);
-        // }
         //Si existe el email
         if (User::where('email', $request->email)->count()) {
             throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
@@ -107,9 +102,9 @@ class RegisterController extends Controller
         if (!$request->has('especialidades')) {
             throw ValidationException::withMessages(['especialidades' => 'Debe elegir al menos una especialidad']);
         }
-        if (!$request->has('dias')) {
-            throw ValidationException::withMessages(['dias' => 'Debe elegir al menos un día']);
-        }
+        // if (!$request->has('dias')) {
+        //     throw ValidationException::withMessages(['dias' => 'Debe elegir al menos un día']);
+        // }
         //Debe aceptar términos
         if (!$request->has("terminos")) {
             throw ValidationException::withMessages(['terminos' => 'Debe aceptar los términos 
