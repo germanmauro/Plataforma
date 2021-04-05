@@ -33,6 +33,13 @@
         </div>
       </div>
   </div>
-  
-
+ @section("scripts") 
+<script>
+  $(function() {
+    if (!Modernizr.inputtypes['date']) {
+        $('input[type=date]').datepicker();
+    }
+});
+</script>
+@endsection
 @endsection
