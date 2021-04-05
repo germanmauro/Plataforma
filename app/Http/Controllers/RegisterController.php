@@ -65,6 +65,7 @@ class RegisterController extends Controller
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
         $user->dni = "";
+        $user->descripcion = "";
         $user->tipodocumento = "";
         $user->email = $request->email;
         $user->fechanacimiento = $request->fechanacimiento;
@@ -130,6 +131,7 @@ class RegisterController extends Controller
         $user->nombre = $request->nombre;
         $user->apellido = $request->apellido;
         $user->telefono = $request->telefono;
+        $user->descripcion = "";
         $user->dni = "";
         $user->tipodocumento = "";
         $user->email = $request->email;
