@@ -260,12 +260,14 @@ input[type=checkbox] {
 }
 
 .input-container input:focus ~ label,
-.input-container input:valid ~ label,
-.input-container input:read-only ~ label
+.input-container input:valid ~ label
  {
 	top:-14px;
   font-size:15px;
   font-weight:700;
+}
+.form-control[readonly] {
+  background-color: white;
 }
 /*Para que se vea el campo date en safari*/
  input[type=date]

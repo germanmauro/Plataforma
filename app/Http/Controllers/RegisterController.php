@@ -85,8 +85,9 @@ class RegisterController extends Controller
     //Registro de profesor, paso 1
     public function storeprofesor(Request $request)
     {
+        // return $request->fechanacimiento;
         //Mayor de 18
-        $nacimiento = DateTime::createFromFormat('Y-m-d', $request->fechanacimiento);
+        $nacimiento = DateTime::createFromFormat('d-m-Y', $request->fechanacimiento);
         $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
         
         if($nacimiento < 18) {

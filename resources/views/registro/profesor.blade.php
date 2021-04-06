@@ -2,8 +2,8 @@
 @section('head')
 <link rel="stylesheet" href="{{asset('css/treeview.css')}}">
 <link href="{{ asset('css/accordion.css') }}" rel="stylesheet">
-<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-{{-- <script src="{{asset('js/metro.min.js')}}"></script> --}}
+ <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css')}}">
+ 
 @endsection
 @section('content')
 <!-- /.row -->
@@ -33,9 +33,10 @@
                                 <label>Apellido</label>
                             </div>
                             <div class="input-container">
-                                <input type="date" onfocus="blur()" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
+                                <input type="text" data-field="date" readonly required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
+                            <div id="dtBox"></div>
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
                                 <label>Teléfono</label>
@@ -152,13 +153,19 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/accordion.js') }}"></script>
+@section('scripts')
+<script src="{{asset('js/accordion.js') }}"></script>
+<script src="{{asset('js/DateTimePicker.js') }}"></script>
 <script>
-  $(function() {
-    if (!Modernizr.inputtypes['date']) {
-        $('input[type=date]').datepicker();
-    }
-});
+$(document).ready(function()
+ {
+     $("#dtBox").DateTimePicker(
+         {
+             dateTimeFormat: 'd-m-Y'
+         }
+     );
+ });
 </script>
+@endsection
+
 @endsection
