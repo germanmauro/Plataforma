@@ -1,4 +1,7 @@
 @extends('layouts.info')
+@section('head')
+ <link rel="stylesheet" type="text/css" href="{{ asset('css/DateTimePicker.css')}}">
+@endsection
 @section('content')
 <!-- /.row -->
 <div class="row">
@@ -26,22 +29,11 @@
                                  <input type="text" required class="form-control" id="apellido" name="apellido" maxlength="20" value= "{{old('apellido')}}">
                                 <label>Apellido</label>
                             </div>
-                            {{-- <div class="input-container">
-                                <input type="text" required class="form-control" id="direccion" name="direccion" maxlength="200" value= "{{old('direccion')}}">
-                                <label>Dirección (Calle, Número, Ciudad y País)</label>
-                            </div> --}}
-                            {{-- <div class="input-container">      
-                                <input class="form-control" required id="tipodocumento" name="tipodocumento" maxlength="20"  value= "{{old('tipodocumento')}}">
-                                <label>Tipo de Documento</label>
-                            </div>
-                            <div class="input-container">      
-                                <input class="form-control" required id="dni" name="dni" maxlength="12"  value= "{{old('dni')}}">
-                                <label>Número de Documento</label>
-                            </div> --}}
                             <div class="input-container">
-                                <input type="date" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
+                                <input type="text" data-field="date" readonly required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
+                            <div id="dtBox"></div>
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
                                 <label>Teléfono</label>
@@ -52,10 +44,6 @@
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">
                                 <label>E-Mail (Gmail recomendado)</label>
                             </div>
-                            {{-- <div class="input-container">
-                                <input required type="text" class="form-control" id="usuario" name="usuario" minlength="8" maxlength="15"  value= "{{old('usuario')}}">
-                                <label>Usuario (8 caracteres)</label>
-                            </div> --}}
                             <div class="input-container">
                                 <input required type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">
                                 <label>Contraseña</label>
@@ -96,4 +84,17 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+@endsection
+@section('scripts')
+<script src="{{asset('js/DateTimePicker.js') }}"></script>
+<script>
+$(document).ready(function()
+ {
+     $("#dtBox").DateTimePicker(
+         {
+             dateTimeFormat: 'd-m-Y'
+         }
+     );
+ });
+</script>
 @endsection

@@ -33,7 +33,7 @@
                                 <label>Apellido</label>
                             </div>
                             <div class="input-container">
-                                <input type="text" data-field="date" readonly required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento')}}">
+                                <input type="text" data-field="date" readonly minlength="10" required class="form-control" id="fechanacimiento" name="fechanacimiento" value= "{{old('fechanacimiento'),""}}">
                                 <label>Fecha de Nacimiento</label>
                             </div>
                             <div id="dtBox"></div>

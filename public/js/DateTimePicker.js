@@ -2603,7 +2603,8 @@ $.cf = {
 							sDate = oFormattedDate.yyyy + oDTP.settings.monthYearSeparator + oFormattedDate.MM;
 					}
 					else
-						sDate = oFormattedDate.dayShort + ", " + oFormattedDate.month + " " + oFormattedDate.dd + ", " + oFormattedDate.yyyy;
+						// sDate = oFormattedDate.dayShort + ", " + oFormattedDate.month + " " + oFormattedDate.dd + ", " + oFormattedDate.yyyy;
+						sDate = oFormattedDate.dd + ' de ' + oFormattedDate.month + " de " + oFormattedDate.yyyy;
 				}
 			}
 			if(oDTP.oData.bTimeMode || oDTP.oData.bDateTimeMode)

@@ -34,7 +34,10 @@ class RegisterController extends Controller
     public function storealumno(Request $request)
     {
         //Mayor de 18
-        $nacimiento = DateTime::createFromFormat('Y-m-d', $request->fechanacimiento);
+        if ($request->fechanacimiento == null || $request->fechanacimiento == "") {
+            throw ValidationException::withMessages(['menoredad' => 'Ingrese su fecha de nacimiento']);
+        }
+        $nacimiento = DateTime::createFromFormat('d-m-Y', $request->fechanacimiento);
         $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
 
         if ($nacimiento < 18) {
@@ -85,8 +88,10 @@ class RegisterController extends Controller
     //Registro de profesor, paso 1
     public function storeprofesor(Request $request)
     {
-        // return $request->fechanacimiento;
         //Mayor de 18
+        if ($request->fechanacimiento == null || $request->fechanacimiento == "") {
+            throw ValidationException::withMessages(['menoredad' => 'Ingrese su fecha de nacimiento']);
+        }
         $nacimiento = DateTime::createFromFormat('d-m-Y', $request->fechanacimiento);
         $nacimiento = $nacimiento->diff(new DateTime())->format("%y");
         
