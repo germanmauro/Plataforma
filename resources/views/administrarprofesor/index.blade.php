@@ -49,9 +49,9 @@
                          @if ($item->estado=="a entrevistar")
                              <a class="accionmenu" onclick="habilitarcontrato({{$item->id}})" title='Habilitar Contrato' data-toggle='tooltip'><i class='far fa-file'></i></span></a>
                          @endif
-                         @if ($item->estado=="contrato a validar" || $item->estado=="invalidado")
+                         {{-- @if ($item->estado=="contrato a validar" || $item->estado=="invalidado")
                              <a class="accionmenu" onclick="habilitarprofesor({{$item->id}})" title='Habilitar Profesor' data-toggle='tooltip'><i class='far fa-thumbs-up'></i></span></a>
-                         @endif
+                         @endif --}}
                          @if ($item->estado=="validado")
                              <a class="accionmenu" onclick="deshabilitarprofesor({{$item->id}})" title='Dehabilitar Profesor' data-toggle='tooltip'><i class='far fa-thumbs-down'></i></span></a>
                          @endif
@@ -81,10 +81,10 @@
                 },
             })
               .then((value) => {
-                    loader();
                     var token = '{{csrf_token()}}';
                     switch (value) {
                         case "catch":
+                            loader();
                             $.ajax
                                 ({
                                     
@@ -113,10 +113,10 @@
                 },
             })
               .then((value) => {
-                  loader();
                     var token = '{{csrf_token()}}';
                     switch (value) {
                         case "catch":
+                            loader();
                             $.ajax
                                 ({
                                     
@@ -145,10 +145,10 @@
                 },
             })
               .then((value) => {
-                  loader();
                     var token = '{{csrf_token()}}';
                     switch (value) {
                         case "catch":
+                            loader();
                             $.ajax
                                 ({
                                     

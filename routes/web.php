@@ -174,8 +174,9 @@ Route::get("/Alumno/Pagos/Realizados", [AlumnoController::class, "pagosrealizado
 Route::get("/Alumno/Pagos/Pendientes", [AlumnoController::class, "pagospendientes"]);
 
 //Subir contrato
-Route::get("/Contrato/Envio", [UserController::class, 'cargacontract'])->name("contact.create");
-Route::post('/Contrato/Store', [UserController::class, 'storecontract'])->name("store.contract");
+Route::put('/Publicaciones/Calendar', [UserController::class, 'uploadcontract'])->name("user.uploadcontract");
+// Route::get("/Contrato/Envio", [UserController::class, 'cargacontract'])->name("contact.create");
+// Route::post('/Contrato/Store', [UserController::class, 'storecontract'])->name("store.contract");
 
 //Publicaciones
 Route::get('/Publicaciones', [PublicationController::class, 'index']);

@@ -110,7 +110,7 @@ class ProfesorController extends Controller
         $user->save();
         $not = new Notification();
         $not->userContract($user);
-        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado para enviar contrato");
+        session()->flash("success", "El profesor: " . $user->nombre . " " . $user->apellido . " ha sido habilitado para aceptar el contrato");
     }
 
     public function disable(User $user)
@@ -130,7 +130,7 @@ class ProfesorController extends Controller
         return redirect("/AdministrarProfesores")->with("success", "Entrevista aprobada, se ha enviado un contrato al profesor");
         // return redirect("Validacion/Contrato"); //Esta url va en el mail de contrato
     }
-
+    
     //Listado profesores validados con calificaciones
     public function infoprofesor()
     {

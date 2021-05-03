@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
@@ -74,21 +75,22 @@ class UserController extends Controller
         }  
     }
 
-    public function storecontract(Request $request)
+    public function uploadcontract(Request $request)
     {
         if (!session()->has('Perfil')) {
             return redirect("");
         }
         
         $user = User::find(session("Id"));
-        if ($request->hasFile('contrato')) {
-            $nombre = $request->file('contrato')->store("public");
-            $nombre = str_replace("public/", "", $nombre);
+        if (!$request->has("contrato")) {
+            throw ValidationException::withMessages(['terminos' => 'Debe aceptar los términos del contrato']);
         }
-        $user->contrato = $nombre;
-        $user->estado = "contrato a validar";
+        $user->estado = "validado";
         $user->save();
         session(['Estado' => $user->estado]);
-        return redirect("")->with("success","Contrato cargado correctamente");
+        $not = new Notification();
+        $not->register(1,"Habilitacion", "El usuario " . $user->nombre . " " . $user->apellido." 
+        ha aceptado el contratod de exclusividad");
+        return redirect("")->with("success","Contrato aceptado, ya puede utilizar la plataforma");
     }
 }

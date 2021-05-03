@@ -219,6 +219,14 @@ p.referencia {
   height: 200px;
   text-align: center;
 }
+/* Contrato */
+.contrato {
+  padding:10px;
+}
+.contratodetalle {
+  max-height: 500px;
+  overflow: auto;
+}
 /*Formulario registro*/
 a.formregistro {
   color: #11119b;

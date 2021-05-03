@@ -37,6 +37,7 @@ class notificationContract extends Mailable
     public function build()
     {
         $contract = Contract::find(1);
-        return $this->view('email.notificacion')->attachFromStorage("public/contrato/".$contract->nombre,"contrato.pdf");
+        return $this->view('email.notificacion');
+        // ->attachFromStorage("public/contrato/".$contract->nombre,"contrato.pdf");
     }
 }
