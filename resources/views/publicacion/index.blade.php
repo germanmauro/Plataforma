@@ -25,6 +25,9 @@
             <p class="parrafo">
               En caso de eliminar una publicación, la misma ya no estará disponible y no podrá ser reactivada.
             </p>
+            <p class="parrafo">
+              Para poder modificar una publicación, la misma no debe tener cursos creados.
+            </p>
           </div>
           @if(count($publicaciones)>0)
               <table id='tabla' class='display menutable tablagrande'>
