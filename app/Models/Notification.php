@@ -37,10 +37,11 @@ class Notification extends Model
     public function userContract(User $user)
     {
         $this->register($user->id, "Mensaje", "Debe aceptar el contrato de exclusividad para poder empezar a utlizar la plataforma");
-        Mail::to($user->email)->send(new notificationContract("Habilitado para aceptar el contrato de exclusividad - CEE",
-        "Se ha habilitado para aceptar el contrato de exclusividad", "Ha sido habilitado para aceptar el contrato de exclusividad.<br>
+        Mail::to($user->email)->send(new notificationContract("Habilitado para aceptar los términos de uso para docentes - CEE",
+        "Se ha habilitado para aceptar los términos de uso para docentes", "Ha sido habilitado para aceptar los términos de uso para docentes.<br>
         Debe ingresar al sistema para poder aceptarlo. 
-        <br>Una vez aceptado estará habilitado para operar en la plataforma."));
+        <br>Una vez aceptado estará habilitado para operar en la plataforma.
+        <br>Se envía adjunto un instructivo para poder generar publicaciones."));
     }
 
     public function userInvalidated(User $user)
