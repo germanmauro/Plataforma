@@ -673,7 +673,6 @@ img.curso-image {
   border-radius: 4px;
 }
 
-
 img.curso-image:hover {
   animation: roll 3s infinite;
 }
