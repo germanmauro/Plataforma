@@ -192,6 +192,11 @@ class RegisterController extends Controller
         if (User::where('id', $id)->count()) {
             $user = User::find($id);
             
+            //Si valido y ya estaba validado no hago nada
+            if($user->estado = "validado")
+            {
+                return redirect("");
+            }
             //Si es alumno ya se habilita
             if($user->perfil=="alumno") {
                 $user->estado = "validado";
