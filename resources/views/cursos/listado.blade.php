@@ -45,10 +45,15 @@
                         <p class="curso-profesor">
                           Por {{$item->user->nombre}} {{$item->user->apellido}}
                           @if($item->user->calificaciones()>0)
-                          {{$item->user->calificaciones()}}
-                          <i class=" fa fa-star"></i> de 5
+                          @for ($i = 0; $i < $item->user->calificaciones(); $i++)
+                              <i class=" fa fa-star"></i>
+                          @endfor
                           @else
-                          5 <i class=" fa fa-star"></i> de 5
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
                           {{-- (sin calificaciones) --}}
                           @endif
                         </p>

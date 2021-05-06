@@ -19,8 +19,9 @@
                         {{$item->nombre}} {{$item->apellido}}
                         <p>
                           @if($item->calificaciones()>0)
-                          {{$item->calificaciones()}}
-                          <i class=" fa fa-star"></i> de 5
+                          @for ($i = 0; $i < $item->calificaciones(); $i++)
+                              <i class=" fa fa-star"></i>
+                          @endfor
                           @else
                           <i class=" fa fa-star"></i>
                           <i class=" fa fa-star"></i>
