@@ -30,7 +30,8 @@
                           {{$publicacion->user->calificaciones()}}
                           <i class=" fa fa-star"></i> de 5
                           @else
-                          (sin calificaciones)
+                          {{-- (sin calificaciones) --}}
+                          5 <i class=" fa fa-star"></i> de 5
                           @endif
                         </p>
                       </div>

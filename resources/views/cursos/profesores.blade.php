@@ -22,7 +22,8 @@
                           {{$item->calificaciones()}}
                           <i class=" fa fa-star"></i> de 5
                           @else
-                          Sin calificaciones
+                          5 <i class=" fa fa-star"></i> de 5
+                          {{-- Sin calificaciones --}}
                           @endif
                         </p>
                     </div>

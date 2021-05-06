@@ -48,7 +48,8 @@
                           {{$item->user->calificaciones()}}
                           <i class=" fa fa-star"></i> de 5
                           @else
-                          (sin calificaciones)
+                          5 <i class=" fa fa-star"></i> de 5
+                          {{-- (sin calificaciones) --}}
                           @endif
                         </p>
                       </div>
