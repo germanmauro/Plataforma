@@ -61,6 +61,7 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$item->user->nombre}} {{$item->user->apellido}}
+                          <br>
                           @if($item->user->calificaciones()>0)
                           {{$item->user->calificaciones()}}
                           @for ($i = 0; $i < $item->user->calificaciones(); $i++)

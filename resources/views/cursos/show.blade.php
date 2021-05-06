@@ -26,6 +26,7 @@
                     <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
+                          <br>
                           @if($publicacion->user->calificaciones()>0)
                           @for ($i = 0; $i < $publicacion->user->calificaciones(); $i++)
                               <i class=" fa fa-star"></i>
