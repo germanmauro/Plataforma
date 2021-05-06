@@ -16,7 +16,7 @@
                             
                             <div class="form-group">
                                 <label>Título</label>
-                                <input class="form-control" required name="titulo" maxlength="25" placeholder="Título" value= "{{$publicacion->titulo}}">
+                                <input class="form-control" required name="titulo" maxlength="30" placeholder="Título" value= "{{$publicacion->titulo}}">
                             </div>
                             <div class="form-group">
                                 <label>Elija una de sus especialidades</label>
