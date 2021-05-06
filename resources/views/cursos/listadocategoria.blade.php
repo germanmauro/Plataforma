@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$item->titulo}} <span class="curso-detalle">({{$item->tipo}})</span>
+                        {{$item->titulo}}<br> <span class="curso-detalle">({{$item->tipo}})</span>
                       </p>
                     </div>
                       <div class="col-md-12">
