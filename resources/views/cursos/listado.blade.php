@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$item->titulo}}<br> <span class="curso-detalle">({{$item->tipo}})</span>
+                        {{str_pad($str$item->titulo,25)}}<br> <span class="curso-detalle">({{$item->tipo}})</span>
                       </p>
                     </div>
                       <div class="col-md-12">
