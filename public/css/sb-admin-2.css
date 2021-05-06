@@ -326,6 +326,10 @@ p.category {
   color:red;
 }
 
+.downloadlink {
+  color:#0b7dda;;
+}
+
 h2.detalle {
   background-color: white;
   width: 100%;

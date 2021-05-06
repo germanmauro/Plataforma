@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                REGISTRATE COMO PROFESOR PARA PODER ACCEDER A CONCRETAR CLASES CON ALUMNOS
+                REGISTRATE COMO PROFESOR PARA PODER ACCEDER A CONCRETAR CLASES CON ALUMNOS <br><a href="{{asset('archivo/registro.pdf')}}" target="_blank" class='downloadlink'><span class="fa fa-info"></span> (Descargar instructivo de registro)</a>
             </div>
             <div class="panel-body">
                 <div class="row">
