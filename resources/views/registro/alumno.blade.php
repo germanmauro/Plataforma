@@ -36,7 +36,7 @@
                             <div id="dtBox"></div>
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
-                                <label>Teléfono</label>
+                                <label>Celular</label>
                             </div>
                         </div>
                         <div class="col-lg-6 box">     

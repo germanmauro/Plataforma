@@ -131,6 +131,10 @@ Route::get('/AdministrarProfesores', [ProfesorController::class, 'administrar'])
 Route::get("/AdministrarProfesores/{user}/Info", [ProfesorController::class,"info"])->name("profesor.info");
 Route::get("/AdministrarProfesores/{user}/Clases", [ProfesorController::class, "clases"])->name("profesor.clases");
 Route::get("/AdministrarProfesores/{user}/Pagos", [ProfesorController::class, "pagos"])->name("profesor.pagos");
+
+Route::get("/AdministrarProfesores/{user}/Especialidades", [ProfesorController::class, "especialidades"])->name("profesor.especialidades");
+Route::put('/AdministrarProfesores/{user}', [ProfesorController::class, 'actualizarEspecialidades'])->name("specialty.update");
+
 Route::post('/AdministrarProfesores/Habilitar/{user}', [ProfesorController::class, 'enable'])->name("profesor.enable");
 Route::post('/AdministrarProfesores/HabilitarContrato/{user}', [ProfesorController::class, 'enablecontract'])->name("profesor.enablecontract");
 Route::post('/AdministrarProfesores/TransferirTodo/{user}', [ProfesorController::class, 'transferirTodo'])->name("transferirtodo");

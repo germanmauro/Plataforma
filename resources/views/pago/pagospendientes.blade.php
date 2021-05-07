@@ -19,6 +19,7 @@
                     <p>
                       Vencimiento: {{$item->fechavencimiento->format('d/m/Y H:i')}} <br>
                       Pago de cuota {{$item->cuota}} del curso {{$item->course->publication->titulo}} <br>
+                      Alumno {{$item->user->nombre}} {{$item->user->apellido}} <br>
                       Monto € {{$item->precio}}
 
                     </p>

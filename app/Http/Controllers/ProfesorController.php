@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\mailContract;
 use App\Models\Buy;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Day;
 use App\Models\Notification;
@@ -36,6 +37,29 @@ class ProfesorController extends Controller
         
         $clases = $user->cursosActivos();
         return view("administrarprofesor.clases", compact("clases", "user"));
+    }
+
+    //Modificar especialidades
+    public function especialidades(User $user)
+    {
+        if (!session()->has('Perfil') || session("Perfil") != "admin") {
+            return redirect("");
+        }
+
+        $categoryniño = Category::where("baja", "false")
+        ->where("destinatario", "Niños")
+        ->orderBy("nombre")->get();
+        $categoryadulto = Category::where("baja", "false")
+            ->where("destinatario", "Adultos")
+            ->orderBy("nombre")->get();
+
+        return view("administrarprofesor.especialidades", compact("user","categoryniño","categoryadulto"));
+    }
+
+    public function actualizarEspecialidades(User $user, Request $request)
+    {
+        $user->specialties()->sync($request->input('especialidades'));
+        return redirect("/AdministrarProfesores")->with("success", "Especialidades agregadas correctamente");
     }
 
     public function info($id)

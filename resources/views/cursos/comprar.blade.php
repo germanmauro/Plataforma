@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$publicacion->titulo}} <span class="curso-detalle">({{$publicacion->tipo}})</span>
+                        {{$publicacion->titulo}} <br><span class="curso-detalle">({{$publicacion->tipo}})</span>
                       </p>
                     </div>
                     <div class="col-md-12">
@@ -35,6 +35,7 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
+                          <br>
                           @if($publicacion->user->calificaciones()>0)
                           @for ($i = 0; $i < $publicacion->user->calificaciones(); $i++)
                               <i class=" fa fa-star"></i>

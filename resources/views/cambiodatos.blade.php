@@ -55,7 +55,7 @@
                             </div>
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono',$user->telefono)}}">
-                                <label>Teléfono</label>
+                                <label>Celular</label>
                             </div>
                             <div class="input-container">
                                 <input readonly type="email"  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email',$user->email)}}">

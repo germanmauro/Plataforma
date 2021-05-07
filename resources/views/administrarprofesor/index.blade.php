@@ -54,6 +54,7 @@
                          @endif --}}
                          @if ($item->estado=="validado")
                              <a class="accionmenu" onclick="deshabilitarprofesor({{$item->id}})" title='Dehabilitar Profesor' data-toggle='tooltip'><i class='far fa-thumbs-down'></i></span></a>
+                             <a class="accionmenu" href="AdministrarProfesores/{{$item->id}}/Especialidades" title='Especialidades' data-toggle='tooltip'><i class='fas fa-list'></i></span></a>
                          @endif
                           <a class="accionmenu" href="AdministrarProfesores/{{$item->id}}/Clases" title='Ver clases del profesor' data-toggle='tooltip'><i class='fas fa-chalkboard-teacher'></i></span></a>
                           <a class="accionmenu" href="AdministrarProfesores/{{$item->id}}/Pagos" title='Ver pagos del profesor' data-toggle='tooltip'><i class='fas fa-euro-sign'></i></span></a>

@@ -39,7 +39,7 @@
                             <div id="dtBox"></div>
                             <div class="input-container">
                                 <input type="text" required class="form-control" id="telefono" name="telefono" maxlength="20"  value= "{{old('telefono')}}">
-                                <label>Teléfono</label>
+                                <label>Celular</label>
                             </div>
                             <div class="input-container">
                                 <input type="email" required  class="form-control" name="email" id="email" maxlength="60"  value= "{{old('email')}}">

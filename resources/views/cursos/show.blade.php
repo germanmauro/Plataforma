@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-12">
                       <p class="curso-titulo">
-                        {{$publicacion->titulo}} <span class="curso-detalle">({{$publicacion->tipo}})</span>
+                        {{$publicacion->titulo}} <br><span class="curso-detalle">({{$publicacion->tipo}})</span>
                       </p>
                     </div>
                     <div class="col-md-12">
