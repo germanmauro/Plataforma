@@ -34,6 +34,10 @@
                           @else
                           {{-- (sin calificaciones) --}}
                           <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
+                          <i class=" fa fa-star"></i>
                           @endif
                         </p>
                       </div>
@@ -187,9 +191,15 @@
                           <p class="curso-detalle">
                           @if($publicacion->user->calificaciones()>0)
                             {{$publicacion->user->calificaciones()}}
-                          <i class="curso-icono fa fa-star"></i> de 5
+                          @for ($i = 0; $i < $publicacion->user->calificaciones(); $i++)
+                              <i class=" fa fa-star"></i>
+                          @endfor
                           @else
-                            (sin calificaciones)
+                           <i class="curso-icono fa fa-star"></i>
+                           <i class="curso-icono fa fa-star"></i>
+                           <i class="curso-icono fa fa-star"></i>
+                           <i class="curso-icono fa fa-star"></i>
+                           <i class="curso-icono fa fa-star"></i>
                           @endif  
                           </p>
                         </div>
