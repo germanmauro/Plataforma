@@ -90,17 +90,17 @@
                             <div class="form-group">
                                 <label>Imagen 1 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen1)}}">
-                                <input type="file" name="imagen1" accept="image/*,pdf" class="form-control">
+                                <input type="file" name="imagen1" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Imagen 2 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen2)}}">
-                                <input type="file" name="imagen2" accept="image/*,pdf" class="form-control">
+                                <input type="file" name="imagen2" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Imagen 3 (Si desea matener la misma no es necesario cargarla otra vez)</label>
                                 <img height="60px" src="{{asset('storage/publicaciones/'.$publicacion->imagen3)}}">
-                                <input type="file" name="imagen3" accept="image/*,pdf" class="form-control">
+                                <input type="file" name="imagen3" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Video (Si posee un video, adjunte la url de youtube al siguiente aquí)</label>
