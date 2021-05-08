@@ -82,16 +82,16 @@
                                 <input type="number" step="any" class="form-control" required name="precio" maxlength="20" min=0.1 max=200 placeholder="Precio" value= "{{old('precio')}}">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 1 (Opcional)</label>
-                                <input type="file" name="imagen1" accept="image/*,pdf" class="form-control">
+                                <label>Imágen 1 (Opcional - Proporción correcta: 50% más ancha que alta)  </label>
+                                <input type="file" name="imagen1" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 2 (Opcional)</label>
-                                <input type="file" name="imagen2" accept="image/*,pdf" class="form-control">
+                                <label>Imágen 2 (Opcional - Proporción correcta: 50% más ancha que alta) </label>
+                                <input type="file" name="imagen2" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Imágen 3 (Opcional)</label>
-                                <input type="file" name="imagen3" accept="image/*,pdf" class="form-control">
+                                <label>Imágen 3 (Opcional - Proporción correcta: 50% más ancha que alta) </label>
+                                <input type="file" name="imagen3" accept="image/*" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Video (Si posee un video, adjunte la url de youtube al siguiente aquí)</label>
