@@ -1119,6 +1119,24 @@ a.curso-link,a.curso-link:hover  {
 }
 /* Fin listado profesores */
 
+.whatsapp {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  left:30px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.whatsapp-icon {
+  margin-top:13px;
+}
+
 ul {
   list-style: none;
   padding: 0;
