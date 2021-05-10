@@ -69,9 +69,11 @@
                         </p>
                       </div>
                       @else
-                      <p class="curso-descripcion">
-                          -
+                      <div class="col-md-12">
+                        <p class="curso-descripcion">
+                          
                         </p>
+                      </div>
                       @endif
                       <div class="col-md-12">
                         <p class="curso-detalle">
