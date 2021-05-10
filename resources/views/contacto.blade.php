@@ -14,7 +14,10 @@
                 <strong><i class="fas fa-envelope"></i> E-mail</strong> <a href="mailto:info@capacitacionee.com">info@capacitacionee.com</a>
             </h4>
             <h4>
-                <strong><i class="fab fa-facebook-f"></i> Facebook</strong> <a target="_blank" href="https://www.facebook.com/capacitacionee">@capacitacionee</a>
+                <strong><i class="fab fa-facebook-f"></i> Facebook</strong> <a target="_blank" href="https://www.facebook.com/capacitacioncee">@capacitacioncee</a>
+            </h4>
+            <h4>
+                <strong><i class="fab fa-instagram"></i> Instagram</strong> <a target="_blank" href="https://www.instagram.com/capacitacioncee">@capacitacioncee</a>
             </h4>
             
         </div>
