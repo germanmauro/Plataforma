@@ -70,7 +70,7 @@
                       </div>
                       @else
                       <p class="curso-descripcion">
-                          <br>
+                          -
                         </p>
                       @endif
                       <div class="col-md-12">
