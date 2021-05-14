@@ -125,14 +125,30 @@
                           </div>
                           <div class="accordion__item">
                               <div class="accordion__item__header">
+                                ¿Que sucede si el profesor no puede asistir a una clase?
+                              </div>
+                              <div class="accordion__item__content">                                  
+                                Si el Profesor por motivos personales o de salud no puede asistir a una clase, el alumno será comunicado a través de un e-mail por parte de C.E.E (Capacitación en Español) en donde se comunicará la fecha de la reprogramación de dicha clase. 
+                              </div>
+                          </div>
+                          <div class="accordion__item">
+                              <div class="accordion__item__header">
+                                ¿Que sucede si el curso Grupal no tiene el número de alumnos mínimos requeridos inscriptos? 
+                              </div>
+                              <div class="accordion__item__content">                                  
+                                En el caso de los cursos grupales donde no se encuentren inscriptos el mínimo de alumnos requeridos, será el profesor el que decida si llevar a cabo el curso, cambiar de fecha el curso o bien, cancelar el curso. Cualquiera de estas opciones serán comunicadas desde la plataforma a los alumnos o padres vía e-mail.
+                              </div>
+                          </div>
+                          <div class="accordion__item">
+                              <div class="accordion__item__header">
                                 ¿Qué sucede si me arrepiento de la compra del curso?
                               </div>
                               <div class="accordion__item__content">
-                                El cliente dispondrá de un plazo máximo de 14 días naturales desde el día de la 
-                                inscripción, para informar a CEE (Capacitación en español) sobre su deseo de desistir
-                                 del contrato, siempre que el curso no se inicie durante ese plazo.
-                                Una vez recibamos su solicitud nos pondremos en contacto con el cliente para
-                                 indicarle los detalles de la devolución.
+                                <p>Para cursos cortos en relación al tiempo de cursada, con el numero de clases definidas, el cliente dispondrá de un plazo máximo de 14 días naturales desde el día de la inscripción, para informar a CEE (Capacitación en español) sobre su deseo de desistir del contrato, siempre que el curso no se inicie durante ese plazo.</p>
+                                <p>El desistimiento implica que, CEE (Capacitación en español) procederá a la devolución del importe ya abonado por el cliente en un plazo máximo de 14 días naturales, siguiendo el mismo procedimiento elegido por el cliente para su abono. </p>
+                                <p>Para cursos extensos en relación al tiempo de cursada, aquellos que son de abono mensual, el cliente tendrá derecho a DESISTIR del contrato en cualquier momento sin necesidad de indicar el motivo y sin incurrir en ningún costo.</p>
+                                <p>En este caso el desistimiento no implica que, CEE (Capacitación en español) proceda a la devolución del importe ya abonado por el cliente.</p>
+                                <p>Una vez recibamos su solicitud nos pondremos en contacto con el cliente para indicarle los detalles de la devolución.</p>
                               </div>
                           </div>
                           <div class="accordion__item">
