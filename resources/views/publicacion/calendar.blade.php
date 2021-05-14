@@ -62,7 +62,7 @@
                             
                         </div>
                         
-                            <button type="submit" id="Send" name="Send" class="btn btn-default">Cagar Nuevo</button>
+                            <button type="submit" id="Send" name="Send" class="btn btn-default">Cargar Nuevo</button>
                             <a href="/Publicaciones"  class="btn btn-danger">Regresar</a>
                         </form>
                     
