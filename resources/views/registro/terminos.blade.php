@@ -147,7 +147,7 @@ Además de sus otras obligaciones establecidas por los TyC y la legislación apl
 <br>(B) una orden recibida de una Autoridad Pública. 
 <br>(c) Si el Administrador adoptare una decisión conforme al apartado (b) sub-apartado (III) punto (2) entonces el Administrador comunicará dicha decisión y su fundamentación por correo electrónico enviado al Usuario en forma previa, simultánea o posterior a la suspensión o eliminación, según el caso, de la cuenta de registro excepto que, a criterio exclusivo del Administrador considerando las circunstancias, dicha comunicación frustrare la eficacia de la suspensión o eliminación, según el caso, de dicha cuenta de registro.
 
-CLÁUSULA (11). Disponibilidad y sustituciones</h4>
+<h4>CLÁUSULA (11). Disponibilidad y sustituciones</h4>
 CEE (Capacitación en español) pretende garantizar la disponibilidad de todos los cursos que están publicitados a través de www.capacitacionee.com. No obstante, en el caso de que cualquier curso solicitado no estuviera disponible, se le informará al cliente por correo electrónico a la mayor brevedad posible.
 <br>De no hallarse disponible el curso, y habiendo sido informado de ello el consumidor, CEE (Capacitación en español) podrá ofrecer otro curso de similares características sin aumento de precio, en cuyo caso, el consumidor podrá aceptarlo o rechazarlo ejerciendo su derecho de desistimiento y resolución del contrato.
 <br>En caso de indisponibilidad del curso, y el rechazo de los cursos de sustitución por el cliente, el reembolso previamente abonado, se efectuará por el mismo medio de pago por el que se efectuó la compra.
@@ -181,25 +181,30 @@ Los precios de los productos que se recogen en www.capacitacionee.com vendrán e
 <BR>Puede realizar el pago de manera inmediata a través de la pasarela de pagos Paypal. Si fuera necesario realizar cualquier devolución o cancelación del pedido, el importe se reembolsará a través de la misma tarjeta de pago.
 <BR>No conlleva gastos adicionales.
 
-<h4>CLÁUSULA (16). POLÍTICA DE DEVOLUCIÓN</h4>
-El consumidor y usuario tendrá derecho a DESISTIR del contrato durante un período máximo de 14 días naturales sin necesidad de indicar el motivo y sin incurrir en ningún costo.
-<br>- Excepción:
-<br>El derecho de desistimiento no será aplicable a la prestación de servicios cuando su ejecución haya comenzado o se haya ejecutado por completo.
-<br>Por tanto, una vez iniciado el curso adquirido, ya no podrá ejercerse el derecho de desistimiento.
-<br>Si el curso no se ha iniciado, el cliente dispondrá de un plazo máximo de 14 días naturales desde el día de la inscripción, para informar a CEE (Capacitación en español) sobre su deseo de desistir del contrato, siempre que el curso no se inicie durante ese plazo.
-<br>El desistimiento implica que, CEE (Capacitación en español) procederá a la devolución del importe ya abonado por el cliente en un plazo máximo de 14 días naturales, siguiendo el mismo procedimiento elegido por el cliente para su abono.
-<br>Durante este período, el consumidor comunicará al administrador su decisión de desistir del contrato rellenando para ello el formulario que se encuentra al final de este documento y enviándolo a la dirección de correo electrónico de CEE (Capacitación en español).
-<br>CEE (Capacitación en español) comunicará al consumidor en soporte duradero un acuse de recibo de dicho desistimiento.
-<br>Para proceder a la devolución de un producto es imprescindible que el mismo se encuentre en perfecto estado y con su correspondiente envoltorio original, con todos sus accesorios y sin haber sido utilizado.
-<br>Una vez recibamos su solicitud nos pondremos en contacto con el cliente para indicarle los detalles de la devolución.
-<br>El cliente soportará los costos de devolución de los bienes o servicios
+<h4>CLÁUSULA (16). REPROGRAMACIÓN DE CLASES</h4>
+En el caso de los cursos grupales donde no se encuentren inscriptos el mínimo de alumnos requeridos, será el profesor el que decida si llevar a cabo el curso, cambiar de fecha el curso o bien, cancelar el curso. Cualquiera de estas opciones serán comunicadas desde la plataforma a los alumnos o padresvía e-mail.
 
-<h4>CLÁUSULA (17). Derechos del Administrador</h4>
+<h4>CLÁUSULA (17). POLÍTICA DE DEVOLUCIÓN</h4>
+Para cursos cortos en relación al tiempo de cursada, con el numero de clases definidas, el consumidor y usuario tendrá derecho a DESISTIR del contrato durante un período máximo de 14 días naturales sin necesidad de indicar el motivo y sin incurrir en ningún costo.
+<br>- Excepción: 
+<br>El derecho de desistimiento no será aplicable a la prestación de servicios cuando su ejecución haya comenzado o se haya ejecutado por completo. 
+<br>Por tanto, una vez iniciado el curso adquirido, ya no podrá ejercerse el derecho de desistimiento. 
+<br>Si el curso no se ha iniciado, el cliente dispondrá de un plazo máximo de 14 días naturales desde el día de la inscripción, para informar a CEE (Capacitación en español) sobre su deseo de desistir del contrato, siempre que el curso no se inicie durante ese plazo.
+<br>El desistimiento implica que, CEE (Capacitación en español) procederá a la devolución del importe ya abonado por el cliente en un plazo máximo de 14 días naturales, siguiendo el mismo procedimiento elegido por el cliente para su abono. 
+<br>Para cursos extensos en relación al tiempo de cursada, aquellos que son con abono mensual, el consumidor y usuario tendrá derecho a DESISTIR del contrato en cualquier momento sin necesidad de indicar el motivo y sin incurrir en ningún costo.
+<br>En este caso el desistimiento no implica que, CEE (Capacitación en español) proceda a la devolución del importe ya abonado por el cliente.
+<br>El consumidor comunicará al administrador su decisión de desistir del contrato rellenando para ello el formulario que se encuentra al final de este documento y enviándolo a la dirección de correo electrónico de CEE (Capacitación en español). 
+<br>CEE (Capacitación en español) comunicará al consumidor en soporte duradero un acuse de recibo de dicho desistimiento. 
+<br>Para proceder a la devolución de un producto es imprescindible que el mismo se encuentre en perfecto estado y con su correspondiente envoltorio original, con todos sus accesorios y sin haber sido utilizado. 
+<br>Una vez recibamos su solicitud nos pondremos en contacto con el cliente para indicarle los detalles de la devolución. 
+El cliente soportará los costos de devolución de los bienes o servicios
+
+<h4>CLÁUSULA (18). Derechos del Administrador</h4>
 Además de sus otros derechos establecidos por los TyC y la legislación aplicable, el Administrador tiene derecho también a: 
 <br>(a) informar a la Autoridad Pública que lo solicitare por escrito sobre el Usuario, la Permanencia en el Sitio y/o la Actividad en el Sitio; y 
 <br>(b) impedir el Acceso del Sitio, la Permanencia en el Sitio y/o la Actividad en el Sitio a la persona humana que hubiera perdido la condición de Usuario por causa del incumplimiento, total o parcial, reiterado o continuo, de los TyC o la legislación aplicable al Usuario, al Sitio y/o a la Actividad en el Sitio.
 
-<h4>CLÁUSULA (18). Modificaciones y Otras Situaciones</h4>
+<h4>CLÁUSULA (19). Modificaciones y Otras Situaciones</h4>
 (a) El Administrador: 
 <br>(I) podrá a su exclusivo criterio, en cualquier momento y sin necesidad de dar aviso o explicación al Usuario en forma previa, simultánea o posterior: 
 <br>(1) modificar, total o parcialmente, de manera temporaria o definitiva: 
@@ -247,7 +252,7 @@ salvo indicación expresa en contrario del Administrador en el Sitio y/o por cor
 <br>(2) la necesidad o conveniencia para el Usuario y los riesgos para éste y/o terceros de Acceder a un Sitio de Tercero conforme a las circunstancias del Usuario al momento de Acceder a dicho Sitio de Tercero en el lugar donde el Usuario tuviere intención de Acceder a dicho Sitio de Tercero; y 
 <br>(3) la aceptación o el rechazo de los términos y condiciones de un Sitio de Tercero.
 
-<h4>CLÁUSULA (19). Propiedad Intelectual</h4>
+<h4>CLÁUSULA (20). Propiedad Intelectual</h4>
 (a) El Sitio: 
 <br>(I) es íntegramente de propiedad del Administrador o está licenciado al Administrador salvo indicación expresa en contrario del Administrador en el Sitio y/o por correo electrónico enviado al Usuario; y 
 <br>(II) está protegido por la legislación sobre propiedad intelectual, sobre marcas y designaciones y sobre patentes de invención y modelos de utilidad en todo cuanto corresponde. 
@@ -260,7 +265,7 @@ salvo indicación expresa en contrario del Administrador en el Sitio y/o por cor
 <br>(5) atribuirse una licencia o permiso de uso y disponer como licenciatario o permisionario, total o parcialmente, de cualquier forma y por cualquier causa que fuere, ya sea con finalidad de lucrar o no, de la totalidad o parte del Sitio; y 
 <br>(II) otorgará al Administrador automáticamente al momento de transmitirlo al Sitio una licencia o permiso de uso irrevocable, a perpetuidad, sin exclusividad, transferible y sin derecho a compensación alguna en relación con cualquier contenido de propiedad del Usuario que éste no debiere abstenerse de transmitir al Sitio conforme a la Cláusula Obligaciones del Usuario y que el Usuario transmitiere al Sitio durante la Permanencia en el Sitio; estipulándose que el Administrador no tendrá obligación de dar aviso previo al Usuario sobre la oportunidad y finalidad del uso de dicho contenido de parte del Administrador; estipulándose, no obstante, que el Administrador no utilizará dicho contenido para una finalidad ilícita.
 
-<h4>CLÁUSULA (20). Exclusión de Responsabilidad</h4>
+<h4>CLÁUSULA (21). Exclusión de Responsabilidad</h4>
 (a) El Usuario reconoce y acepta que el Acceso del Sitio, la Permanencia en el Sitio y la Actividad en el Sitio: 
 <br>(I) no es un deber ni una obligación del Usuario creado o impuesta, respectivamente, por el Administrador; y 
 <br>(II) es realizado: 
@@ -292,7 +297,7 @@ salvo indicación expresa en contrario del Administrador en el Sitio y/o por cor
 
 <br>La web está dirigida al publico en general, en el caso de menores de 18 años los Padres/Madres/Tutores serán los responsables de la registración en la web. La compra de cursos está dirigido a estos adultos y serán también dichos adultos los responsables de la asistencia del alumno a las clases online. El adulto también será responsable del comportamiento del alumno debiendo prevenir comentarios y comportamientos inadecuados hacia el Proveedor del Curso u los otros alumnos. El adulto es responsable que durante el curso, el plano de la cámara del videochat no contenga contenidos visuales o auditivos no adecuados para el rango de edades del curso. El adulto también es responsable de que la edad del alumno cumpla con el rango de edad del curso. En la sección comentarios el adulto no difundirá ni identidades ni contenidos audiovisuales que comprometan la privacidad de los alumnos o profesores.
 
-<h4>CLÁUSULA (21). Privacidad y Protección de Datos Personales</h4>
+<h4>CLÁUSULA (22). Privacidad y Protección de Datos Personales</h4>
 
 (a) El Sitio ha sido desarrollado con respeto por la privacidad del Usuario en Internet y considerando el deber del Propietario y del Administrador de proteger, conforme a la Ley 25326, cualesquiera Datos Personales que el Usuario transmitiere al Sitio en relación con el Acceso del Sitio, la Permanencia en el Sitio, la Actividad en el Sitio y la Salida del Sitio. 
 <br>(b) Cada Acceso del Sitio automáticamente representa para el Usuario su consentimiento sin condiciones para que el Administrador pueda recolectar, en el Sitio y/o por correo electrónico recibido del Usuario, uno o más Datos Personales con las siguientes finalidades salvo indicación expresa en contrario del Administrador en el Sitio y/o por correo electrónico enviado al Usuario: 
@@ -331,7 +336,7 @@ salvo indicación expresa en contrario del Administrador en el Sitio y/o por cor
 <br>(II) informará los fundamentos de cada negativa conforme al sub-apartado (I) mediante una comunicación escrita dirigida al domicilio que el Usuario hubiera informado en la solicitud rechazada de que se trate. 
 <br>(l) La AAIP, en su carácter de Órgano de Control de la Ley 25326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de Datos Personales.
 
-<h4>CLÁUSULA (22). Comunicaciones</h4>
+<h4>CLÁUSULA (23). Comunicaciones</h4>
 (a) El Usuario podrá comunicarse con el Administrador: 
 <br>(I) en el Sitio; o 
 <br>(II) sólo durante el tiempo que razones técnicas le impidieren transmitir en el Sitio la comunicación al Administrador y sin perjuicio de lo dispuesto en el apartado (j) de la Cláusula Privacidad y Protección de Datos Personales, por correo electrónico enviado al correo electrónico del Administrador indicado en la Cláusula Definiciones; o 
@@ -342,19 +347,19 @@ salvo indicación expresa en contrario del Administrador en el Sitio y/o por cor
 <br>(IV) sólo en respuesta a una solicitud del Usuario formulada conforme al apartado (g) de la Cláusula Privacidad y Protección de Datos Personales, por comunicación escrita dirigida al domicilio que el Usuario hubiera indicado en la solicitud de que se trate. 
 <br>(c) Las comunicaciones entre el Usuario y el Administrador no serán confidenciales respecto del Administrador y el Usuario y serán confidenciales respecto de toda otra persona humana o jurídica salvo una Autoridad Pública en ejercicio de sus funciones.
 
-<h4>CLÁUSULA (23). Cesión</h4>
+<h4>CLÁUSULA (24). Cesión</h4>
 El Usuario no se obligará a ceder ni cederá a tercero alguno: (a) su posición contractual en los TyC; o (b) cualquiera de las obligaciones que le atribuyen los TyC o de los derechos que pudiere tener frente al Administrador por causa de los TyC o la legislación aplicable al Sitio.
 
-<h4>CLÁUSULA (24). Validez</h4>
+<h4>CLÁUSULA (25). Validez</h4>
 La invalidez de una o más Cláusulas (pero no de los TyC en su totalidad) que sobrevenga después de su publicación en el Sitio por una causa que no fuere imputable al Administrador o al Usuario o a ambos no afectará la validez de las restantes Cláusulas.
 
-<h4>CLÁUSULA (25). Domicilio Especial</h4>
+<h4>CLÁUSULA (26). Domicilio Especial</h4>
 El Administrador constituye domicilio en la siguiente dirección: Vito Donato Sabia 5136, La Matanza, Pdo. de La Matanza, Provincia de Buenos Aires.
 
-<h4>CLÁUSULA (26). Ley Aplicable</h4>
+<h4>CLÁUSULA (27). Ley Aplicable</h4>
 Los TyC se rigen exclusivamente por la ley de la República Argentina.
 
-<h4>CLÁUSULA (27). Tribunales Judiciales Competentes</h4>
+<h4>CLÁUSULA (28). Tribunales Judiciales Competentes</h4>
 Toda cuestión (litigiosa o no) relacionada con los TyC será resuelta exclusivamente por los tribunales judiciales competentes por razón de la materia con asiento en la ciudad de La Matanza, Pdo. de La Matanza, Provincia de Buenos Aires.
 
 
