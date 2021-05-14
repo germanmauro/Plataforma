@@ -12,7 +12,7 @@
     <title>Capacitación en Español</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css?v=12') }}" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.css?v=49') }}" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin-2.css?v=50') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('image/logo.png')}}" />
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css">
     <!-- Slide Categorías -->
@@ -421,7 +421,7 @@
                  <div class="circulo"></div>
              </div>
         </div>
-        <a href="https://wa.me/393519181771?text=Consulta%20CEE" class="whatsapp" target="_blank">
+        <a href="https://wa.me/393519181771?text=Consulta%20CEE" class="whatsappTel" target="_blank">
              <i class="fab fa-whatsapp whatsapp-icon"></i>
             </a>
         <!-- /#page-wrapper -->
