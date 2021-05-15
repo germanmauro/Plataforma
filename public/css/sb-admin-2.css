@@ -123,8 +123,15 @@ a.marca:hover,a.marca:active {
   letter-spacing: normal;
 }
 
-.sub-banner {
+#sub-banner {
   width: 100%;
+  /* padding: 10px 25px; */
+  /* display: table; */
+  /* height: 700px; */
+  background: url('../image/banner.png');
+  /* background-position: center; */
+  /* background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 #menu-secundario {
@@ -593,7 +600,7 @@ form.buscador::after {
     width: 20px;
     background-color: #024b94;
     color: white;
-    text-align-last:left; 
+    text-align-last:left;
     font-weight: 600;
     border: black solid 2px;
 }
@@ -773,7 +780,7 @@ a.curso-link,a.curso-link:hover  {
 	/* Volver a dar tamaño al texto */
 	font-size: 40px;
 	/* font-size: 2rem; */
-	
+
 	color: #888;
 }
 
@@ -1234,7 +1241,7 @@ table.menutable th, table.menutable td {
     .inputmenu{
       width: 100%;
     }
- 
+
     #banner, .imagenbanner {
       display: block;
     }
@@ -1273,12 +1280,12 @@ table.menutable th, table.menutable td {
       display: grid;
       border-bottom: white 1px solid;
     }
-    
+
     .sub-banner {
       width: 100%;
-      /* padding: 0;
+      /* padding: 0;*/
       background: url('../image/bannerchico.png');
-      height: 270px;
+     /* height: 270px;
       display: grid;
       background-position: center;
       background-repeat: no-repeat;
@@ -1302,7 +1309,7 @@ table.menutable th, table.menutable td {
   .comofunciona-item,.comofunciona-split  {
     display: block;
   }
-  
+
   .comofunciona-split-right {
     display:table-header-group;
   }
@@ -1312,7 +1319,7 @@ table.menutable th, table.menutable td {
     max-width:100%;
     max-height:100%;
   }
-  
+
   .categoriainfo {
     margin: -52px -15px 0px -15px;
   }
@@ -1320,7 +1327,7 @@ table.menutable th, table.menutable td {
   .categoriainfo-item,.categoiainfo-split  {
     display: block;
   }
-  
+
   .categoriainfo-split-right {
     display:table-header-group;
   }

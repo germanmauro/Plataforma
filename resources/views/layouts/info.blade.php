@@ -33,7 +33,6 @@
     </ul>
     
   </div>
-<div>
-  <img  class='sub-banner' src='{{ asset('image/bannerchico.png') }}'/>
-</div>
+ <div id="sub-banner">
+    </div>
 @endsection
