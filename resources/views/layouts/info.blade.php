@@ -34,6 +34,6 @@
     
   </div>
 <div>
-  <img  class='sub-banner' src='{{ asset('image/banner.png') }}'/>
+  <img  class='sub-banner' src='{{ asset('image/bannerchico.png') }}'/>
 </div>
 @endsection
