@@ -32,7 +32,6 @@ class UserController extends Controller
         $user->tipodocumento = $request->tipodocumento;
         $user->dni = $request->dni;
         // $user->email = $request->email;
-        $user->cuentabancaria = $request->cuentabancaria;
         $user->fechanacimiento = $request->fechanacimiento;
         $user->direccion = $request->direccion;
         if(session("Perfil")=="profesor") {
@@ -42,11 +41,18 @@ class UserController extends Controller
             $user->alias = $request->alias;
             $user->cbu = $request->cbu;
             $user->titular = $request->titular;
+            $user->paypal = $request->paypal;
+            if ($request->hasFile('foto')) {
+                $nombre = $request->file('foto')->store("public/foto");
+                $nombre = str_replace("public/foto/", "", $nombre);
+                $user->foto = $nombre;
+            }
+            //  Si no hay cobro
+            if (($user->cbu=="" || $user->banco == "" || $user->titular == "") && $user->paypal == "") {
+                throw ValidationException::withMessages(['cobro' => 'Debe completar un método de cobro']);
+            }
         }
-        //Si existe el email
-        // if (User::where('email', $request->email)->where('id','!=',$user->id)->count()) {
-        //     throw ValidationException::withMessages(['email' => 'El e-mail ya está registrado']);
-        // }
+       
         if($request->pass!="") {
             if ($request->pass <> $request->passrepeat) {
                 throw ValidationException::withMessages(['passrepeat' => 'Debe repetir la misma contraseña']);

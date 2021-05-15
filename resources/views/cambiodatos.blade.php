@@ -10,16 +10,16 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12 box">
-                        <form name="envio" id="envio" role="form" action="{{route("user.update",$user)}}" method="POST">
+                        <form name="envio" id="envio" role="form" action="{{route("user.update",$user)}}" method="POST" enctype="multipart/form-data">
                             @method("put")
                             @csrf
                             <div class="error">
                                 @error('passrepeat')
                                     <p>{{$message}}</p>
                                 @enderror
-                                {{-- @error('email')
+                                @error('cobro')
                                     <p>{{$message}}</p>
-                                @enderror --}}
+                                @enderror
                                 
                             </div>
                             @if (session('Perfil')=="profesor")
@@ -62,16 +62,17 @@
                                 <label>E-Mail</label>
                             </div>
                             @if (session('Perfil')=="profesor")
+                            <h4>Complete un método cobro (Tranferencia bancaria o por Paypal)</h4><br>
                               <div class="input-container">
-                                <input required type="text" class="form-control" id="banco" name="banco" minlength="2" maxlength="30"  value= "{{old('banco',$user->banco)}}">
+                                <input type="text" class="form-control" id="banco" name="banco" minlength="2" maxlength="30"  value= "{{old('banco',$user->banco)}}">
                                 <label>Banco</label>
                               </div>  
                               <div class="input-container">
-                                <input required type="text" class="form-control" id="cbu" name="cbu" minlength="12" maxlength="30"  value= "{{old('cbu',$user->cbu)}}">
+                                <input type="text" class="form-control" id="cbu" name="cbu" minlength="12" maxlength="30"  value= "{{old('cbu',$user->cbu)}}">
                                 <label>Número de CBU</label>
                               </div>  
                               <div class="input-container">
-                                <input required type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria',$user->cuentabancaria)}}">
+                                <input type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" minlength="12" maxlength="30"  value= "{{old('cuentabancaria',$user->cuentabancaria)}}">
                                 <label>Cuenta Bancaria</label>
                               </div>  
                               <div class="input-container">
@@ -79,9 +80,17 @@
                                 <label>Alias</label>
                               </div>  
                               <div class="input-container">
-                                <input required type="text" class="form-control" id="titular" name="titular" minlength="12" maxlength="30"  value= "{{old('titular',$user->titular)}}">
+                                <input type="text" class="form-control" id="titular" name="titular" minlength="12" maxlength="30"  value= "{{old('titular',$user->titular)}}">
                                 <label>Titular</label>
-                              </div>  
+                              </div>
+                              <div class="input-container">
+                                <input type="text" class="form-control" id="paypal" name="paypal" minlength="12" maxlength="120"  value= "{{old('titular',$user->paypal)}}">
+                                <label>Paypal</label>
+                              </div>
+                              <div class="form-group">
+                                <label>Modifcar foto de perfil.</label>
+                                <input  type="file" name="foto" id="foto" accept="image/*" class="form-control">
+                            </div>  
                             @endif
                             <div class="input-container">
                                 <input type="password" class="form-control" id="pass" name="pass" minlength="8" maxlength="30" value= "{{old('pass')}}">
