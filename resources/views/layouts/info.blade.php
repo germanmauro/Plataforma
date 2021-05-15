@@ -7,6 +7,7 @@
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
+    
   <div id="menu-secundario">
     <ul class="nav" id="side-menu2">
       <li>
@@ -32,5 +33,7 @@
     </ul>
     
   </div>
- 
+<div>
+  <img  class='sub-banner' src='{{ asset('image/banner.png') }}'/>
+</div>
 @endsection

@@ -123,6 +123,10 @@ a.marca:hover,a.marca:active {
   letter-spacing: normal;
 }
 
+.sub-banner {
+  width: 100%;
+}
+
 #menu-secundario {
   min-height: 50px;
   width: 100%;
@@ -1259,6 +1263,7 @@ table.menutable th, table.menutable td {
       margin:0px 0px;
       font-size: 30px;
     }
+
     #menu-secundario {
       display: block;
       padding: 0;
@@ -1267,6 +1272,17 @@ table.menutable th, table.menutable td {
     #menu-secundario a{
       display: grid;
       border-bottom: white 1px solid;
+    }
+    
+    .sub-banner {
+      width: 100%;
+      /* padding: 0;
+      background: url('../image/bannerchico.png');
+      height: 270px;
+      display: grid;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; */
     }
 
     form.buscador {
