@@ -33,7 +33,5 @@
     </ul>
     
   </div>
- <div>
-      <img class="sub-banner" src="{{asset('image/banner.png')}}" alt="CEE"/>
-    </div>
+ 
 @endsection

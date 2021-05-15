@@ -2,7 +2,9 @@
 
 @section('content')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-
+<div>
+      <img class="sub-banner" src="{{asset('image/banner.png')}}" alt="CEE"/>
+    </div>
 <div class="container-fluid">
       
         <div id="curso-wrapper">
