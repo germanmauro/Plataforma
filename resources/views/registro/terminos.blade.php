@@ -183,7 +183,8 @@ Los precios de los productos que se recogen en www.capacitacionee.com vendrán e
 
 <h4>CLÁUSULA (16). REPROGRAMACIÓN DE CLASES</h4>
 En el caso de los cursos grupales donde no se encuentren inscriptos el mínimo de alumnos requeridos, será el profesor el que decida si llevar a cabo el curso, cambiar de fecha el curso o bien, cancelar el curso. Cualquiera de estas opciones serán comunicadas desde la plataforma a los alumnos o padresvía e-mail.
-
+<br>En el caso que el profesor por motivos personales o de salud no pueda asistir a una clase, el alumno será comunicado a través de un e-mail por parte de C.E.E (Capacitación en Español) en donde se comunicará la fecha de la reprogramación de dicha clase.
+Si el alumno por problemas personales o de salud no puede asistir a una clase, ésta última podrá ser reprogramada teniendo en cuenta la disponibilidad del profesor, sólo si el alumno avisa 48 hs. antes del inicio de la clase a través del e-mail info@capacitacionee.com. De lo contrario el alumno perderá la misma y deberá abonarla
 <h4>CLÁUSULA (17). POLÍTICA DE DEVOLUCIÓN</h4>
 Para cursos cortos en relación al tiempo de cursada, con el numero de clases definidas, el consumidor y usuario tendrá derecho a DESISTIR del contrato durante un período máximo de 14 días naturales sin necesidad de indicar el motivo y sin incurrir en ningún costo.
 <br>- Excepción: 
