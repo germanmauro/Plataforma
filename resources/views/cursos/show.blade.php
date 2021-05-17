@@ -77,10 +77,11 @@
                         </div>
                       </div>
                       <div class="col-md-12">
-                      <p class="curso-detalle">
+                      
                           @foreach ($dias as $item)
                               <div class="curso-info-profesor">
-                                    <p>Inicio {{$item->inicio->format("d/m/Y")}}
+                                <p class="curso-detalle">
+                                    Inicio {{$item->inicio->format("d/m/Y")}}
                                     {{-- Fin {{$item->ultimaclase->format("d/m/Y")}} --}}
                                      - Días 
                                      @switch($item->inicio->format("l"))
@@ -108,14 +109,14 @@
                                          @default
                                              
                                      @endswitch
-                                     <br>Horario 
-                                     <img src="{{asset('image/italia.png')}}" width="30px" alt="Italia" title="Italia"> {{$item->inicio->format("H:i")}} 
-                                     <img src="{{asset('image/argentina.png')}}" width="30px" alt="Argentina" title="Argentina"> {{$item->inicio->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format("H:i")}} 
-                                     <img src="{{asset('image/usa.png')}}" width="30px" alt="USA" title="New York/Miami"> {{$item->inicio->setTimezone(new DateTimeZone('America/New_York'))->format("H:i")}} 
+                                      
+                                     <img src="{{asset('image/italia.png')}}" width="25px" alt="Italia" title="Italia"> {{$item->inicio->format("H:i")}} 
+                                     <img src="{{asset('image/argentina.png')}}" width="25px" alt="Argentina" title="Argentina"> {{$item->inicio->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format("H:i")}} 
+                                     <img src="{{asset('image/usa.png')}}" width="25px" alt="USA" title="New York/Miami"> {{$item->inicio->setTimezone(new DateTimeZone('America/New_York'))->format("H:i")}} 
                                     </p>
                                     </div>
                           @endforeach
-                        </p>
+                        
                       </div>
                       <div class="col-md-12">
                         <p class="curso-detalle"><span class="curso-icono"><i class="fas fa-birthday-cake"></i></span> Edad: {{$publicacion->specialty->category->destinatario}}</p>
