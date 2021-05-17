@@ -1,9 +1,6 @@
 @extends('layouts.info')
 @section('content')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-<!-- Multiple Select JS -->
-{{-- <link rel="stylesheet" href="{{asset('css/multiple-select.css')}}">
-<script src="{{asset('js/multiple-select.js')}}"></script> --}}
 
 <div class="container-fluid">
       <div class="row">
@@ -35,7 +32,7 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
-                          
+                          <br>
                           @if($publicacion->user->calificaciones()>0)
                           @for ($i = 0; $i < $publicacion->user->calificaciones(); $i++)
                               <i class=" fa fa-star"></i>
