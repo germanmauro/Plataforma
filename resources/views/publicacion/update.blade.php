@@ -25,7 +25,7 @@
                                         <option @if ($publicacion->specialty_id == $item->id)
                                             selected
                                         @endif
-                                         value="{{$item->id}}">{{$item->nombre}} ({{$item->category->destinatario}})
+                                         value="{{$item->id}}">{{$item->nombre}} ({{$item->category->nombre}} {{$item->category->destinatario}})
                                         </option>
                                     @endforeach
                                 </select>
