@@ -51,7 +51,8 @@ class MeetingController extends Controller
                     $itemdia->id = $item->id;
                     $itemdia->clases = $item->cantidadclases;
                     $itemdia->descripcion = "Inicio: " . array_search($item->inicio->format("l"), $diaSemana) .
-                     " " . $item->inicio->format('d/m/Y H:i');
+                     " " . $item->inicio->format('d/m/Y');
+                     $itemdia->hora = $item->inicio;
                     $dias[] = $itemdia;
                 }
             }

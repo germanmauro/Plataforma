@@ -35,7 +35,7 @@
                       <div class="col-md-12">
                         <p class="curso-profesor">
                           Por {{$publicacion->user->nombre}} {{$publicacion->user->apellido}}
-                          <br>
+                          
                           @if($publicacion->user->calificaciones()>0)
                           @for ($i = 0; $i < $publicacion->user->calificaciones(); $i++)
                               <i class=" fa fa-star"></i>
@@ -82,7 +82,10 @@
                             @csrf
                             <div class="form-group">
                                 @foreach ($dias as $day)
-                                  <input id="{{$day->id}}" checked required type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}} 
+                                  <input id="{{$day->id}}" checked required type="radio" name="dia" value="{{$day->id}}"> {{$day->descripcion}}
+                                    <img src="{{asset('image/italia.png')}}" width="20px" alt="Italia" title="Italia"> {{$day->hora->format("H:i")}} 
+                                     <img src="{{asset('image/argentina.png')}}" width="20px" alt="Argentina" title="Argentina"> {{$day->hora->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format("H:i")}} 
+                                     <img src="{{asset('image/usa.png')}}" width="20px" alt="USA" title="New York/Miami"> {{$day->hora->setTimezone(new DateTimeZone('America/New_York'))->format("H:i")}}  
                                   @if($publicacion->clases == 0) - Precio primer mes <strong>€ 
                                     {{$publicacion->precio*($day->clases-$primeraClase)}} ({{$day->clases}} clases)</strong>@endif <br>
                                 @endforeach 
@@ -93,9 +96,7 @@
                         <button type="submit" id="botoncomprar" onclick="loader()" class="btn btn-comprar" href="" title='Actualizar Registro' data-toggle='tooltip'> Comprar Curso 
                           @if($publicacion->clases > 0) € {{$publicacion->precio*($publicacion->clases - $primeraClase)}} / {{$publicacion->clases}} Clases @endif
                         </button>
-                        <p class="referencia">
-                          * Huso horario italiano.
-                        </p>
+                        
                       </div>
                       </form>
                       @else

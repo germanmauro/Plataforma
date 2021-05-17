@@ -82,7 +82,7 @@
                               <div class="curso-info-profesor">
                                     Inicio {{$item->inicio->format("d/m/Y")}}
                                     {{-- Fin {{$item->ultimaclase->format("d/m/Y")}} --}}
-                                     - Hora {{$item->inicio->format("H:i")}} - Días 
+                                     - Días 
                                      @switch($item->inicio->format("l"))
                                          @case("Monday")
                                              Lunes
@@ -108,6 +108,10 @@
                                          @default
                                              
                                      @endswitch
+                                     - Horario 
+                                     <img src="{{asset('image/italia.png')}}" width="30px" alt="Italia" title="Italia"> {{$item->inicio->format("H:i")}} 
+                                     <img src="{{asset('image/argentina.png')}}" width="30px" alt="Argentina" title="Argentina"> {{$item->inicio->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'))->format("H:i")}} 
+                                     <img src="{{asset('image/usa.png')}}" width="30px" alt="USA" title="New York/Miami"> {{$item->inicio->setTimezone(new DateTimeZone('America/New_York'))->format("H:i")}} 
                               </div>
                           @endforeach
                         </p>
