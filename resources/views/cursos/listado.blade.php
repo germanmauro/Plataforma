@@ -3,7 +3,7 @@
 @section('content')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <div>
-      <img class="sub-banner" src="{{asset('image/banner.png')}}" alt="CEE"/>
+      <img class="sub-banner" src="{{asset('image/banner.jpg')}}" alt="CEE"/>
     </div>
 <div class="container-fluid">
       
