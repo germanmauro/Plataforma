@@ -110,7 +110,7 @@
                               {{-- @if($item->tipo == "Grupal") --}}
                                 <a class="accionmenu" href="{{route('publication.calendar',$item->id) }}" title='Administrar Cursos' data-toggle='tooltip'><i class='fas fa-calendar'></i></span></a>
                               {{-- @endif --}}
-                              @if(count($item->cursosActivos) == 0)
+                              @if(count($item->cursosActivos()) == 0)
                                 <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
                                 <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
                                 <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
