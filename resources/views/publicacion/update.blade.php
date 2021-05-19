@@ -61,9 +61,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Tipo de clase</label>
-                                <select class="form-control" required name="tipo">
+                                <select onchange="mostrarAlumnos()" class="form-control" required id="tipo" name="tipo">
                                     <option @if($publicacion->tipo == "Grupal") selected @endif value="Grupal">Grupal (Varios Alumnos)</option>
                                     <option @if($publicacion->tipo == "Individual") selected @endif value="Individual">Individual</option>
+                                </select>
+                            </div>
+                            <div id="alumnos" class="form-group">
+                                <label>Cantidad mínima de alumnos</label>
+                                <select class="form-control" name="alumnos">
+                                    @for ($i = 1; $i <= 20; $i++)
+                                        <option @if($publicacion->alumnos == $i) selected @endif  value="{{$i}}">{{$i}}</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="form-group">
@@ -133,5 +141,15 @@
             $("#duracion").hide();
         }
     }
+    function mostrarAlumnos()
+    {
+        var tipo = document.getElementById("tipo").value;
+        if(tipo == "Grupal") {
+            $("#alumnos").show();
+        } else {
+            $("#alumnos").hide();
+        }
+    }
     mostrarDuracion();
+    mostrarAlumnos();
 </script>

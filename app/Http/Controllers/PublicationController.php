@@ -57,6 +57,9 @@ class PublicationController extends Controller
         if ($publicacion->clases == 0) {
             $publicacion->duracion = $request->duracion;
         }
+        if ($publicacion->tipo == "Grupal") {
+            $publicacion->alumnos = $request->alumnos;
+        }
         $publicacion->precio = $request->precio;
         $publicacion->total = $request->precio * $request->clases;
         $publicacion->video = $request->video;
@@ -100,6 +103,9 @@ class PublicationController extends Controller
         $publicacion->clases = $request->clases;
         if ($publicacion->clases == 0) {
             $publicacion->duracion = $request->duracion;
+        }
+        if ($publicacion->tipo == "Grupal") {
+            $publicacion->alumnos = $request->alumnos;
         }
         $publicacion->precio = $request->precio;
         $publicacion->total = $request->precio * $request->clases;

@@ -136,7 +136,13 @@
                              @default
                                  
                          @endswitch</p>
-                      
+                        @if($publicacion->tipo == "Grupal" && $publicacion->alumnos >1)
+                          <p class="curso-detalle">
+                            <span class="curso-icono"><i class="fas fa-users"></i></span>
+                            Cantidad mímina de alumnos: 
+                              {{$publicacion->alumnos}}         
+                          </p>
+                        @endif
                         <p class="curso-detalle">
                           <span class="curso-icono"><i class="fas fa-euro-sign"></i></span>
                           Precio del curso: {{$publicacion->precio}} € / Clase
