@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label>Descripción de su perfil como profesor</label>
                                 <textarea rows="6" class="form-control" minlength="50" name="descripcion" required maxlength="500" 
-                                placeholder="Agregue una breve descripción de su formación académica y laboral">{{old('aprendizaje', $user->descripcion)}}</textarea>
+                                placeholder="Agregue una breve descripción de su formación académica y laboral">{{old('descripcion', $user->descripcion)}}</textarea>
                             </div>
                             @endif
                             <div class="input-container">      
@@ -84,7 +84,7 @@
                                 <label>Titular</label>
                               </div>
                               <div class="input-container">
-                                <input type="text" class="form-control" id="paypal" name="paypal" minlength="12" maxlength="120"  value= "{{old('titular',$user->paypal)}}">
+                                <input type="text" class="form-control" id="paypal" name="paypal" minlength="12" maxlength="120"  value= "{{old('paypal',$user->paypal)}}">
                                 <label>Paypal</label>
                               </div>
                               <div class="form-group">
@@ -101,7 +101,7 @@
                                 <label>Repetir contraseña</label>                            
                             </div>
 
-                            <button type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Datos</button>
+                            <button onclick="loader()" type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Datos</button>
                         </form>
                     </div>
 
