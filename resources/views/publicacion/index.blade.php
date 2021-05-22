@@ -7,7 +7,7 @@
             $('#tabla').DataTable({
                 columnDefs: [{
                    orderable: false,
-                   targets: [16]
+                   targets: [0]
                }]}
             );
         });
@@ -33,6 +33,7 @@
               <table id='tabla' class='display menutable tablagrande'>
               <thead>
               <tr>
+                <th>Acciones</th>
                 <th>Título</th>
                 <th>Descripcion</th>
                 <th>Especialidad</th>
@@ -49,12 +50,26 @@
                 <th>Estado</th>
                 <th>Fecha Creación</th>
                 <th>Fecha Actualización</th>
-                <th>Acciones</th>
               </tr>
               </thead>
               <tbody>
                 @foreach ($publicaciones as $item)
                     <tr>
+                      <td>
+                          @if ($item->estado=="Activa")  
+                              {{-- @if($item->tipo == "Grupal") --}}
+                                <a class="accionmenu" href="{{route('publication.calendar',$item->id) }}" title='Administrar Cursos' data-toggle='tooltip'><i class='fas fa-calendar'></i></span></a>
+                              {{-- @endif --}}
+                              @if(count($item->cursosActivos()) == 0)
+                                <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
+                                <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
+                                <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
+                              @endif
+                          @endif
+                          @if ($item->estado=="Pausada")
+                              <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-check-circle'></span></a>
+                          @endif
+                        </td>
                         <td>{{$item->titulo}} </td>
                         <td>
                           @if (strlen($item->descripcion)>100)
@@ -105,21 +120,7 @@
                         <td>{{$item->estado}} </td>
                         <td>{{$item->created_at->format('d/m/Y H:i:s')}} </td>
                         <td>{{$item->updated_at->format('d/m/Y H:i:s')}} </td>
-                        <td>
-                          @if ($item->estado=="Activa")  
-                              {{-- @if($item->tipo == "Grupal") --}}
-                                <a class="accionmenu" href="{{route('publication.calendar',$item->id) }}" title='Administrar Cursos' data-toggle='tooltip'><i class='fas fa-calendar'></i></span></a>
-                              {{-- @endif --}}
-                              @if(count($item->cursosActivos()) == 0)
-                                <a class="accionmenu" onclick="pausar({{$item->id}})" title='Pausar Publicación' data-toggle='tooltip'><span class='fas fa-pause'></span></a>
-                                <a class="accionmenu" onclick="eliminar({{$item->id}})" title='Eliminar Publicación' data-toggle='tooltip'><span class='fas fa-trash-alt'></span></a>
-                                <a class="accionmenu" href="{{route('publication.edit',$item->id) }}" title='Actualizar Registro' data-toggle='tooltip'><i class='fas fa-edit'></i></span></a>
-                              @endif
-                          @endif
-                          @if ($item->estado=="Pausada")
-                              <a class="accionmenu" onclick="reactivar({{$item->id}})" title='Reactivar Publicación' data-toggle='tooltip'><span class='fas fa-check-circle'></span></a>
-                          @endif
-                          
+                        
                     </tr>
                 @endforeach
             </tbody>
