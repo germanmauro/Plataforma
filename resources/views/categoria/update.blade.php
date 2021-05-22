@@ -16,7 +16,7 @@
                             
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" required id="nombre" name="nombre" maxlength="20" placeholder="Nombre" value= "{{$categoria->nombre}}">
+                                <input class="form-control" required id="nombre" name="nombre" maxlength="30" placeholder="Nombre" value= "{{$categoria->nombre}}">
                             </div>
                             <div class="form-group">
                                 <label>Destinatario</label>
