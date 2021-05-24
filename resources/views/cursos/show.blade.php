@@ -186,7 +186,7 @@
                         <p class="curso-requisito"><span class="curso-icono"><i class='fas fa-desktop'></i></span> Computadora </p> 
                         <p class="curso-requisito"><span class="curso-icono"><i class='fas fa-wifi'></i></span> Conexión a internet </p>
                         <p class="curso-requisito"><span class="curso-icono"><i class='fas fa-microphone'></i></span> Micrófono </p>
-                        <p class="curso-requisito"><span class="curso-icono"><i class='fas fa-camera'></i></span> Webcam (opcional) </p> 
+                        <p class="curso-requisito"><span class="curso-icono"><i class='fas fa-camera'></i></span> Webcam </p> 
                       </div>
                       <div class="col-md-12 curso-info-profesor">
                         <div class="col-md-4">
