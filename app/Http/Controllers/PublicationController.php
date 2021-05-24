@@ -6,6 +6,7 @@ use App\Models\Amount;
 use App\Models\Calendar;
 use App\Models\Course;
 use App\Models\Day;
+use App\Models\Notification;
 use App\Models\Publication;
 use App\Models\User;
 use DateInterval;
@@ -77,7 +78,8 @@ class PublicationController extends Controller
             $publicacion->imagen3 = str_replace("public/publicaciones/", "", $nombre);
         }
         $publicacion->save();
-
+        $not = new Notification();
+        $not->publicacion($publicacion);
         return redirect("/Publicaciones")->with("success", "Publicación generada correctamente");
     }
 

@@ -139,4 +139,12 @@ class Notification extends Model
         $this->register($user->id, "Pago", $mensaje);
         Mail::to($user->email)->send(new notificationMessage("Transferencia enviada - CEE", "Transferencia enviada", $mensaje));
     }
+
+    public function publicacion(Publication $pub)
+    {
+        $user = User::find(1);
+        $mensaje = "El profesor " . $pub->user->nombre . " " . $pub->user->apellido . " ha publicado " . $pub->titulo;
+        $this->register(1, "Publicació nueva", $mensaje);
+        Mail::to($user->email)->send(new notificationMessage("Publicación nueva", "Nueva publicación generada", $mensaje));
+    }
 }
