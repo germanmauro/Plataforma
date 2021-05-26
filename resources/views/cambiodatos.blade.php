@@ -101,7 +101,7 @@
                                 <label>Repetir contraseña</label>                            
                             </div>
 
-                            <button onclick="loader()" type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Datos</button>
+                            <button  type="submit" id="Send" name="Send" class="btn btn-default">Actualizar Datos</button>
                         </form>
                     </div>
 
