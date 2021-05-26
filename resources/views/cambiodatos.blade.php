@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12 box">
-                        <form name="envio" id="envio" role="form" action="{{route("user.update",$user)}}" method="POST" enctype="multipart/form-data">
+                        <form onsubmit="loader()" name="envio" id="envio" role="form" action="{{route("user.update",$user)}}" method="POST" enctype="multipart/form-data">
                             @method("put")
                             @csrf
                             <div class="error">
