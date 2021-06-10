@@ -85,7 +85,7 @@
                               </div>
                               <div class="input-container">
                                 <input type="text" class="form-control" id="paypal" name="paypal" minlength="12" maxlength="120"  value= "{{old('paypal',$user->paypal)}}">
-                                <label>Paypal</label>
+                                <label>Paypal (E-mail asociado a Paypal)</label>
                               </div>
                               <div class="form-group">
                                 <label>Modifcar foto de perfil.</label>

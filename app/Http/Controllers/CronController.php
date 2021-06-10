@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Notification;
+use App\Models\Publication;
 use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\DB;
@@ -86,6 +87,21 @@ class CronController extends Controller
             $item->save();
         }
 
+    }
+
+    //Alerta de 30 min antes de clase
+    public static function noClassesMessage()
+    {
+        //Le agrego un día para que la envíe un día antes
+        $publications = Publication::where("baja", "False")->get();
+        // return $publications;
+        foreach ($publications as $item) {
+            if (count($item->cursosActivos()) == 0) {
+                //aviso a profesor
+                $not = new Notification();
+                $not->avisoSinCursos($item);
+            }   
+        }
     }
 
     //Actualizo el estado de las clases

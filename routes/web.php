@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CronController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\NotificationController;

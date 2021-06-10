@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //Cada minuto
+        // //Cada minuto
         $schedule->call(
             function () {
                 CronController::thirtyMinClassAlert();
@@ -50,6 +50,12 @@ class Kernel extends ConsoleKernel
                 CronController::updateMeetingState();
             }
         )->dailyAt("00:00")->name("updatestate")->withoutOverlapping();
+
+        $schedule->call(
+            function() {
+                CronController::noClassesMessage();
+            }
+        )->dailyAt("10:00")->name("classmessage")->withoutOverlapping();
 
     }
 

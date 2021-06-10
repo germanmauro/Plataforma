@@ -44,6 +44,10 @@
                           <br> <span class="detalledesc">Titular: {{$user->titular}}</span>
                         </p>
                         <p class="detalle">E-MAIL <span class="detalledesc">{{$user->email}}</span> </p>
+                        <p class="detalle">PAYPAL
+                          <br> <span class="detalledesc">E-mail: {{$user->paypal}}</span>
+                        </p>
+                        <p class="detalle">E-MAIL <span class="detalledesc">{{$user->email}}</span> </p>
                         <p class="detalle">FECHA DE NACIMIENTO <span class="detalledesc">{{$user->fechanacimiento->format('d/m/Y')}}</span> </p>
                         <p class="detalle">EDAD <span class="detalledesc">{{$user->fechanacimiento->diff(new DateTime())->format("%y")}} años</span> </p>
                 </div>

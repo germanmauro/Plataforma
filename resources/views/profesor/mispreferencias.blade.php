@@ -51,6 +51,9 @@
                           <br> <span class="detalledesc">Alias: {{$user->alias}}</span>
                           <br> <span class="detalledesc">Titular: {{$user->titular}}</span>
                         </p>
+                        <p class="detalle">PAYPAL
+                          <br> <span class="detalledesc">Paypal: {{$user->paypal}}</span>
+                        </p>
                         <p class="detalle">E-MAIL <span class="detalledesc">{{$user->email}}</span> </p>
                         <p class="detalle">FECHA DE NACIEMIENTO <span class="detalledesc">{{$user->fechanacimiento->format('d/m/Y')}}</span> </p>
                         <p class="detalle">EDAD <span class="detalledesc">{{$user->fechanacimiento->diff(new DateTime())->format("%y")}} años</span> </p>

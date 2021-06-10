@@ -123,6 +123,14 @@ class Notification extends Model
         Mail::to($user->email)->send(new notificationMessage("Recordatorio de clase - CEE", "Recordatorio de clase", $mensaje));
     }
 
+    public function avisoSinCursos(Publication $pub)
+    {
+        $mensaje =  "Su publicación <strong>".$pub->titulo."</strong> ya no tiene cursos activos.
+        <br> Para cargar el calendario ingrese al siguiente 
+        <a href='https://capacitacionee.com/Publicaciones/".$pub->id."/Calendar'>enlace</a>";
+        Mail::to($pub->user->email)->send(new notificationMessage("Publicación sin cursos - CEE", "Publicación sin cursos", $mensaje));
+    }
+
     public function avisoEnlaceClase(User $user,Day $day, $enlace)
     {
         $mensaje =  "Le enviamos el enlace a Google Meet para porder ralizar la clase correspondiente 
