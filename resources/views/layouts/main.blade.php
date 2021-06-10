@@ -36,7 +36,7 @@
                     CAPACITACIÓN EN ESPAÑOL
                 </h1>
                 <p>
-                    Aprendé desde tu casa lo que siempre deseaste
+                    Aprende desde tu casa lo que siempre deseaste
                 </p>
             </div>
         </div>
